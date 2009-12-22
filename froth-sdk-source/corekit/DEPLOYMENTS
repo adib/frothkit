@@ -1,0 +1,45 @@
+TODO:
+
+[DONE] - Implement frothsdk as seperate project, with bundles being able to be seperate projects.
+[DONE] - Build amazon deployment tools.
+[DONE] - Deploy libFoundation.so and Foundation.framework to /usr/froth/lib as well as possibly other dependent libs (ie libgnutils.so.13)
+- Edit/Complete documentation and cleanup
+- Implement memchache WebModelBase code and abstraction layer.
+[DONE] - Organize licenseing of various dependent code
+[DONE] - Checkin to frothkit.googlecode.com under MIT license.
+- @major Test suite using cocotron compatible unit testing lib. complete with webApp testing support.
+- Update deployment paths for per user webApp support for virtual hosting environments.
+
+NOTES:
+
+Deploy Mode will automatically build and deploy to FROTH_HOST using a FROTH_IDENTITY ssl identity key (typically generated from amazon aws). it currently deploys
+libfroth.so to remote machine's /usr/froth/lib/ folder
+
+LINUX Deployment
+
+-FMTOOL
+/usr/froth/bin/fmtool
+
+fmtool is a basic cli tool that xcode uses via ssl to restart and launch the remote host upon building. It needs improvment and should
+eventually be more graceful.
+
+issues:
+- @major fix an issue where libuuid is not releasing its port causing the webApp to not unbind to its port.
+- implement shutdown options
+
+libfroth.so / Foundation.framework / Foundation.so
+/usr/froth/lib
+
+Install path froth webApps.
+/var/froth/apps/[xcode-deploy-mode-name]/[AppName].webApp
+
+Froth host config data.
+/var/froth/config
+
+Shared public served files (for shareing css/js/img between multiple apps)
+/var/froth/shared
+
+Shared unpublic data.
+/var/froth/data
+
+

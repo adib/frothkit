@@ -1,0 +1,7 @@
+
+
+@interface MyModel : WebModelBase {
+
+}
+
+@end

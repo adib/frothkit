@@ -1,0 +1,20 @@
+#import <Foundation/Foundation.h>
+#import "DDXML.h"
+
+/*!
+ \brief Froth XML Additions
+ */
+@interface NSXMLElement (XMPPStreamAdditions)
+
++ (NSXMLElement *)elementWithName:(NSString *)name xmlns:(NSString *)ns;
+
+- (NSXMLElement *)elementForName:(NSString *)name;
+- (NSXMLElement *)elementForName:(NSString *)name xmlns:(NSString *)xmlns;
+
+- (NSString *)xmlns;
+- (void)setXmlns:(NSString *)ns;
+
+- (void)addAttributeWithName:(NSString *)name stringValue:(NSString *)string;
+- (NSDictionary *)attributesAsDictionary;
+
+@end

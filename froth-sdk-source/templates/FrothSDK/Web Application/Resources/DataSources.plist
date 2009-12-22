@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Default</key>
+	<dict>
+		<key>class</key>
+		<string>MySqlDataSource</string>
+		<key>options</key>
+		<dict>
+			<key>host</key>
+			<string>my.mysqlserver.com</string>
+			<key>user</key>
+			<string>root</string>
+			<key>password</key>
+			<string>password</string>
+			<key>database</key>
+			<string>mydb</string>
+			<key>port</key>
+			<integer>3306</integer>
+		</dict>
+	</dict>
+	<key>SomeAmazonSimpleDBSource</key>
+	<dict>
+		<key>class</key>
+		<string>SDBDataSource</string>
+	</dict>
+</dict>
+</plist>

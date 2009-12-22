@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'DejumbleNotes' target in the 'DejumbleNotes' project.
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+    #import <cwk.h>
+#endif
