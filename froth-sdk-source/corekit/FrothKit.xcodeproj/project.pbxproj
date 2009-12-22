@@ -266,7 +266,6 @@
 		9D79ABBF1007EC7B00AB337E /* WKFunctionMarkers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79ABBD1007EC7B00AB337E /* WKFunctionMarkers.m */; };
 		9D79B134100CEE9800AB337E /* WebActiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79B111100CE76C00AB337E /* WebActiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D79B136100CEEA000AB337E /* WebActiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79B112100CE76C00AB337E /* WebActiveController.m */; };
-		9D79B3FC100D051E00AB337E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D79B3FB100D051E00AB337E /* libsqlite3.dylib */; };
 		9D79B555100D1C4200AB337E /* WebDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79B553100D1C4200AB337E /* WebDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D79B57C100D378F00AB337E /* WebModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79B125100CED0C00AB337E /* WebModelBase.m */; };
 		9D79B57D100D379300AB337E /* WebModelBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79B124100CED0C00AB337E /* WebModelBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -478,7 +477,6 @@
 		9D79B112100CE76C00AB337E /* WebActiveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebActiveController.m; sourceTree = "<group>"; };
 		9D79B124100CED0C00AB337E /* WebModelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebModelBase.h; sourceTree = "<group>"; };
 		9D79B125100CED0C00AB337E /* WebModelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebModelBase.m; sourceTree = "<group>"; };
-		9D79B3FB100D051E00AB337E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		9D79B553100D1C4200AB337E /* WebDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebDataSource.h; sourceTree = "<group>"; };
 		9D79B577100D312200AB337E /* WebDataSourceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebDataSourceController.h; sourceTree = "<group>"; };
 		9D79B578100D312200AB337E /* WebDataSourceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebDataSourceController.m; sourceTree = "<group>"; };
@@ -547,7 +545,6 @@
 				9D79A22E1006AF2E00AB337E /* libxml2.dylib in Frameworks */,
 				9D79A38A1006B96B00AB337E /* libpcre.a in Frameworks */,
 				9D79A7A31007491000AB337E /* libicucore.dylib in Frameworks */,
-				9D79B3FC100D051E00AB337E /* libsqlite3.dylib in Frameworks */,
 				9D6487871012C107002A4048 /* libcurl.dylib in Frameworks */,
 				9D13E2C010B3225000039EF3 /* libpython.dylib in Frameworks */,
 			);
@@ -576,7 +573,6 @@
 		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				9D79B3FB100D051E00AB337E /* libsqlite3.dylib */,
 				9D79A3891006B96B00AB337E /* libpcre.a */,
 				9D799C121005834600AB337E /* libz.dylib */,
 				9D79982C10051E2D00AB337E /* libxml2.dylib */,
