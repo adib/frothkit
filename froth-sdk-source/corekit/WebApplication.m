@@ -1,5 +1,5 @@
 //
-//  ApplicationController.m
+//  WebApplication.m
 //  Froth
 //
 //  Created by Allan Phillips on 23/02/09.
@@ -490,9 +490,7 @@
 	This are handled by the -_notFoundResponseForRequest: method based on a controller name of /exe
  */
 - (id)internalEXEHandle:(WebRequest*)req {
-	if([req.action isEqualToString:@"dump"]) {
-		return [self dumpAction:req];
-	} else if([req.action isEqualToString:@"timezones"]) {
+	if([req.action isEqualToString:@"timezones"]) {
 		NSMutableString* tz = [NSMutableString string];
 		[tz appendString:@"<h1>System TimeZone Database Names</h1>"];
 		[tz appendString:@"<ul>"];

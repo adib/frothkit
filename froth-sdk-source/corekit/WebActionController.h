@@ -36,40 +36,59 @@
 
 
 /*!
-	\brief	Action controllers are the heart of a Cocoa Web App, they are considered short lived
-				objects and must implement proper memory management to clean up after themselves. They
-				only live for the lifespan of the request.
- 
-	\detail	Class names have the format WA<Name>Controller
-				where the request would be controller-name or controller_name or controllerName
+	\brief	Action controller protocal, typically you should use a subclass of WebActiveController as support for implementing
+			action controllers that do not inherit from WebActiveController is no longer supported.
 			
-				Actual classes should use the "WebActiveController, and other implementing classes
-				for better access."
- 
-				Built in automatic actions are as follows.
-				A) {{method-name}} automatically maps to - (id)<methodName>Action:(WebRequest*)wr;
-				B) No Method (GET)				 maps to -(id)index:(WebRequest*)wr;
-							 (GET)/{v}			 maps to -(id)object:(WebRequest*)wr;
-				C) No Method (POST/POST)		 maps to -(id)create:(WebRequest*)wr; /-update:...
-				E) No Method (DELETE)			 maps to -(id)delete:(WebRequest*)wr;
- 
-				The flow of events for a Web Request is as such.
-				1. WebApplicationController receives a WebRequest.
-				2. if controller provides "components" array, call, -preProcessRequest: forController: on each continuing if result is not nil.
-				2. WebApplicationController calls - (void)preProcessRequest:(WebRequest*)request if implemented.
-				3. WebApplicationController calls - (SEL)selectorForActionName:(NSString*)name if implemented, and uses it as <ActionName>
-				4. WebApplicationController insures that <ActionName> is implemented.
-				5. WebApplicationController calls - (void)init<ActionName>Action:(WebRequest*)request if implemented
-					//Notes, the WebApplicationController, should initialize and setup the controller's views, and other properties
-					//here if a custom (not defualt view) is to be used. Initializeing this method will cause the WebApplicationController
-					//to not prepare any defualts based on the request.
-				6. Else a class with name <ActionName><ControllerName>View is looked up and initialized if found.
-				7. WebApplicationController calls - (id)<actionName>Action:(WebRequest*)request
-				8. If the above call returns a WebResponse object, then it is rendered, else...
-				9. A WebResponse is returned from [controller.view displayWithData:(above response)] //typically a NSDictionary
-				10. WebApplicationController calls - (void)postProcessResponse:(FOWResponse*)response fromRequest:(WebRequest*)request; on controller
-				11. if controller provides "components" array, call -postPRocessResponse for each while result is true (false returns a notFound response)
- 
+			<h3>Memory Management</h3>
+			Action controllers are the heart of a Cocoa Web App, they are considered short lived
+			objects and must implement proper memory management to clean up after themselves. They 
+			only live for the lifespan of the request.
+			
+			<h3>Nominclature of Subclasses</h3>
+			Class names must have the format WA<ControllerName>Controller, where the request uri would be 
+			controller_name or controllerName. 
+			
+			<br>
+			<br>
+			<i>Example</i><br>
+			http://example.com/path/to/webapp/my_blog/some_great_blog <br>
+			would get mapped to WAMyBlogController's -(id)someGreatBlog:(WARequest*)req method if implemented and according to
+			action routing rules as explained below
+			
+			<br>
+			<i>Future work will be done to free subclasses from the strict nameing conventions</i>
+		
+			<h3>Request Routing</h3>
+			A) {{method-name}} automatically maps to - (id)<methodName>Action:(WebRequest*)wr; if implemented or <br>
+			A.1) -(id)object:(WebRequest*)wr if implemented or <br>
+			A.2) -(id)defualt:(WebRequest*)wr if implemented <br>
+			<br><br>
+			<i>CRUD Routing</i>
+			B) No Action Method	(GET)				 maps to -(id)index:(WebRequest*)wr; <br>
+								(GET)/{v}			 maps to -(id)object:(WebRequest*)wr; <br>
+			C) No Action Method (POST/POST)			 maps to -(id)create:(WebRequest*)wr; /-update:... <br>
+			E) No Action Method (DELETE)			 maps to -(id)delete:(WebRequest*)wr; <br>
+
+			<br><br>
+			The flow of events for a WebRequest object is as such. <br>
+			1. WebApplicationController receives a WebRequest. <br>
+			2. if controller provides "components" array, call, -preProcessRequest: forController: on each continuing if result is not nil. <br>
+			2. WebApplicationController calls - (void)preProcessRequest:(WebRequest*)request if implemented. <br>
+			3. WebApplicationController calls - (SEL)selectorForActionName:(NSString*)name if implemented, and uses it as <ActionName> <br>
+			4. WebApplicationController insures that <ActionName> is implemented. <br>
+			5. WebApplicationController calls - (void)init<ActionName>Action:(WebRequest*)request if implemented <br>
+				<br><br>
+				<i>The WebApplicationController, should initialize and setup the controller's views, and other properties
+				here if a custom (not defualt view) is to be used. Initializeing this method will cause the WebApplicationController
+				to not prepare any defualts based on the request.</i>
+				<br><br>
+			6. Else a class with name <ActionName><ControllerName>View is looked up and initialized if found. <br>
+			7. WebApplicationController calls - (id)<actionName>Action:(WebRequest*)request <br>
+			8. If the above call returns a WebResponse object, then it is rendered, else... <br>
+			9. A WebResponse is returned from [controller.view displayWithData:(above response)] //typically a NSDictionary <br>
+			10. WebApplication calls - (void)postProcessResponse:(FOWResponse*)response fromRequest:(WebRequest*)request on controller if implemented <br>
+			11. if controller provides "components" array, call -postPRocessResponse for each while result is true (false returns a notFound response) <br>
+			
  //TODO: fix documentation for WebLayoutViews
 
 				1. WebViews handleing rendering in the following flow.

@@ -38,6 +38,7 @@
 #endif
 
 /* C Crash handlers */
+//TODO: something more gracefull...
 
 //Normal exit
 void froth_handle_sigint(int sig) {
@@ -55,6 +56,7 @@ int main (int argc, const char * argv[]) {
 	signal(SIGINT, froth_handle_sigint);
 	signal(SIGSEGV, froth_handle_sigbus);
 	
+	//For embeded python interpreter support
 	Py_Initialize();
 	
 #ifndef __APPLE__

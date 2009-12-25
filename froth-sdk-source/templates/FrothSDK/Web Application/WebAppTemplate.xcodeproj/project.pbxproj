@@ -544,6 +544,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = WebAppTemplate;
+				SYMROOT = /Users/$USER/Development/FrothSDK/builds;
 				WRAPPER_EXTENSION = webApp;
 				test = "$(CONFIGURATION_BUILD_DIR)/$(EXECUTABLE_PATH)";
 			};
@@ -635,7 +636,7 @@
 				);
 				PRODUCT_NAME = WebAppTemplate;
 				SDKROOT = "";
-				SYMROOT = /Users/allan/Development/builds/linux;
+				SYMROOT = /Users/$USER/Development/FrothSDK/builds/linux;
 				VALID_ARCHS = i386;
 				WRAPPER_EXTENSION = webApp;
 			};

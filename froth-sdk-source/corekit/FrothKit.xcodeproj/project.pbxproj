@@ -564,6 +564,7 @@
 				9D79A2551006B08600AB337E /* Support */,
 				9D13E28910B30DAE00039EF3 /* Scripts */,
 				9D1471B910E0103A009D881B /* HTTP Connectors */,
+				9DF5DD1210E27EDC00BB7721 /* Testing */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 			);
@@ -625,6 +626,7 @@
 		9D1471B910E0103A009D881B /* HTTP Connectors */ = {
 			isa = PBXGroup;
 			children = (
+				9DF5DCC610E181EB00BB7721 /* Embedded (OSX Only) */,
 				9DBE33C40F53621600CFC8FC /* FastCGI Connector */,
 			);
 			name = "HTTP Connectors";
@@ -983,6 +985,20 @@
 				9DBE30910F521A5900CFC8FC /* WebFastCgiController.m */,
 			);
 			name = "FastCGI Connector";
+			sourceTree = "<group>";
+		};
+		9DF5DCC610E181EB00BB7721 /* Embedded (OSX Only) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Embedded (OSX Only)";
+			sourceTree = "<group>";
+		};
+		9DF5DD1210E27EDC00BB7721 /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Testing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
