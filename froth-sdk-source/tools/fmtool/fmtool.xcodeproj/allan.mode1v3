@@ -230,6 +230,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -269,13 +271,12 @@
 								<string>08FB7795FE84155DC02AAC07</string>
 								<string>1AB674ADFE9D54B511CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
+								<string>9DA222C810E9880F00FAA0CD</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>2</integer>
-									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -327,12 +328,12 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>9DA2221610E9772400FAA0CD</string>
+										<string>9DA222C910E9880F00FAA0CD</string>
 										<key>history</key>
 										<array>
 											<string>9D13DF2410AFA4D200039EF3</string>
 											<string>9D13E68910B38FD700039EF3</string>
-											<string>9DA2219310E969BB00FAA0CD</string>
+											<string>9DA2221610E9772400FAA0CD</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -360,8 +361,6 @@
 							<string>283pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -379,19 +378,18 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>9DA2221710E9772400FAA0CD</string>
+										<string>9DA222CA10E9880F00FAA0CD</string>
 										<key>history</key>
 										<array>
 											<string>9DA2218810E968FF00FAA0CD</string>
 											<string>9DA2219D10E96B9300FAA0CD</string>
-											<string>9DA2219E10E96B9300FAA0CD</string>
+											<string>9DA2221710E9772400FAA0CD</string>
 										</array>
 										<key>prevStack</key>
 										<array>
 											<string>9D13DDE010AF586F00039EF3</string>
 											<string>9D13DDF810AF5A1400039EF3</string>
 											<string>9D13DF2910AFA4D200039EF3</string>
-											<string>9DA2219F10E96B9300FAA0CD</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -450,9 +448,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>9DA221A110E96B9300FAA0CD</string>
+				<string>9DA222C310E987D900FAA0CD</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>9DA221A210E96B9300FAA0CD</string>
+				<string>9DA222C410E987D900FAA0CD</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
