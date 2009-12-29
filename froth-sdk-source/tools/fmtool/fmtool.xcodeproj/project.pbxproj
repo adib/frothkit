@@ -196,7 +196,7 @@
 				ARCHS = i386;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = /Developer/Cocotron/1.0/Linux/i386/Frameworks;
-				FROTH_HOST = 174.129.9.112;
+				FROTH_HOST = 204.236.224.163;
 				FROTH_IDENTITY = /Users/allan/aws/aphiltc1.pem;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;

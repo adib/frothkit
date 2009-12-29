@@ -61,7 +61,8 @@
 		
 		if([templateName hasSuffix:@".(null)"]) 
 			templateName = [[templateName stringByReplacingOccurrencesOfString:@".(null)" withString:@".html"] retain];
-		NSString* path =	[bundle pathForResource:self.templateName ofType:nil];
+		
+		NSString* path = [[bundle resourcePath] stringByAppendingPathComponent:templateName];	//[bundle pathForResource:self.templateName ofType:nil];
 		
 		//NSLog(@"path for layout resource:%@", path);
 		NSString* objectData = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];

@@ -12,7 +12,7 @@
 	return @"plink";
 }
 
-- (id)exampleAction:(WebRequest*)req {
+- (id)exampledAction:(WebRequest*)req {
 	NSMutableString* out_s = [NSMutableString string];
 	[out_s appendFormat:@"<html><body>"];
 	[out_s appendFormat:@"<h1>My first <i>great</i> froth web app.</h1>"];

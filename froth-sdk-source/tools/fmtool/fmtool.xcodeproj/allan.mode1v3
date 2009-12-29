@@ -230,8 +230,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -276,7 +274,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>4</integer>
+									<integer>2</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -301,7 +299,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>1824 136 1081 888 1680 26 1280 1024 </string>
+						<string>1824 150 1081 888 1680 26 1280 1024 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -329,12 +327,12 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>9D1471B710E01011009D881B</string>
+										<string>9DA2221610E9772400FAA0CD</string>
 										<key>history</key>
 										<array>
 											<string>9D13DF2410AFA4D200039EF3</string>
 											<string>9D13E68910B38FD700039EF3</string>
-											<string>9D14715010E0009E009D881B</string>
+											<string>9DA2219310E969BB00FAA0CD</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -352,22 +350,24 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {873, 478}}</string>
+								<string>{{0, 0}, {873, 283}}</string>
 								<key>RubberWindowFrame</key>
-								<string>1824 136 1081 888 1680 26 1280 1024 </string>
+								<string>1824 150 1081 888 1680 26 1280 1024 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>478pt</string>
+							<string>283pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>fmtool.m</string>
+								<string>confTemplate.conf</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -375,22 +375,23 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>fmtool.m</string>
+										<string>confTemplate.conf</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>9D1471B810E01011009D881B</string>
+										<string>9DA2221710E9772400FAA0CD</string>
 										<key>history</key>
 										<array>
-											<string>9D14715110E0009E009D881B</string>
-											<string>9D14715210E0009E009D881B</string>
-											<string>9D14715910E0009E009D881B</string>
+											<string>9DA2218810E968FF00FAA0CD</string>
+											<string>9DA2219D10E96B9300FAA0CD</string>
+											<string>9DA2219E10E96B9300FAA0CD</string>
 										</array>
 										<key>prevStack</key>
 										<array>
 											<string>9D13DDE010AF586F00039EF3</string>
 											<string>9D13DDF810AF5A1400039EF3</string>
 											<string>9D13DF2910AFA4D200039EF3</string>
+											<string>9DA2219F10E96B9300FAA0CD</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -402,14 +403,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 483}, {873, 186}}</string>
+								<string>{{0, 288}, {873, 381}}</string>
 								<key>RubberWindowFrame</key>
-								<string>1824 136 1081 888 1680 26 1280 1024 </string>
+								<string>1824 150 1081 888 1680 26 1280 1024 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>186pt</string>
+							<string>381pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -424,7 +425,7 @@
 								<key>Frame</key>
 								<string>{{0, 674}, {873, 173}}</string>
 								<key>RubberWindowFrame</key>
-								<string>1824 136 1081 888 1680 26 1280 1024 </string>
+								<string>1824 150 1081 888 1680 26 1280 1024 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -449,9 +450,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>9D1471B010E00F3A009D881B</string>
+				<string>9DA221A110E96B9300FAA0CD</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>9D1471B110E00F3A009D881B</string>
+				<string>9DA221A210E96B9300FAA0CD</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
@@ -586,10 +587,10 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>/Users/allan/Development/froth/sdk/froth-sdk-source/FrothMachineToolsSrc/fmtool/fmtool.xcodeproj</string>
+		<string>/Users/allan/Development/froth/frothkit/froth-sdk-source/tools/fmtool/fmtool.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>1824 136 1081 888 1680 26 1280 1024 </string>
+	<string>1824 150 1081 888 1680 26 1280 1024 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -605,12 +606,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>fmtool_Prefix.pch</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -668,7 +671,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>9D13DDE510AF586F00039EF3</string>
-				<string>9D4B63F110C8915900C6A1EE</string>
+				<string>9DA2218410E968F400FAA0CD</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

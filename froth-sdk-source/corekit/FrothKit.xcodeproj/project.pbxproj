@@ -608,6 +608,7 @@
 		9D13E28910B30DAE00039EF3 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				9DA2217310E9686200FAA0CD /* Deploy Scripts */,
 				9D13E2B410B313F000039EF3 /* mailer.py */,
 			);
 			name = Scripts;
@@ -957,6 +958,13 @@
 				9D13DA7610ACBAB200039EF3 /* WebSession+User.m */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		9DA2217310E9686200FAA0CD /* Deploy Scripts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Deploy Scripts";
 			sourceTree = "<group>";
 		};
 		9DBE306D0F52191100CFC8FC /* libfCGI */ = {
@@ -1532,8 +1540,10 @@
 				EXECUTABLE_EXTENSION = so;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = /Developer/Cocotron/1.0/Linux/i386/Frameworks;
-				FROTH_HOST = "[ IP OF MACHINE WITH SSH / RSYNC ]";
-				FROTH_IDENTITY = "[ SSL IDENTITY FILE PATH ]";
+				FROTH_HOST = 204.236.224.163;
+				FROTH_HOST_ = "[ IP OF MACHINE WITH SSH / RSYNC ]";
+				FROTH_IDENTITY = /Users/allan/aws/aphiltc1.pem;
+				FROTH_IDENTITY_ = "[ SSL IDENTITY FILE PATH ]";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -1604,6 +1614,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_VERSION = 4.2;
 				HEADER_SEARCH_PATHS = "/Developer/Cocotron/1.0/PlatformInterfaces/i386-ubuntu-linux/include";
 				INSTALL_PATH = /Developer/FrothSDK/Library/lib;
 				LIBRARY_SEARCH_PATHS = "/Developer/Cocotron/1.0/PlatformInterfaces/i386-ubuntu-linux/lib";
@@ -1625,7 +1636,9 @@
 					"-Wl,-rpath=$ORIGIN",
 				);
 				PREBINDING = NO;
+				PRIVATE_HEADERS_FOLDER_PATH = ../../include;
 				PRODUCT_NAME = froth;
+				PUBLIC_HEADERS_FOLDER_PATH = ../../include;
 				SDKROOT = "";
 				SYMROOT = /Developer/FrothSDK/Library/lib/linux;
 				VALID_ARCHS = i386;

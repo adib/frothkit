@@ -480,7 +480,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "if [[ -n \"$FROTH_IDENTITY\" && \"$FROTH_IDENTITY\" != \"[ SSL IDENTITY FILE PATH ]\" ]]; then\n\techo '===== BUILDING WEBAPP FOR DEPLOYMENT ====='\n\trsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${BUILD_DIR}/${CONFIGURATION}/${PRODUCT_NAME}.webApp root@${FROTH_HOST}:/var/froth/apps/${CONFIGURATION}\n\techo '========= DEPLOYMENT COMPLETE ============'\n\n\t#connect to frothmachine to do some configurations for the webapp, and to launch it. These are run on the client side by running the /usr/froth/bin/setupWebApp WebAppName command. See that commands source for details... this command also restarts the server and launchs the webapp (or relaunches.)\n\n\tssh -i ${FROTH_IDENTITY} root@${FROTH_HOST} \"/usr/froth/bin/fmtool -i ${PRODUCT_NAME} ${CONFIGURATION}; /etc/init.d/lighttpd restart\"\nfi";
+			shellScript = "if [[ -n \"$FROTH_IDENTITY\" && \"$FROTH_IDENTITY\" != \"[ SSL IDENTITY FILE PATH ]\" ]]; then\n\techo '===== BUILDING WEBAPP FOR DEPLOYMENT ====='\n\trsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${BUILD_DIR}/${CONFIGURATION}/${PRODUCT_NAME}.webApp root@${FROTH_HOST}:/var/froth/apps/${CONFIGURATION}\n\techo '========= DEPLOYMENT COMPLETE ============'\n\n\t#connect to frothmachine to do some configurations for the webapp, and to launch it. These are run on the client side by running the /usr/froth/bin/setupWebApp WebAppName command. See that commands source for details... this command also restarts the server and launchs the webapp (or relaunches.)\n\n\t#ssh -i ${FROTH_IDENTITY} root@${FROTH_HOST} \"/usr/froth/bin/fmtool -i ${PRODUCT_NAME} ${CONFIGURATION}; /etc/init.d/lighttpd restart\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -574,8 +574,8 @@
 				EXECUTABLE_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Linux";
 				EXECUTABLE_SUFFIX = "";
 				FRAMEWORK_SEARCH_PATHS = /Developer/Cocotron/1.0/Linux/i386/Frameworks;
-				FROTH_HOST = "";
-				FROTH_IDENTITY = "";
+				FROTH_HOST = 204.236.224.163;
+				FROTH_IDENTITY = /Users/allan/aws/aphiltc1.pem;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;

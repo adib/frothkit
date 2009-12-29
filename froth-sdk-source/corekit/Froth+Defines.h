@@ -32,7 +32,7 @@
 #define froth_int(value1)		[NSNumber numberWithInt:value1]
 #define froth_float(value1)		[NSNumber numberWithFloat:value1]
 
-#ifndef __APPLE__
+/*#ifndef __APPLE__
 #define TRUE YES
 #define FALSE NO
-#endif
+#endif*/
