@@ -40,7 +40,7 @@ int main (int argc, const char * argv[]) {
 	NSArray* args = [[NSProcessInfo processInfo] arguments];
 	
 	if(argc < 2) {
-		printf("FrothMachine Tools V.1\nfmtool useage info use frmtool -h\n");
+		printf("FrothMachine Tools V.1\nfmtool useage info use fmtool -h\n");
 	} else if([[args objectAtIndex:1] isEqualToString:@"-h"]) {
 		printf("FrothMachine Tools Version 1.0\n");
 		printf("-i [WebAppName] [mode] install a webapp and prepare is lighttpd conf. Also restarts lighttpd and webapp.\n");
