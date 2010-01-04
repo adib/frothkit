@@ -35,13 +35,11 @@
 #import "WebActionView.h"
 
 /*!
-	\brief	Represents a WebApplication for serving Froth WebApp bundles.
-	\detail	WebApplication provides some internally implemented web methods
-				for debug and other information.
-				
-				<br><br>
-				1. [host]/[froth-api]/exe/dump
-				<br>Dumps the enviorment variables out for the user.
+	\brief	A WebApplication object manages the request/response cycle between the httpd server and web application controllers instances. 
+			
+			WebApplication objects are the centrail manager of froth web applications. The WebApplication handles the request, routes it to the
+			appropriate WebActionController implementing object and processes the resulting response according to http spec.
+ 
  */
 @interface WebApplication : NSObject {
 	@private
@@ -69,7 +67,9 @@
  */
 + (NSDictionary*)deploymentConfigDictionary;
 
-- (id)init;
-//- (id)initWithWebAppPath:(NSString*)path;
+/*!
+	\brief Called from a httpd connector or other httpd server object when a request is received.
+*/
+- (WebResponse*)handle:(WebRequest*)req;
 
 @end

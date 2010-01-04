@@ -271,7 +271,6 @@
 		9D79B57D100D379300AB337E /* WebModelBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79B124100CED0C00AB337E /* WebModelBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D79B58A100D37EE00AB337E /* WebDataSourceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79B578100D312200AB337E /* WebDataSourceController.m */; };
 		9D79B6BF100D47A200AB337E /* MySqlDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79B6BD100D47A200AB337E /* MySqlDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D79B6C0100D47A200AB337E /* MySqlDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79B6BE100D47A200AB337E /* MySqlDataSource.m */; };
 		9D79C121100FBD5E00AB337E /* WebSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79C11F100FBD5E00AB337E /* WebSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D79C122100FBD5E00AB337E /* WebSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79C120100FBD5E00AB337E /* WebSession.m */; };
 		9D79C16D100FCC9F00AB337E /* MemoryDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79C16B100FCC9F00AB337E /* MemoryDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -287,6 +286,148 @@
 		9D9DEFF0105DC87500677E09 /* NSDate+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9DEFEE105DC87500677E09 /* NSDate+SBJSON.m */; };
 		9D9DEFF1105DC87500677E09 /* NSDate+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D9DEFED105DC87500677E09 /* NSDate+SBJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D9DEFF2105DC87500677E09 /* NSDate+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9DEFEE105DC87500677E09 /* NSDate+SBJSON.m */; };
+		9DA223AE10EEACE400FAA0CD /* NSDictionary+Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D6DE47A0F546CA000B9AD49 /* NSDictionary+Query.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223AF10EEACE400FAA0CD /* NSData+Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = BAB463DA0FF97BCB00A1A6A4 /* NSData+Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223B010EEACE400FAA0CD /* NSString+Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D799A3E100547C500AB337E /* NSString+Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223B110EEACE400FAA0CD /* WebFastCgiController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DBE30660F52189500CFC8FC /* WebFastCgiController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223B210EEACE400FAA0CD /* SDBDataConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D7998DD1005211700AB337E /* SDBDataConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223B310EEACE400FAA0CD /* fcgi_config.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DBE30800F521A3600CFC8FC /* fcgi_config.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223B410EEACE400FAA0CD /* fcgios.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DBE30820F521A3600CFC8FC /* fcgios.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223B510EEACE400FAA0CD /* fastcgi.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DBE30830F521A3600CFC8FC /* fastcgi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223B610EEACE400FAA0CD /* fcgi_stdio.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DBE30840F521A3600CFC8FC /* fcgi_stdio.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223B710EEACE400FAA0CD /* fcgio.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DBE30850F521A3600CFC8FC /* fcgio.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223B810EEACE400FAA0CD /* fcgimisc.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DBE30860F521A3600CFC8FC /* fcgimisc.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223B910EEACE400FAA0CD /* fcgiapp.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DBE30870F521A3600CFC8FC /* fcgiapp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223BA10EEACE400FAA0CD /* sdb.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D7997EB10051BF900AB337E /* sdb.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223BB10EEACE400FAA0CD /* stdafx.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D7997F510051C5800AB337E /* stdafx.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223BC10EEACE400FAA0CD /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D7997F710051C5800AB337E /* util.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223BD10EEACE400FAA0CD /* base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D7997E910051BF200AB337E /* base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223BE10EEACE400FAA0CD /* sdb_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D7997F110051C4700AB337E /* sdb_private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223BF10EEACE400FAA0CD /* response.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D7997F010051C4100AB337E /* response.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223C010EEACE400FAA0CD /* objpcre.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DBE306A0F5218B300CFC8FC /* objpcre.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223C110EEACE400FAA0CD /* froth.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D6DE4300F5466A000B9AD49 /* froth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223C210EEACE400FAA0CD /* WebApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DBE33C50F53623700CFC8FC /* WebApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223C310EEACE400FAA0CD /* WebActionController.h in Headers */ = {isa = PBXBuildFile; fileRef = BA85854B0FF5B8840060F4C6 /* WebActionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223C410EEACE400FAA0CD /* WebLayoutView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D799F491006974300AB337E /* WebLayoutView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223C510EEACE400FAA0CD /* WebActionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D799DC5100662F100AB337E /* WebActionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223C610EEACE400FAA0CD /* WebRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = BA8585390FF5B3370060F4C6 /* WebRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223C710EEACE400FAA0CD /* WebResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D799DD010066EA400AB337E /* WebResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223C810EEACE400FAA0CD /* MGTemplateEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79A70A100746BB00AB337E /* MGTemplateEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223C910EEACE400FAA0CD /* MGTemplateMarker.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79A70C100746BB00AB337E /* MGTemplateMarker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223CA10EEACE400FAA0CD /* MGTemplateFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79A70D100746BB00AB337E /* MGTemplateFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223CB10EEACE400FAA0CD /* MGTemplateStandardMarkers.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79A70E100746BB00AB337E /* MGTemplateStandardMarkers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223CC10EEACE400FAA0CD /* MGTemplateStandardFilters.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79A710100746BB00AB337E /* MGTemplateStandardFilters.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223CD10EEACE400FAA0CD /* DeepMutableCopy.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79A71C100746BB00AB337E /* DeepMutableCopy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223CE10EEACE400FAA0CD /* NSArray_DeepMutableCopy.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79A71D100746BB00AB337E /* NSArray_DeepMutableCopy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223CF10EEACE400FAA0CD /* NSDictionary_DeepMutableCopy.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79A71F100746BB00AB337E /* NSDictionary_DeepMutableCopy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223D010EEACE400FAA0CD /* WKValueComparisonFilters.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79AB161007E05100AB337E /* WKValueComparisonFilters.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223D110EEACE400FAA0CD /* WKFunctionMarkers.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79ABBC1007EC7B00AB337E /* WKFunctionMarkers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223D210EEACE400FAA0CD /* WebActiveController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79B111100CE76C00AB337E /* WebActiveController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223D310EEACE400FAA0CD /* WebDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79B553100D1C4200AB337E /* WebDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223D410EEACE400FAA0CD /* WebModelBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79B124100CED0C00AB337E /* WebModelBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223D510EEACE400FAA0CD /* MySqlDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79B6BD100D47A200AB337E /* MySqlDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223D610EEACE400FAA0CD /* WebSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79C11F100FBD5E00AB337E /* WebSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223D710EEACE400FAA0CD /* MemoryDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79C16B100FCC9F00AB337E /* MemoryDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223D810EEACE400FAA0CD /* WebAuthComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79C329100FEFA000AB337E /* WebAuthComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223D910EEACE400FAA0CD /* WebComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79C32D100FF14B00AB337E /* WebComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223DA10EEACE400FAA0CD /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D135E3A10111F17005172A4 /* JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223DB10EEACE400FAA0CD /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D135E3B10111F17005172A4 /* NSObject+SBJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223DC10EEACE400FAA0CD /* NSString+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D135E3D10111F17005172A4 /* NSString+SBJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223DD10EEACE400FAA0CD /* SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D135E3F10111F17005172A4 /* SBJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223DE10EEACE400FAA0CD /* SBJsonBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D135E4110111F17005172A4 /* SBJsonBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223DF10EEACE400FAA0CD /* SBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D135E4310111F17005172A4 /* SBJsonParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223E010EEACE400FAA0CD /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D135E4510111F17005172A4 /* SBJsonWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223E110EEACE400FAA0CD /* NSString+Regex.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D648EA010141311002A4048 /* NSString+Regex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223E210EEACE400FAA0CD /* AGRegex.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D648EAC101413C2002A4048 /* AGRegex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223E310EEACE400FAA0CD /* Froth+Exceptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D58840E10153204008D1DF9 /* Froth+Exceptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223E410EEACE400FAA0CD /* DDXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D58895A10165A39008D1DF9 /* DDXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223E510EEACE400FAA0CD /* NSMutableString+Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D58898910165ED2008D1DF9 /* NSMutableString+Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223E610EEACE400FAA0CD /* WebAuthModelProtocal.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D302F021017B75200933A5F /* WebAuthModelProtocal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223E710EEACE400FAA0CD /* NSNumber+TemplateUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D3032CA1018DAAB00933A5F /* NSNumber+TemplateUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223E810EEACE400FAA0CD /* SDBDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D9DECE4105C73A400677E09 /* SDBDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223E910EEACE400FAA0CD /* NSDate+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D9DEFED105DC87500677E09 /* NSDate+SBJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223EA10EEACE400FAA0CD /* Froth+Defines.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DF0F4521017AEC600B25B27 /* Froth+Defines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223EB10EEACE400FAA0CD /* WebModelPredicate.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D58FA3010629D9F000ECD1C /* WebModelPredicate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223EC10EEACE400FAA0CD /* WebRequest+Params.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D58FAB01062B49F000ECD1C /* WebRequest+Params.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223ED10EEACE400FAA0CD /* NSArray+TemplateUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D303A99101F669E00933A5F /* NSArray+TemplateUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223EE10EEACE400FAA0CD /* WebSession+User.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D13DA7510ACBAB200039EF3 /* WebSession+User.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223EF10EEACE400FAA0CD /* NSDateScealaTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D9DE7B5105AD78E00677E09 /* NSDateScealaTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223F010EEACE400FAA0CD /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D58897910165A41008D1DF9 /* NSStringAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223F110EEACE400FAA0CD /* DDXMLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D58895B10165A39008D1DF9 /* DDXMLDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223F210EEACE400FAA0CD /* DDXMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D58895D10165A39008D1DF9 /* DDXMLElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223F310EEACE400FAA0CD /* DDXMLElementAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D58895F10165A39008D1DF9 /* DDXMLElementAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223F410EEACE400FAA0CD /* DDXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D58896110165A39008D1DF9 /* DDXMLNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223F510EEACE400FAA0CD /* DDXMLPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D58896310165A39008D1DF9 /* DDXMLPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223F610EEACE400FAA0CD /* AGRegexTemplateMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D79A714100746BB00AB337E /* AGRegexTemplateMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223F710EEACE400FAA0CD /* WebMailer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D13E2C210B3240500039EF3 /* WebMailer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223F810EEACE400FAA0CD /* NSString+FoundationCompletions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D13E81A10B3AD4600039EF3 /* NSString+FoundationCompletions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223F910EEACE400FAA0CD /* NSURLConnection+FoundationCompletions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D13EDFA10B5E51E00039EF3 /* NSURLConnection+FoundationCompletions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223FA10EEACE400FAA0CD /* WebRequest+FastCGI.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DE3FBE510D0416600CD04FC /* WebRequest+FastCGI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223FB10EEACE400FAA0CD /* NSXMLElementAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D14734810E04030009D881B /* NSXMLElementAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DA223FD10EEACE400FAA0CD /* NSData+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB463DB0FF97BCB00A1A6A4 /* NSData+Utilities.m */; };
+		9DA223FE10EEACE400FAA0CD /* NSString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D799A3F100547C500AB337E /* NSString+Utilities.m */; };
+		9DA223FF10EEACE400FAA0CD /* WebFastCgiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBE30910F521A5900CFC8FC /* WebFastCgiController.m */; };
+		9DA2240010EEACE400FAA0CD /* SDBDataConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7998DE1005211700AB337E /* SDBDataConnector.m */; };
+		9DA2240110EEACE400FAA0CD /* os_unix.c in Sources */ = {isa = PBXBuildFile; fileRef = 9DBE30810F521A3600CFC8FC /* os_unix.c */; };
+		9DA2240210EEACE400FAA0CD /* fcgiapp.c in Sources */ = {isa = PBXBuildFile; fileRef = 9DBE30880F521A3600CFC8FC /* fcgiapp.c */; };
+		9DA2240310EEACE400FAA0CD /* sdb.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D7997F410051C5800AB337E /* sdb.c */; };
+		9DA2240410EEACE400FAA0CD /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D7997F610051C5800AB337E /* util.c */; };
+		9DA2240510EEACE400FAA0CD /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D7997E810051BF200AB337E /* base64.c */; };
+		9DA2240610EEACE400FAA0CD /* private.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D7997EC10051C3800AB337E /* private.c */; };
+		9DA2240710EEACE400FAA0CD /* response.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D7997EE10051C3D00AB337E /* response.c */; };
+		9DA2240810EEACE400FAA0CD /* objpcre.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBE306B0F5218B300CFC8FC /* objpcre.m */; };
+		9DA2240910EEACE400FAA0CD /* WebApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBE33C60F53623700CFC8FC /* WebApplication.m */; };
+		9DA2240A10EEACE400FAA0CD /* WebLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D799F4A1006974300AB337E /* WebLayoutView.m */; };
+		9DA2240B10EEACE400FAA0CD /* WebActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D799DC6100662F100AB337E /* WebActionView.m */; };
+		9DA2240C10EEACE400FAA0CD /* WebRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85853A0FF5B3370060F4C6 /* WebRequest.m */; };
+		9DA2240D10EEACE400FAA0CD /* WebResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D799DD110066EA400AB337E /* WebResponse.m */; };
+		9DA2240E10EEACE400FAA0CD /* NSDictionary+Query.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6DE47B0F546CA000B9AD49 /* NSDictionary+Query.m */; };
+		9DA2240F10EEACE400FAA0CD /* MGTemplateEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79A70B100746BB00AB337E /* MGTemplateEngine.m */; };
+		9DA2241010EEACE400FAA0CD /* MGTemplateStandardMarkers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79A70F100746BB00AB337E /* MGTemplateStandardMarkers.m */; };
+		9DA2241110EEACE400FAA0CD /* MGTemplateStandardFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79A711100746BB00AB337E /* MGTemplateStandardFilters.m */; };
+		9DA2241210EEACE400FAA0CD /* NSArray_DeepMutableCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79A71E100746BB00AB337E /* NSArray_DeepMutableCopy.m */; };
+		9DA2241310EEACE400FAA0CD /* NSDictionary_DeepMutableCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79A720100746BB00AB337E /* NSDictionary_DeepMutableCopy.m */; };
+		9DA2241410EEACE400FAA0CD /* WKValueComparisonFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79AB171007E05100AB337E /* WKValueComparisonFilters.m */; };
+		9DA2241510EEACE400FAA0CD /* WKFunctionMarkers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79ABBD1007EC7B00AB337E /* WKFunctionMarkers.m */; };
+		9DA2241610EEACE400FAA0CD /* WebActiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79B112100CE76C00AB337E /* WebActiveController.m */; };
+		9DA2241710EEACE400FAA0CD /* WebModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79B125100CED0C00AB337E /* WebModelBase.m */; };
+		9DA2241810EEACE400FAA0CD /* WebDataSourceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79B578100D312200AB337E /* WebDataSourceController.m */; };
+		9DA2241910EEACE400FAA0CD /* MySqlDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79B6BE100D47A200AB337E /* MySqlDataSource.m */; };
+		9DA2241A10EEACE400FAA0CD /* WebSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79C120100FBD5E00AB337E /* WebSession.m */; };
+		9DA2241B10EEACE400FAA0CD /* MemoryDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79C16C100FCC9F00AB337E /* MemoryDataSource.m */; };
+		9DA2241C10EEACE400FAA0CD /* WebAuthComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79C32A100FEFA000AB337E /* WebAuthComponent.m */; };
+		9DA2241D10EEACE400FAA0CD /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D135E3C10111F17005172A4 /* NSObject+SBJSON.m */; };
+		9DA2241E10EEACE400FAA0CD /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D135E3E10111F17005172A4 /* NSString+SBJSON.m */; };
+		9DA2241F10EEACE400FAA0CD /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D135E4010111F17005172A4 /* SBJSON.m */; };
+		9DA2242010EEACE400FAA0CD /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D135E4210111F17005172A4 /* SBJsonBase.m */; };
+		9DA2242110EEACE400FAA0CD /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D135E4410111F17005172A4 /* SBJsonParser.m */; };
+		9DA2242210EEACE400FAA0CD /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D135E4610111F17005172A4 /* SBJsonWriter.m */; };
+		9DA2242310EEACE400FAA0CD /* AGRegexTemplateMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D79A715100746BB00AB337E /* AGRegexTemplateMatcher.m */; };
+		9DA2242410EEACE400FAA0CD /* NSString+Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D648EA110141311002A4048 /* NSString+Regex.m */; };
+		9DA2242510EEACE400FAA0CD /* AGRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D648EAF101413EC002A4048 /* AGRegex.m */; };
+		9DA2242610EEACE400FAA0CD /* NSMutableString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D58898A10165ED2008D1DF9 /* NSMutableString+Utilities.m */; };
+		9DA2242710EEACE400FAA0CD /* NSNumber+TemplateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3032CB1018DAAB00933A5F /* NSNumber+TemplateUtilities.m */; };
+		9DA2242810EEACE400FAA0CD /* NSArray+TemplateUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D303A9A101F669E00933A5F /* NSArray+TemplateUtilities.m */; };
+		9DA2242910EEACE400FAA0CD /* SDBDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9DECE5105C73A400677E09 /* SDBDataSource.m */; };
+		9DA2242A10EEACE400FAA0CD /* NSDate+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9DEFEE105DC87500677E09 /* NSDate+SBJSON.m */; };
+		9DA2242B10EEACE400FAA0CD /* WebModelPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D58FA3110629D9F000ECD1C /* WebModelPredicate.m */; };
+		9DA2242C10EEACE400FAA0CD /* WebRequest+Params.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D58FAB11062B49F000ECD1C /* WebRequest+Params.m */; };
+		9DA2242D10EEACE400FAA0CD /* WebSession+User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D13DA7610ACBAB200039EF3 /* WebSession+User.m */; };
+		9DA2242E10EEACE400FAA0CD /* NSDateScealaTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9DE7B6105AD78E00677E09 /* NSDateScealaTypes.m */; };
+		9DA2242F10EEACE400FAA0CD /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D58897810165A41008D1DF9 /* NSStringAdditions.m */; };
+		9DA2243010EEACE400FAA0CD /* WebMailer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D13E2C310B3240500039EF3 /* WebMailer.m */; };
+		9DA2243110EEACE400FAA0CD /* NSURLConnection+FoundationCompletions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D13EDFB10B5E51F00039EF3 /* NSURLConnection+FoundationCompletions.m */; };
+		9DA2243210EEACE400FAA0CD /* WebRequest+FastCGI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE3FBE610D0416600CD04FC /* WebRequest+FastCGI.m */; };
+		9DA2243310EEACE400FAA0CD /* NSXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D14734910E04030009D881B /* NSXMLElementAdditions.m */; };
+		9DA2243510EEACE400FAA0CD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D799C121005834600AB337E /* libz.dylib */; };
+		9DA2243610EEACE400FAA0CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		9DA2243710EEACE400FAA0CD /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D79981910051D9200AB337E /* libssl.dylib */; };
+		9DA2243810EEACE400FAA0CD /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB463D50FF97A3C00A1A6A4 /* libcrypto.dylib */; };
+		9DA2243910EEACE400FAA0CD /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D79982C10051E2D00AB337E /* libxml2.dylib */; };
+		9DA2243A10EEACE400FAA0CD /* libpcre.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D79A3891006B96B00AB337E /* libpcre.a */; };
+		9DA2243B10EEACE400FAA0CD /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D79A7A21007491000AB337E /* libicucore.dylib */; };
+		9DA2243C10EEACE400FAA0CD /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D6487861012C107002A4048 /* libcurl.dylib */; };
+		9DA2243D10EEACE400FAA0CD /* libpython.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D13E2BF10B3225000039EF3 /* libpython.dylib */; };
 		9DE3FBE710D0416600CD04FC /* WebRequest+FastCGI.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DE3FBE510D0416600CD04FC /* WebRequest+FastCGI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9DE3FBE810D0416600CD04FC /* WebRequest+FastCGI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE3FBE610D0416600CD04FC /* WebRequest+FastCGI.m */; };
 		9DE3FBE910D0416600CD04FC /* WebRequest+FastCGI.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DE3FBE510D0416600CD04FC /* WebRequest+FastCGI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -324,33 +465,33 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
-		9D13DEC610AF995D00039EF3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9D648FB710142495002A4048;
-			remoteInfo = "froth-linux";
-		};
-		9D14730910E03D8A009D881B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9D13E03C10B0CC8C00039EF3 /* WebAppTemplate.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9D13DB1410ACC11100039EF3;
-			remoteInfo = "WebAppTemplate-Linux";
-		};
-		9D14730B10E03D8A009D881B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9D13E03C10B0CC8C00039EF3 /* WebAppTemplate.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8D5B49B6048680CD000E48DA;
-			remoteInfo = WebAppTemplate;
-		};
 		9D14731310E03D9D009D881B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9D13DFBF10AFB59500039EF3 /* fmtool.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8DD76FA10486AA7600D96B5E;
 			remoteInfo = fmtool;
+		};
+		9DA223AC10EEACE400FAA0CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D648FB710142495002A4048;
+			remoteInfo = "froth-linux";
+		};
+		9DA2248E10EEB68700FAA0CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D13E03C10B0CC8C00039EF3 /* Template */;
+			proxyType = 2;
+			remoteGlobalIDString = 9D13DB1410ACC11100039EF3 /* ___PROJECTNAME___.webApp */;
+			remoteInfo = "___PROJECTNAME___-Linux";
+		};
+		9DA2249010EEB68700FAA0CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D13E03C10B0CC8C00039EF3 /* Template */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D5B49B6048680CD000E48DA /* ___PROJECTNAME___.webApp */;
+			remoteInfo = "___PROJECTNAME___";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -372,7 +513,7 @@
 		9D13DA7510ACBAB200039EF3 /* WebSession+User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WebSession+User.h"; sourceTree = "<group>"; };
 		9D13DA7610ACBAB200039EF3 /* WebSession+User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WebSession+User.m"; sourceTree = "<group>"; };
 		9D13DFBF10AFB59500039EF3 /* fmtool.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = fmtool.xcodeproj; path = ../tools/fmtool/fmtool.xcodeproj; sourceTree = SOURCE_ROOT; };
-		9D13E03C10B0CC8C00039EF3 /* WebAppTemplate.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WebAppTemplate.xcodeproj; path = "../templates/FrothSDK/Web Application/WebAppTemplate.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		9D13E03C10B0CC8C00039EF3 /* Template */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Template; path = "../templates/FrothSDK/Web Application/___PROJECTNAME___.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		9D13E2B410B313F000039EF3 /* mailer.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = mailer.py; sourceTree = "<group>"; };
 		9D13E2BF10B3225000039EF3 /* libpython.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpython.dylib; path = usr/lib/libpython.dylib; sourceTree = SDKROOT; };
 		9D13E2C210B3240500039EF3 /* WebMailer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebMailer.h; sourceTree = "<group>"; };
@@ -497,6 +638,8 @@
 		9D9DECE5105C73A400677E09 /* SDBDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBDataSource.m; sourceTree = "<group>"; };
 		9D9DEFED105DC87500677E09 /* NSDate+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SBJSON.h"; sourceTree = "<group>"; };
 		9D9DEFEE105DC87500677E09 /* NSDate+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SBJSON.m"; sourceTree = "<group>"; };
+		9DA223A910EEABF000FAA0CD /* About Datasources */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "About Datasources"; sourceTree = "<group>"; };
+		9DA2244210EEACE400FAA0CD /* libfroth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libfroth.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DBE30660F52189500CFC8FC /* WebFastCgiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebFastCgiController.h; sourceTree = "<group>"; };
 		9DBE306A0F5218B300CFC8FC /* objpcre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objpcre.h; sourceTree = "<group>"; };
 		9DBE306B0F5218B300CFC8FC /* objpcre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = objpcre.m; sourceTree = "<group>"; };
@@ -550,13 +693,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9DA2243410EEACE400FAA0CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DA2243510EEACE400FAA0CD /* libz.dylib in Frameworks */,
+				9DA2243610EEACE400FAA0CD /* Foundation.framework in Frameworks */,
+				9DA2243710EEACE400FAA0CD /* libssl.dylib in Frameworks */,
+				9DA2243810EEACE400FAA0CD /* libcrypto.dylib in Frameworks */,
+				9DA2243910EEACE400FAA0CD /* libxml2.dylib in Frameworks */,
+				9DA2243A10EEACE400FAA0CD /* libpcre.a in Frameworks */,
+				9DA2243B10EEACE400FAA0CD /* libicucore.dylib in Frameworks */,
+				9DA2243C10EEACE400FAA0CD /* libcurl.dylib in Frameworks */,
+				9DA2243D10EEACE400FAA0CD /* libpython.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		08FB7794FE84155DC02AAC07 /* CocoaWebKit */ = {
 			isa = PBXGroup;
 			children = (
-				9D13E03C10B0CC8C00039EF3 /* WebAppTemplate.xcodeproj */,
+				9D13E03C10B0CC8C00039EF3 /* Template */,
 				9D13DFBF10AFB59500039EF3 /* fmtool.xcodeproj */,
 				9D798F030FF58ED300AB337E /* Documentation */,
 				9D799DCB1006636000AB337E /* FrothKit */,
@@ -593,6 +752,7 @@
 			children = (
 				9D135D6010111806005172A4 /* linux */,
 				9D79A1FF1006ADAA00AB337E /* libfroth.a */,
+				9DA2244210EEACE400FAA0CD /* libfroth.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -631,15 +791,6 @@
 				9DBE33C40F53621600CFC8FC /* FastCGI Connector */,
 			);
 			name = "HTTP Connectors";
-			sourceTree = "<group>";
-		};
-		9D14730510E03D8A009D881B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9D14730A10E03D8A009D881B /* WebAppTemplate.webApp */,
-				9D14730C10E03D8A009D881B /* WebAppTemplate.webApp */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		9D14731010E03D9D009D881B /* Products */ = {
@@ -878,6 +1029,7 @@
 		9D79B5FE100D382700AB337E /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
+				9DA223A910EEABF000FAA0CD /* About Datasources */,
 				9D79B6BD100D47A200AB337E /* MySqlDataSource.h */,
 				9D79B6BE100D47A200AB337E /* MySqlDataSource.m */,
 				9D79C16B100FCC9F00AB337E /* MemoryDataSource.h */,
@@ -965,6 +1117,15 @@
 			children = (
 			);
 			name = "Deploy Scripts";
+			sourceTree = "<group>";
+		};
+		9DA2248A10EEB68700FAA0CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DA2248F10EEB68700FAA0CD /* ___PROJECTNAME___.webApp */,
+				9DA2249110EEB68700FAA0CD /* ___PROJECTNAME___.webApp */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		9DBE306D0F52191100CFC8FC /* libfCGI */ = {
@@ -1182,6 +1343,91 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9DA223AD10EEACE400FAA0CD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DA223AE10EEACE400FAA0CD /* NSDictionary+Query.h in Headers */,
+				9DA223AF10EEACE400FAA0CD /* NSData+Utilities.h in Headers */,
+				9DA223B010EEACE400FAA0CD /* NSString+Utilities.h in Headers */,
+				9DA223B110EEACE400FAA0CD /* WebFastCgiController.h in Headers */,
+				9DA223B210EEACE400FAA0CD /* SDBDataConnector.h in Headers */,
+				9DA223B310EEACE400FAA0CD /* fcgi_config.h in Headers */,
+				9DA223B410EEACE400FAA0CD /* fcgios.h in Headers */,
+				9DA223B510EEACE400FAA0CD /* fastcgi.h in Headers */,
+				9DA223B610EEACE400FAA0CD /* fcgi_stdio.h in Headers */,
+				9DA223B710EEACE400FAA0CD /* fcgio.h in Headers */,
+				9DA223B810EEACE400FAA0CD /* fcgimisc.h in Headers */,
+				9DA223B910EEACE400FAA0CD /* fcgiapp.h in Headers */,
+				9DA223BA10EEACE400FAA0CD /* sdb.h in Headers */,
+				9DA223BB10EEACE400FAA0CD /* stdafx.h in Headers */,
+				9DA223BC10EEACE400FAA0CD /* util.h in Headers */,
+				9DA223BD10EEACE400FAA0CD /* base64.h in Headers */,
+				9DA223BE10EEACE400FAA0CD /* sdb_private.h in Headers */,
+				9DA223BF10EEACE400FAA0CD /* response.h in Headers */,
+				9DA223C010EEACE400FAA0CD /* objpcre.h in Headers */,
+				9DA223C110EEACE400FAA0CD /* froth.h in Headers */,
+				9DA223C210EEACE400FAA0CD /* WebApplication.h in Headers */,
+				9DA223C310EEACE400FAA0CD /* WebActionController.h in Headers */,
+				9DA223C410EEACE400FAA0CD /* WebLayoutView.h in Headers */,
+				9DA223C510EEACE400FAA0CD /* WebActionView.h in Headers */,
+				9DA223C610EEACE400FAA0CD /* WebRequest.h in Headers */,
+				9DA223C710EEACE400FAA0CD /* WebResponse.h in Headers */,
+				9DA223C810EEACE400FAA0CD /* MGTemplateEngine.h in Headers */,
+				9DA223C910EEACE400FAA0CD /* MGTemplateMarker.h in Headers */,
+				9DA223CA10EEACE400FAA0CD /* MGTemplateFilter.h in Headers */,
+				9DA223CB10EEACE400FAA0CD /* MGTemplateStandardMarkers.h in Headers */,
+				9DA223CC10EEACE400FAA0CD /* MGTemplateStandardFilters.h in Headers */,
+				9DA223CD10EEACE400FAA0CD /* DeepMutableCopy.h in Headers */,
+				9DA223CE10EEACE400FAA0CD /* NSArray_DeepMutableCopy.h in Headers */,
+				9DA223CF10EEACE400FAA0CD /* NSDictionary_DeepMutableCopy.h in Headers */,
+				9DA223D010EEACE400FAA0CD /* WKValueComparisonFilters.h in Headers */,
+				9DA223D110EEACE400FAA0CD /* WKFunctionMarkers.h in Headers */,
+				9DA223D210EEACE400FAA0CD /* WebActiveController.h in Headers */,
+				9DA223D310EEACE400FAA0CD /* WebDataSource.h in Headers */,
+				9DA223D410EEACE400FAA0CD /* WebModelBase.h in Headers */,
+				9DA223D510EEACE400FAA0CD /* MySqlDataSource.h in Headers */,
+				9DA223D610EEACE400FAA0CD /* WebSession.h in Headers */,
+				9DA223D710EEACE400FAA0CD /* MemoryDataSource.h in Headers */,
+				9DA223D810EEACE400FAA0CD /* WebAuthComponent.h in Headers */,
+				9DA223D910EEACE400FAA0CD /* WebComponent.h in Headers */,
+				9DA223DA10EEACE400FAA0CD /* JSON.h in Headers */,
+				9DA223DB10EEACE400FAA0CD /* NSObject+SBJSON.h in Headers */,
+				9DA223DC10EEACE400FAA0CD /* NSString+SBJSON.h in Headers */,
+				9DA223DD10EEACE400FAA0CD /* SBJSON.h in Headers */,
+				9DA223DE10EEACE400FAA0CD /* SBJsonBase.h in Headers */,
+				9DA223DF10EEACE400FAA0CD /* SBJsonParser.h in Headers */,
+				9DA223E010EEACE400FAA0CD /* SBJsonWriter.h in Headers */,
+				9DA223E110EEACE400FAA0CD /* NSString+Regex.h in Headers */,
+				9DA223E210EEACE400FAA0CD /* AGRegex.h in Headers */,
+				9DA223E310EEACE400FAA0CD /* Froth+Exceptions.h in Headers */,
+				9DA223E410EEACE400FAA0CD /* DDXML.h in Headers */,
+				9DA223E510EEACE400FAA0CD /* NSMutableString+Utilities.h in Headers */,
+				9DA223E610EEACE400FAA0CD /* WebAuthModelProtocal.h in Headers */,
+				9DA223E710EEACE400FAA0CD /* NSNumber+TemplateUtilities.h in Headers */,
+				9DA223E810EEACE400FAA0CD /* SDBDataSource.h in Headers */,
+				9DA223E910EEACE400FAA0CD /* NSDate+SBJSON.h in Headers */,
+				9DA223EA10EEACE400FAA0CD /* Froth+Defines.h in Headers */,
+				9DA223EB10EEACE400FAA0CD /* WebModelPredicate.h in Headers */,
+				9DA223EC10EEACE400FAA0CD /* WebRequest+Params.h in Headers */,
+				9DA223ED10EEACE400FAA0CD /* NSArray+TemplateUtilities.h in Headers */,
+				9DA223EE10EEACE400FAA0CD /* WebSession+User.h in Headers */,
+				9DA223EF10EEACE400FAA0CD /* NSDateScealaTypes.h in Headers */,
+				9DA223F010EEACE400FAA0CD /* NSStringAdditions.h in Headers */,
+				9DA223F110EEACE400FAA0CD /* DDXMLDocument.h in Headers */,
+				9DA223F210EEACE400FAA0CD /* DDXMLElement.h in Headers */,
+				9DA223F310EEACE400FAA0CD /* DDXMLElementAdditions.h in Headers */,
+				9DA223F410EEACE400FAA0CD /* DDXMLNode.h in Headers */,
+				9DA223F510EEACE400FAA0CD /* DDXMLPrivate.h in Headers */,
+				9DA223F610EEACE400FAA0CD /* AGRegexTemplateMatcher.h in Headers */,
+				9DA223F710EEACE400FAA0CD /* WebMailer.h in Headers */,
+				9DA223F810EEACE400FAA0CD /* NSString+FoundationCompletions.h in Headers */,
+				9DA223F910EEACE400FAA0CD /* NSURLConnection+FoundationCompletions.h in Headers */,
+				9DA223FA10EEACE400FAA0CD /* WebRequest+FastCGI.h in Headers */,
+				9DA223FB10EEACE400FAA0CD /* NSXMLElementAdditions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -1205,9 +1451,9 @@
 			productReference = 9D648FB810142495002A4048 /* libfroth.so */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
-		9D79A1FE1006ADAA00AB337E /* froth */ = {
+		9D79A1FE1006ADAA00AB337E /* froth-mac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9D79A2051006ADC700AB337E /* Build configuration list for PBXNativeTarget "froth" */;
+			buildConfigurationList = 9D79A2051006ADC700AB337E /* Build configuration list for PBXNativeTarget "froth-mac" */;
 			buildPhases = (
 				9D79A1FB1006ADAA00AB337E /* Headers */,
 				9D79A1FC1006ADAA00AB337E /* Sources */,
@@ -1216,11 +1462,28 @@
 			buildRules = (
 			);
 			dependencies = (
-				9D13DEC710AF995D00039EF3 /* PBXTargetDependency */,
 			);
-			name = froth;
+			name = "froth-mac";
 			productName = cwk;
 			productReference = 9D79A1FF1006ADAA00AB337E /* libfroth.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9DA223AA10EEACE400FAA0CD /* froth-mac-mysql */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DA2243E10EEACE400FAA0CD /* Build configuration list for PBXNativeTarget "froth-mac-mysql" */;
+			buildPhases = (
+				9DA223AD10EEACE400FAA0CD /* Headers */,
+				9DA223FC10EEACE400FAA0CD /* Sources */,
+				9DA2243410EEACE400FAA0CD /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DA223AB10EEACE400FAA0CD /* PBXTargetDependency */,
+			);
+			name = "froth-mac-mysql";
+			productName = cwk;
+			productReference = 9DA2244210EEACE400FAA0CD /* libfroth.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -1239,39 +1502,40 @@
 					ProjectRef = 9D13DFBF10AFB59500039EF3 /* fmtool.xcodeproj */;
 				},
 				{
-					ProductGroup = 9D14730510E03D8A009D881B /* Products */;
-					ProjectRef = 9D13E03C10B0CC8C00039EF3 /* WebAppTemplate.xcodeproj */;
+					ProductGroup = 9DA2248A10EEB68700FAA0CD /* Products */;
+					ProjectRef = 9D13E03C10B0CC8C00039EF3 /* Template */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				9D79A1FE1006ADAA00AB337E /* froth */,
 				9D648FB710142495002A4048 /* froth-linux */,
+				9D79A1FE1006ADAA00AB337E /* froth-mac */,
+				9DA223AA10EEACE400FAA0CD /* froth-mac-mysql */,
 				9D94AAB1105F3D000034E2CB /* Documentation */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9D14730A10E03D8A009D881B /* WebAppTemplate.webApp */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = WebAppTemplate.webApp;
-			remoteRef = 9D14730910E03D8A009D881B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9D14730C10E03D8A009D881B /* WebAppTemplate.webApp */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = WebAppTemplate.webApp;
-			remoteRef = 9D14730B10E03D8A009D881B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		9D14731410E03D9D009D881B /* fmtool */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
 			path = fmtool;
 			remoteRef = 9D14731310E03D9D009D881B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9DA2248F10EEB68700FAA0CD /* ___PROJECTNAME___.webApp */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "___PROJECTNAME___.webApp";
+			remoteRef = 9DA2248E10EEB68700FAA0CD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9DA2249110EEB68700FAA0CD /* ___PROJECTNAME___.webApp */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "___PROJECTNAME___.webApp";
+			remoteRef = 9DA2249010EEB68700FAA0CD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1406,7 +1670,6 @@
 				9D79B136100CEEA000AB337E /* WebActiveController.m in Sources */,
 				9D79B57C100D378F00AB337E /* WebModelBase.m in Sources */,
 				9D79B58A100D37EE00AB337E /* WebDataSourceController.m in Sources */,
-				9D79B6C0100D47A200AB337E /* MySqlDataSource.m in Sources */,
 				9D79C122100FBD5E00AB337E /* WebSession.m in Sources */,
 				9D79C16E100FCC9F00AB337E /* MemoryDataSource.m in Sources */,
 				9D79C32C100FEFA000AB337E /* WebAuthComponent.m in Sources */,
@@ -1436,13 +1699,75 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9DA223FC10EEACE400FAA0CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DA223FD10EEACE400FAA0CD /* NSData+Utilities.m in Sources */,
+				9DA223FE10EEACE400FAA0CD /* NSString+Utilities.m in Sources */,
+				9DA223FF10EEACE400FAA0CD /* WebFastCgiController.m in Sources */,
+				9DA2240010EEACE400FAA0CD /* SDBDataConnector.m in Sources */,
+				9DA2240110EEACE400FAA0CD /* os_unix.c in Sources */,
+				9DA2240210EEACE400FAA0CD /* fcgiapp.c in Sources */,
+				9DA2240310EEACE400FAA0CD /* sdb.c in Sources */,
+				9DA2240410EEACE400FAA0CD /* util.c in Sources */,
+				9DA2240510EEACE400FAA0CD /* base64.c in Sources */,
+				9DA2240610EEACE400FAA0CD /* private.c in Sources */,
+				9DA2240710EEACE400FAA0CD /* response.c in Sources */,
+				9DA2240810EEACE400FAA0CD /* objpcre.m in Sources */,
+				9DA2240910EEACE400FAA0CD /* WebApplication.m in Sources */,
+				9DA2240A10EEACE400FAA0CD /* WebLayoutView.m in Sources */,
+				9DA2240B10EEACE400FAA0CD /* WebActionView.m in Sources */,
+				9DA2240C10EEACE400FAA0CD /* WebRequest.m in Sources */,
+				9DA2240D10EEACE400FAA0CD /* WebResponse.m in Sources */,
+				9DA2240E10EEACE400FAA0CD /* NSDictionary+Query.m in Sources */,
+				9DA2240F10EEACE400FAA0CD /* MGTemplateEngine.m in Sources */,
+				9DA2241010EEACE400FAA0CD /* MGTemplateStandardMarkers.m in Sources */,
+				9DA2241110EEACE400FAA0CD /* MGTemplateStandardFilters.m in Sources */,
+				9DA2241210EEACE400FAA0CD /* NSArray_DeepMutableCopy.m in Sources */,
+				9DA2241310EEACE400FAA0CD /* NSDictionary_DeepMutableCopy.m in Sources */,
+				9DA2241410EEACE400FAA0CD /* WKValueComparisonFilters.m in Sources */,
+				9DA2241510EEACE400FAA0CD /* WKFunctionMarkers.m in Sources */,
+				9DA2241610EEACE400FAA0CD /* WebActiveController.m in Sources */,
+				9DA2241710EEACE400FAA0CD /* WebModelBase.m in Sources */,
+				9DA2241810EEACE400FAA0CD /* WebDataSourceController.m in Sources */,
+				9DA2241910EEACE400FAA0CD /* MySqlDataSource.m in Sources */,
+				9DA2241A10EEACE400FAA0CD /* WebSession.m in Sources */,
+				9DA2241B10EEACE400FAA0CD /* MemoryDataSource.m in Sources */,
+				9DA2241C10EEACE400FAA0CD /* WebAuthComponent.m in Sources */,
+				9DA2241D10EEACE400FAA0CD /* NSObject+SBJSON.m in Sources */,
+				9DA2241E10EEACE400FAA0CD /* NSString+SBJSON.m in Sources */,
+				9DA2241F10EEACE400FAA0CD /* SBJSON.m in Sources */,
+				9DA2242010EEACE400FAA0CD /* SBJsonBase.m in Sources */,
+				9DA2242110EEACE400FAA0CD /* SBJsonParser.m in Sources */,
+				9DA2242210EEACE400FAA0CD /* SBJsonWriter.m in Sources */,
+				9DA2242310EEACE400FAA0CD /* AGRegexTemplateMatcher.m in Sources */,
+				9DA2242410EEACE400FAA0CD /* NSString+Regex.m in Sources */,
+				9DA2242510EEACE400FAA0CD /* AGRegex.m in Sources */,
+				9DA2242610EEACE400FAA0CD /* NSMutableString+Utilities.m in Sources */,
+				9DA2242710EEACE400FAA0CD /* NSNumber+TemplateUtilities.m in Sources */,
+				9DA2242810EEACE400FAA0CD /* NSArray+TemplateUtilities.m in Sources */,
+				9DA2242910EEACE400FAA0CD /* SDBDataSource.m in Sources */,
+				9DA2242A10EEACE400FAA0CD /* NSDate+SBJSON.m in Sources */,
+				9DA2242B10EEACE400FAA0CD /* WebModelPredicate.m in Sources */,
+				9DA2242C10EEACE400FAA0CD /* WebRequest+Params.m in Sources */,
+				9DA2242D10EEACE400FAA0CD /* WebSession+User.m in Sources */,
+				9DA2242E10EEACE400FAA0CD /* NSDateScealaTypes.m in Sources */,
+				9DA2242F10EEACE400FAA0CD /* NSStringAdditions.m in Sources */,
+				9DA2243010EEACE400FAA0CD /* WebMailer.m in Sources */,
+				9DA2243110EEACE400FAA0CD /* NSURLConnection+FoundationCompletions.m in Sources */,
+				9DA2243210EEACE400FAA0CD /* WebRequest+FastCGI.m in Sources */,
+				9DA2243310EEACE400FAA0CD /* NSXMLElementAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9D13DEC710AF995D00039EF3 /* PBXTargetDependency */ = {
+		9DA223AB10EEACE400FAA0CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9D648FB710142495002A4048 /* froth-linux */;
-			targetProxy = 9D13DEC610AF995D00039EF3 /* PBXContainerItemProxy */;
+			targetProxy = 9DA223AC10EEACE400FAA0CD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1555,6 +1880,7 @@
 				INSTALL_PATH = /usr/lib;
 				LIBRARY_SEARCH_PATHS = "/Developer/Cocotron/1.0/PlatformInterfaces/i386-ubuntu-linux/lib";
 				LINK_WITH_STANDARD_LIBRARIES = YES;
+				OBJROOT = "$(SYMROOT)";
 				OTHER_CFLAGS = "-fPIC";
 				OTHER_LDFLAGS = (
 					"-shared",
@@ -1574,7 +1900,9 @@
 					"-Wl,-rpath=$ORIGIN",
 				);
 				PREBINDING = NO;
+				PRIVATE_HEADERS_FOLDER_PATH = ../../include;
 				PRODUCT_NAME = froth;
+				PUBLIC_HEADERS_FOLDER_PATH = ../../include;
 				SDKROOT = "";
 				SYMROOT = /Developer/FrothSDK/Library/lib/linux;
 				VALID_ARCHS = i386;
@@ -1619,6 +1947,7 @@
 				INSTALL_PATH = /Developer/FrothSDK/Library/lib;
 				LIBRARY_SEARCH_PATHS = "/Developer/Cocotron/1.0/PlatformInterfaces/i386-ubuntu-linux/lib";
 				LINK_WITH_STANDARD_LIBRARIES = YES;
+				OBJROOT = "$(SYMROOT)";
 				OTHER_CFLAGS = "-fPIC";
 				OTHER_LDFLAGS = (
 					"-shared",
@@ -1688,7 +2017,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
-					/usr/local/mysql/include,
 					/usr/local/include,
 					/usr/include/libxml2,
 					/usr/include/openssl,
@@ -1765,6 +2093,117 @@
 			};
 			name = Release;
 		};
+		9DA2243F10EEACE400FAA0CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(EFFECTIVE_PLATFORM_NAME)";
+				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_LOCATION = NO;
+				DEPLOYMENT_POSTPROCESSING = NO;
+				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = (
+					/usr/local/mysql/include,
+					/usr/local/include,
+					/usr/include/libxml2,
+					/usr/include/openssl,
+				);
+				INSTALL_PATH = /Developer/FrothSDK/Library/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SRCROOT)\\\"",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+				);
+				PREBINDING = NO;
+				PRIVATE_HEADERS_FOLDER_PATH = ../include;
+				PRODUCT_NAME = froth;
+				PUBLIC_HEADERS_FOLDER_PATH = ../include;
+			};
+			name = Debug;
+		};
+		9DA2244010EEACE400FAA0CD /* Deploy */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(EFFECTIVE_PLATFORM_NAME)";
+				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_LOCATION = NO;
+				DEPLOYMENT_POSTPROCESSING = NO;
+				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = (
+					/usr/local/mysql/include,
+					/usr/local/include,
+					/usr/include/libxml2,
+					/usr/include/openssl,
+				);
+				INSTALL_PATH = /Developer/FrothSDK/Library/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SRCROOT)\\\"",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+				);
+				PREBINDING = NO;
+				PRIVATE_HEADERS_FOLDER_PATH = ../include;
+				PRODUCT_NAME = froth;
+				PUBLIC_HEADERS_FOLDER_PATH = ../include;
+			};
+			name = Deploy;
+		};
+		9DA2244110EEACE400FAA0CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/libetpan,
+					/usr/local/mysql/include,
+					/usr/local/include,
+					/usr/include/libxml2,
+					/usr/include/openssl,
+				);
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SRCROOT)\\\"",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = cwk;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1788,7 +2227,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9D79A2051006ADC700AB337E /* Build configuration list for PBXNativeTarget "froth" */ = {
+		9D79A2051006ADC700AB337E /* Build configuration list for PBXNativeTarget "froth-mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9D79A2001006ADAC00AB337E /* Debug */,
@@ -1804,6 +2243,16 @@
 				9D94AAB2105F3D000034E2CB /* Debug */,
 				9D13DEF510AF9C6300039EF3 /* Deploy */,
 				9D94AAB3105F3D000034E2CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DA2243E10EEACE400FAA0CD /* Build configuration list for PBXNativeTarget "froth-mac-mysql" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DA2243F10EEACE400FAA0CD /* Debug */,
+				9DA2244010EEACE400FAA0CD /* Deploy */,
+				9DA2244110EEACE400FAA0CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

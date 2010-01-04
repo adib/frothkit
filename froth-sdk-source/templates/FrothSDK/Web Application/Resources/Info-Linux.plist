@@ -25,11 +25,13 @@
 	<key>froth_root_beta</key>
 	<string></string>
 	<key>froth_host_beta</key>
-	<string>204.236.224.163</string>
+	<string>dev.frothkit.org</string>
 	<key>froth_port_beta</key>
 	<string>9394</string>
 	<key>froth_root_staging</key>
 	<string>/staging</string>
+	<key>froth_host_staging</key>
+	<string>192.168.0.1</string>
 	<key>froth_port_staging</key>
 	<string>9395</string>
 </dict>

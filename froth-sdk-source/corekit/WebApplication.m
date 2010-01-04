@@ -66,25 +66,6 @@
 - (id)init {
 	if(self = [super init]) {
 		m_app_path = [[NSBundle mainBundle] bundlePath];
-		
-		/*
-		//We use this to access the current deployment mode for the webapp on a froth machine
-#ifndef __APPLE__
-		// /var/froth/apps/[mode]/WebApp.webApp
-		NSLog(@"%@", [m_app_path componentsSeparatedByString:@"/"]);
-		NSString* mode = [[m_app_path componentsSeparatedByString:@"/"] objectAtIndex:4];
-		NSString* relativeRoot = [[[NSBundle mainBundle] infoDictionary] valueForKey:froth_str(@"froth_root_%@", mode)];
-#else
-		NSString* relativeRoot = @"";
-#endif
-		
-		m_enviromentConfiguration = [[NSDictionary dictionaryWithObjectsAndKeys:
-									  relativeRoot, kParamsUriRootKey,
-									  [NSNumber numberWithBool:YES], kParamsUriDebugEnabled, 
-									  @"productivity", @"root_controller", 
-									  @"home", @"root_action", nil] retain];
-		
-		m_root_uri = [[NSString stringWithFormat:@"%@/",[m_enviromentConfiguration valueForKey:kParamsUriRootKey]] retain];*/
 	
 		m_cachedWebActionControllerClasses = [[NSMutableArray array] retain];
 		m_componentInstances = [[NSMutableDictionary dictionary] retain];
@@ -110,7 +91,7 @@
 
 /*
 	Amazon Targets have a strange bug where the
-	controller name gets capitalized start && end caracters! thats a bug probably in Foundation.framework.
+	controller name gets capitalized start & end characters! thats a bug probably in Foundation.framework.
 */
 - (NSString*)_controllerNameForRequest:(WebRequest*)req {
 	NSString* controllerName = req.controller;
