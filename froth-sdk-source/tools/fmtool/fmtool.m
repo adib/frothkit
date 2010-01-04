@@ -32,6 +32,8 @@
 void f_wait(double time);
 
 int prepareWebApp(NSString* name, NSString* mode);
+int startWebApp(NSString* name, NSString* mode);
+int stopWebApp(NSString* name, NSString* mode);
 
 int main (int argc, const char * argv[]) {
 	NSInitializeProcess(argc, argv);
@@ -43,11 +45,15 @@ int main (int argc, const char * argv[]) {
 		printf("FrothMachine Tools V.1\nfmtool useage info use fmtool -h\n");
 	} else if([[args objectAtIndex:1] isEqualToString:@"-h"]) {
 		printf("FrothMachine Tools Version 1.0\n");
-		printf("-i [WebAppName] [mode] install a webapp and prepare is lighttpd conf. Also restarts lighttpd and webapp.\n");
+		printf("-i [WebAppName] [mode] install a webapp and prepare its lighttpd conf. Also tells lighttpd to load conf for webapp\n");
 		printf("-s [WebAppName] [mode] stops a webapp\n");
 		printf("-r [WebAppName] [mode] starts a webapp\n");
 	} else if([[args objectAtIndex:1] isEqualToString:@"-i"]) {
 		prepareWebApp([args objectAtIndex:2], [args objectAtIndex:3]);
+	} else if([[args objectAtIndex:2] isEqualToString:@"-s"]) {
+		
+	} else if([[args objectAtIndex:3] isEqualToString:@"r"]) {
+		
 	}
 	
     // insert code here...
@@ -96,6 +102,10 @@ int prepareWebApp(NSString* name, NSString* mode) {
 	printf("+force a gracefull shutdown\n");
 	[NSTask launchedTaskWithLaunchPath:@"/sbin/start-stop-daemon" arguments:[NSArray arrayWithObjects:@"--stop", @"--oknodo", @"--exec", [webApp executablePath], @"", nil]];
 	f_wait(0.4);
+	
+	//Run cleanup script after kill. Fixes http://code.google.com/p/frothkit/issues/detail?id=17 issue with uuid not stopping when new guid is generated.
+	[NSTask launchedTaskWithLaunchPath:@"/usr/froth/bin/cleanup_uuid_process" arguments:[NSArray arrayWithObjects:port, port, nil]];
+	f_wait(0.2);
 	
 	printf("+starting webapp\n");
 	[NSTask launchedTaskWithLaunchPath:@"/sbin/start-stop-daemon" arguments:[NSArray arrayWithObjects:@"--start", @"--oknodo", @"--exec", [webApp executablePath], @"-b", @"--", port, port, port, nil]];

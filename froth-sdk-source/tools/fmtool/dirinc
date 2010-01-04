@@ -1,0 +1,5 @@
+#!/bin/bash
+echo '## Froth Web Apps - Lighttpd Conf Parser'
+
+cd /var/froth/config/httpd
+cat *.conf

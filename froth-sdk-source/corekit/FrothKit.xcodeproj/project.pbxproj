@@ -483,14 +483,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 9D13E03C10B0CC8C00039EF3 /* Template */;
 			proxyType = 2;
-			remoteGlobalIDString = 9D13DB1410ACC11100039EF3 /* ___PROJECTNAME___.webApp */;
+			remoteGlobalIDString = 9D13DB1410ACC11100039EF3;
 			remoteInfo = "___PROJECTNAME___-Linux";
 		};
 		9DA2249010EEB68700FAA0CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9D13E03C10B0CC8C00039EF3 /* Template */;
 			proxyType = 2;
-			remoteGlobalIDString = 8D5B49B6048680CD000E48DA /* ___PROJECTNAME___.webApp */;
+			remoteGlobalIDString = 8D5B49B6048680CD000E48DA;
 			remoteInfo = "___PROJECTNAME___";
 		};
 /* End PBXContainerItemProxy section */

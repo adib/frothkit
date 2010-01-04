@@ -1,0 +1,3 @@
+#!/bin/sh
+
+lsof -i TCP:$1 | grep uuid | awk "{print \$2}" | xargs kill
