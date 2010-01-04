@@ -1,0 +1,15 @@
+MySqlDataSource
+
+MySqlDataSource does not build by defualt for MacOS X targets of froth. For building froth with mysql db support, select
+the froth-mac-mysql target from the Xcode targets list. You will also need to have mysql-dev libraries installed on your
+development and deployment macs.
+
+
+MemoryDataSource
+
+Provides basic in memory datasource. This needs more improvements.
+
+
+SDBDataSource
+
+Provides access to Amazon's SimpleDB as WebModels in froth.
