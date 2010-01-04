@@ -1,0 +1,674 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9D13DAFF10ACC11100039EF3 /* cwkd.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE8202A10AB87CA006D1176 /* cwkd.m */; };
+		9D13DB0010ACC11100039EF3 /* WAExampleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE8234410AC88BB006D1176 /* WAExampleController.m */; };
+		9D13DBEC10ACC8CA00039EF3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C1672FE841209C02AAC07 /* Foundation.framework */; };
+		9D13DC9810ACF71100039EF3 /* MyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D13DC9710ACF71100039EF3 /* MyModel.m */; };
+		9D13DC9910ACF71100039EF3 /* MyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D13DC9710ACF71100039EF3 /* MyModel.m */; };
+		9D13DC9C10ACF74000039EF3 /* ExamplePageView.html in Resources */ = {isa = PBXBuildFile; fileRef = 9D13DC9B10ACF74000039EF3 /* ExamplePageView.html */; };
+		9D13DC9D10ACF74000039EF3 /* ExamplePageView.html in Resources */ = {isa = PBXBuildFile; fileRef = 9D13DC9B10ACF74000039EF3 /* ExamplePageView.html */; };
+		9D13DCBB10ACF90900039EF3 /* Layout.html in Resources */ = {isa = PBXBuildFile; fileRef = 9D13DCBA10ACF90900039EF3 /* Layout.html */; };
+		9D13DCBC10ACF90900039EF3 /* Layout.html in Resources */ = {isa = PBXBuildFile; fileRef = 9D13DCBA10ACF90900039EF3 /* Layout.html */; };
+		9D13DD0210AE0E0100039EF3 /* DataSources.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D13DD0110AE0E0100039EF3 /* DataSources.plist */; };
+		9D13DD0310AE0E0F00039EF3 /* DataSources.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D13DD0110AE0E0100039EF3 /* DataSources.plist */; };
+		9D13DD6A10AE1A5900039EF3 /* test.js in Sources */ = {isa = PBXBuildFile; fileRef = 9D13DD6910AE1A5900039EF3 /* test.js */; };
+		9D13DD6B10AE1A5900039EF3 /* test.js in Sources */ = {isa = PBXBuildFile; fileRef = 9D13DD6910AE1A5900039EF3 /* test.js */; };
+		9D13DD7910AE1C6300039EF3 /* test.js in Copy Static JS Server Files */ = {isa = PBXBuildFile; fileRef = 9D13DD6910AE1A5900039EF3 /* test.js */; };
+		9D13DD8410AE58D400039EF3 /* test.css in Resources */ = {isa = PBXBuildFile; fileRef = 9D13DD8310AE58D400039EF3 /* test.css */; };
+		9D13DD8510AE58D400039EF3 /* test.css in Resources */ = {isa = PBXBuildFile; fileRef = 9D13DD8310AE58D400039EF3 /* test.css */; };
+		9D13DD8B10AE58DD00039EF3 /* test.css in Copy Static CSS Server Files */ = {isa = PBXBuildFile; fileRef = 9D13DD8310AE58D400039EF3 /* test.css */; };
+		9D13E2F210B3277300039EF3 /* libpython.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D13E2F110B3277300039EF3 /* libpython.dylib */; };
+		9DE8202B10AB87CA006D1176 /* cwkd.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE8202A10AB87CA006D1176 /* cwkd.m */; };
+		9DE8203510AB8988006D1176 /* libmysqlclient_r.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE8203410AB8988006D1176 /* libmysqlclient_r.dylib */; };
+		9DE8203F10AB89C3006D1176 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE8203610AB89C3006D1176 /* libsqlite3.dylib */; };
+		9DE8204010AB89C3006D1176 /* libpcre.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE8203710AB89C3006D1176 /* libpcre.a */; };
+		9DE8204110AB89C3006D1176 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE8203810AB89C3006D1176 /* libz.dylib */; };
+		9DE8204210AB89C3006D1176 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE8203910AB89C3006D1176 /* libxml2.dylib */; };
+		9DE8204310AB89C3006D1176 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE8203A10AB89C3006D1176 /* libcrypto.dylib */; };
+		9DE8204410AB89C3006D1176 /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE8203B10AB89C3006D1176 /* libssl.dylib */; };
+		9DE8204510AB89C3006D1176 /* libpcre.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE8203C10AB89C3006D1176 /* libpcre.dylib */; };
+		9DE8204610AB89C3006D1176 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE8203D10AB89C3006D1176 /* libcurl.dylib */; };
+		9DE8204710AB89C3006D1176 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE8203E10AB89C3006D1176 /* libicucore.dylib */; };
+		9DE8211510AB89E0006D1176 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C1672FE841209C02AAC07 /* Foundation.framework */; };
+		9DE8219C10AB8A30006D1176 /* libfroth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE8219B10AB8A30006D1176 /* libfroth.a */; };
+		9DE8234510AC88BB006D1176 /* WAExampleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE8234410AC88BB006D1176 /* WAExampleController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		9D13DB1710ACC4F800039EF3 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = org.cocotron.1.0.linux.i386.gcc.default;
+			fileType = sourcecode.asm;
+			isEditable = 1;
+			outputFiles = (
+			);
+		};
+		9D13DB1810ACC4F800039EF3 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = org.cocotron.1.0.linux.i386.gcc.default;
+			fileType = sourcecode.c;
+			isEditable = 1;
+			outputFiles = (
+			);
+		};
+		9D13DB1910ACC4F800039EF3 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = org.cocotron.1.0.linux.i386.gcc.default;
+			fileType = sourcecode.cpp;
+			isEditable = 1;
+			outputFiles = (
+			);
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXContainerItemProxy section */
+		9D13DCEB10AE0D6100039EF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D13DAFC10ACC11100039EF3;
+			remoteInfo = "WebAppTemplate-Linux";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9D13DB0E10ACC11100039EF3 /* Copy Static JS Server Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = static/js;
+			dstSubfolderSpec = 1;
+			files = (
+				9D13DD7910AE1C6300039EF3 /* test.js in Copy Static JS Server Files */,
+			);
+			name = "Copy Static JS Server Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D13DB0F10ACC11100039EF3 /* Copy Static CSS Server Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = static/css;
+			dstSubfolderSpec = 1;
+			files = (
+				9D13DD8B10AE58DD00039EF3 /* test.css in Copy Static CSS Server Files */,
+			);
+			name = "Copy Static CSS Server Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D13DB1010ACC11100039EF3 /* Copy Static IMG Server Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = static/img;
+			dstSubfolderSpec = 1;
+			files = (
+			);
+			name = "Copy Static IMG Server Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DE8232210AC855E006D1176 /* Copy Static JS Server Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = static/js;
+			dstSubfolderSpec = 1;
+			files = (
+			);
+			name = "Copy Static JS Server Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DE8232E10AC8707006D1176 /* Copy Static CSS Server Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = static/css;
+			dstSubfolderSpec = 1;
+			files = (
+			);
+			name = "Copy Static CSS Server Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DE8232F10AC8707006D1176 /* Copy Static IMG Server Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = static/img;
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			name = "Copy Static IMG Server Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		8D5B49B6048680CD000E48DA /* ___PROJECTNAME___.webApp */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "___PROJECTNAME___.webApp"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D13DB1410ACC11100039EF3 /* ___PROJECTNAME___.webApp */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "___PROJECTNAME___.webApp"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D13DB1510ACC11100039EF3 /* Info-Linux.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Linux.plist"; sourceTree = "<group>"; };
+		9D13DC9610ACF71100039EF3 /* MyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyModel.h; sourceTree = "<group>"; };
+		9D13DC9710ACF71100039EF3 /* MyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyModel.m; sourceTree = "<group>"; };
+		9D13DC9B10ACF74000039EF3 /* ExamplePageView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ExamplePageView.html; sourceTree = "<group>"; };
+		9D13DCBA10ACF90900039EF3 /* Layout.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Layout.html; sourceTree = "<group>"; };
+		9D13DD0110AE0E0100039EF3 /* DataSources.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DataSources.plist; sourceTree = "<group>"; };
+		9D13DD6910AE1A5900039EF3 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
+		9D13DD8310AE58D400039EF3 /* test.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = test.css; sourceTree = "<group>"; };
+		9D13E2F110B3277300039EF3 /* libpython.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpython.dylib; path = usr/lib/libpython.dylib; sourceTree = SDKROOT; };
+		9DE8202A10AB87CA006D1176 /* cwkd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cwkd.m; sourceTree = "<group>"; };
+		9DE8203410AB8988006D1176 /* libmysqlclient_r.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmysqlclient_r.dylib; path = "/usr/local/mysql-5.0.67-osx10.5-x86/lib/libmysqlclient_r.dylib"; sourceTree = "<absolute>"; };
+		9DE8203610AB89C3006D1176 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		9DE8203710AB89C3006D1176 /* libpcre.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpcre.a; path = /usr/local/lib/libpcre.a; sourceTree = "<absolute>"; };
+		9DE8203810AB89C3006D1176 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		9DE8203910AB89C3006D1176 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		9DE8203A10AB89C3006D1176 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		9DE8203B10AB89C3006D1176 /* libssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.dylib; path = usr/lib/libssl.dylib; sourceTree = SDKROOT; };
+		9DE8203C10AB89C3006D1176 /* libpcre.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpcre.dylib; path = usr/local/lib/libpcre.dylib; sourceTree = SDKROOT; };
+		9DE8203D10AB89C3006D1176 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
+		9DE8203E10AB89C3006D1176 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		9DE8219B10AB8A30006D1176 /* libfroth.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfroth.a; path = FrothSDK/Library/lib/libfroth.a; sourceTree = DEVELOPER_DIR; };
+		9DE8234310AC88BB006D1176 /* WAExampleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAExampleController.h; sourceTree = "<group>"; };
+		9DE8234410AC88BB006D1176 /* WAExampleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAExampleController.m; sourceTree = "<group>"; };
+		9DE8235310AC8A1F006D1176 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefix.pch; sourceTree = "<group>"; };
+		9DE8238B10AC8E0D006D1176 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D5B49B3048680CD000E48DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DE8211510AB89E0006D1176 /* Foundation.framework in Frameworks */,
+				9DE8203510AB8988006D1176 /* libmysqlclient_r.dylib in Frameworks */,
+				9DE8203F10AB89C3006D1176 /* libsqlite3.dylib in Frameworks */,
+				9DE8204010AB89C3006D1176 /* libpcre.a in Frameworks */,
+				9DE8204110AB89C3006D1176 /* libz.dylib in Frameworks */,
+				9DE8204210AB89C3006D1176 /* libxml2.dylib in Frameworks */,
+				9DE8204310AB89C3006D1176 /* libcrypto.dylib in Frameworks */,
+				9DE8204410AB89C3006D1176 /* libssl.dylib in Frameworks */,
+				9DE8204510AB89C3006D1176 /* libpcre.dylib in Frameworks */,
+				9DE8204610AB89C3006D1176 /* libcurl.dylib in Frameworks */,
+				9DE8204710AB89C3006D1176 /* libicucore.dylib in Frameworks */,
+				9DE8219C10AB8A30006D1176 /* libfroth.a in Frameworks */,
+				9D13E2F210B3277300039EF3 /* libpython.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D13DB0110ACC11100039EF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D13DBEC10ACC8CA00039EF3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* DejumbleNotes */ = {
+			isa = PBXGroup;
+			children = (
+				9DE8229210AB9A59006D1176 /* Models */,
+				08FB77AFFE84173DC02AAC07 /* Views */,
+				9DE8228F10AB9A42006D1176 /* Controllers */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				32C88E010371C26100C91783 /* Shared */,
+				9DE8238510AC8D83006D1176 /* Resources */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				19C28FB8FE9D52D311CA2CBB /* Products */,
+			);
+			name = DejumbleNotes;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				9DE8202E10AB8804006D1176 /* Froth */,
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9DE8232610AC85C5006D1176 /* js */,
+				9DE8232510AC8569006D1176 /* css */,
+				9DE8234610AC8953006D1176 /* img */,
+				9DE8232110AC855E006D1176 /* config */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AFFE84173DC02AAC07 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9D13DCBA10ACF90900039EF3 /* Layout.html */,
+				9D13DC9B10ACF74000039EF3 /* ExamplePageView.html */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7AEFEA557BF11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C1672FE841209C02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB8FE9D52D311CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D13DCF110AE0D6B00039EF3 /* Linux */,
+				8D5B49B6048680CD000E48DA /* ___PROJECTNAME___.webApp */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32C88E010371C26100C91783 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				9DE8235310AC8A1F006D1176 /* prefix.pch */,
+				9DE8202A10AB87CA006D1176 /* cwkd.m */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		9D13DCF110AE0D6B00039EF3 /* Linux */ = {
+			isa = PBXGroup;
+			children = (
+				9D13DB1410ACC11100039EF3 /* ___PROJECTNAME___.webApp */,
+			);
+			name = Linux;
+			sourceTree = "<group>";
+		};
+		9DE8202E10AB8804006D1176 /* Froth */ = {
+			isa = PBXGroup;
+			children = (
+				9D13E2F110B3277300039EF3 /* libpython.dylib */,
+				9DE8219B10AB8A30006D1176 /* libfroth.a */,
+				9DE8203410AB8988006D1176 /* libmysqlclient_r.dylib */,
+				9DE8203610AB89C3006D1176 /* libsqlite3.dylib */,
+				9DE8203710AB89C3006D1176 /* libpcre.a */,
+				9DE8203810AB89C3006D1176 /* libz.dylib */,
+				9DE8203910AB89C3006D1176 /* libxml2.dylib */,
+				9DE8203A10AB89C3006D1176 /* libcrypto.dylib */,
+				9DE8203B10AB89C3006D1176 /* libssl.dylib */,
+				9DE8203C10AB89C3006D1176 /* libpcre.dylib */,
+				9DE8203D10AB89C3006D1176 /* libcurl.dylib */,
+				9DE8203E10AB89C3006D1176 /* libicucore.dylib */,
+			);
+			name = Froth;
+			sourceTree = "<group>";
+		};
+		9DE8228F10AB9A42006D1176 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9DE8234310AC88BB006D1176 /* WAExampleController.h */,
+				9DE8234410AC88BB006D1176 /* WAExampleController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9DE8229210AB9A59006D1176 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9D13DC9610ACF71100039EF3 /* MyModel.h */,
+				9D13DC9710ACF71100039EF3 /* MyModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9DE8232110AC855E006D1176 /* config */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = config;
+			sourceTree = "<group>";
+		};
+		9DE8232510AC8569006D1176 /* css */ = {
+			isa = PBXGroup;
+			children = (
+				9D13DD8310AE58D400039EF3 /* test.css */,
+			);
+			name = css;
+			path = Static/css;
+			sourceTree = "<group>";
+		};
+		9DE8232610AC85C5006D1176 /* js */ = {
+			isa = PBXGroup;
+			children = (
+				9D13DD6910AE1A5900039EF3 /* test.js */,
+			);
+			comments = "TODO: Would be good to have a script that sends in all files in static/js into the js deploy location. (possibly a build phaze)";
+			name = js;
+			path = Static/js;
+			sourceTree = "<group>";
+		};
+		9DE8234610AC8953006D1176 /* img */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = img;
+			path = Static/img;
+			sourceTree = "<group>";
+		};
+		9DE8238510AC8D83006D1176 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9DE8238B10AC8E0D006D1176 /* Info.plist */,
+				9D13DD0110AE0E0100039EF3 /* DataSources.plist */,
+				9D13DB1510ACC11100039EF3 /* Info-Linux.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D5B49AC048680CD000E48DA /* ___PROJECTNAME___ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "___PROJECTNAME___" */;
+			buildPhases = (
+				8D5B49AF048680CD000E48DA /* Resources */,
+				8D5B49B1048680CD000E48DA /* Sources */,
+				8D5B49B3048680CD000E48DA /* Frameworks */,
+				9DE8232210AC855E006D1176 /* Copy Static JS Server Files */,
+				9DE8232E10AC8707006D1176 /* Copy Static CSS Server Files */,
+				9DE8232F10AC8707006D1176 /* Copy Static IMG Server Files */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9D13DCEC10AE0D6100039EF3 /* PBXTargetDependency */,
+			);
+			name = "___PROJECTNAME___";
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = DejumbleNotes;
+			productReference = 8D5B49B6048680CD000E48DA /* ___PROJECTNAME___.webApp */;
+			productType = "com.apple.product-type.bundle";
+		};
+		9D13DAFC10ACC11100039EF3 /* ___PROJECTNAME___-Linux */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D13DB1110ACC11100039EF3 /* Build configuration list for PBXNativeTarget "___PROJECTNAME___-Linux" */;
+			buildPhases = (
+				9D13DAFD10ACC11100039EF3 /* Resources */,
+				9D13DAFE10ACC11100039EF3 /* Sources */,
+				9D13DB0110ACC11100039EF3 /* Frameworks */,
+				9D13DB0E10ACC11100039EF3 /* Copy Static JS Server Files */,
+				9D13DB0F10ACC11100039EF3 /* Copy Static CSS Server Files */,
+				9D13DB1010ACC11100039EF3 /* Copy Static IMG Server Files */,
+				9D13DD3C10AE159500039EF3 /* Deploy Script */,
+			);
+			buildRules = (
+				9D13DB1710ACC4F800039EF3 /* PBXBuildRule */,
+				9D13DB1810ACC4F800039EF3 /* PBXBuildRule */,
+				9D13DB1910ACC4F800039EF3 /* PBXBuildRule */,
+			);
+			comments = "Linux and Amazon Compatible Target.\n\nTODOs \n[DONE]1. Implement a run script to do automatic deployments\n\na. This uses rsync and a shell script to upload the bundle to the appropriate [configuration] folder.\nrsync -avvz -e \"ssh -i $(FROTHMACHINE_IDENTITY)\" #(PRODUCT_PATH) root@174.129.9.112:/var/froth/apps/beta\n\n2. Implement a remove debugging system for ec3\n\n";
+			dependencies = (
+			);
+			name = "___PROJECTNAME___-Linux";
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = DejumbleNotes;
+			productReference = 9D13DB1410ACC11100039EF3 /* ___PROJECTNAME___.webApp */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "___PROJECTNAME___" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* DejumbleNotes */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9D13DAFC10ACC11100039EF3 /* ___PROJECTNAME___-Linux */,
+				8D5B49AC048680CD000E48DA /* ___PROJECTNAME___ */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D5B49AF048680CD000E48DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D13DC9D10ACF74000039EF3 /* ExamplePageView.html in Resources */,
+				9D13DCBC10ACF90900039EF3 /* Layout.html in Resources */,
+				9D13DD0210AE0E0100039EF3 /* DataSources.plist in Resources */,
+				9D13DD8510AE58D400039EF3 /* test.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D13DAFD10ACC11100039EF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D13DC9C10ACF74000039EF3 /* ExamplePageView.html in Resources */,
+				9D13DCBB10ACF90900039EF3 /* Layout.html in Resources */,
+				9D13DD0310AE0E0F00039EF3 /* DataSources.plist in Resources */,
+				9D13DD8410AE58D400039EF3 /* test.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9D13DD3C10AE159500039EF3 /* Deploy Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Deploy Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "if [[ -n \"$FROTH_IDENTITY\" && \"$FROTH_IDENTITY\" != \"[ SSL IDENTITY FILE PATH ]\" ]]; then\n\techo '===== BUILDING WEBAPP FOR DEPLOYMENT ====='\n\trsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${BUILD_DIR}/${CONFIGURATION}/${PRODUCT_NAME}.webApp root@${FROTH_HOST}:/var/froth/apps/${CONFIGURATION}\n\techo '========= DEPLOYMENT COMPLETE ============'\n\n\t#connect to frothmachine to do some configurations for the webapp, and to launch it. These are run on the client side by running the /usr/froth/bin/setupWebApp WebAppName command. See that commands source for details... this command also restarts the server and launchs the webapp (or relaunches.)\n\n\t#ssh -i ${FROTH_IDENTITY} root@${FROTH_HOST} \"/usr/froth/bin/fmtool -i ${PRODUCT_NAME} ${CONFIGURATION}; /etc/init.d/lighttpd restart\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D5B49B1048680CD000E48DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DE8202B10AB87CA006D1176 /* cwkd.m in Sources */,
+				9DE8234510AC88BB006D1176 /* WAExampleController.m in Sources */,
+				9D13DC9810ACF71100039EF3 /* MyModel.m in Sources */,
+				9D13DD6B10AE1A5900039EF3 /* test.js in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D13DAFE10ACC11100039EF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D13DAFF10ACC11100039EF3 /* cwkd.m in Sources */,
+				9D13DB0010ACC11100039EF3 /* WAExampleController.m in Sources */,
+				9D13DC9910ACF71100039EF3 /* MyModel.m in Sources */,
+				9D13DD6A10AE1A5900039EF3 /* test.js in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9D13DCEC10AE0D6100039EF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9D13DAFC10ACC11100039EF3 /* ___PROJECTNAME___-Linux */;
+			targetProxy = 9D13DCEB10AE0D6100039EF3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB913B08733D840010E9CD /* beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Shared/prefix.pch";
+				HEADER_SEARCH_PATHS = "\"/Developer/FrothSDK/Library/include\"";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/usr/local/mysql-5.0.67-osx10.5-x86/lib\"",
+					"\"/Developer/FrothSDK/Library/lib\"",
+				);
+				MACH_O_TYPE = mh_execute;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-ObjC",
+				);
+				PRODUCT_NAME = "___PROJECTNAME___";
+				SYMROOT = /Users/$USER/Development/FrothSDK/builds;
+				WRAPPER_EXTENSION = webApp;
+			};
+			name = beta;
+		};
+		1DEB913F08733D840010E9CD /* beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Shared/Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = beta;
+		};
+		9D13DB1210ACC11100039EF3 /* beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Linux";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = /Developer/Cocotron/1.0/Linux/i386/Frameworks;
+				FROTH_HOST = 204.236.224.163;
+				FROTH_IDENTITY = /Users/allan/aws/aphiltc1.pem;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_FAST_OBJC_DISPATCH = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Shared/prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"/**",
+					"\"/Developer/FrothSDK/Library/include\"",
+					"/Developer/Cocotron/1.0/PlatformInterfaces/i386-ubuntu-linux/include",
+				);
+				INFOPLIST_FILE = "Resources/Info-Linux.plist";
+				INSTALL_PATH = "/var/froth/apps/$(CONFIGURATION)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Developer/FrothSDK/Library/lib/linux,
+					"/Developer/Cocotron/1.0/PlatformInterfaces/i386-ubuntu-linux/lib",
+				);
+				MACH_O_TYPE = "";
+				OTHER_CFLAGS = "-fPIC";
+				OTHER_LDFLAGS = (
+					"-lm",
+					"-ldl",
+					"-lpthread",
+					"-lssl",
+					"-lcrypto",
+					"-lnsl",
+					"-lcrypt",
+					"-lmysqlclient_r",
+					"-lcom_err",
+					"-lidn",
+					"-lsasl2",
+					"-lresolv",
+					"-llber-2.4",
+					"-lldap_r-2.4",
+					"-lgpg-error",
+					"-lgcrypt",
+					"-ltasn1",
+					"-lkeyutils",
+					"-lgnutls",
+					"-lkrb5support",
+					"-lkrb5",
+					"-lgssapi_krb5",
+					"-lk5crypto",
+					"-lcurl",
+					"-lxml2",
+					"-lpcre",
+					"-lz",
+					"-lutil",
+					"-lpython2.6",
+					"-luuid",
+					"-lfroth",
+					"-Wl,-rpath=$ORIGIN",
+					"-Wl,-rpath=/usr/froth/lib",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "___PROJECTNAME___";
+				SDKROOT = "";
+				SYMROOT = /Users/$USER/Development/FrothSDK/builds/linux;
+				VALID_ARCHS = i386;
+				WRAPPER_EXTENSION = webApp;
+			};
+			name = beta;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "___PROJECTNAME___" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913B08733D840010E9CD /* beta */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = beta;
+		};
+		1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "___PROJECTNAME___" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913F08733D840010E9CD /* beta */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = beta;
+		};
+		9D13DB1110ACC11100039EF3 /* Build configuration list for PBXNativeTarget "___PROJECTNAME___-Linux" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D13DB1210ACC11100039EF3 /* beta */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = beta;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}
