@@ -75,6 +75,15 @@ int prepareWebApp(NSString* name, NSString* mode) {
 	NSString* root =	[[webApp infoDictionary] valueForKey:froth_str(@"froth_root_%@", mode)];
 	NSString* host =	[[webApp infoDictionary] valueForKey:froth_str(@"froth_host_%@", mode)];
 	
+	NSLog(@"+Preparing lighttpd conf from template for host:%@", host);
+	
+	//Test if host string is regex (has @ prefex)
+	NSNumber* hostIsRegex = [NSNumber numberWithBool:NO];
+	if([host hasPrefix:@"@"]) {
+		hostIsRegex = [NSNumber numberWithBool:YES];
+		host = [host substringFromIndex:1];
+	}
+	
 	//Prepare the .conf file for this webapp,
 	//currently this just overwrites the old ones.
 	NSString* confTemplate = [NSString stringWithContentsOfFile:FROTH_CONFIG_TEMPLATE encoding:NSUTF8StringEncoding error:nil];
@@ -85,7 +94,8 @@ int prepareWebApp(NSString* name, NSString* mode) {
 								   name, @"appName", 
 								   mode, @"appMode", 
 								   path, @"appPath",
-								   host, @"appHost");
+								   host, @"appHost",
+								   hostIsRegex, @"hostIsRegex");
 	
 	MGTemplateEngine* engine = [MGTemplateEngine templateEngine];
 	[engine setMatcher:[AGRegexTemplateMatcher matcherWithTemplateEngine:engine]];

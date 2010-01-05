@@ -177,7 +177,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "rsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${BUILD_DIR}/${CONFIGURATION}/${PRODUCT_NAME} root@${FROTH_HOST}:/usr/froth/bin\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${PROJECT_DIR}/confTemplate.conf root@${FROTH_HOST}:/var/froth/config\n#rsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${PROJECT_DIR}/cleanup_uuid_process root@${FROTH_HOST}:/usr/froth/bin\n#TODO ssh in and chmod to make scripts executable.";
+			shellScript = "rsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${BUILD_DIR}/${CONFIGURATION}/${PRODUCT_NAME} root@${FROTH_HOST}:/usr/froth/bin\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${PROJECT_DIR}/confTemplate.conf root@${FROTH_HOST}:/var/froth/config\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${PROJECT_DIR}/cleanup_uuid_process root@${FROTH_HOST}:/usr/froth/bin\nssh -i ${FROTH_IDENTITY} root@${FROTH_HOST} \"chmod 755 /usr/froth/bin/cleanup_uuid_process\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

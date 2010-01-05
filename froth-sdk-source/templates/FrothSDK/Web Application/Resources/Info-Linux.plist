@@ -34,5 +34,9 @@
 	<string>192.168.0.1</string>
 	<key>froth_port_staging</key>
 	<string>9395</string>
+	<key>froth_default_controller</key>
+	<string>home</string>
+	<key>froth_default_action</key>
+	<string></string>
 </dict>
 </plist>
