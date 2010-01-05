@@ -1865,7 +1865,7 @@
 				EXECUTABLE_EXTENSION = so;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = /Developer/Cocotron/1.0/Linux/i386/Frameworks;
-				FROTH_HOST = 204.236.224.163;
+				FROTH_HOST = 174.129.9.112;
 				FROTH_HOST_ = "[ IP OF MACHINE WITH SSH / RSYNC ]";
 				FROTH_IDENTITY = /Users/allan/aws/aphiltc1.pem;
 				FROTH_IDENTITY_ = "[ SSL IDENTITY FILE PATH ]";

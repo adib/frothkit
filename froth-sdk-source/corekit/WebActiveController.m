@@ -34,6 +34,7 @@
 @synthesize view;
 @synthesize layout;
 @synthesize flash;
+@synthesize pageTitle;
 
 - (NSString*)modelClassName {
 	return nil;

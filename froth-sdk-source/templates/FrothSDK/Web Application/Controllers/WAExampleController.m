@@ -25,6 +25,9 @@
 	
 	[out_s appendFormat:@"</body></html>"];
 	
+	//Set the document title for request. (See Layout.html)
+	self.pageTitle = @"Example Page";
+	
 	return out_s;
 }
 

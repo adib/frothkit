@@ -2,7 +2,7 @@
 {
 	08FB7793FE84155DC02AAC07 /* Project object */ = {
 		activeBuildConfigurationName = Deploy;
-		activeTarget = 9D94AAB1105F3D000034E2CB /* Documentation */;
+		activeTarget = 9D648FB710142495002A4048 /* froth-linux */;
 		addToTargets = (
 			9D648FB710142495002A4048 /* froth-linux */,
 		);
@@ -1493,7 +1493,7 @@
 		fRef = 9D79B112100CE76C00AB337E /* WebActiveController.m */;
 		name = "WebActiveController.m: 47";
 		rLen = 0;
-		rLoc = 2095;
+		rLoc = 2118;
 		rType = 0;
 		vrLen = 598;
 		vrLoc = 542;
@@ -1533,7 +1533,7 @@
 		fRef = 9D79B112100CE76C00AB337E /* WebActiveController.m */;
 		name = "WebActiveController.m: 31";
 		rLen = 0;
-		rLoc = 1519;
+		rLoc = 1542;
 		rType = 0;
 		vrLen = 508;
 		vrLoc = 0;
@@ -2855,17 +2855,17 @@
 	};
 	9D799F491006974300AB337E /* WebLayoutView.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {864, 1260}}";
-			sepNavSelRange = "{1379, 0}";
-			sepNavVisRange = "{755, 1794}";
+			sepNavIntBoundsRect = "{{0, 0}, {864, 1288}}";
+			sepNavSelRange = "{2192, 0}";
+			sepNavVisRange = "{2549, 1348}";
 			sepNavWindowFrame = "{{1764, 29}, {1063, 953}}";
 		};
 	};
 	9D799F4A1006974300AB337E /* WebLayoutView.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {974, 1820}}";
-			sepNavSelRange = "{2076, 0}";
-			sepNavVisRange = "{1591, 1258}";
+			sepNavIntBoundsRect = "{{0, 0}, {924, 1820}}";
+			sepNavSelRange = "{2036, 151}";
+			sepNavVisRange = "{2934, 1632}";
 			sepNavWindowFrame = "{{1775, -27}, {1063, 953}}";
 		};
 	};
@@ -3142,17 +3142,17 @@
 	};
 	9D79B111100CE76C00AB337E /* WebActiveController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {996, 1400}}";
-			sepNavSelRange = "{2004, 0}";
-			sepNavVisRange = "{612, 1591}";
+			sepNavIntBoundsRect = "{{0, 0}, {765, 1540}}";
+			sepNavSelRange = "{2121, 9}";
+			sepNavVisRange = "{1819, 1155}";
 			sepNavWindowFrame = "{{1764, 29}, {1063, 953}}";
 		};
 	};
 	9D79B112100CE76C00AB337E /* WebActiveController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {794, 1050}}";
-			sepNavSelRange = "{1252, 0}";
-			sepNavVisRange = "{0, 1757}";
+			sepNavIntBoundsRect = "{{0, 0}, {765, 1008}}";
+			sepNavSelRange = "{2095, 0}";
+			sepNavVisRange = "{0, 1375}";
 			sepNavWindowFrame = "{{1718, 71}, {1063, 953}}";
 		};
 	};
@@ -3732,7 +3732,7 @@
 	9DBE33C60F53623700CFC8FC /* WebApplication.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {765, 7042}}";
-			sepNavSelRange = "{1756, 30}";
+			sepNavSelRange = "{1575, 0}";
 			sepNavVisRange = "{1243, 1127}";
 			sepNavWindowFrame = "{{1766, 356}, {951, 629}}";
 		};
@@ -4004,9 +4004,9 @@
 	};
 	BA85854B0FF5B8840060F4C6 /* WebActionController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {996, 2002}}";
-			sepNavSelRange = "{5137, 0}";
-			sepNavVisRange = "{4310, 1868}";
+			sepNavIntBoundsRect = "{{0, 0}, {942, 2058}}";
+			sepNavSelRange = "{6753, 0}";
+			sepNavVisRange = "{2620, 2540}";
 			sepNavWindowFrame = "{{1741, 50}, {1063, 953}}";
 		};
 	};

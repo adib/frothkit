@@ -41,9 +41,20 @@
 	WebActionView* view;
 	WebLayoutView* layout;
 	NSString* flash;
+	NSString* pageTitle;
 }
 @property (nonatomic, retain) WebActionView* view;
 @property (nonatomic, retain) WebLayoutView* layout;
+
+/*!
+	\brief Allows setting the page title on a per request bases
+	
+	For example...
+	<pre><code>
+		<title>{{controller.pageTitle}}</title>
+	</code></pre>
+ */
+@property (nonatomic, retain) NSString* pageTitle;
 
 /*!
 	\brief Set this in a controller action method to in combination with templating variable -flash
