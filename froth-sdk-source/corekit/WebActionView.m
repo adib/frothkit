@@ -78,7 +78,6 @@ static NSMutableDictionary* m_staticTemplateCache = nil;
 #ifdef __APPLE__
 		NSBundle* bundle =		[NSBundle bundleForClass:[controller class]];
 #else
-		NSLog(@"getting main bundle on linux...");
 		NSBundle* bundle =		[NSBundle mainBundle];
 #endif
 		if(!bundle) {

@@ -49,12 +49,6 @@
 				in the condition dictionary. For details on the every condition see here. <br>
 				<a href="http://docs.amazonwebservices.com/AmazonSimpleDB/latest/DeveloperGuide/RangeValueQueriesSelect.html">Amazon Range Value Queries</a>
  
-				
-				\todo Implement -beginTransaction -endTransaction to support sdb aggragate operations for multithreaded gets
-				\todo Implement single/multiple key gets ie -getValuesOfKeys:(NSArray*)keys  forModelObject:(Class)classModel;
-				\todo Implement memcached support
-				\todo Aggragate updates so only one-two writes are needed.
- 
  */
 @interface SDBDataSource : NSObject <WebDataSource> {
 	BOOL		_memcachedEnabled;

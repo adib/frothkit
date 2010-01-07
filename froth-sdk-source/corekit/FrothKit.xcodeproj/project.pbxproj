@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
+		9D8D3CB610F54BC2006CD62A /* Documentation-FrothKit.org */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9D8D3CB810F54BC2006CD62A /* Build configuration list for PBXAggregateTarget "Documentation-FrothKit.org" */;
+			buildPhases = (
+				9D8D3CB710F54BC2006CD62A /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Documentation-FrothKit.org";
+			productName = Documentation;
+		};
 		9D94AAB1105F3D000034E2CB /* Documentation */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 9D94AAB4105F3D1E0034E2CB /* Build configuration list for PBXAggregateTarget "Documentation" */;
@@ -1512,6 +1523,7 @@
 				9D79A1FE1006ADAA00AB337E /* froth-mac */,
 				9DA223AA10EEACE400FAA0CD /* froth-mac-mysql */,
 				9D94AAB1105F3D000034E2CB /* Documentation */,
+				9D8D3CB610F54BC2006CD62A /* Documentation-FrothKit.org */,
 			);
 		};
 /* End PBXProject section */
@@ -1555,6 +1567,19 @@
 			shellPath = /bin/bash;
 			shellScript = "if [[ -n \"$FROTH_IDENTITY\" && \"$FROTH_IDENTITY\" != \"[ SSL IDENTITY FILE PATH ]\" ]]; then\n\trsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" /Developer/FrothSDK/Library/lib/linux/libfroth.so root@${FROTH_HOST}:/usr/froth/lib\nfi";
 		};
+		9D8D3CB710F54BC2006CD62A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#  Build the doxygen documentation for the project and load the docset into Xcode.\n\n#  Use the following to adjust the value of the $DOXYGEN_PATH User-Defined Setting:\n#    Binary install location: /Applications/Doxygen.app/Contents/Resources/doxygen\n#    Source build install location: /usr/local/bin/doxygen\n\n#  If the config file doesn't exist, run 'doxygen -g $SOURCE_ROOT/doxygen.config' to \n#   a get default file.\n\nif ! [ -f $SOURCE_ROOT/doxygen.config ] \nthen \n  echo doxygen config file does not exist\n  $DOXYGEN_PATH -g $SOURCE_ROOT/doxygen.config\nfi\n\n#  Append the proper input/output directories and docset info to the config file.\n#  This works even though values are assigned higher up in the file. Easier than sed.\n\ncp $SOURCE_ROOT/doxygen.config $TEMP_DIR/doxygen.config\n\necho \"INPUT = $SOURCE_ROOT\" >> $TEMP_DIR/doxygen.config\n#echo \"OUTPUT_DIRECTORY = $SOURCE_ROOT/FrothAPI.docset\" >> $TEMP_DIR/doxygen.config\necho \"OUTPUT_DIRECTORY = $DOXYGEN_OUTPUT_PATH\" >> $TEMP_DIR/doxygen.config\necho \"GENERATE_DOCSET        = YES\" >> $TEMP_DIR/doxygen.config\n#  echo \"DOCSET_BUNDLE_ID       = com.mycompany.DoxygenExample\" >> $TEMP_DIR/doxygen.config\n\n#  Run doxygen on the updated config file.\n#  Note: doxygen creates a Makefile that does most of the heavy lifting.\n\n$DOXYGEN_PATH $TEMP_DIR/doxygen.config\n\n#  make will invoke docsetutil. Take a look at the Makefile to see how this is done.\n\nmake -C $DOXYGEN_OUTPUT_PATH/html install\n\n#  Construct a temporary applescript file to tell Xcode to load a docset.\n\nrm -f $TEMP_DIR/loadDocSet.scpt\n\necho \"tell application \\\"Xcode\\\"\" >> $TEMP_DIR/loadDocSet.scpt\necho \"load documentation set with path \\\"/Users/$USER/Library/Developer/Shared/Documentation/DocSets/\\\"\" \n     >> $TEMP_DIR/loadDocSet.scpt\necho \"end tell\" >> $TEMP_DIR/loadDocSet.scpt\n\n#  Run the load-docset applescript command.\n\nosascript $TEMP_DIR/loadDocSet.scpt\n\n# install to http://frothkit.org/shared/docs/\nif [[ -n \"$FROTH_IDENTITY\" ]]; then\n\tcd $HOME/Desktop\n\tzip -r frothdocs.zip ./FrothAPI.docset\n\trsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" $HOME/Desktop/frothdocs.zip root@${FROTH_HOST}:/var/froth/shared/docs\n\tssh -i ${FROTH_IDENTITY} root@${FROTH_HOST} \"cd /var/froth/shared/docs; rm -r ./FrothAPI.docset; unzip ./frothdocs.zip\"\n\trm ./frothdocs.zip\nfi\n\nexit 0";
+		};
 		9D94AAB0105F3D000034E2CB /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1566,7 +1591,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#  Build the doxygen documentation for the project and load the docset into Xcode.\n\n#  Use the following to adjust the value of the $DOXYGEN_PATH User-Defined Setting:\n#    Binary install location: /Applications/Doxygen.app/Contents/Resources/doxygen\n#    Source build install location: /usr/local/bin/doxygen\n\n#  If the config file doesn't exist, run 'doxygen -g $SOURCE_ROOT/doxygen.config' to \n#   a get default file.\n\nif ! [ -f $SOURCE_ROOT/doxygen.config ] \nthen \n  echo doxygen config file does not exist\n  $DOXYGEN_PATH -g $SOURCE_ROOT/doxygen.config\nfi\n\n#  Append the proper input/output directories and docset info to the config file.\n#  This works even though values are assigned higher up in the file. Easier than sed.\n\ncp $SOURCE_ROOT/doxygen.config $TEMP_DIR/doxygen.config\n\necho \"INPUT = $SOURCE_ROOT\" >> $TEMP_DIR/doxygen.config\n#echo \"OUTPUT_DIRECTORY = $SOURCE_ROOT/FrothAPI.docset\" >> $TEMP_DIR/doxygen.config\necho \"OUTPUT_DIRECTORY = $DOXYGEN_OUTPUT_PATH\" >> $TEMP_DIR/doxygen.config\necho \"GENERATE_DOCSET        = YES\" >> $TEMP_DIR/doxygen.config\n#  echo \"DOCSET_BUNDLE_ID       = com.mycompany.DoxygenExample\" >> $TEMP_DIR/doxygen.config\n\n#  Run doxygen on the updated config file.\n#  Note: doxygen creates a Makefile that does most of the heavy lifting.\n\n$DOXYGEN_PATH $TEMP_DIR/doxygen.config\n\n#  make will invoke docsetutil. Take a look at the Makefile to see how this is done.\n\nmake -C $DOXYGEN_OUTPUT_PATH/html install\n\n#  Construct a temporary applescript file to tell Xcode to load a docset.\n\nrm -f $TEMP_DIR/loadDocSet.scpt\n\necho \"tell application \\\"Xcode\\\"\" >> $TEMP_DIR/loadDocSet.scpt\necho \"load documentation set with path \\\"/Users/$USER/Library/Developer/Shared/Documentation/DocSets/\\\"\" \n     >> $TEMP_DIR/loadDocSet.scpt\necho \"end tell\" >> $TEMP_DIR/loadDocSet.scpt\n\n#  Run the load-docset applescript command.\n\nosascript $TEMP_DIR/loadDocSet.scpt\n\nexit 0";
+			shellScript = "#  Build the doxygen documentation for the project and load the docset into Xcode.\n\n#  Use the following to adjust the value of the $DOXYGEN_PATH User-Defined Setting:\n#    Binary install location: /Applications/Doxygen.app/Contents/Resources/doxygen\n#    Source build install location: /usr/local/bin/doxygen\n\n#  If the config file doesn't exist, run 'doxygen -g $SOURCE_ROOT/doxygen.config' to \n#   a get default file.\n\nif ! [ -f $SOURCE_ROOT/doxygen.config ] \nthen \n  echo doxygen config file does not exist\n  $DOXYGEN_PATH -g $SOURCE_ROOT/doxygen.config\nfi\n\n#  Append the proper input/output directories and docset info to the config file.\n#  This works even though values are assigned higher up in the file. Easier than sed.\n\ncp $SOURCE_ROOT/doxygen.config $TEMP_DIR/doxygen.config\n\necho \"INPUT = $SOURCE_ROOT\" >> $TEMP_DIR/doxygen.config\n#echo \"OUTPUT_DIRECTORY = $SOURCE_ROOT/FrothAPI.docset\" >> $TEMP_DIR/doxygen.config\necho \"OUTPUT_DIRECTORY = $DOXYGEN_OUTPUT_PATH\" >> $TEMP_DIR/doxygen.config\necho \"GENERATE_DOCSET        = YES\" >> $TEMP_DIR/doxygen.config\n#  echo \"DOCSET_BUNDLE_ID       = com.mycompany.DoxygenExample\" >> $TEMP_DIR/doxygen.config\n\n#  Run doxygen on the updated config file.\n#  Note: doxygen creates a Makefile that does most of the heavy lifting.\n\n$DOXYGEN_PATH $TEMP_DIR/doxygen.config\n\n#  make will invoke docsetutil. Take a look at the Makefile to see how this is done.\n\nmake -C $DOXYGEN_OUTPUT_PATH/html install\n\n#  Construct a temporary applescript file to tell Xcode to load a docset.\n\nrm -f $TEMP_DIR/loadDocSet.scpt\n\necho \"tell application \\\"Xcode\\\"\" >> $TEMP_DIR/loadDocSet.scpt\necho \"load documentation set with path \\\"/Users/$USER/Library/Developer/Shared/Documentation/DocSets/\\\"\" \n     >> $TEMP_DIR/loadDocSet.scpt\necho \"end tell\" >> $TEMP_DIR/loadDocSet.scpt\n\n#  Run the load-docset applescript command.\n\nosascript $TEMP_DIR/loadDocSet.scpt\n\n# Install the built docs to public frothkit.org site\n\nexit 0";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1867,7 +1892,7 @@
 				FRAMEWORK_SEARCH_PATHS = /Developer/Cocotron/1.0/Linux/i386/Frameworks;
 				FROTH_HOST = 174.129.9.112;
 				FROTH_HOST_ = "[ IP OF MACHINE WITH SSH / RSYNC ]";
-				FROTH_IDENTITY = /Users/allan/aws/aphiltc1.pem;
+				FROTH_IDENTITY = /Users/$USER/aws/aphiltc1.pem;
 				FROTH_IDENTITY_ = "[ SSL IDENTITY FILE PATH ]";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2070,6 +2095,43 @@
 			};
 			name = Release;
 		};
+		9D8D3CB910F54BC2006CD62A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Documentation;
+			};
+			name = Debug;
+		};
+		9D8D3CBA10F54BC2006CD62A /* Deploy */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DOXYGEN_OUTPUT_PATH = /Users/$USER/Desktop/FrothAPI.docset;
+				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
+				FROTH_HOST = 174.129.9.112;
+				FROTH_IDENTITY = /Users/$USER/aws/aphiltc1.pem;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Documentation;
+			};
+			name = Deploy;
+		};
+		9D8D3CBB10F54BC2006CD62A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Documentation;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		9D94AAB2105F3D000034E2CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2233,6 +2295,16 @@
 				9D79A2001006ADAC00AB337E /* Debug */,
 				9D13DEEF10AF9C6300039EF3 /* Deploy */,
 				9D79A2011006ADAC00AB337E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D8D3CB810F54BC2006CD62A /* Build configuration list for PBXAggregateTarget "Documentation-FrothKit.org" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D8D3CB910F54BC2006CD62A /* Debug */,
+				9D8D3CBA10F54BC2006CD62A /* Deploy */,
+				9D8D3CBB10F54BC2006CD62A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

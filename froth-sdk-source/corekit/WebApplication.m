@@ -72,17 +72,24 @@
 		
 		//Load up our embeded bundle
 		[[NSBundle mainBundle] load];
+		
+		//Check for an application delegate
+		NSString* delegateClassName = [[[self class] deploymentConfigDictionary] valueForKey:@"froth_app_delegate"];
+		if(delegateClassName) {
+			m_delegateClass = NSClassFromString(delegateClassName);
+		}
 	}
 	return self;
 }
 
 - (void)dealloc {
-	[m_defualtLayoutView release];
-	[m_defualtActionView release];
-	[m_app_path release];
-	[m_cachedWebActionControllerClasses release];
-	[m_componentInstances release];
-
+	[m_defualtLayoutView release], m_defualtLayoutView = nil;
+	[m_defualtActionView release], m_defualtActionView = nil;
+	[m_app_path release], m_app_path = nil;
+	[m_cachedWebActionControllerClasses release], m_cachedWebActionControllerClasses = nil;
+	[m_componentInstances release], m_componentInstances = nil;
+	[delegate release], delegate = nil;
+	
 	[super dealloc];
 }
 
@@ -112,10 +119,8 @@
 	return nil;
 }
 
-- (id <WebActionController>)_webActionControllerForRequest:(WebRequest*)wr {
-	
+- (id <WebActionController>)_controllerInstanceForRequest:(WebRequest*)wr {
 	NSString* controllerName = [self _controllerNameForRequest:wr];
-	
 	NSString* className = [NSString stringWithFormat:@"WA%@Controller", controllerName];
 	
 	NSLog(@"WebApplication: Possible WebActionController [%@]", className);
@@ -127,8 +132,9 @@
 	
 	//Make sure it conforms to the WebActionController
 	if(theClass && [theClass conformsToProtocol:@protocol(WebActionController)]) {
-		
 		id <WebActionController> controller = [[theClass alloc] init];
+		controller.application = self;
+		
 		return controller;
 	}
 	
@@ -449,9 +455,12 @@
 - (WebResponse*)handle:(WebRequest*)req {
 	NSLog(@"WebApplication: Handling server request [%@]", req);
 	
+	if(m_delegateClass)
+		delegate = [[m_delegateClass alloc] init];
+	
 	WebResponse* res = nil;
 	
-	id <WebActionController> controller = [self _webActionControllerForRequest:req];
+	id <WebActionController> controller = [self _controllerInstanceForRequest:req];
 	if(controller) {
 		res = [self _responseForRequest:req withController:controller];
 	} else {
@@ -459,6 +468,7 @@
 	}
 	
 	//Clean up
+	[delegate release], delegate = nil;
 	[controller release];
 	
 	return res;
@@ -490,7 +500,12 @@
 	}
 	return [WebResponse notFoundResponse];
 }
-		
 
+#pragma mark -
+#pragma mark Application Delegation
+
+- (id)delegate {
+	return delegate;
+}
 
 @end

@@ -32,30 +32,37 @@
 @class WebResponse;
 @class WebActionView;
 @class WebLayoutView;
+@class WebApplication;
 @protocol WebComponent;
 
 
 /*!
-	\brief	Action controller protocal, typically you should use a subclass of WebActiveController as support for implementing
-			action controllers that do not inherit from WebActiveController is no longer supported.
+	\brief	Action controller protocal, typically a subclass WebActiveController should be used instead.
 			
 			<h3>Memory Management</h3>
 			Action controllers are the heart of a Cocoa Web App, they are considered short lived
-			objects and must implement proper memory management to clean up after themselves. They 
-			only live for the lifespan of the request.
+			objects and should implement proper Cocoa memory management techneques 
+			(<a href="http://developer.apple.com/mac/library/documentation/cocoa/Conceptual/MemoryMgmt/MemoryMgmt.html">See here</a>). 
+			They only live for the life span of the request.
 			
 			<h3>Nominclature of Subclasses</h3>
-			Class names must have the format WA<ControllerName>Controller, where the request uri would be 
-			controller_name or controllerName. 
+			Class names must have the format <i>WA<ControllerName>Controller</i>
 			
-			<br>
-			<br>
 			<i>Example</i><br>
-			http://example.com/path/to/webapp/my_blog/some_great_blog <br>
-			would get mapped to WAMyBlogController's -(id)someGreatBlog:(WARequest*)req method if implemented and according to
-			action routing rules as explained below
+			\code
+			http://example.com/[path/to/webapp]/my_blog/some_great_blog
+			\endcode
+			Gets conditionally mapped to WAMyBlogController's method...
+			\code
+			-(id)someGreatBlog:(WARequest*)request 
+			\endcode
 			
-			<br>
+			If this is not implemented, the controller has a change to pick up the method with it method...
+			\code
+			-(id)defualt:(WebRequest*)request
+			\endcode
+			
+			Complete routing rules are detailed below.<br>
 			<i>Future work will be done to free subclasses from the strict nameing conventions</i>
 		
 			<h3>Request Routing</h3>
@@ -102,6 +109,8 @@
 				- (WebResponse*)responseForProcessedTemplate:(NSData*)template;
  */
 @protocol WebActionController <NSObject>
+
+@property (nonatomic, assign) WebApplication* application;
 @property (nonatomic, retain) WebActionView* view;
 
 /*!
@@ -146,6 +155,6 @@
  */
 - (id)postProcessResponse:(id)response fromRequest:(WebRequest*)request;
 
-- (id)defualtAction:(WebRequest*)request;
+//- (id)defualtAction:(WebRequest*)request;
 
 @end

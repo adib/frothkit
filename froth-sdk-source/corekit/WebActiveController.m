@@ -31,10 +31,58 @@
 
 
 @implementation WebActiveController
-@synthesize view;
-@synthesize layout;
-@synthesize flash;
-@synthesize pageTitle;
+
+- (void)setFlash:(NSString*)val {
+	if(flash != val) {
+		[flash release], flash = nil;
+		flash = [val retain];
+	}
+}
+
+- (NSString*)flash {
+	return flash;
+}
+
+- (void)setView:(WebActionView*)val {
+	if(view != val) {
+		[view release], view = nil;
+		view = [val retain];
+	}
+}
+
+- (WebActionView*)view {
+	return view;
+}
+
+- (void)setLayout:(WebLayoutView*)val {
+	if(layout != val) {
+		[layout release], layout = nil;
+		layout = [val retain];
+	}
+}
+
+- (WebLayoutView*)layout {
+	return layout;
+}
+ 
+- (void)setApplication:(WebApplication*)app {
+	application = app;
+}
+
+- (WebApplication*)application {
+	return application;
+}
+
+- (void)setPageTitle:(NSString*)val {
+	if(pageTitle != val) {
+		[pageTitle release];
+		pageTitle = [val retain];
+	}
+}
+
+- (NSString*)pageTitle {
+	return pageTitle;
+}
 
 - (NSString*)modelClassName {
 	return nil;
@@ -44,6 +92,7 @@
 	[view release];
 	[layout release];
 	[flash release];
+	[pageTitle release];
 	[super dealloc];
 }
 

@@ -28,9 +28,12 @@
 //	OTHER DEALINGS IN THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import "WebApplication.h"
 #import "WebActionController.h"
 #import "WebActionView.h"
 #import "WebLayoutView.h"
+
+#define FRAppDelegate [[self application] delegate]
 
 /*!	
 	\brief	Provides a abstract base class for direct crud and dry conventions using data model connectors. 
@@ -38,23 +41,15 @@
 				should subclass this class instead of implement the WebActionController protocal
  */
 @interface WebActiveController : NSObject <WebActionController> {
+	WebApplication* application;
 	WebActionView* view;
 	WebLayoutView* layout;
 	NSString* flash;
 	NSString* pageTitle;
 }
+@property (nonatomic, assign) WebApplication* application;
 @property (nonatomic, retain) WebActionView* view;
 @property (nonatomic, retain) WebLayoutView* layout;
-
-/*!
-	\brief Allows setting the page title on a per request bases
-	
-	For example...
-	<pre><code>
-		<title>{{controller.pageTitle}}</title>
-	</code></pre>
- */
-@property (nonatomic, retain) NSString* pageTitle;
 
 /*!
 	\brief Set this in a controller action method to in combination with templating variable -flash
@@ -63,6 +58,17 @@
 	build in method for it is {% if flash %} {{flash}} {% /if %} and it will only show if the flash is availible.
  */
 @property (nonatomic, retain) NSString* flash;
+
+/*!
+	 \brief Allows setting the page title on a per request bases
+	 
+	 For example...
+	 <pre><code>
+	 <title>{{controller.pageTitle}}</title>
+	</code></pre>
+ */
+- (NSString*)pageTitle;
+- (void)setPageTitle:(NSString*)val;
 
 /*!
 	The defualt implementation is the same name as the controller, minus the (s)

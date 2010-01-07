@@ -36,10 +36,6 @@
 
 /*!
 	\brief	A WebApplication object manages the request/response cycle between the httpd server and web application controllers instances. 
-			
-			WebApplication objects are the centrail manager of froth web applications. The WebApplication handles the request, routes it to the
-			appropriate WebActionController implementing object and processes the resulting response according to http spec.
- 
  */
 @interface WebApplication : NSObject {
 	@private
@@ -48,28 +44,59 @@
 	WebLayoutView*	m_defualtLayoutView;
 	WebActionView*	m_defualtActionView;
 	
+	Class m_delegateClass;
+	id delegate;
+	
 	NSMutableDictionary* m_componentInstances;
 }
 
 /*!
-	\brief Returns the deployment mode name for the current running application. 
-			This is determined by looking at the app bundle's parent folder name. This, by design, is the deployment mode name.
+	\brief	Designated initializer
+ */
+- (id)init;
+
+/*!
+	\brief	Returns the deployment mode name for the current running application. 
+			
+	This is determined by looking at the app bundle's parent folder name. This, by design, is the deployment mode.
  */
 + (NSString*)deploymentMode;
 
 /*!
-	\brief Returns the web path to the currently running app, typically '/' for root
+	\brief	Returns the web path to the currently running app, typically '/' for root
+			
+	The deployment path is the value of Info.plist (or Info-Mac.plist)'s froth_root_(deploymentMode) key.
  */
 + (NSString*)deploymentUriPath;
 	
 /*!
-	\brief Returns the bundles Info.plist (or Info-Linux.plist) user info dictionary
+	\brief Returns the bundles Info.plist (or Info-Mac.plist) user info dictionary
  */
 + (NSDictionary*)deploymentConfigDictionary;
 
 /*!
-	\brief Called from a httpd connector or other httpd server object when a request is received.
+	\brief	Called from a httpd connector or other httpd server object when a request is received.
+	\param  req A WebRequest instance initalized from httpd HTTP request data.
+	\return	A WebResponse instance that wraps data that will get sent as a HTTP response.
 */
 - (WebResponse*)handle:(WebRequest*)req;
+
+/*!
+	\brief The application's delegate if set.
+ 
+	Application delegates are configured in the Info.plist with key <i>froth_app_delegate</i>. The value should
+	be the class name of the delegate to use.
+ 
+	Delegates are initalized and released for each request. Controllers can access delegates with the following.
+	\code
+	[self.application.delegate doSomethingSpecial];
+	\endcode
+ 
+	Likewise, templates can access delegates with.
+	\code
+	{{app.delegate.someWidgetOutput}}
+	\endcode
+*/
+- (id)delegate;
 
 @end

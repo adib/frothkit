@@ -29,10 +29,61 @@
  //	OTHER DEALINGS IN THE SOFTWARE.
 
 /**
- @mainpage Froth Web Application Enviorment for Cocoa Developers
+ @mainpage Froth - Cocoa Web Application Framework
+ <h3>Main API Classes</h3>
+ - WebApplication
+ - WebActionController
+ - WebActiveController
+ - WebLayoutView
+ - WebActionView
+ - WebRequest
+ - WebResponse
+ - WebSession
+ - WebModelBase
  
  <h3>Background</h3>
- TODO...
+ 
+ <p>Froth is a Objective-C web application framework that brings the power and simplicity of Cocoa development to the web. </p>
+ <p>While froth web apps are technically deployable on many different platforms using <a href="http://www.cocotron.org" rel="nofollow">Cocotron</a>,
+ currently our focus has been on the <a href="http://aws.amazon.com/ec2/" rel="nofollow">Amazon EC2</a> cloud. </p>
+ 
+ <b>Benefits of Froth</b>
+ - Uses the tools and language Mac and iPhone developers have come to know and love.
+ - Reuse existing objc/c code from desktop applications. 
+ - Simple view templating support.
+ - Very fast and scalable.
+ - Affordable hosting on Amazon EC2 Cloud.
+ - Multiple builds and deployments using standard Xcode deployments.
+ 
+ <p>
+	<strong>Simple Example</strong>
+ </p>
+ 
+ \code
+ @interface WAHelloController : WebActiveController {
+ }
+ 
+ // http://myexample.com/hello
+ - (id)helloAction:(WebRequest*)req;
+ 
+ // http://example.com/goodbye
+ - (id)goodbyeAction:(WebRequest*)req;
+ 
+ @end
+ 
+ 
+ @implementation WAHelloController
+ 
+ - (id)helloAction:(WebRequest*)req {
+	return "Hello World";
+ }
+ 
+ - (id)goodbyeAction:(WebRequest*)req {
+	return "Goodbye"
+ }
+ 
+ @end
+ \endcode
  
  <h3>Templating</h3>
  Froth supports a simple yet expandable templating language built on top of Matt Gammels excelent templating code MGTemplate. <br>
