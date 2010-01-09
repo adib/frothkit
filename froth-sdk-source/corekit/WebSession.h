@@ -32,12 +32,7 @@
 
 /*!
 	\brief	Provides a session object for user peristance and state management.
-	\detail	The session has been abastracted from cookies and other session storage means
-				to enable developers to use the desired style. For example. REST services could
-				require "session" variables then use that to get the user's session, http requests
-				of couse can use cookies for reteiving the user sesison.
-				
-				<br><br>
+			
 				Sessions can be added key/value data that can be used with a session. The value must always
 				implement the JSON protocal for serailizing as json. Any object that does this can then be added
 				to a session. An Example of this could be the authentication system's user info. The username/userobject
@@ -46,18 +41,15 @@
 				<br>Or retreived with...
 				<br>[aSession valueForKey:@"user"];
 				
-				<br><br>
 				Sessions are persisted according to the webApp's datasource's SessionDataSource key
 				see WebDataSource/WebModelBase for more details. The default datasource is the MemoryDataSource
 				and is optionally overidable by adding a datasource listing to DataSources.plist with name
 				SessionStorage
  
-				<br><br>
 				WebSession instances use an internal json structure to persist session properties. This allows
 				persistance in mysql/memchache or any other datasource. The JSON utility is heavily used to provide for
 				this functionality.
  
-				<br><br>
 				WebSessions should not be subclassed. Becouse Froth provides internal methods for automatically retreiveing
 				the session for a given request, it can be difficult to use your own implementation.
  

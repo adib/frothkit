@@ -111,7 +111,7 @@ static NSMutableDictionary* m_staticTemplateCache = nil;
 	MGTemplateEngine * engine = [MGTemplateEngine templateEngine];
 	//TODO: move this to a global configureation utility
 	[self prepareDefualtMarkersAndFiltersForTemplateEngine:engine];
-	
+
 	[engine setDelegate:self];
 	[engine setMatcher:[AGRegexTemplateMatcher matcherWithTemplateEngine:engine]];
 	
@@ -122,6 +122,7 @@ static NSMutableDictionary* m_staticTemplateCache = nil;
 							   app, @"app", 
 							   self, @"view", nil];
 	
+	//TODO: Causeing crash with cf version.
 	NSString* result = [engine processTemplate:template withVariables:variables];
 	[template release];
 	

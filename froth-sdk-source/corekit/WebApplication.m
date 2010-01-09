@@ -192,7 +192,7 @@
 	
 	//Handle defualts such as -index, -object, -create, -update and -delete for CRUD
 	NSString* rmethod = request.method;
-	if(!actionSelector && [rmethod isEqualToString:@"GET"]) {
+	if(!actionSelector && ([rmethod isEqualToString:@"GET"] || [rmethod isEqualToString:@"HEAD"])) {
 		if(action) {
 			actionSelector = @selector(object:);
 		} else {
@@ -210,6 +210,10 @@
 	
 	if(!actionSelector && [rmethod isEqualToString:@"DELETE"]) {
 		actionSelector = @selector(delete:);
+	}
+	
+	if(!actionSelector) {
+		actionSelector = @selector(unhandledAction:);
 	}
 	
 	return actionSelector;
@@ -364,7 +368,7 @@
 		actionResponse = [controller performSelector:selector withObject:request];
 	else
 		responseFromComponent = YES;
-	
+
 	if([controller respondsToSelector:@selector(postProcessResponse:fromRequest:)] && !responseFromComponent)
 		actionResponse = [controller postProcessResponse:actionResponse fromRequest:request];
 	
@@ -378,7 +382,7 @@
 								  withConfiguration:[componentConfigurations objectAtIndex:i]];
 		i++;
 	}
-	
+
 	if([actionResponse isKindOfClass:[WebResponse class]]) {
 		/*
 			The controller wishes to generate the WebResponse directly without a mvc appoach.
@@ -388,25 +392,26 @@
 		/* 
 			Super conveince ability for a controller to return a streight nsstring for display as html
 		 */
-		
 		WebResponse* stringHtmlResponse = [WebResponse htmlResponse];
 		stringHtmlResponse.bodyString = actionResponse;
 		response = stringHtmlResponse;
 	} else {
+
 		/* 
 		 The response is data, and should be handled by the controller's view.
 		 */		
 		NSData* data = [controller.view displayWithData:actionResponse 
 						controller:controller
 						request:request
-						application:[NSDictionary dictionary]];
+						application:self];
+		
 		response = [controller.layout displayWithTemplateData:data 
 												 forExtention:controller.view.extention
 													  request:request
 												   controller:controller
 												  application:self];
 	}
-	
+
 	//Now generate a x-session-froth cookie if needed, this is generated from the request.session so we can use
 	//any user values set in the session, for api requests controllers must supply the session key in an alternative way.
 	if(![request valueForCookie:@"x-froth-session"]) {
@@ -419,7 +424,7 @@
 						  path:@"/"];
 		//TODO: only set the cookie for the webApp root as defined in webApp properties
 	}
-	
+
 	return response;
 }
 

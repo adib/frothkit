@@ -146,6 +146,11 @@
 			
 			if(!rs) {
 				[NSException raise:@"InvalidWebResponseObject" format:@"Probably becouse an action was defined, but returned a nil FOWResponse", nil];
+			} else {
+				//Remove body from HEAD requests
+				if([[rq method] isEqualToString:@"HEAD"]) {
+					[rs setBody:nil];
+				}
 			}
 			
 			FCGX_SetExitStatus(rs.code, request.out);
@@ -162,12 +167,8 @@
 					@"Content-type: text/html\n\n\
 									<html><head><title>Froth Exception</title></head> \
 									<body>Uncaught exception: <strong>%@</strong>: <pre>%@</pre>\nStack trace:<ul>\n", [exception name], [exception reason]];
-			/*for(NSNumber *n in [exception callStackReturnAddresses]) {
-				[err appendFormat:@"\t<li>%lu</li>\n", [n intValue]];
-			}*/
 			[err appendFormat:@"</ul><br>UserInfo:%@", [exception userInfo]];
 			[err appendString:@"</body></html>"];
-			//[self printStackTrace:exception];
 			
 			NSLog(@"******** FOWFastCgiController: Recovery from exception [%@] [%@]", [exception name], [exception description]);
 			

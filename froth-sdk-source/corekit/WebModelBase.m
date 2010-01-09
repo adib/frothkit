@@ -483,6 +483,7 @@ static id findFirstByMethodImp(id self, SEL _cmd, id value1) {
 		// Make the first char lowercase
 		NSString *attribute = [selector substringFromIndex:[scanner scanLocation]];
 		NSString *firstChar = [attribute substringToIndex:1];
+		
 		attribute = [attribute stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:[firstChar lowercaseString]];
 		attribute = [attribute stringByReplacingOccurrencesOfString:@":" withString:@""];
 		return attribute;

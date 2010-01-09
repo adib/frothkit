@@ -86,11 +86,11 @@
  \endcode
  
  <h3>Templating</h3>
- Froth supports a simple yet expandable templating language built on top of Matt Gammels excelent templating code MGTemplate. <br>
+ Froth supports a simple yet expandable templating language built on top of Matt Gammel's excellent templating code MGTemplate. <br>
  <i>See WebLayoutView and WebActionView for templating details</i>
  
  <h3>Resource Mapping</h3>
- Froth Supports a powerful resource mapping system for mapping web app actions to a specific template based on the extention. This can be used to 
+ Froth Supports a powerful resource mapping system for mapping web app actions to a file based templates based on the extension. This can be used to 
  render xml, json, binary versions of a item without changing the controller layer.
  
 */

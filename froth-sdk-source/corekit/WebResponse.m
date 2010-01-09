@@ -207,8 +207,12 @@
 	//if(cb) {
 	//	[d appendBytes:cb length:strlen(cb)];
 	//}
-	[d appendData:body];
 	
+	//HEAD requests do not return request body.
+	if([self body] != nil) {
+		[d appendData:body];
+	}
+		
 	[d appendBytes:"\0" length:1];
 	return [d autorelease];
 }

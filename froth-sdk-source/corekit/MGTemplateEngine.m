@@ -10,7 +10,6 @@
 #import "MGTemplateStandardFilters.h"
 #import "DeepMutableCopy.h"
 
-
 #define DEFAULT_MARKER_START		@"{%"
 #define DEFAULT_MARKER_END			@"%}"
 #define DEFAULT_EXPRESSION_START	@"{{"	// should always be different from marker-start
@@ -393,6 +392,7 @@
 {
 	// Set up environment.
 	[_openBlocksStack release];
+
 	_openBlocksStack = nil;
 	_openBlocksStack = [[NSMutableArray alloc] init];
 	[_globals setObject:[NSDictionary dictionaryWithObjectsAndKeys:
@@ -405,12 +405,14 @@
 						  nil], GLOBAL_ENGINE_DELIMITERS, 
 						 nil]
 				 forKey:GLOBAL_ENGINE_GROUP];
+		
 	[_globals setObject:[NSNumber numberWithBool:YES] forKey:@"true"];
 	[_globals setObject:[NSNumber numberWithBool:NO] forKey:@"false"];
 	[_globals setObject:[NSNumber numberWithBool:YES] forKey:@"YES"];
 	[_globals setObject:[NSNumber numberWithBool:NO] forKey:@"NO"];
 	[_globals setObject:[NSNumber numberWithBool:YES] forKey:@"yes"];
 	[_globals setObject:[NSNumber numberWithBool:NO] forKey:@"no"];
+	
 	_outputDisabledCount = 0;
 	[templateContents release];
 	templateContents = [templateString retain];
@@ -419,7 +421,7 @@
 	_templateVariables = [variables deepMutableCopy];
 	remainingRange = NSMakeRange(0, [templateString length]);
 	_literal = NO;
-	
+		
 	// Ensure we have a matcher.
 	if (!matcher) {
 		[self reportError:@"No matcher has been configured for the template engine" code:7 continuing:NO];
@@ -640,7 +642,7 @@ but current block was started by \"%@\" marker",
 	
 	// Inform delegate we're done.
 	[self reportTemplateProcessingFinished];
-	
+
 	return output;
 }
 

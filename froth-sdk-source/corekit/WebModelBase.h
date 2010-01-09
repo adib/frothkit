@@ -36,67 +36,55 @@
 	\detail	By defualt models use Amazon SimpleDB, however subclasses could implement
 				their own model connection (for example, see the MySqlModelBase class (opensource)
  
-				Objects that implement WebModelBase are typically usable in any template view by using template
-				kvo access
- 
-				Subclasses that wish to use another system other then Amazon Simple DB should overide 
-				- (id)valueForKeyName:(NSString*)keyName; 
-				- (id)valueForRelationshipName:(NSString*)relName;	
+				Objects that implement WebModelBase are typically usable in any template view by using language 
+				similar to Cocoa key value coding access. For example
+				\code
+				<h1>{{ data.keyName }}</h1>
+				\endcode
  
 				This abstract base provides a very limited implementation. And should be subclassed for greator control
  
-				Provides built in support for or,
-				- (id)findFirstBy_name:(NSString*)name
-				- (id)findAllBy_name:(NSString*)name
- 
+				Provides built in support for.
+				\code
+				- (id)findFirstBy_<propertyName>:(NSString*)name
+				- (id)findAllBy_<propertyName>:(NSString*)name
+				\endcode
+	
 				NSCopying support allows for creation of new objects using existing implementation, however the uuid is
 				not transfered over and the new object is not saved to the datasource yet.
- 
-				NOTE: Subclasses the provide their own identifierName/Class must implement that i_var/accessor for the given uid.
- 
+  
 				Subclasses dont need to specifically implement methods. They simply provide the class stucture
 				and also any dataSource specific requirements (See SDBDataSource.h).
  
-				To avoid compiler errors, you can use.
+				To avoid compiler warnings (except in model @implementation), add getter/setter method declerations in model's header.
+				\code
 				- (void)set<Key>:(id)value;
 				- (id)<Key>
-				
-				All keys must be defined in +allPersistableKeys otherwise an exception is thrown
+				\endcode
  
-				and in the implementation @dynamic key to suppress warnings.
+				All keys must be defined in +allPersistableKeys otherwise an exception is thrown and in the implementation @dynamic key to suppress warnings.
  
 				<h3>Property Validation Support</h3>
-				Models can now handle property validation useing a simple validation mechanism.
+				
 				<br><i>Example</i>
-				<pre>
-- (BOOL)validateTitle:(id*)title msg:(NSString**)msg {
-	if([*title hasPrefix:@"bad"]) {
-		*msg = @"Titles must not have prefixes 'bad'";
-		return froth_false;
-		
-		//or optionally modify the title and return true
-		/
-			*title = @"new value";
-			return froth_true;
-		/
-	}
-	return true;
-}
-				</pre>
+				\code
+				- (BOOL)validateTitle:(id*)title msg:(NSString**)msg {
+					if([*title hasPrefix:@"bad"]) {
+						*msg = @"Titles must not have prefixes 'bad'";
+						return froth_false;
+						
+						//or optionally modify the title and return true
+						/
+							*title = @"new value";
+							return froth_true;
+						/
+					}
+					return true;
+				}
+				\endcode
+ 
 				Returns false if validation should fail, or true if passed. Validatators can also optionally update the value
 				dynamically providing a new value based on validation rules.
- 
-				</h3>Push Syncronization</h3>
-				Froth's database system provides an out-of-the-box solution for pushing updates via various protocals. Currently only the
-				sceala protocal is supported, however work is being done for a froth based lightweight push solution. All pushes are done
-				using the corresponding xmpp server that ties into the authentication engine. <br>
-				See ScealaPushProtocal for details
- 
-				<h3>Changes</h3>
-				<ul>
-				<li>allan:20090914 - Added -(BOOL)validate<Key>:(id*)orgValueOrReplaced msg:(NSString**)returnMsg
-				<li>allan:20090915 - Added support for models to implement the ScealaPushProtocal for pushing updates
-				</ul>
 */
 @interface WebModelBase : NSObject <NSCopying> /* Also implements JSONRepresentation */ {
 	BOOL		m_notPersisted;

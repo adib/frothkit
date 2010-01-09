@@ -53,26 +53,45 @@
 + (WebResponse*)htmlResponseWithBody:(NSString*)bodyString;
 
 + (WebResponse*)jsonResponse;
+
+/*!
+	\brief		Convenience method for creating a response with content-Type: text/x-json
+	\param		bodyString A json formatted string.
+*/				
 + (WebResponse*)jsonResponseWithBody:(NSString*)bodyString;
 
 + (WebResponse*)xmlResponse;
-+ (WebResponse*)xmlResponseWithBody:(NSString*)bodyString;
-
-//Build in redirecting
-+ (WebResponse*)redirectResponseWithUrl:(NSString*)fullUrl;
-
-- (void)setHeader:(NSString *)h forKey:(NSString *)s;
 
 /*!
-	\brief	Provides cookie setting support
-	\detail Multiple cookies can be set for a single response, setting a new cookie overites the old.
-				Also, if a cookie was previously set with an expireation date, users can pass nil for all cookie params
+	\brief		Convenience method for creating a response with content-Type: text/xml
+		\param		bodyString A xml formatted string.
+ */	
++ (WebResponse*)xmlResponseWithBody:(NSString*)bodyString;
+
+/*!
+	\brief		Convenience method for creating a redirection response with http response code 303.
+	\param		fullUrl A full url including schema.
+ */	
++ (WebResponse*)redirectResponseWithUrl:(NSString*)fullUrl;
+
+/*!
+	\brief		Used to set http header properties
+	\param		value The value to set.
+	\param		headerKey The keyname for the http response header.
+ */
+- (void)setHeader:(NSString *)value forKey:(NSString *)headerKey;
+
+/*!
+	\brief		Provides cookie setting support.
+	
+				Multiple cookies can be set for a single response, setting a new cookie overwrites the old.
+				If a cookie was previously set with an expiration date, users can pass nil for all cookie params
 				to only change the value itself.
  
 				See WebRequest -valueForCookie:(NSString*)cookieKey for accessing cookies
 			
 	@param		expireDate	
-				Optional expireation date as used by browsers
+				Optional expiration date as used by browsers
 	@param		isSecure
 				If the cookie should only be sent over a secure connection to the server.
 	@param		domain
