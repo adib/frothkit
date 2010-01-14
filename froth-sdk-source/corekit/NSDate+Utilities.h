@@ -1,10 +1,10 @@
 //
-//  WebRequest+Params.h
+//  NSDate+Utilities.m
 //  Froth
 //
-//  Created by Allan Phillips on 17/09/09.
+//  Created by Allan Phillips on 08/07/09.
 //
-//  Copyright (c) 2009 Thinking Code Software Inc. http://www.thinkingcode.ca
+//  Copyright (c) 2010 Thinking Code Software Inc. http://www.thinkingcode.ca
 //
 //	Permission is hereby granted, free of charge, to any person
 //  obtaining a copy of this software and associated documentation
@@ -28,22 +28,10 @@
 //	OTHER DEALINGS IN THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "WebRequest.h"
 
-@interface WebRequest (Params)
 
-/*!
-	\brief	The first paramiter from a the url
-	
-			For example /[controller]/[action]/[firstParam]/..../[lastParam]
- */
-- (NSString*)firstParam;
+@interface NSDate (Utilities)
 
-/*!
-	\brief	The last paramiter from a the url
- 
-			For example /[controller]/[action]/[firstParam]/..../[lastParam]
- */
-- (NSString*)lastParam;
++ (NSDate*)dateWithString:(NSString*)str format:(NSString*)formating;
 
 @end

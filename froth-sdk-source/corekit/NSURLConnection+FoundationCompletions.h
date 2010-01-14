@@ -31,8 +31,7 @@
 
 /*
 	Implements missing support from cocotrons foundation
-	
-	TEMP: To make it work, its a (extreemly) basic wrapper around curl.
+	TEMP: To make it work, its a (extremely) basic wrapper around curl.
 */
 @interface NSURLConnection (FoundationCompletions)
 + (NSData *)sendSynchronousRequest:(NSURLRequest *)request returningResponse:(NSURLResponse **)response error:(NSError **)anerror;

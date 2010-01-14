@@ -75,23 +75,15 @@
  @implementation WAHelloController
  
  - (id)helloAction:(WebRequest*)req {
-	return "Hello World";
+		return "Hello World";
  }
  
  - (id)goodbyeAction:(WebRequest*)req {
-	return "Goodbye"
+		return "Goodbye"
  }
  
  @end
  \endcode
- 
- <h3>Templating</h3>
- Froth supports a simple yet expandable templating language built on top of Matt Gammel's excellent templating code MGTemplate. <br>
- <i>See WebLayoutView and WebActionView for templating details</i>
- 
- <h3>Resource Mapping</h3>
- Froth Supports a powerful resource mapping system for mapping web app actions to a file based templates based on the extension. This can be used to 
- render xml, json, binary versions of a item without changing the controller layer.
  
 */
  
@@ -123,10 +115,12 @@
 #import "NSDictionary+Query.h"
 #import "NSData+Utilities.h"
 #import "NSString+Utilities.h"
+#import "NSString+Crypto.h"
 #import "NSString+Regex.h"
 #import "NSDateScealaTypes.h"
 #import "WebRequest+Params.h"
 #import "NSXMLElementAdditions.h"
+#import "NSDate+Utilities.h"
 
 //Utilities and Data Connectors
 #import "SDBDataConnector.h"

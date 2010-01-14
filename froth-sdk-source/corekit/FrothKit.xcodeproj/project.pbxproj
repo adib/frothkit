@@ -32,6 +32,12 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		9D0FD2FF10FFAA0F00D8DD8E /* S3DataConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5460F210FB9B40001F07AC /* S3DataConnector.h */; };
+		9D0FD30010FFAA1100D8DD8E /* S3DataConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5460F210FB9B40001F07AC /* S3DataConnector.h */; };
+		9D0FD30110FFAA1300D8DD8E /* S3DataConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5460F210FB9B40001F07AC /* S3DataConnector.h */; };
+		9D0FD30210FFAA1800D8DD8E /* S3DataConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5460F310FB9B40001F07AC /* S3DataConnector.m */; };
+		9D0FD30310FFAA1800D8DD8E /* S3DataConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5460F310FB9B40001F07AC /* S3DataConnector.m */; };
+		9D0FD30410FFAA1900D8DD8E /* S3DataConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5460F310FB9B40001F07AC /* S3DataConnector.m */; };
 		9D135E4710111F17005172A4 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D135E3A10111F17005172A4 /* JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D135E4810111F17005172A4 /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D135E3B10111F17005172A4 /* NSObject+SBJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D135E4910111F17005172A4 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D135E3C10111F17005172A4 /* NSObject+SBJSON.m */; };
@@ -226,6 +232,60 @@
 		9D545A1010F7E608001F07AC /* WebRequest+FastCGI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE3FBE610D0416600CD04FC /* WebRequest+FastCGI.m */; };
 		9D545A1110F7E608001F07AC /* NSXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D14734910E04030009D881B /* NSXMLElementAdditions.m */; };
 		9D545A1310F7E608001F07AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		9D5460F410FB9B40001F07AC /* S3DataConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5460F210FB9B40001F07AC /* S3DataConnector.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		9D5460F510FB9B40001F07AC /* S3DataConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5460F310FB9B40001F07AC /* S3DataConnector.m */; };
+		9D54612A10FB9C0F001F07AC /* NSString+Crypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54612810FB9C0F001F07AC /* NSString+Crypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D54612B10FB9C0F001F07AC /* NSString+Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D54612910FB9C0F001F07AC /* NSString+Crypto.m */; };
+		9D54612C10FB9C0F001F07AC /* NSString+Crypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54612810FB9C0F001F07AC /* NSString+Crypto.h */; };
+		9D54612D10FB9C0F001F07AC /* NSString+Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D54612910FB9C0F001F07AC /* NSString+Crypto.m */; };
+		9D54612E10FB9C0F001F07AC /* NSString+Crypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54612810FB9C0F001F07AC /* NSString+Crypto.h */; };
+		9D54612F10FB9C0F001F07AC /* NSString+Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D54612910FB9C0F001F07AC /* NSString+Crypto.m */; };
+		9D54613010FB9C0F001F07AC /* NSString+Crypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54612810FB9C0F001F07AC /* NSString+Crypto.h */; };
+		9D54613110FB9C0F001F07AC /* NSString+Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D54612910FB9C0F001F07AC /* NSString+Crypto.m */; };
+		9D5461A310FBA9C5001F07AC /* FrothTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5461A110FBA9C5001F07AC /* FrothTestCase.h */; };
+		9D5461A410FBA9C5001F07AC /* FrothTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5461A210FBA9C5001F07AC /* FrothTestCase.m */; };
+		9D5461A510FBA9C5001F07AC /* FrothTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5461A110FBA9C5001F07AC /* FrothTestCase.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		9D5461A610FBA9C5001F07AC /* FrothTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5461A210FBA9C5001F07AC /* FrothTestCase.m */; };
+		9D5461A710FBA9C5001F07AC /* FrothTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5461A110FBA9C5001F07AC /* FrothTestCase.h */; };
+		9D5461A810FBA9C5001F07AC /* FrothTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5461A210FBA9C5001F07AC /* FrothTestCase.m */; };
+		9D5461A910FBA9C5001F07AC /* FrothTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5461A110FBA9C5001F07AC /* FrothTestCase.h */; };
+		9D5461AA10FBA9C5001F07AC /* FrothTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5461A210FBA9C5001F07AC /* FrothTestCase.m */; };
+		9D5461AD10FBAAAE001F07AC /* FrothTestingController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5461AB10FBAAAE001F07AC /* FrothTestingController.h */; };
+		9D5461AE10FBAAAE001F07AC /* FrothTestingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5461AC10FBAAAE001F07AC /* FrothTestingController.m */; };
+		9D5461AF10FBAAAE001F07AC /* FrothTestingController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5461AB10FBAAAE001F07AC /* FrothTestingController.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		9D5461B010FBAAAE001F07AC /* FrothTestingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5461AC10FBAAAE001F07AC /* FrothTestingController.m */; };
+		9D5461B110FBAAAE001F07AC /* FrothTestingController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5461AB10FBAAAE001F07AC /* FrothTestingController.h */; };
+		9D5461B210FBAAAE001F07AC /* FrothTestingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5461AC10FBAAAE001F07AC /* FrothTestingController.m */; };
+		9D5461B310FBAAAE001F07AC /* FrothTestingController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5461AB10FBAAAE001F07AC /* FrothTestingController.h */; };
+		9D5461B410FBAAAE001F07AC /* FrothTestingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5461AC10FBAAAE001F07AC /* FrothTestingController.m */; };
+		9D5461FF10FBB46C001F07AC /* S3DataConnectorTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5461FD10FBB46C001F07AC /* S3DataConnectorTests.h */; };
+		9D54620010FBB46C001F07AC /* S3DataConnectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5461FE10FBB46C001F07AC /* S3DataConnectorTests.m */; };
+		9D54620110FBB46C001F07AC /* S3DataConnectorTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5461FD10FBB46C001F07AC /* S3DataConnectorTests.h */; };
+		9D54620210FBB46C001F07AC /* S3DataConnectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5461FE10FBB46C001F07AC /* S3DataConnectorTests.m */; };
+		9D54620310FBB46C001F07AC /* S3DataConnectorTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5461FD10FBB46C001F07AC /* S3DataConnectorTests.h */; };
+		9D54620410FBB46C001F07AC /* S3DataConnectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5461FE10FBB46C001F07AC /* S3DataConnectorTests.m */; };
+		9D54620510FBB46C001F07AC /* S3DataConnectorTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5461FD10FBB46C001F07AC /* S3DataConnectorTests.h */; };
+		9D54620610FBB46C001F07AC /* S3DataConnectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5461FE10FBB46C001F07AC /* S3DataConnectorTests.m */; };
+		9D54637E10FBDE60001F07AC /* FrothTestCase+Macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54637D10FBDE60001F07AC /* FrothTestCase+Macros.h */; };
+		9D54637F10FBDE60001F07AC /* FrothTestCase+Macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54637D10FBDE60001F07AC /* FrothTestCase+Macros.h */; };
+		9D54638010FBDE60001F07AC /* FrothTestCase+Macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54637D10FBDE60001F07AC /* FrothTestCase+Macros.h */; };
+		9D54638110FBDE60001F07AC /* FrothTestCase+Macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54637D10FBDE60001F07AC /* FrothTestCase+Macros.h */; };
+		9D54648510FBEE02001F07AC /* NSDate+Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54648310FBEE02001F07AC /* NSDate+Utilities.h */; };
+		9D54648610FBEE02001F07AC /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D54648410FBEE02001F07AC /* NSDate+Utilities.m */; };
+		9D54648710FBEE02001F07AC /* NSDate+Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54648310FBEE02001F07AC /* NSDate+Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D54648810FBEE02001F07AC /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D54648410FBEE02001F07AC /* NSDate+Utilities.m */; };
+		9D54648910FBEE02001F07AC /* NSDate+Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54648310FBEE02001F07AC /* NSDate+Utilities.h */; };
+		9D54648A10FBEE02001F07AC /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D54648410FBEE02001F07AC /* NSDate+Utilities.m */; };
+		9D54648B10FBEE02001F07AC /* NSDate+Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54648310FBEE02001F07AC /* NSDate+Utilities.h */; };
+		9D54648C10FBEE02001F07AC /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D54648410FBEE02001F07AC /* NSDate+Utilities.m */; };
+		9D54676610FD310B001F07AC /* NSDateTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54676410FD310B001F07AC /* NSDateTests.h */; };
+		9D54676710FD310B001F07AC /* NSDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D54676510FD310B001F07AC /* NSDateTests.m */; };
+		9D54676810FD310B001F07AC /* NSDateTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54676410FD310B001F07AC /* NSDateTests.h */; };
+		9D54676910FD310B001F07AC /* NSDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D54676510FD310B001F07AC /* NSDateTests.m */; };
+		9D54676A10FD310B001F07AC /* NSDateTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54676410FD310B001F07AC /* NSDateTests.h */; };
+		9D54676B10FD310B001F07AC /* NSDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D54676510FD310B001F07AC /* NSDateTests.m */; };
+		9D54676C10FD310B001F07AC /* NSDateTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D54676410FD310B001F07AC /* NSDateTests.h */; };
+		9D54676D10FD310B001F07AC /* NSDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D54676510FD310B001F07AC /* NSDateTests.m */; };
 		9D58840F10153204008D1DF9 /* Froth+Exceptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D58840E10153204008D1DF9 /* Froth+Exceptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D58896410165A39008D1DF9 /* DDXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D58895A10165A39008D1DF9 /* DDXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D58896E10165A39008D1DF9 /* DDXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D58895A10165A39008D1DF9 /* DDXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -697,6 +757,21 @@
 		9D303A99101F669E00933A5F /* NSArray+TemplateUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+TemplateUtilities.h"; sourceTree = "<group>"; };
 		9D303A9A101F669E00933A5F /* NSArray+TemplateUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+TemplateUtilities.m"; sourceTree = "<group>"; };
 		9D545A1B10F7E608001F07AC /* libfroth.so */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libfroth.so; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D5460F210FB9B40001F07AC /* S3DataConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3DataConnector.h; sourceTree = "<group>"; };
+		9D5460F310FB9B40001F07AC /* S3DataConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DataConnector.m; sourceTree = "<group>"; };
+		9D54612810FB9C0F001F07AC /* NSString+Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Crypto.h"; sourceTree = "<group>"; };
+		9D54612910FB9C0F001F07AC /* NSString+Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Crypto.m"; sourceTree = "<group>"; };
+		9D5461A110FBA9C5001F07AC /* FrothTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrothTestCase.h; sourceTree = "<group>"; };
+		9D5461A210FBA9C5001F07AC /* FrothTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrothTestCase.m; sourceTree = "<group>"; };
+		9D5461AB10FBAAAE001F07AC /* FrothTestingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrothTestingController.h; sourceTree = "<group>"; };
+		9D5461AC10FBAAAE001F07AC /* FrothTestingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrothTestingController.m; sourceTree = "<group>"; };
+		9D5461FD10FBB46C001F07AC /* S3DataConnectorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3DataConnectorTests.h; sourceTree = "<group>"; };
+		9D5461FE10FBB46C001F07AC /* S3DataConnectorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DataConnectorTests.m; sourceTree = "<group>"; };
+		9D54637D10FBDE60001F07AC /* FrothTestCase+Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FrothTestCase+Macros.h"; sourceTree = "<group>"; };
+		9D54648310FBEE02001F07AC /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
+		9D54648410FBEE02001F07AC /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
+		9D54676410FD310B001F07AC /* NSDateTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateTests.h; sourceTree = "<group>"; };
+		9D54676510FD310B001F07AC /* NSDateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateTests.m; sourceTree = "<group>"; };
 		9D58840E10153204008D1DF9 /* Froth+Exceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Froth+Exceptions.h"; sourceTree = "<group>"; };
 		9D58895A10165A39008D1DF9 /* DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXML.h; sourceTree = "<group>"; };
 		9D58895B10165A39008D1DF9 /* DDXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLDocument.h; sourceTree = "<group>"; };
@@ -898,7 +973,7 @@
 				9D79A2551006B08600AB337E /* Support */,
 				9D13E28910B30DAE00039EF3 /* Scripts */,
 				9D1471B910E0103A009D881B /* HTTP Connectors */,
-				9DF5DD1210E27EDC00BB7721 /* Testing */,
+				9DF5DD1210E27EDC00BB7721 /* Testing - Incomplete */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 			);
@@ -977,6 +1052,26 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9D5460F110FB9AE9001F07AC /* S3 Connector - Incomplete */ = {
+			isa = PBXGroup;
+			children = (
+				9D5460F210FB9B40001F07AC /* S3DataConnector.h */,
+				9D5460F310FB9B40001F07AC /* S3DataConnector.m */,
+			);
+			name = "S3 Connector - Incomplete";
+			sourceTree = "<group>";
+		};
+		9D5461FC10FBB44D001F07AC /* Core Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9D5461FD10FBB46C001F07AC /* S3DataConnectorTests.h */,
+				9D5461FE10FBB46C001F07AC /* S3DataConnectorTests.m */,
+				9D54676410FD310B001F07AC /* NSDateTests.h */,
+				9D54676510FD310B001F07AC /* NSDateTests.m */,
+			);
+			name = "Core Tests";
+			sourceTree = "<group>";
+		};
 		9D5888FD101658E3008D1DF9 /* XML */ = {
 			isa = PBXGroup;
 			children = (
@@ -1026,12 +1121,16 @@
 				9D14734910E04030009D881B /* NSXMLElementAdditions.m */,
 				9D9DE7B5105AD78E00677E09 /* NSDateScealaTypes.h */,
 				9D9DE7B6105AD78E00677E09 /* NSDateScealaTypes.m */,
+				9D54648310FBEE02001F07AC /* NSDate+Utilities.h */,
+				9D54648410FBEE02001F07AC /* NSDate+Utilities.m */,
 				9D6DE47A0F546CA000B9AD49 /* NSDictionary+Query.h */,
 				9D6DE47B0F546CA000B9AD49 /* NSDictionary+Query.m */,
 				BAB463DA0FF97BCB00A1A6A4 /* NSData+Utilities.h */,
 				BAB463DB0FF97BCB00A1A6A4 /* NSData+Utilities.m */,
 				9D799A3E100547C500AB337E /* NSString+Utilities.h */,
 				9D799A3F100547C500AB337E /* NSString+Utilities.m */,
+				9D54612810FB9C0F001F07AC /* NSString+Crypto.h */,
+				9D54612910FB9C0F001F07AC /* NSString+Crypto.m */,
 				9D58898910165ED2008D1DF9 /* NSMutableString+Utilities.h */,
 				9D58898A10165ED2008D1DF9 /* NSMutableString+Utilities.m */,
 				9D3032CA1018DAAB00933A5F /* NSNumber+TemplateUtilities.h */,
@@ -1077,6 +1176,7 @@
 		9D7998DC100520EE00AB337E /* Amazon */ = {
 			isa = PBXGroup;
 			children = (
+				9D5460F110FB9AE9001F07AC /* S3 Connector - Incomplete */,
 				9D146FE910DFE53D009D881B /* SimpleDB Connector */,
 			);
 			name = Amazon;
@@ -1339,11 +1439,17 @@
 			name = "Embedded (OSX Only)";
 			sourceTree = "<group>";
 		};
-		9DF5DD1210E27EDC00BB7721 /* Testing */ = {
+		9DF5DD1210E27EDC00BB7721 /* Testing - Incomplete */ = {
 			isa = PBXGroup;
 			children = (
+				9D5461FC10FBB44D001F07AC /* Core Tests */,
+				9D54637D10FBDE60001F07AC /* FrothTestCase+Macros.h */,
+				9D5461A110FBA9C5001F07AC /* FrothTestCase.h */,
+				9D5461A210FBA9C5001F07AC /* FrothTestCase.m */,
+				9D5461AB10FBAAAE001F07AC /* FrothTestingController.h */,
+				9D5461AC10FBAAAE001F07AC /* FrothTestingController.m */,
 			);
-			name = Testing;
+			name = "Testing - Incomplete";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1431,6 +1537,14 @@
 				9D5459D210F7E608001F07AC /* NSURLConnection+FoundationCompletions.h in Headers */,
 				9D5459D310F7E608001F07AC /* WebRequest+FastCGI.h in Headers */,
 				9D5459D410F7E608001F07AC /* NSXMLElementAdditions.h in Headers */,
+				9D54613010FB9C0F001F07AC /* NSString+Crypto.h in Headers */,
+				9D5461A910FBA9C5001F07AC /* FrothTestCase.h in Headers */,
+				9D5461B310FBAAAE001F07AC /* FrothTestingController.h in Headers */,
+				9D54620510FBB46C001F07AC /* S3DataConnectorTests.h in Headers */,
+				9D54638110FBDE60001F07AC /* FrothTestCase+Macros.h in Headers */,
+				9D54648B10FBEE02001F07AC /* NSDate+Utilities.h in Headers */,
+				9D54676C10FD310B001F07AC /* NSDateTests.h in Headers */,
+				9D0FD2FF10FFAA0F00D8DD8E /* S3DataConnector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1516,6 +1630,14 @@
 				9D13EDFC10B5E51F00039EF3 /* NSURLConnection+FoundationCompletions.h in Headers */,
 				9DE3FBE710D0416600CD04FC /* WebRequest+FastCGI.h in Headers */,
 				9D14734A10E04030009D881B /* NSXMLElementAdditions.h in Headers */,
+				9D5460F410FB9B40001F07AC /* S3DataConnector.h in Headers */,
+				9D54612A10FB9C0F001F07AC /* NSString+Crypto.h in Headers */,
+				9D5461A510FBA9C5001F07AC /* FrothTestCase.h in Headers */,
+				9D5461AF10FBAAAE001F07AC /* FrothTestingController.h in Headers */,
+				9D54620110FBB46C001F07AC /* S3DataConnectorTests.h in Headers */,
+				9D54637F10FBDE60001F07AC /* FrothTestCase+Macros.h in Headers */,
+				9D54648710FBEE02001F07AC /* NSDate+Utilities.h in Headers */,
+				9D54676810FD310B001F07AC /* NSDateTests.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1601,6 +1723,14 @@
 				9D13EDFE10B5E51F00039EF3 /* NSURLConnection+FoundationCompletions.h in Headers */,
 				9DE3FBE910D0416600CD04FC /* WebRequest+FastCGI.h in Headers */,
 				9D14734C10E04030009D881B /* NSXMLElementAdditions.h in Headers */,
+				9D54612C10FB9C0F001F07AC /* NSString+Crypto.h in Headers */,
+				9D5461A710FBA9C5001F07AC /* FrothTestCase.h in Headers */,
+				9D5461B110FBAAAE001F07AC /* FrothTestingController.h in Headers */,
+				9D54620310FBB46C001F07AC /* S3DataConnectorTests.h in Headers */,
+				9D54638010FBDE60001F07AC /* FrothTestCase+Macros.h in Headers */,
+				9D54648910FBEE02001F07AC /* NSDate+Utilities.h in Headers */,
+				9D54676A10FD310B001F07AC /* NSDateTests.h in Headers */,
+				9D0FD30010FFAA1100D8DD8E /* S3DataConnector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1686,6 +1816,14 @@
 				9DA223F910EEACE400FAA0CD /* NSURLConnection+FoundationCompletions.h in Headers */,
 				9DA223FA10EEACE400FAA0CD /* WebRequest+FastCGI.h in Headers */,
 				9DA223FB10EEACE400FAA0CD /* NSXMLElementAdditions.h in Headers */,
+				9D54612E10FB9C0F001F07AC /* NSString+Crypto.h in Headers */,
+				9D5461A310FBA9C5001F07AC /* FrothTestCase.h in Headers */,
+				9D5461AD10FBAAAE001F07AC /* FrothTestingController.h in Headers */,
+				9D5461FF10FBB46C001F07AC /* S3DataConnectorTests.h in Headers */,
+				9D54637E10FBDE60001F07AC /* FrothTestCase+Macros.h in Headers */,
+				9D54648510FBEE02001F07AC /* NSDate+Utilities.h in Headers */,
+				9D54676610FD310B001F07AC /* NSDateTests.h in Headers */,
+				9D0FD30110FFAA1300D8DD8E /* S3DataConnector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1836,7 +1974,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "if [[ -n \"$FROTH_IDENTITY\" && \"$FROTH_IDENTITY\" != \"[ SSL IDENTITY FILE PATH ]\" ]]; then\n\trsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" /Developer/FrothSDK/Library/lib/linux/libfroth.so root@${FROTH_HOST}:/usr/froth/lib\nfi";
+			shellScript = "if [[ -n \"$FROTH_IDENTITY\" && \"$FROTH_IDENTITY\" != \"[ SSL IDENTITY FILE PATH ]\" ]]; then\n\tfor NEXTIP in `echo \"$FROTH_HOST\" | grep -o -e \"[^\\s]*\"`; do\n\t\trsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" /Developer/FrothSDK/Library/lib/linux/libfroth.so root@$NEXTIP:/usr/froth/lib\n\tdone\nfi";
 		};
 		9D545A1410F7E608001F07AC /* Deploy to Machine */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1945,6 +2083,13 @@
 				9D545A0F10F7E608001F07AC /* NSURLConnection+FoundationCompletions.m in Sources */,
 				9D545A1010F7E608001F07AC /* WebRequest+FastCGI.m in Sources */,
 				9D545A1110F7E608001F07AC /* NSXMLElementAdditions.m in Sources */,
+				9D54613110FB9C0F001F07AC /* NSString+Crypto.m in Sources */,
+				9D5461AA10FBA9C5001F07AC /* FrothTestCase.m in Sources */,
+				9D5461B410FBAAAE001F07AC /* FrothTestingController.m in Sources */,
+				9D54620610FBB46C001F07AC /* S3DataConnectorTests.m in Sources */,
+				9D54648C10FBEE02001F07AC /* NSDate+Utilities.m in Sources */,
+				9D54676D10FD310B001F07AC /* NSDateTests.m in Sources */,
+				9D0FD30210FFAA1800D8DD8E /* S3DataConnector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2012,6 +2157,13 @@
 				9D13EDFD10B5E51F00039EF3 /* NSURLConnection+FoundationCompletions.m in Sources */,
 				9DE3FBE810D0416600CD04FC /* WebRequest+FastCGI.m in Sources */,
 				9D14734B10E04030009D881B /* NSXMLElementAdditions.m in Sources */,
+				9D5460F510FB9B40001F07AC /* S3DataConnector.m in Sources */,
+				9D54612B10FB9C0F001F07AC /* NSString+Crypto.m in Sources */,
+				9D5461A610FBA9C5001F07AC /* FrothTestCase.m in Sources */,
+				9D5461B010FBAAAE001F07AC /* FrothTestingController.m in Sources */,
+				9D54620210FBB46C001F07AC /* S3DataConnectorTests.m in Sources */,
+				9D54648810FBEE02001F07AC /* NSDate+Utilities.m in Sources */,
+				9D54676910FD310B001F07AC /* NSDateTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2073,6 +2225,13 @@
 				9D13EDFF10B5E51F00039EF3 /* NSURLConnection+FoundationCompletions.m in Sources */,
 				9DE3FBEA10D0416600CD04FC /* WebRequest+FastCGI.m in Sources */,
 				9D14734D10E04030009D881B /* NSXMLElementAdditions.m in Sources */,
+				9D54612D10FB9C0F001F07AC /* NSString+Crypto.m in Sources */,
+				9D5461A810FBA9C5001F07AC /* FrothTestCase.m in Sources */,
+				9D5461B210FBAAAE001F07AC /* FrothTestingController.m in Sources */,
+				9D54620410FBB46C001F07AC /* S3DataConnectorTests.m in Sources */,
+				9D54648A10FBEE02001F07AC /* NSDate+Utilities.m in Sources */,
+				9D54676B10FD310B001F07AC /* NSDateTests.m in Sources */,
+				9D0FD30310FFAA1800D8DD8E /* S3DataConnector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2135,6 +2294,13 @@
 				9DA2243110EEACE400FAA0CD /* NSURLConnection+FoundationCompletions.m in Sources */,
 				9DA2243210EEACE400FAA0CD /* WebRequest+FastCGI.m in Sources */,
 				9DA2243310EEACE400FAA0CD /* NSXMLElementAdditions.m in Sources */,
+				9D54612F10FB9C0F001F07AC /* NSString+Crypto.m in Sources */,
+				9D5461A410FBA9C5001F07AC /* FrothTestCase.m in Sources */,
+				9D5461AE10FBAAAE001F07AC /* FrothTestingController.m in Sources */,
+				9D54620010FBB46C001F07AC /* S3DataConnectorTests.m in Sources */,
+				9D54648610FBEE02001F07AC /* NSDate+Utilities.m in Sources */,
+				9D54676710FD310B001F07AC /* NSDateTests.m in Sources */,
+				9D0FD30410FFAA1900D8DD8E /* S3DataConnector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2242,7 +2408,7 @@
 				EXECUTABLE_EXTENSION = so;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = /Developer/Cocotron/1.0/Linux/i386/Frameworks;
-				FROTH_HOST = 174.129.9.112;
+				FROTH_HOST = 204.236.224.163;
 				FROTH_HOST_ = "[ IP OF MACHINE WITH SSH / RSYNC ]";
 				FROTH_IDENTITY = /Users/$USER/aws/aphiltc1.pem;
 				FROTH_IDENTITY_ = "[ SSL IDENTITY FILE PATH ]";
@@ -2364,7 +2530,7 @@
 				DYLIB_CURRENT_VERSION = "";
 				EXECUTABLE_EXTENSION = so;
 				EXECUTABLE_PREFIX = lib;
-				FRAMEWORK_SEARCH_PATHS = /Developer/Cocotron/1.0/Linux/i386/Frameworks;
+				FRAMEWORK_SEARCH_PATHS = "/Developer/Cocotron/1.0/Linux/i386/Frameworks-cf";
 				FROTH_HOST = 204.236.224.163;
 				FROTH_HOST_ = "[ IP OF MACHINE WITH SSH / RSYNC ]";
 				FROTH_IDENTITY = /Users/$USER/aws/aphiltc1.pem;
@@ -2412,7 +2578,7 @@
 				PRODUCT_NAME = froth;
 				PUBLIC_HEADERS_FOLDER_PATH = ../../include;
 				SDKROOT = "";
-				SYMROOT = /Developer/FrothSDK/Library/lib/linux;
+				SYMROOT = "/Developer/FrothSDK/Library/lib/linux-cf";
 				VALID_ARCHS = i386;
 			};
 			name = Deploy;

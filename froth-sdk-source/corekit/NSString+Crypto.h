@@ -1,8 +1,6 @@
 //
-//  WebRequest+Params.h
+//  SDBDataConnetor.h
 //  Froth
-//
-//  Created by Allan Phillips on 17/09/09.
 //
 //  Copyright (c) 2009 Thinking Code Software Inc. http://www.thinkingcode.ca
 //
@@ -28,22 +26,24 @@
 //	OTHER DEALINGS IN THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "WebRequest.h"
 
-@interface WebRequest (Params)
-
-/*!
-	\brief	The first paramiter from a the url
-	
-			For example /[controller]/[action]/[firstParam]/..../[lastParam]
- */
-- (NSString*)firstParam;
+@interface NSString (Crypto)
 
 /*!
-	\brief	The last paramiter from a the url
- 
-			For example /[controller]/[action]/[firstParam]/..../[lastParam]
+	\brief Generates a SHA1 HMAC with given secret.
+	\return A base64 encoded string
  */
-- (NSString*)lastParam;
+- (NSString*)sha1HmacWithSecret:(NSString*)secret;
+
+/*!
+	\brief Generates a SHA256 HMAC with given secret.
+	\return A base64 encoded string
+ */
+- (NSString*)sha256HmacWithSecret:(NSString*)secret;
+
+/*!
+	\brief Returns a base64 encoding of string
+ */
+- (NSString*)base64Encoding;
 
 @end

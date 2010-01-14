@@ -1,10 +1,8 @@
 //
-//  WebRequest+Params.h
+//  SDBDataConnetor.h
 //  Froth
 //
-//  Created by Allan Phillips on 17/09/09.
-//
-//  Copyright (c) 2009 Thinking Code Software Inc. http://www.thinkingcode.ca
+//  Copyright (c) 2010 Thinking Code Software Inc. http://www.thinkingcode.ca
 //
 //	Permission is hereby granted, free of charge, to any person
 //  obtaining a copy of this software and associated documentation
@@ -28,22 +26,33 @@
 //	OTHER DEALINGS IN THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "WebRequest.h"
-
-@interface WebRequest (Params)
+#import "FrothTestCase+Macros.h"
 
 /*!
-	\brief	The first paramiter from a the url
-	
-			For example /[controller]/[action]/[firstParam]/..../[lastParam]
+	\brief [INCOMPLETE] A simple test case absract super class for running tests with FrothTestingController
  */
-- (NSString*)firstParam;
+@interface FrothTestCase : NSObject {
+	NSMutableArray* results;
+}
+
+- (NSArray*)results;
+
+/*
+	\brief Use one of the macros instead.
+ */
+- (void)addResult:(NSException*)result;
 
 /*!
-	\brief	The last paramiter from a the url
- 
-			For example /[controller]/[action]/[firstParam]/..../[lastParam]
+	\brief Setup the test case
  */
-- (NSString*)lastParam;
+- (void)setUp;
+
+/*!
+	\brief Tear down the test case, do any cleanup
+ */
+- (void)tearDown;
+
+//Temparary until we implement class introspection to automatically find all methods that begin with test_*
+- (NSArray*)tests;
 
 @end

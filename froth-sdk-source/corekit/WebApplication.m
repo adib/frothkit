@@ -123,12 +123,18 @@
 	NSString* controllerName = [self _controllerNameForRequest:wr];
 	NSString* className = [NSString stringWithFormat:@"WA%@Controller", controllerName];
 	
-	NSLog(@"WebApplication: Possible WebActionController [%@]", className);
+	NSLog(@"WebApplication: Possible WebActionController [%@] for controller name [%@]", className, controllerName);
 	
 	Class theClass = NSClassFromString(className);
 	
 	//Try a streightAccross class id MyClass
 	if(!theClass) theClass = NSClassFromString(controllerName);
+	
+	//Maybe its for internal testing class
+	if(!theClass && [controllerName isEqualToString:@"Frothtests"]) {
+		NSLog(@"WebApplication: Using Froth Testing Controller");
+		theClass = NSClassFromString(@"FrothTestingController");
+	}
 	
 	//Make sure it conforms to the WebActionController
 	if(theClass && [theClass conformsToProtocol:@protocol(WebActionController)]) {
@@ -163,7 +169,7 @@
 		return [self _defaultActionView];
 	}
 	
-	NSLog(@"returning nil view.");
+	NSLog(@"WebApplication+ returning nil view.");
 	
 	return nil;
 }
@@ -432,8 +438,7 @@
 #pragma mark Error Responses
 
 - (WebResponse*)_notFoundResponseForRequest:(WebRequest*)webReq {
-	
-	//TODO: This will be replaced by the complete powerful routing system that will be comming.
+
 	if(!webReq.controller) {
 		return [WebResponse redirectResponseWithUrl:[NSString stringWithFormat:@"http://%@/home", [webReq domain]]];
 	}
@@ -442,13 +447,15 @@
 		return [self performSelector:@selector(internalEXEHandle:) withObject:webReq];
 	}
 	
-	WebResponse *rs = [WebResponse okResponse];
+	//No controller found, need to send off a 404. error.
+	WebResponse *rs = [WebResponse responseWithCode:404];
 	[rs setHeader:@"text/html; charset=UTF-8" forKey:@"Content-Type"];
-	//TODO: Use a template for this, if not, then print below...
-		
+	
 	NSMutableString *s = [[NSMutableString alloc] init];
-	[s appendString:[NSString stringWithUTF8String:"<h1>No Froth Web Application Controller Found</h1>"]];
-	[s appendFormat:@"<br>URL:[%@]", [webReq url]];
+	[s appendFormat:@"<html><head><title>No page found: http://%@%@</title></head><body>", [webReq domain], [webReq url]];
+	[s appendFormat:@"<h1>404 error: File not found - '%@'</h1>", [webReq url]];
+	[s appendFormat:@"<p>Did you mean to visit <a href='http://%@'>http://%@</a>?</p>", [webReq domain], [webReq domain]];
+	[s appendString:@"<p><i>This Site is powered by <a href='http://www.frothkit.org'>Froth</a></i></p></body></html>"];
 	rs.bodyString = [s autorelease];
 	return rs;
 }
@@ -486,14 +493,13 @@
 	This are handled by the -_notFoundResponseForRequest: method based on a controller name of /exe
  */
 - (id)internalEXEHandle:(WebRequest*)req {
-	if([req.action isEqualToString:@"timezones"]) {
+	/*if([req.action isEqualToString:@"timezones"]) {
 		NSMutableString* tz = [NSMutableString string];
 		[tz appendString:@"<h1>System TimeZone Database Names</h1>"];
 		[tz appendString:@"<ul>"];
 		NSArray* tzArr = [NSTimeZone knownTimeZoneNames];
 		for(NSString* tZS in tzArr) {
 			NSTimeZone* next = [NSTimeZone timeZoneWithName:tZS];
-			NSLog(@"next :%@", tZS);
 			[tz appendFormat:@"<li>%@ - %@ - %i", tZS, [next abbreviation], [next secondsFromGMT]];
 		}
 		[tz appendString:@"</ul>"];
@@ -502,7 +508,7 @@
 		return [WebResponse htmlResponseWithBody:[[NSTimeZone abbreviationDictionary] description]];
 	} else if([req.action isEqualToString:@"exp-test"]) {
 		froth_exception(@"TestException", @"Simple message:%@", [req description]);
-	}
+	}*/
 	return [WebResponse notFoundResponse];
 }
 

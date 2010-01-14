@@ -29,12 +29,12 @@
 #import "sdb.h"
 
 /*! 
-	\brief	Provides an Objective-C Wrapper around libSDB for SimpleDB Connections 
-	\detail	Response data is formated as plain foundation objects.
+	\brief		Provides an Objective-C Wrapper around libSDB for SimpleDB Connections 
+			
+				Response data is formated as plain foundation objects.
 				Array or results:	NSArray.
 				Result Item:		NSDictionary {"itemName":{"key1":"value","key2":"value"}"itemTwoNAme...}
   
-				TODO: Provide a memcached wrapper for in-memory caching of objects.
 				<br><br>
 				<b>DataSource.plist keys required.<b><br>
 				<br>account: The amazon sdb account

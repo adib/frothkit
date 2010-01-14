@@ -230,6 +230,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -274,14 +276,15 @@
 								<string>9DE8238510AC8D83006D1176</string>
 								<string>089C1671FE841209C02AAC07</string>
 								<string>1C37FBAC04509CD000000102</string>
+								<string>9D546A5310FE82D7001F07AC</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>7</integer>
-									<integer>5</integer>
-									<integer>0</integer>
+									<integer>34</integer>
+									<integer>27</integer>
+									<integer>26</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -304,7 +307,7 @@
 							<real>252</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>159 121 1220 749 0 0 1680 1028 </string>
+						<string>148 113 1220 749 0 0 1680 1028 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -315,8 +318,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -334,7 +335,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>9D8D382010F3EB66006CD62A</string>
+										<string>9D546A5410FE82D7001F07AC</string>
 										<key>history</key>
 										<array>
 											<string>9D13DD9010AE58E400039EF3</string>
@@ -349,7 +350,7 @@
 											<string>9DA222ED10EE6AD700FAA0CD</string>
 											<string>9D8D381210F3EB49006CD62A</string>
 											<string>9D8D381310F3EB49006CD62A</string>
-											<string>9D8D381710F3EB49006CD62A</string>
+											<string>9D8D382010F3EB66006CD62A</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -379,7 +380,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {946, 607}}</string>
 								<key>RubberWindowFrame</key>
-								<string>159 121 1220 749 0 0 1680 1028 </string>
+								<string>148 113 1220 749 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -399,7 +400,7 @@
 								<key>Frame</key>
 								<string>{{0, 612}, {946, 96}}</string>
 								<key>RubberWindowFrame</key>
-								<string>159 121 1220 749 0 0 1680 1028 </string>
+								<string>148 113 1220 749 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -423,9 +424,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>9D8D381E10F3EB60006CD62A</string>
+				<string>9D546A5510FE82D7001F07AC</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>9D8D381F10F3EB60006CD62A</string>
+				<string>9D546A5610FE82D7001F07AC</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -562,7 +563,7 @@
 		<string>/Users/allan/Development/froth/frothkit/froth-sdk-source/templates/FrothSDK/Web Application/___PROJECTNAME___.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>159 121 1220 749 0 0 1680 1028 </string>
+	<string>148 113 1220 749 0 0 1680 1028 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>

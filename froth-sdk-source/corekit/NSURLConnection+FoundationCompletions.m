@@ -90,43 +90,34 @@ WriteMemoryCallback(void *ptr, size_t size, size_t nmemb, void *data)
 		 curl_easy_setopt(chandle, CURLOPT_CUSTOMREQUEST, "DELETE");
 	}
 	
-	//TODO: Create a read function and pointer for reading post/put data.
-	
+	//TODO: Create a read function and pointer for reading post/put data
 	NSDictionary* headers = [request allHTTPHeaderFields];
 	NSArray* hkeys = [headers allKeys];
 	if([hkeys count]) {
 		for(NSString*headerKey in hkeys) {
 			NSString*hvalue = [headers valueForKey:headerKey];
-			//NSLog(@"NSURLConnection: next-header:%@", headerKey);
 			if((NSNull*)hvalue != [NSNull null]) {
 				slist = curl_slist_append(slist, [[NSString stringWithFormat:@"%@: %@", headerKey, hvalue] UTF8String]);
 			} else {
 				slist = curl_slist_append(slist, [[NSString stringWithFormat:@"%@:", headerKey] UTF8String]);
 			}
-			//NSLog(@"NSURLConnection: end-header");
 		}
 		curl_easy_setopt(chandle, CURLOPT_HTTPHEADER, slist);
 	}
 		
-	//NSLog(@"NSURLConnection: getting here:2");
 	curl_easy_setopt(chandle, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
 	curl_easy_setopt(chandle, CURLOPT_WRITEDATA, (void *)&response);
-    //NSLog(@"NSURLConnection: getting here:3");
-	
-	//NSLog(@"NSURLConnection: getting here:4");
 	
 	if(curl_easy_perform(chandle) == 0) { //Success
-		//NSLog(@"NSURLConnection: getting here:5");
 		curl_slist_free_all(slist);
 		curl_easy_cleanup(chandle);
 		NSData* data = [NSData dataWithBytes:(void*)response.memory length:response.size];
-		//NSLog(@"result:%@", [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]);
 		return data;
 	} else {
 		NSLog(@"--- NSURLConnection+LibCurl Wrapper Error ---");
 		curl_slist_free_all(slist);
 		curl_easy_cleanup(chandle);
-		*errorp = [NSError errorWithDomain:@"Froth.NSURLConnectionDomain" code:9231 userInfo:nil];
+		*errorp = [NSError errorWithDomain:@"FrothNSURLConnectionDomain" code:9231 userInfo:nil];
 		return NULL;
 	}
 	

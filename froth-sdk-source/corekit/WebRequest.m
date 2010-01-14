@@ -296,7 +296,7 @@
 	[controller release]; controller = nil;
 	[action release]; action = nil;
 	
-	//Not sure whats up with mem-management here. This is causing a sigfault.
+	//TODO: Not sure whats up with mem-management here. This is causing a sigfault.
 	/*[bodyDataValue release]; bodyDataValue = nil;*/
 	[objectValue release]; objectValue = nil;
 	

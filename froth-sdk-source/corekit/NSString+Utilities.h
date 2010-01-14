@@ -33,6 +33,9 @@
 
 + (NSString*)guid;
 
+- (BOOL)containsString:(NSString *)aString;
+- (BOOL)containsString:(NSString *)aString ignoringCase:(BOOL)flag;
+
 //Converts a notified token, with the following open schema.
 - (NSString*)stripedSignature;
 

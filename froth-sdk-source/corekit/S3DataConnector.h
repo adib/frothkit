@@ -1,8 +1,6 @@
 //
-//  WebRequest+Params.h
+//  SDBDataConnetor.h
 //  Froth
-//
-//  Created by Allan Phillips on 17/09/09.
 //
 //  Copyright (c) 2009 Thinking Code Software Inc. http://www.thinkingcode.ca
 //
@@ -28,22 +26,29 @@
 //	OTHER DEALINGS IN THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "WebRequest.h"
 
-@interface WebRequest (Params)
+/*! 
+	\brief	[INCOMPLETE] Provides an connector for accessing Amazon S3 data.
+ */
+@interface S3DataConnector : NSObject {
+	NSString* secret;
+	NSString* account;
+}
 
 /*!
-	\brief	The first paramiter from a the url
+	\brief Provides a shared data connector given account and aws secret
+ */
++ (S3DataConnector*)sharedDataConnectorForAccount:(NSString*)account secret:(NSString*)secret;
+- (id)initWithAccount:(NSString*)account secret:(NSString*)secret;
+
+/*!
+	\brief Returns an array of NSDictionary representation of buckets connector's zone
 	
-			For example /[controller]/[action]/[firstParam]/..../[lastParam]
- */
-- (NSString*)firstParam;
+	The dictionary objects in the array contain the following key values corresponding to Amazon s3 xml response names
+	- Name, NSString
+	- CreationDate, NSDate
+*/	
+- (NSArray*)getBuckets;
 
-/*!
-	\brief	The last paramiter from a the url
- 
-			For example /[controller]/[action]/[firstParam]/..../[lastParam]
- */
-- (NSString*)lastParam;
 
 @end

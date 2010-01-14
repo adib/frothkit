@@ -30,9 +30,9 @@
 #import <Foundation/Foundation.h>
 #import "zlib.h"  
 
-/*! TODO: Currently this is causing froth linux library to fail building */
 
-NSDate* dateFromISO8601(NSString* str);
+//Does not work becouse of incomplete cocotron impl.
+//NSDate* dateFromISO8601WithSubSecond(NSString* str);
 
 /*!	\brief Sceala Data Type additions to NSDate for converting dates to and from ScealaDates */
 @interface NSDate (NSDateScealaTypes)

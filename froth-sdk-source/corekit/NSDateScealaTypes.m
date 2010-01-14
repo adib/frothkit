@@ -37,12 +37,12 @@
 NSDate* dateFromISO8601WithSubSecond(NSString* str) {
 	static NSDateFormatter* sISO8601_sub = nil;
 	if (!sISO8601_sub) {
-		sISO8601_sub = [[NSDateFormatter alloc] init];
 #ifdef __APPLE__
+		sISO8601_sub = [[NSDateFormatter alloc] init];
 		[sISO8601_sub setTimeStyle:NSDateFormatterFullStyle];
 		[sISO8601_sub setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];    // NOTE:  problem!
 #else
-		[sISO8601_sub setDateFormat:@"%Y-%m-%dT%H:%M:%S.%Fz%z"];	//TODO: fix for firefox including subsecond presicion as .xx
+		sISO8601_sub = [[NSDateFormatter alloc] initWithDateFormat:@"%Y-%m-%dT%H:%M:%S.%Fz%z" allowNaturalLanguage:YES];
 #endif
 	}
 	if ([str hasSuffix:@"Z"]) { ///GMT

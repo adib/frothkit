@@ -1,10 +1,10 @@
 //
-//  WebRequest+Params.h
+//  ApplicationController.h
 //  Froth
 //
-//  Created by Allan Phillips on 17/09/09.
+//  Created by Allan Phillips on 23/02/09.
 //
-//  Copyright (c) 2009 Thinking Code Software Inc. http://www.thinkingcode.ca
+//  Copyright (c) 2010 Thinking Code Software Inc. http://www.thinkingcode.ca
 //
 //	Permission is hereby granted, free of charge, to any person
 //  obtaining a copy of this software and associated documentation
@@ -28,22 +28,20 @@
 //	OTHER DEALINGS IN THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "WebRequest.h"
-
-@interface WebRequest (Params)
+#import "WebActiveController.h"
 
 /*!
-	\brief	The first paramiter from a the url
+	\brief [INCOMPLETE] Provides a simple testing system for webapps
 	
-			For example /[controller]/[action]/[firstParam]/..../[lastParam]
+	To enable the testing controller for your application add a 'froth_testing_name' key with a url mapping name.
  */
-- (NSString*)firstParam;
+@interface FrothTestingController : WebActiveController {
+
+}
 
 /*!
-	\brief	The last paramiter from a the url
- 
-			For example /[controller]/[action]/[firstParam]/..../[lastParam]
+	\brief Allows for running a single test based on its name
  */
-- (NSString*)lastParam;
+- (id)runtestAction:(WebRequest*)req;
 
 @end

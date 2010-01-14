@@ -1,10 +1,8 @@
 //
-//  WebRequest+Params.h
+//  SDBDataConnetor.h
 //  Froth
 //
-//  Created by Allan Phillips on 17/09/09.
-//
-//  Copyright (c) 2009 Thinking Code Software Inc. http://www.thinkingcode.ca
+//  Copyright (c) 2010 Thinking Code Software Inc. http://www.thinkingcode.ca
 //
 //	Permission is hereby granted, free of charge, to any person
 //  obtaining a copy of this software and associated documentation
@@ -27,23 +25,43 @@
 //	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 //	OTHER DEALINGS IN THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import "WebRequest.h"
+#import "FrothTestCase.h"
 
-@interface WebRequest (Params)
 
-/*!
-	\brief	The first paramiter from a the url
+@implementation FrothTestCase
+
+- (id)init {
+	if(self = [super init]) {
+		results = [[NSMutableArray alloc] init];
+	}
+	return self;
+}
+
+- (void)dealloc {
+	[results release];
+	[super dealloc];
+}
+
+#pragma mark -
+
+- (NSArray*)results {
+	return results;
+}
+
+- (void)addResult:(NSException*)result {
+	[results addObject:result];
+}
+
+- (void)setUp {
 	
-			For example /[controller]/[action]/[firstParam]/..../[lastParam]
- */
-- (NSString*)firstParam;
+}
 
-/*!
-	\brief	The last paramiter from a the url
- 
-			For example /[controller]/[action]/[firstParam]/..../[lastParam]
- */
-- (NSString*)lastParam;
+- (void)tearDown {
+	
+}
+
+- (NSArray*)tests {
+	return nil;
+}
 
 @end

@@ -184,11 +184,11 @@
 	}
 	NSString* templatePath = [bundle pathForResource:froth_str(@"%@.email", templateName) ofType:nil];
 	if(!templatePath) {
-		froth_exception(@"WebMailerException", froth_str(@"No template with name %@[.email] found in webApp bundle", templateName));
+		froth_exception(@"WebMailerException", froth_str(@"No template with name %@.email found in webApp bundle", templateName));
 	}
 	NSString* template = [NSString stringWithContentsOfFile:templatePath encoding:NSUTF8StringEncoding error:nil];
 	if(!template) {
-		froth_exception(@"WebMailerException", froth_str(@"Unable to load email template %@[.email] - with unknown reason", templateName));
+		froth_exception(@"WebMailerException", froth_str(@"Unable to load email template %@.email - with unknown reason", templateName));
 	}
 	
 	MGTemplateEngine* engine = [MGTemplateEngine templateEngine];

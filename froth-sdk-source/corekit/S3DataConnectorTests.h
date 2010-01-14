@@ -1,8 +1,8 @@
 //
-//  WebRequest+Params.h
+//  ApplicationController.h
 //  Froth
 //
-//  Created by Allan Phillips on 17/09/09.
+//  Created by Allan Phillips on 23/02/09.
 //
 //  Copyright (c) 2009 Thinking Code Software Inc. http://www.thinkingcode.ca
 //
@@ -27,23 +27,11 @@
 //	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 //	OTHER DEALINGS IN THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import "WebRequest.h"
+#import "FrothTestCase.h"
+#import "S3DataConnector.h"
 
-@interface WebRequest (Params)
-
-/*!
-	\brief	The first paramiter from a the url
-	
-			For example /[controller]/[action]/[firstParam]/..../[lastParam]
- */
-- (NSString*)firstParam;
-
-/*!
-	\brief	The last paramiter from a the url
- 
-			For example /[controller]/[action]/[firstParam]/..../[lastParam]
- */
-- (NSString*)lastParam;
+@interface S3DataConnectorTests : FrothTestCase {
+	S3DataConnector* s3dc;
+}
 
 @end

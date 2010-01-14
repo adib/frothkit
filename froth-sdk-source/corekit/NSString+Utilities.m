@@ -54,6 +54,16 @@
 #endif
 }
 
+- (BOOL)containsString:(NSString *)aString {
+    return [self containsString:aString ignoringCase:NO];
+}
+
+- (BOOL)containsString:(NSString *)aString ignoringCase:(BOOL)flag {
+    unsigned mask = (flag ? NSCaseInsensitiveSearch : 0);
+    NSRange range = [self rangeOfString:aString options:mask];
+    return (range.length > 0);
+}
+
 - (NSString*)stripedSignature {
 	NSString* nString = [self stringByReplacingOccurrencesOfString:@"/" withString:@""];
 	nString = [nString stringByReplacingOccurrencesOfString:@"+" withString:@""];

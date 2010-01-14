@@ -1,8 +1,8 @@
 //
-//  WebRequest+Params.h
+//  ApplicationController.h
 //  Froth
 //
-//  Created by Allan Phillips on 17/09/09.
+//  Created by Allan Phillips on 23/02/09.
 //
 //  Copyright (c) 2009 Thinking Code Software Inc. http://www.thinkingcode.ca
 //
@@ -27,23 +27,30 @@
 //	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 //	OTHER DEALINGS IN THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import "WebRequest.h"
+#import "S3DataConnectorTests.h"
+#import "Froth+Defines.h"
+#import "Froth+Exceptions.h"
 
-@interface WebRequest (Params)
+@implementation S3DataConnectorTests
 
-/*!
-	\brief	The first paramiter from a the url
+- (NSArray*)tests {
+	return [NSArray arrayWithObject:@"test_getBuckets"];
+}
+
+- (void)test_getBuckets {
+	S3DataConnector* connector = [S3DataConnector sharedDataConnectorForAccount:@""
+																		 secret:@""];
+								  
 	
-			For example /[controller]/[action]/[firstParam]/..../[lastParam]
- */
-- (NSString*)firstParam;
-
-/*!
-	\brief	The last paramiter from a the url
- 
-			For example /[controller]/[action]/[firstParam]/..../[lastParam]
- */
-- (NSString*)lastParam;
+	NSArray* buckets = [connector getBuckets];
+	
+	NSLog(@"buckets:%@", buckets);
+	
+	if(buckets.count>0) {
+		FRPass([NSString stringWithFormat:@"%@", buckets]);
+	} else {
+		FRFail(@"Array size is 0 for get buckets test");
+	}
+}
 
 @end

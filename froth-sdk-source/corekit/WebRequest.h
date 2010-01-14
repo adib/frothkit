@@ -32,52 +32,61 @@
 
 /*! 
 	\brief	Encapsulates information from a request from httpd (or fastcgi)
-	\detail	WebRequests provide a Action controller with all the details about a request,
+				
+				WebRequests provide a Action controller with all the details about a request,
 				also it typically containts routing information applied by the server.
-				<br><br>
+		
 				Requests also has convienence methods for accessing a NSDictionary/NSArray from the
 				body or query of the request.
-				<br>
+				
 				<h3>POST/PUT Requests</h3>
 				For POST requests, -objectValue returns an object automatically decoded from the http request's body, be it xml,
 				json, html, x-www-form-urlencoded, etc. For post content the object returned from -objectValue will be a NSXMLElement, 
 				for json the result will be a NSDictionary. Text content will return as a NSString from the -objectValue method. 
 				
 				WebRequest parses the data useing the following logic.<br>
-				1. Checks the http contentType header with application/json or text/json, application/xml or text/xml and x-www-form-urlencoded.<br>
-				2. Checks the extention of the request *.xml, *.json and uses the extention as the type.
+				- Checks the http contentType header with application/json or text/json, application/xml or text/xml and x-www-form-urlencoded.<br>
+				- Checks the extention of the request *.xml, *.json and uses the extention as the type.
  
 				<h3>GET Requests</h3>
 				For GET Reqeusts -objectValue returns the query (?this=that) part of the url, or nil if none.
- 
- 
+
  */
 @interface WebRequest : NSObject {
 	NSString* method;
-	
 	NSString* controller;
 	NSString* action;
 	NSString* extension;
-	
 	NSMutableArray* params;
 	
 	NSDictionary* headers;
 	NSDictionary* cookies;
 	NSDictionary* query;
-	
-	
+		
 	NSData* bodyDataValue;
 	id objectValue;
-	
-	
-	WebSession* session;
 
+	WebSession* session;
 }
+
+/*! \brief [NOTE] This is incorrectly named url, should be path and a url method should be implemented. */
 - (NSString*)url;
+
 - (NSString*)domain;
+
+/*! \brief The http method for the request. (GET | POST | PUT | DELETE ...) */
 - (NSString*)method;
+
+/*! \brief Allows for changing the http method for when passing around a web request */
 - (void)setMethod:(NSString*)replacement;
+
+/*! \brief HTTP request headers as a dictionary */
 - (NSDictionary*)headers;
+
+/*! 
+	\brief	The file extention for the request's path.
+	\return	nil if no path.
+ */
 - (NSString*)extension;
 
 /*! \brief Raw data from a post request's body */
@@ -92,6 +101,7 @@
 /*! \brief Represents any paramiters send after the request (ie {controllerName}/{actionName}/{actionParams[0]/...} */
 - (NSMutableArray*)params;
 
+/*! \brief HTTP Cookies from request header */
 - (NSDictionary*)cookies;
 
 /*! \brief The request header's Content-Type if any. */
@@ -101,7 +111,8 @@
 - (NSString*)bodyStringValue;
 
 /*! \brief	The posts body where object class is dependent on "contentType"
-	\detail	This object is automatically created from the contentType for the object
+				
+				This object is automatically created from the contentType for the object
 				
 				1. application/json | text/json				- NSDictionary or NSArray
 				2. text/plain | text/html | text/richtext	- NSString
@@ -124,7 +135,7 @@
 /*! \brief Returns a header value for header key, IE HTTP_HOST */
 - (NSString*)valueForHeader:(NSString*)headerName;
 
-/*! \brief Convenience method for returning enviorment variable for requestors ip address. REMOTE_ADDR */
+/*! \brief Convenience method for returning environment variable for requestors ip address. REMOTE_ADDR */
 - (NSString*)ip;
 
 @end

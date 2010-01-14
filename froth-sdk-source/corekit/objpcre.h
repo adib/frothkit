@@ -49,7 +49,7 @@ enum
 };
 
 /*!
-	\brief And Alternative Regex Utility for Froth Users
+	\brief And Alternative Regex Utility for Froth Users by Christopher Bess
  */
 @interface ObjPCRE : NSObject
 {
