@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Modes</key>
+	<dict>
+		<key>release</key>
+		<dict>
+			<key>Root</key>
+			<string></string>
+			<key>Port</key>
+			<string>9982</string>
+			<key>Host</key>
+			<string>IP or Domain or Regex see: </string>
+			<key>Disabled</key>
+			<true/>
+		</dict>
+		<key>beta</key>
+		<dict>
+			<key>Root</key>
+			<string></string>
+			<key>Port</key>
+			<string>9981</string>
+			<key>Host</key>
+			<string>IP or Domain or Regex see: </string>
+			<key>Disabled</key>
+			<false/>
+		</dict>
+	</dict>
+</dict>
+</plist>
