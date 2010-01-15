@@ -28,6 +28,7 @@
 //	OTHER DEALINGS IN THE SOFTWARE.
 
 #import "NSURLConnection+FoundationCompletions.h"
+#import <Foundation/NSHTTPURLResponse.h>
 
 #include <curl/curl.h>
 #include <curl/easy.h>
@@ -64,6 +65,29 @@ WriteMemoryCallback(void *ptr, size_t size, size_t nmemb, void *data)
 	return realsize;
 }
 
+//Simple wrapper as cocotron does not implement this, this should fully support all of NSMutableURLResponse
+@interface NSURLResponse_Froth : NSHTTPURLResponse {
+	int m_status;
+}
+
+@end
+
+@implementation NSURLResponse_Froth
+
+- (id)initWithStatusCode:(NSInteger)code {
+	if(self = [super init]) {
+		m_status = code;
+	}
+	return self;
+}
+
+- (NSInteger)statusCode {
+	return m_status;
+}
+
+@end
+
+
 @implementation NSURLConnection (FoundationCompletions)
 
 + (NSData *)sendSynchronousRequest:(NSURLRequest *)request returningResponse:(NSURLResponse **)responsep error:(NSError **)errorp {
@@ -84,8 +108,9 @@ WriteMemoryCallback(void *ptr, size_t size, size_t nmemb, void *data)
 		curl_easy_setopt(chandle, CURLOPT_POSTFIELDS, [[request HTTPBody] bytes]);
 		curl_easy_setopt(chandle, CURLOPT_POSTFIELDSIZE, [[request HTTPBody] length]);
 	} else if([method isEqualToString:@"PUT"]) {
-		curl_easy_setopt(chandle, CURLOPT_POSTFIELDS, [[request HTTPBody] bytes]); //Not sure if this will work for puts...
-		curl_easy_setopt(chandle, CURLOPT_PUT, 1);
+		curl_easy_setopt(chandle, CURLOPT_UPLOAD, 1);
+		curl_easy_setopt(chandle, CURLOPT_READDATA, [[request HTTPBody] bytes]); //Not sure if this will work for puts...
+		curl_easy_setopt(chandle, CURLOPT_INFILESIZE, [[request HTTPBody] length]);
 	} else if([method isEqualToString:@"DELETE"]) {
 		 curl_easy_setopt(chandle, CURLOPT_CUSTOMREQUEST, "DELETE");
 	}
@@ -108,9 +133,22 @@ WriteMemoryCallback(void *ptr, size_t size, size_t nmemb, void *data)
 	curl_easy_setopt(chandle, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
 	curl_easy_setopt(chandle, CURLOPT_WRITEDATA, (void *)&response);
 	
+	NSLog(@"getting here?");
 	if(curl_easy_perform(chandle) == 0) { //Success
 		curl_slist_free_all(slist);
+		
+		long code;
+		curl_easy_getinfo(chandle, CURLINFO_RESPONSE_CODE, &code);
+		NSLog(@"response code:%i",code);
+		
+		//Simple response based on status code.
+		///--- Does not work...
+		//*responsep = [[NSURLResponse_Froth alloc] initWithStatusCode:code];
+		
+		//TODO add header response as well...
+		
 		curl_easy_cleanup(chandle);
+		
 		NSData* data = [NSData dataWithBytes:(void*)response.memory length:response.size];
 		return data;
 	} else {
@@ -120,7 +158,6 @@ WriteMemoryCallback(void *ptr, size_t size, size_t nmemb, void *data)
 		*errorp = [NSError errorWithDomain:@"FrothNSURLConnectionDomain" code:9231 userInfo:nil];
 		return NULL;
 	}
-	
 }
 
 @end

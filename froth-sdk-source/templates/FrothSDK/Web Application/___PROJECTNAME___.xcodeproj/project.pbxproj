@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D0FD8AC11012C6900D8DD8E /* Deployments.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D0FD8AB11012C6900D8DD8E /* Deployments.plist */; };
+		9D0FD8AD11012C6900D8DD8E /* Deployments.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D0FD8AB11012C6900D8DD8E /* Deployments.plist */; };
 		9D13DAFF10ACC11100039EF3 /* cwkd.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE8202A10AB87CA006D1176 /* cwkd.m */; };
 		9D13DB0010ACC11100039EF3 /* WAExampleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE8234410AC88BB006D1176 /* WAExampleController.m */; };
 		9D13DBEC10ACC8CA00039EF3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089C1672FE841209C02AAC07 /* Foundation.framework */; };
@@ -146,6 +148,7 @@
 /* Begin PBXFileReference section */
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D5B49B6048680CD000E48DA /* ___PROJECTNAME___.webApp */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "___PROJECTNAME___.webApp"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D0FD8AB11012C6900D8DD8E /* Deployments.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Deployments.plist; sourceTree = "<group>"; };
 		9D13DB1410ACC11100039EF3 /* ___PROJECTNAME___.webApp */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "___PROJECTNAME___.webApp"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D13DB1510ACC11100039EF3 /* Info-Linux.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Linux.plist"; sourceTree = "<group>"; };
 		9D13DC9610ACF71100039EF3 /* MyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyModel.h; sourceTree = "<group>"; };
@@ -367,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				9DE8238B10AC8E0D006D1176 /* Info.plist */,
+				9D0FD8AB11012C6900D8DD8E /* Deployments.plist */,
 				9D13DD0110AE0E0100039EF3 /* DataSources.plist */,
 				9D13DB1510ACC11100039EF3 /* Info-Linux.plist */,
 			);
@@ -451,6 +455,7 @@
 				9D13DCBC10ACF90900039EF3 /* Layout.html in Resources */,
 				9D13DD0210AE0E0100039EF3 /* DataSources.plist in Resources */,
 				9D13DD8510AE58D400039EF3 /* test.css in Resources */,
+				9D0FD8AC11012C6900D8DD8E /* Deployments.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +467,7 @@
 				9D13DCBB10ACF90900039EF3 /* Layout.html in Resources */,
 				9D13DD0310AE0E0F00039EF3 /* DataSources.plist in Resources */,
 				9D13DD8410AE58D400039EF3 /* test.css in Resources */,
+				9D0FD8AD11012C6900D8DD8E /* Deployments.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

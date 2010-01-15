@@ -20,12 +20,6 @@
 - (void)dateWithStringTest:(NSString*)testDate currectTimeInterval:(NSTimeInterval)testInterval {
 	NSDate* date = [NSDate dateWithString:testDate format:@"%Y-%m-%d %H:%M:%S %z"];
 	
-	//NSLog(@"timezone secsFromUTC:%i", [[(NSCalendarDate*)date timeZone] secondsFromGMT]);
-	//NSLog(@"timezone:%@", [(NSCalendarDate*)date timeZone]);
-	
-	//Move time to UTC, no we need to set it as reverse of iteself
-	//[(NSCalendarDate*)date setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-	
 	if(date) {
 		
 		NSTimeInterval convertedInterval = [date timeIntervalSince1970];
@@ -49,13 +43,15 @@
 
 - (void)test_dateWithString_Format_ {	
 
-	FRPass(@"[current time:%@]", [[NSDate date] description]);
+	FRPass(@"current time:%@", [[NSDate date] description]);
 	[self dateWithStringTest:@"2018-05-02 19:57:00 -0700" currectTimeInterval:1525316220.00];
 	[self dateWithStringTest:@"2018-05-02 19:57:00 -0600" currectTimeInterval:1525312620.00];
 	[self dateWithStringTest:@"2018-05-02 19:57:00 -0400" currectTimeInterval:1525305420.00];
 	[self dateWithStringTest:@"2018-05-02 19:57:00 +0400" currectTimeInterval:1525276620.00];
 	[self dateWithStringTest:@"2018-05-02 19:57:00 +0600" currectTimeInterval:1525269420.00];
 	[self dateWithStringTest:@"2018-05-02 19:57:00 +0700" currectTimeInterval:1525265820.00];
+	
+	[self dateWithStringTest:@"2001-10-02 2:57:00 -0700" currectTimeInterval:1002016620.00];
 	
 }
 

@@ -107,11 +107,7 @@
 		pthread_mutex_lock(&accept_mutex);
 		rc = FCGX_Accept_r(&request);
 		
-		/* This fixes the thread cross/talking issue, however we need to do something more solid here? */
-		//This breaks threading? and causes weird thread cross talk!
 		pthread_mutex_unlock(&accept_mutex);
-		
-		//No thread to accept!
 		if(rc < 0) break;
 		
 		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];

@@ -33,5 +33,6 @@
 @interface NSDate (Utilities)
 
 + (NSDate*)dateWithString:(NSString*)str format:(NSString*)formating;
++ (NSDate*)isoDateFromString:(NSString*)str;
 
 @end

@@ -42,4 +42,8 @@ Shared public served files (for shareing css/js/img between multiple apps)
 Shared unpublic data.
 /var/froth/data
 
-
+CHANGES
+// :allan:20100115 
+- fmtool
+Removes dring shell tool for lightpd configs and now dynamically generates then directly from deployed webApp bundles.
+Now provides support for 'Deployment.plist' files for more stuctured deployment mode configurations (See Template for example)

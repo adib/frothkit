@@ -64,13 +64,31 @@
 
 /*!
 	\brief	Returns the web path to the currently running app, typically '/' for root
-			
-	The deployment path is the value of Info.plist (or Info-Mac.plist)'s froth_root_(deploymentMode) key.
+	
+	NEW: The deployment path is from the bundle's Deployments.plist dictionary Modes.[mode].Root setting
+	OLD: The deployment path is the value of Info.plist (or Info-Mac.plist)'s froth_root_(deploymentMode) key.
  */
 + (NSString*)deploymentUriPath;
 	
 /*!
-	\brief Returns the bundles Info.plist (or Info-Mac.plist) user info dictionary
+	\brief Returns the bundles /Contents/Resources/Deployments.plist dictionary
+	
+	The Deployments.plist should be included in the web app bundles Resources directory. This file provides information
+	about the various deployment modes for the application. fmtool on the server uses these to generate httpd configuration
+	settings for the applications.
+ 
+	Structure
+	Mode -> 
+	    [configuration-name] ->
+	        Root = The relative root of the web app, this can be used for multiple webapps per domain.
+	        Port = The port the app runs on, must be unique on machine.
+	        Host = The host name or ip (or regular expression)  for the domain
+			Disabled = BOOL to disable an app.
+		
+ 
+	NOTE: This use to return the Info.plist (or Info-Mac.plist) user info dictionary and
+	that was used for deployments. Now by defualy a Deployments.plist is used, however for legacy
+	support the old scheme is still supported.
  */
 + (NSDictionary*)deploymentConfigDictionary;
 

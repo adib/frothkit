@@ -35,7 +35,22 @@
 
 #import "Froth+Exceptions.h"
 
-#define S3CONNECTOR_HOST @"s3-us-west-1.amazonaws.com"
+#import <Foundation/NSHTTPURLResponse.h>
+
+//Should be same location as ec2 instance to avoid redirection speed.
+#define S3CONNECTOR_HOST @"s3.amazonaws.com"
+
+NSString * const S3AccessControlPrivate =@"private";
+NSString * const S3AccessControlPublicRead =@"public-read";
+NSString * const S3AccessControlPublicFull =@"public-read-write";
+NSString * const S3AccessControlAuthRead =@"authenticated-read";
+NSString * const S3AccessControlBucketOwnerRead =@"bucket-owner-read";
+NSString * const S3AccessControlBucketOwnerFull =@"bucket-owner-full-control";
+
+@interface S3Bucket (S3DataConnectorInternal)
+- (id)initWithConnector:(S3DataConnector*)connector name:(NSString*)nameVal subPath:(NSString*)pathVal marker:(int)mark max:(int)mx;
+- (void)setHasMore:(BOOL)more;
+@end
 
 @implementation S3DataConnector
 
@@ -95,13 +110,16 @@
     } else if (![requestPath hasSuffix:@"/"]&&[absoluteString hasSuffix:@"/"]) {
         requestPath = [NSString stringWithFormat:@"%@/", requestPath];
     }
-    
-    /*if (!([operation isRequestOnService])&&([self virtuallyHosted])) {
-        requestPath = [NSString stringWithFormat:@"/%@%@", [operation bucketName], requestPath];
-    }*/
 	
 	if(!requestPath || requestPath.length < 1) {
 		requestPath = @"/";
+	}
+	
+	NSString* urlStr = [[req URL] host];
+	NSArray* doms = [urlStr componentsSeparatedByString:@"."];
+	NSArray* refDoms = [S3CONNECTOR_HOST componentsSeparatedByString:@"."];
+	if (![[doms objectAtIndex:0] isEqualToString:[refDoms objectAtIndex:0]]) {
+		requestPath = [NSString stringWithFormat:@"/%@%@", [doms objectAtIndex:0], requestPath];
 	}
 		
 	return requestPath;
@@ -112,7 +130,7 @@
 	[stringToSign appendFormat:@"%@\n", [[req HTTPMethod] uppercaseString]];
 	
 	if([req HTTPBody]) {
-		[stringToSign appendFormat:@"%@\n", [[req HTTPBody] md5Digest]];
+		[stringToSign appendFormat:@"%@\n", [[req HTTPBody] md5DigestString]];
 	} else {
 		[stringToSign appendString:@"\n"];
 	}
@@ -159,7 +177,7 @@
 	NSError* nerror;
 	NSData* result = [NSURLConnection sendSynchronousRequest:req returningResponse:nil error:&nerror];
 	if(result) {
-		NSXMLDocument* xml = [[NSXMLDocument alloc] initWithData:result options:0 error:nil];
+		NSXMLDocument* xml = [[[NSXMLDocument alloc] initWithData:result options:0 error:nil] autorelease];
 		NSXMLElement* root = [xml rootElement];
 		if([[root name] isEqualToString:@"Error"]) {
 			froth_exception(@"S3DataConnectorAmazonRestException", [[root elementForName:@"Message"] stringValue]);
@@ -169,7 +187,10 @@
 			NSMutableArray* results = [NSMutableArray array];
 			for(NSXMLElement* xb in xbuckets) {
 				NSString* name = [[xb elementForName:@"Name"] stringValue];
-				[results addObject:[NSDictionary dictionaryWithObjectsAndKeys:[[xb elementForName:@"CreationDate"] stringValue], @"CreationDate", name, @"Name", nil]];
+				NSString* dateStr =[[xb elementForName:@"CreationDate"] stringValue];
+
+				NSDate* date = [NSDate isoDateFromString:dateStr];
+				[results addObject:[NSDictionary dictionaryWithObjectsAndKeys:date, @"CreationDate", name, @"Name", nil]];
 			}
 			return results;
 		}
@@ -177,6 +198,145 @@
 		froth_exception(@"S3DataConnectorAmazonResultException", [nerror localizedDescription]);
 	}
 	return nil;
+}
+
+- (BOOL)m_fetchNext:(S3Bucket*)bucket {
+	return FALSE; //TODO: Implement me!
+}
+
+- (S3Bucket*)getBucketWithName:(NSString*)name path:(NSString*)path from:(int)marker max:(int)maxKeys {
+	NSMutableString* requestStr = [[[NSMutableString alloc] init] autorelease];
+	[requestStr appendFormat:@"http://%@.%@", name, S3CONNECTOR_HOST];
+	if(path)
+		[requestStr appendFormat:@"?prefix=%@", path];
+	if(marker>0)
+		[requestStr appendFormat:@"&marker=%i", marker];
+	if(maxKeys>0) {
+		[requestStr appendFormat:@"&max-keys=%i", maxKeys];
+	}
+	
+	NSMutableURLRequest* req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestStr]];
+	[self signRequest:req];
+	
+	NSError* nerror;
+	NSData* result = [NSURLConnection sendSynchronousRequest:req returningResponse:nil error:&nerror];
+	if(result) {
+		NSXMLDocument* xml = [[[NSXMLDocument alloc] initWithData:result options:0 error:nil] autorelease];
+		NSXMLElement* root = [xml rootElement];
+		if([[root name] isEqualToString:@"Error"]) {
+			froth_exception(@"S3DataConnectorAmazonRestException", [[root elementForName:@"Message"] stringValue]);
+		} else {
+			S3Bucket* bucket = [[S3Bucket alloc] initWithConnector:self name:name subPath:path marker:marker max:maxKeys];
+			[bucket setHasMore:[[[root elementForName:@"IsTruncated"] stringValue] boolValue]];
+			
+			//Uggh!
+			NSMutableArray* keys = (NSMutableArray*)[bucket keys];
+			
+			NSArray* contents = [root elementsForName:@"Contents"];
+			for(NSXMLElement* element in contents) {
+				//Could move this to a shared method for objects
+				NSString* key = [[element elementForName:@"Key"] stringValue];
+				NSDate* lastModified = [NSDate isoDateFromString:[[element elementForName:@"LastModified"] stringValue]];
+				NSString* etag = [[[element elementForName:@"ETag"] stringValue] stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+				NSNumber* size = [NSNumber numberWithInt:[[[element elementForName:@"Size"] stringValue] intValue]];
+				
+				//TODO: add owner information http://docs.amazonwebservices.com/AmazonS3/latest/API/
+				[keys addObject:[NSDictionary dictionaryWithObjectsAndKeys:key, @"Key", lastModified, @"LastModified", etag, @"ETag", size, @"Size", nil]];
+			}
+			
+			return [bucket autorelease];
+		}
+	}
+	return nil;
+}
+
+- (BOOL)createBucketWithName:(NSString*)name {
+	NSMutableString* requestStr = [[[NSMutableString alloc] init] autorelease];
+	[requestStr appendFormat:@"http://%@.%@", name, S3CONNECTOR_HOST];
+	
+	NSMutableURLRequest* req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestStr]];
+	[req setHTTPMethod:@"PUT"];
+	[self signRequest:req];
+	
+	NSError* nerror;
+	NSHTTPURLResponse* response = nil;
+	[NSURLConnection sendSynchronousRequest:req returningResponse:&response error:&nerror];
+	
+	if(response && [response statusCode] == 404) {
+		return TRUE;
+	} 
+	return TRUE; //See NSURLConnection_FoundationCompletions.m:145
+}
+
+- (BOOL)deleteBucketWithName:(NSString*)name {
+	NSMutableString* requestStr = [[[NSMutableString alloc] init] autorelease];
+	[requestStr appendFormat:@"http://%@.%@", name, S3CONNECTOR_HOST];
+	
+	NSMutableURLRequest* req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestStr]];
+	[req setHTTPMethod:@"DELETE"];
+	[self signRequest:req];
+	
+	NSError* nerror;
+	NSHTTPURLResponse* response = nil;
+	[NSURLConnection sendSynchronousRequest:req returningResponse:&response error:&nerror];
+	
+	if(response && [response statusCode] == 404) {
+		return TRUE;
+	} 
+	return TRUE; //See NSURLConnection_FoundationCompletions.m:145
+}
+
+- (BOOL)saveObjectWithData:(NSData*)data 
+					bucket:(NSString*)bucket 
+					  name:(NSString*)objName 
+			   contentType:(NSString*)contentType
+				  encoding:(NSString*)encoding
+				   expires:(NSTimeInterval)seconds
+					access:(NSString*)acl
+					  meta:(NSDictionary*)meta
+{
+	if(data && data.length > 0) {
+		NSMutableString* requestStr = [[[NSMutableString alloc] init] autorelease];
+		[requestStr appendFormat:@"http://%@.%@/%@", bucket, S3CONNECTOR_HOST, objName];
+		
+		NSMutableURLRequest* req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestStr]];
+		[req setHTTPMethod:@"PUT"];
+		
+		//Generate the md5 for security for prevention of man-in-the-middle
+		[req setHTTPBody:data];
+		[req setValue:[data md5DigestString] forHTTPHeaderField:@"Content-MD5"];
+		[req setValue:[NSString stringWithFormat:@"%i", data.length] forHTTPHeaderField:@"Content-Length"];
+		
+		if(contentType)
+			[req setValue:contentType forHTTPHeaderField:@"Content-Type"];
+		if(encoding) 
+			[req setValue:encoding forHTTPHeaderField:@"Content-Encoding"];
+		if(seconds>0)
+			[req setValue:[NSString stringWithFormat:@"%f", seconds*1000.0] forHTTPHeaderField:@"expires"];
+		if(acl)
+			[req setValue:acl forHTTPHeaderField:@"x-amz-acl"];
+		
+		if(meta) {
+			NSArray* allKeys = [meta allKeys];
+			for(NSString* key in allKeys) {
+				[req setValue:[meta valueForKey:key] forHTTPHeaderField:[NSString stringWithFormat:@"x-amz-meta-%@", key]];
+			}
+		}
+		
+		[self signRequest:req];
+		
+		NSError* nerror;
+		NSHTTPURLResponse* response = nil;
+		NSData* result = [NSURLConnection sendSynchronousRequest:req returningResponse:&response error:&nerror];
+		
+		if(response && [response statusCode] == 200) {
+			return TRUE;
+		} else if(result) {
+			NSLog(@"response:%@", [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]);
+		}
+		return TRUE;
+	} 
+	return FALSE;
 }
 
 @end

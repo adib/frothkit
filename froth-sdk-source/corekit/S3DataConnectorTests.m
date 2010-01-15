@@ -34,22 +34,71 @@
 @implementation S3DataConnectorTests
 
 - (NSArray*)tests {
-	return [NSArray arrayWithObject:@"test_getBuckets"];
+	return [NSArray arrayWithObjects:@"test_getBuckets", 
+			@"test_getBucketWithName_", 
+			@"test_createBucketWithName_",
+			/*@"test_deleteBucketWithName_",*/
+			@"test_saveObjectWithData_", nil];
+}
+
+- (void)setUp {
+	connector = [[S3DataConnector sharedDataConnectorForAccount:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"AmazonKey"]
+														secret:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"AmazonSecret"]] retain];
+}
+
+- (void)tearDown {
+	[connector release];
 }
 
 - (void)test_getBuckets {
-	S3DataConnector* connector = [S3DataConnector sharedDataConnectorForAccount:@""
-																		 secret:@""];
-								  
-	
 	NSArray* buckets = [connector getBuckets];
-	
-	NSLog(@"buckets:%@", buckets);
-	
+		
 	if(buckets.count>0) {
 		FRPass([NSString stringWithFormat:@"%@", buckets]);
 	} else {
 		FRFail(@"Array size is 0 for get buckets test");
+	}
+}
+
+- (void)test_getBucketWithName_ {
+	S3Bucket* bucket = [connector getBucketWithName:@"froth-ami-r1" path:@"froth-ami-r1.manifest" from:0 max:-1]; //path could be nil.
+	NSLog(@"bucketcount%i", bucket.keys.count);
+	if(bucket.keys.count>0) {
+		FRPass(@"Backet Data:%@", [bucket keys]);
+	} else {
+		FRFail(@"Bucket [%@] should not be empty...", [bucket name]);
+	}
+}
+
+- (void)test_createBucketWithName_ {
+	if([connector createBucketWithName:@"froth-test-bucket"]) {
+		FRPass(@"Bucket 'froth-test-bucket' was successfully created");
+	} else {
+		FRFail(@"Bucket 'froth-test-bucket' failed to create");
+	}
+}
+
+- (void)test_deleteBucketWithName_ {
+	if([connector deleteBucketWithName:@"froth-test-bucket"]) {
+		FRPass(@"Bucket 'froth-test-bucket' was successfully deleted");
+	} else {
+		FRFail(@"Bucket 'froth-test-bucket' failed to delete");
+	}
+}
+
+- (void)test_saveObjectWithData_ {
+	if([connector saveObjectWithData:[@"This is a test" dataUsingEncoding:NSUTF8StringEncoding]  
+							  bucket:@"froth-test-bucket"
+								name:@"testdoc.txt" 
+						 contentType:@"text/plain" 
+							encoding:nil 
+							 expires:-1 
+							  access:nil 
+								meta:nil]) 
+	{
+		FRPass(@"Test object -textdoc.txt saved to bucket");
+	} else {
+		FRFail(@"Teast object -textdoc.txt failed to save to bucket");
 	}
 }
 

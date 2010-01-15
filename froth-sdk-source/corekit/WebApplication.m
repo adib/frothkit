@@ -48,9 +48,15 @@
 + (NSString*)deploymentUriPath {
 	static NSString* fDeploymentUriPath;
 	if(fDeploymentUriPath == nil) {
-		NSString* deployPathKey = froth_str(@"froth_root_%@", [self deploymentMode]);
-		NSString* path = [[self deploymentConfigDictionary] valueForKey:deployPathKey];
-		fDeploymentUriPath = [path retain];
+		NSDictionary* deploymentDictionary = [self deploymentConfigDictionary];
+		if([[deploymentDictionary allKeys] containsObject:@"Modes"]) {
+			NSString* path = [deploymentDictionary valueForKeyPath:froth_str(@"Modes.%@.Root", [self deploymentMode])];
+			fDeploymentUriPath = [path retain];
+		} else {
+			NSString* deployPathKey = froth_str(@"froth_root_%@", [self deploymentMode]);
+			NSString* path = [deploymentDictionary valueForKey:deployPathKey];
+			fDeploymentUriPath = [path retain];
+		}
 	}
 	return fDeploymentUriPath;
 }
@@ -58,7 +64,13 @@
 + (NSDictionary*)deploymentConfigDictionary {
 	static NSDictionary* fDeploymentConfigDictionary;
 	if(fDeploymentConfigDictionary == nil) {
-		fDeploymentConfigDictionary = [[[NSBundle mainBundle] infoDictionary] retain];
+		NSString* modernConfPath = froth_str(@"%@/Contents/Resources/Deployments.plist", [[NSBundle mainBundle] bundlePath]);
+		fDeploymentConfigDictionary = [NSDictionary dictionaryWithContentsOfFile:modernConfPath];
+		
+		//Legacy support
+		if(!fDeploymentConfigDictionary) {
+			fDeploymentConfigDictionary = [[[NSBundle mainBundle] infoDictionary] retain];
+		}
 	}
 	return fDeploymentConfigDictionary;
 }

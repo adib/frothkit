@@ -34,9 +34,19 @@
 
 
 + (NSDate*)dateWithString:(NSString*)str format:(NSString*)formating {
-	NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] initWithDateFormat:formating allowNaturalLanguage:NO];
+	NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] initWithDateFormat:nil allowNaturalLanguage:NO];
 	[dateFormatter setDateFormat:formating];
-	return [dateFormatter dateFromString:str];	
+	NSDate* date = [dateFormatter dateFromString:str];	
+	
+	[dateFormatter release];
+	return date;
+}
+
++ (NSDate*)isoDateFromString:(NSString*)str {
+	static NSDateFormatter* kISODateFormatter; 
+	if(!kISODateFormatter) 
+		kISODateFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%Y-%m-%dT%H:%M:%S.%F%Z" allowNaturalLanguage:NO];
+	return [kISODateFormatter dateFromString:str];
 }
 
 @end

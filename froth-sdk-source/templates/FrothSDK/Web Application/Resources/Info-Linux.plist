@@ -22,18 +22,6 @@
 	<string>1.0</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
-	<key>froth_root_beta</key>
-	<string></string>
-	<key>froth_host_beta</key>
-	<string>dev.frothkit.org</string>
-	<key>froth_port_beta</key>
-	<string>9394</string>
-	<key>froth_root_staging</key>
-	<string>/staging</string>
-	<key>froth_host_staging</key>
-	<string>192.168.0.1</string>
-	<key>froth_port_staging</key>
-	<string>9395</string>
 	<key>froth_default_controller</key>
 	<string>home</string>
 	<key>froth_default_action</key>

@@ -4,8 +4,8 @@
 		activeBuildConfigurationName = beta;
 		activeTarget = 9D13DAFC10ACC11100039EF3 /* ___PROJECTNAME___-Linux */;
 		addToTargets = (
-			9D13DAFC10ACC11100039EF3 /* ___PROJECTNAME___-Linux */,
 			8D5B49AC048680CD000E48DA /* ___PROJECTNAME___ */,
+			9D13DAFC10ACC11100039EF3 /* ___PROJECTNAME___-Linux */,
 		);
 		codeSenseManager = 9DE8201D10AB874F006D1176 /* Code sense */;
 		perUserDictionary = {
@@ -111,10 +111,22 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 285115065;
-			PBXWorkspaceStateSaveDate = 285115065;
+			PBXPerProjectTemplateStateSaveDate = 285289566;
+			PBXWorkspaceStateSaveDate = 285289566;
 		};
 		perUserProjectItems = {
+			9D0FD8AE11012D9400D8DD8E /* PBXTextBookmark */ = 9D0FD8AE11012D9400D8DD8E /* PBXTextBookmark */;
+			9D0FD8AF11012D9400D8DD8E /* PlistBookmark */ = 9D0FD8AF11012D9400D8DD8E /* PlistBookmark */;
+			9D0FD8B011012D9400D8DD8E /* PlistBookmark */ = 9D0FD8B011012D9400D8DD8E /* PlistBookmark */;
+			9D0FD8B111012D9400D8DD8E /* PlistBookmark */ = 9D0FD8B111012D9400D8DD8E /* PlistBookmark */;
+			9D0FD8B211012D9400D8DD8E /* PlistBookmark */ = 9D0FD8B211012D9400D8DD8E /* PlistBookmark */;
+			9D0FD8B311012D9400D8DD8E /* PBXTextBookmark */ = 9D0FD8B311012D9400D8DD8E /* PBXTextBookmark */;
+			9D0FD8B411012D9400D8DD8E /* PlistBookmark */ = 9D0FD8B411012D9400D8DD8E /* PlistBookmark */;
+			9D0FD8B511012D9400D8DD8E /* PlistBookmark */ = 9D0FD8B511012D9400D8DD8E /* PlistBookmark */;
+			9D0FD8B611012D9400D8DD8E /* PlistBookmark */ = 9D0FD8B611012D9400D8DD8E /* PlistBookmark */;
+			9D0FD8B711012D9400D8DD8E /* PlistBookmark */ = 9D0FD8B711012D9400D8DD8E /* PlistBookmark */;
+			9D0FD8B811012D9400D8DD8E /* PlistBookmark */ = 9D0FD8B811012D9400D8DD8E /* PlistBookmark */;
+			9D0FD8B911012D9400D8DD8E /* PlistBookmark */ = 9D0FD8B911012D9400D8DD8E /* PlistBookmark */;
 			9D13DBFC10ACC95D00039EF3 /* PBXTextBookmark */ = 9D13DBFC10ACC95D00039EF3 /* PBXTextBookmark */;
 			9D13DBFE10ACC95D00039EF3 /* PlistBookmark */ = 9D13DBFE10ACC95D00039EF3 /* PlistBookmark */;
 			9D13DCB110ACF8A200039EF3 /* PBXTextBookmark */ = 9D13DCB110ACF8A200039EF3 /* PBXTextBookmark */;
@@ -131,15 +143,10 @@
 			9D14715F10E001C3009D881B /* PBXTextBookmark */ = 9D14715F10E001C3009D881B /* PBXTextBookmark */;
 			9D14716010E001C3009D881B /* PBXTextBookmark */ = 9D14716010E001C3009D881B /* PBXTextBookmark */;
 			9D39841410ACB1FF00A7555A /* PlistBookmark */ = 9D39841410ACB1FF00A7555A /* PlistBookmark */;
-			9D546A5410FE82D7001F07AC /* PBXTextBookmark */ = 9D546A5410FE82D7001F07AC /* PBXTextBookmark */;
-			9D8D381210F3EB49006CD62A /* PlistBookmark */ = 9D8D381210F3EB49006CD62A /* PlistBookmark */;
 			9D8D381310F3EB49006CD62A /* PBXTextBookmark */ = 9D8D381310F3EB49006CD62A /* PBXTextBookmark */;
-			9D8D382010F3EB66006CD62A /* PBXTextBookmark */ = 9D8D382010F3EB66006CD62A /* PBXTextBookmark */;
 			9DA2215B10E9638000FAA0CD /* PBXTextBookmark */ = 9DA2215B10E9638000FAA0CD /* PBXTextBookmark */;
-			9DA221C910E9735600FAA0CD /* PlistBookmark */ = 9DA221C910E9735600FAA0CD /* PlistBookmark */;
 			9DA221CD10E9735600FAA0CD /* PBXTextBookmark */ = 9DA221CD10E9735600FAA0CD /* PBXTextBookmark */;
 			9DA222EC10EE6AD700FAA0CD /* PBXTextBookmark */ = 9DA222EC10EE6AD700FAA0CD /* PBXTextBookmark */;
-			9DA222ED10EE6AD700FAA0CD /* PlistBookmark */ = 9DA222ED10EE6AD700FAA0CD /* PlistBookmark */;
 			9DE8239F10AC8F8F006D1176 /* PBXTextBookmark */ = 9DE8239F10AC8F8F006D1176 /* PBXTextBookmark */;
 			9DF5DD7C10E2B13500BB7721 /* PBXTextBookmark */ = 9DF5DD7C10E2B13500BB7721 /* PBXTextBookmark */;
 		};
@@ -150,6 +157,136 @@
 	};
 	8D5B49AC048680CD000E48DA /* ___PROJECTNAME___ */ = {
 		activeExec = 0;
+	};
+	9D0FD8AE11012D9400D8DD8E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9DE8234410AC88BB006D1176 /* WAExampleController.m */;
+		name = "WAExampleController.m: 24";
+		rLen = 0;
+		rLoc = 686;
+		rType = 0;
+		vrLen = 956;
+		vrLoc = 0;
+	};
+	9D0FD8AF11012D9400D8DD8E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 9D13DD0110AE0E0100039EF3 /* DataSources.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/allan/Development/froth/frothkit/froth-sdk-source/templates/FrothSDK/Web Application/Resources/DataSources.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	9D0FD8B011012D9400D8DD8E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 9D0FD8AB11012C6900D8DD8E /* Deployments.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/allan/Development/froth/frothkit/froth-sdk-source/templates/FrothSDK/Web Application/Resources/Deployments.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	9D0FD8B111012D9400D8DD8E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 9DE8238B10AC8E0D006D1176 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/allan/Development/froth/frothkit/froth-sdk-source/templates/FrothSDK/Web Application/Resources/Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	9D0FD8B211012D9400D8DD8E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 9D13DB1510ACC11100039EF3 /* Info-Linux.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/allan/Development/froth/frothkit/froth-sdk-source/templates/FrothSDK/Web Application/Resources/Info-Linux.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	9D0FD8B311012D9400D8DD8E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9DE8234410AC88BB006D1176 /* WAExampleController.m */;
+		name = "WAExampleController.m: 24";
+		rLen = 0;
+		rLoc = 686;
+		rType = 0;
+		vrLen = 956;
+		vrLoc = 0;
+	};
+	9D0FD8B411012D9400D8DD8E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 9D0FD8AB11012C6900D8DD8E /* Deployments.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/allan/Development/froth/frothkit/froth-sdk-source/templates/FrothSDK/Web Application/Resources/Deployments.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	9D0FD8B511012D9400D8DD8E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 9D13DD0110AE0E0100039EF3 /* DataSources.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/allan/Development/froth/frothkit/froth-sdk-source/templates/FrothSDK/Web Application/Resources/DataSources.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	9D0FD8B611012D9400D8DD8E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 9D13DB1510ACC11100039EF3 /* Info-Linux.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/allan/Development/froth/frothkit/froth-sdk-source/templates/FrothSDK/Web Application/Resources/Info-Linux.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	9D0FD8B711012D9400D8DD8E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 9D0FD8AB11012C6900D8DD8E /* Deployments.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/allan/Development/froth/frothkit/froth-sdk-source/templates/FrothSDK/Web Application/Resources/Deployments.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	9D0FD8B811012D9400D8DD8E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 9DE8238B10AC8E0D006D1176 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/allan/Development/froth/frothkit/froth-sdk-source/templates/FrothSDK/Web Application/Resources/Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	9D0FD8B911012D9400D8DD8E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 9D13DB1510ACC11100039EF3 /* Info-Linux.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/allan/Development/froth/frothkit/froth-sdk-source/templates/FrothSDK/Web Application/Resources/Info-Linux.plist";
+		rLen = 0;
+		rLoc = 2147483647;
 	};
 	9D13DAFC10ACC11100039EF3 /* ___PROJECTNAME___-Linux */ = {
 		activeExec = 0;
@@ -359,27 +496,6 @@
 		rLen = 0;
 		rLoc = 2147483647;
 	};
-	9D546A5410FE82D7001F07AC /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9DE8234410AC88BB006D1176 /* WAExampleController.m */;
-		name = "WAExampleController.m: 24";
-		rLen = 0;
-		rLoc = 686;
-		rType = 0;
-		vrLen = 956;
-		vrLoc = 0;
-	};
-	9D8D381210F3EB49006CD62A /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 9D13DB1510ACC11100039EF3 /* Info-Linux.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = "/Users/allan/Development/froth/frothkit/froth-sdk-source/templates/FrothSDK/Web Application/Resources/Info-Linux.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
 	9D8D381310F3EB49006CD62A /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 9D13DCBA10ACF90900039EF3 /* Layout.html */;
@@ -388,16 +504,6 @@
 		rLoc = 65;
 		rType = 0;
 		vrLen = 348;
-		vrLoc = 0;
-	};
-	9D8D382010F3EB66006CD62A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 9DE8234410AC88BB006D1176 /* WAExampleController.m */;
-		name = "WAExampleController.m: 24";
-		rLen = 0;
-		rLoc = 686;
-		rType = 0;
-		vrLen = 956;
 		vrLoc = 0;
 	};
 	9DA2215B10E9638000FAA0CD /* PBXTextBookmark */ = {
@@ -409,17 +515,6 @@
 		rType = 0;
 		vrLen = 187;
 		vrLoc = 0;
-	};
-	9DA221C910E9735600FAA0CD /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 9D13DD0110AE0E0100039EF3 /* DataSources.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = "/Users/allan/Development/froth/frothkit/froth-sdk-source/templates/FrothSDK/Web Application/Resources/DataSources.plist";
-		rLen = 0;
-		rLoc = 2147483647;
 	};
 	9DA221CD10E9735600FAA0CD /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -440,17 +535,6 @@
 		rType = 0;
 		vrLen = 73;
 		vrLoc = 0;
-	};
-	9DA222ED10EE6AD700FAA0CD /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 9DE8238B10AC8E0D006D1176 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = "/Users/allan/Development/froth/frothkit/froth-sdk-source/templates/FrothSDK/Web Application/Resources/Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
 	};
 	9DE8201C10AB874F006D1176 /* Source Control */ = {
 		isa = PBXSourceControlManager;

@@ -31,7 +31,7 @@
 #import "S3DataConnector.h"
 
 @interface S3DataConnectorTests : FrothTestCase {
-	S3DataConnector* s3dc;
+	S3DataConnector* connector;
 }
 
 @end
