@@ -86,7 +86,7 @@
 		[[NSBundle mainBundle] load];
 		
 		//Check for an application delegate
-		NSString* delegateClassName = [[[self class] deploymentConfigDictionary] valueForKey:@"froth_app_delegate"];
+		NSString* delegateClassName = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"froth_app_delegate"];
 		if(delegateClassName) {
 			m_delegateClass = NSClassFromString(delegateClassName);
 		}

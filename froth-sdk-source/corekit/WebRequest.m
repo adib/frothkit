@@ -237,7 +237,7 @@
 			}
 		} else {
 			//Get defualt controller/action from configuration
-			NSDictionary* conf = [WebApplication deploymentConfigDictionary];
+			NSDictionary* conf = [[NSBundle mainBundle] infoDictionary];
 			NSString* defCont = [conf valueForKey:@"froth_default_controller"];
 			NSString* defAct = [conf valueForKey:@"froth_default_action"];
 			if(defCont == nil || defCont.length < 1) {
