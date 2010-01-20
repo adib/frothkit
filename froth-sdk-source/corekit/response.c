@@ -892,7 +892,7 @@ int sdb_response_parse_item(struct sdb_response* response, struct sdb_item* item
  */
 int sdb_response_parse_items(struct sdb_response* response, xmlNodePtr items)
 {
-	xmlNodePtr cur, cur2, content;
+	xmlNodePtr cur, content;
 	int size = 0;
 	
 	

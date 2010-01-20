@@ -30,14 +30,17 @@
 #import <Foundation/Foundation.h>
 #import "WebSession.h"
 
+@class WebResponse;
+
 /*! 
 	\brief	Encapsulates information from a request from httpd (or fastcgi)
-				
-				WebRequests provide a Action controller with all the details about a request,
-				also it typically containts routing information applied by the server.
 		
-				Requests also has convienence methods for accessing a NSDictionary/NSArray from the
-				body or query of the request.
+				Requests have convienence methods for accessing an object value from the
+				body or query of the request. 
+ 
+				\code
+				-(id)objectValue;
+				\endcode
 				
 				<h3>POST/PUT Requests</h3>
 				For POST requests, -objectValue returns an object automatically decoded from the http request's body, be it xml,
@@ -50,9 +53,16 @@
  
 				<h3>GET Requests</h3>
 				For GET Reqeusts -objectValue returns the query (?this=that) part of the url, or nil if none.
-
+ 
+				CHANGES:
+				- V0.5.0 -url is depreciated, use -uri instead
  */
 @interface WebRequest : NSObject {
+	NSString* uri;
+	NSString* queryString;
+	NSString* host;
+	NSString* ip;
+	
 	NSString* method;
 	NSString* controller;
 	NSString* action;
@@ -67,18 +77,28 @@
 	id objectValue;
 
 	WebSession* session;
+	WebResponse* response;
+	
+	BOOL keepAlive;
+	
+	//pointer to c request structure (Only currently HTTPd)
+	void* req_p;
 }
 
-/*! \brief [NOTE] This is incorrectly named url, should be path and a url method should be implemented. */
-- (NSString*)url;
+//	NOTE: The internal design of WebRequest needs more overhaul to abstract it from the http connector type (fastcgi/http...)
 
+
+/*! \brief [DEPRECIATED use -uri] This is incorrectly named url, should be path and a url method should be implemented. */
+- (NSString*)url __attribute__((deprecated));
+
+/*! \brief An un-decoded uri portion of the request including the query */
+- (NSString*)uri;
+
+/*! \brief The domain name for the web application from the 'Host' http header */
 - (NSString*)domain;
 
 /*! \brief The http method for the request. (GET | POST | PUT | DELETE ...) */
 - (NSString*)method;
-
-/*! \brief Allows for changing the http method for when passing around a web request */
-- (void)setMethod:(NSString*)replacement;
 
 /*! \brief HTTP request headers as a dictionary */
 - (NSDictionary*)headers;
@@ -121,10 +141,12 @@
 				//TODO: convert text/html to DOMHtml object for server side dom support
  */
 - (id)objectValue;
-- (void)setObjectValue:(id)object;
 
 /*! \brief The session based on user for request (See WebSession header info) for how this is handled */
 - (WebSession*)session;
+
+/*! \brief The string query portion of the request */
+- (NSString*)queryString;
 
 /*! \brief The request query ?this=that&here=their as a dictionary*/
 - (NSDictionary*)query;
@@ -135,7 +157,30 @@
 /*! \brief Returns a header value for header key, IE HTTP_HOST */
 - (NSString*)valueForHeader:(NSString*)headerName;
 
-/*! \brief Convenience method for returning environment variable for requestors ip address. REMOTE_ADDR */
+/*! \brief Convenience method for returning environment variable for requestors ip address. */
 - (NSString*)ip;
+
+/*! \brief Returns a generated response for the request. */
+- (WebResponse*)response;
+
+/*! \brief The internal request pointer */
+- (void*)internalRequestPointer;
+
+/*!
+	\brief	[Not Implemented] If the request should be kept alive for asynchronous communications.
+ 
+	See -setKeepAlive or -setKeepAliveForInterval:
+ */ 
+- (BOOL)keepAlive;
+
+/* 
+	\brief [Not Implemented] If the connection should be kept alive for asynchronous communications
+ 
+	 This can be used to enable aync features in a froth application. Prior to return the web response to
+	 the WebApplication either in an action method, component handle or pre/post preocessing controller methods,
+	 a WebRequest can be set to 'true' to enable a chunked data (Content-Transmission: Chunked) mode or some other
+	 streaming mode.
+ */
+- (void)setKeepAlive:(BOOL)alive;
 
 @end

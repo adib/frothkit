@@ -230,6 +230,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -279,8 +281,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>21</integer>
-									<integer>17</integer>
+									<integer>16</integer>
+									<integer>14</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -320,7 +322,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Info-Linux.plist</string>
+								<string>cwkd.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -328,18 +330,17 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Info-Linux.plist</string>
+										<string>cwkd.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>9D0FD8B911012D9400D8DD8E</string>
+										<string>9D0FE5B6110767B500D8DD8E</string>
 										<key>history</key>
 										<array>
 											<string>9D13DD9010AE58E400039EF3</string>
 											<string>9D13DD9C10AE5C3900039EF3</string>
 											<string>9D14715F10E001C3009D881B</string>
 											<string>9D14716010E001C3009D881B</string>
-											<string>9DF5DD7C10E2B13500BB7721</string>
 											<string>9DA2215B10E9638000FAA0CD</string>
 											<string>9DA221CD10E9735600FAA0CD</string>
 											<string>9DA222EC10EE6AD700FAA0CD</string>
@@ -348,7 +349,8 @@
 											<string>9D0FD8AF11012D9400D8DD8E</string>
 											<string>9D0FD8B011012D9400D8DD8E</string>
 											<string>9D0FD8B111012D9400D8DD8E</string>
-											<string>9D0FD8B211012D9400D8DD8E</string>
+											<string>9D0FE42611062B4700D8DD8E</string>
+											<string>9D0FE5B5110767B500D8DD8E</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -365,12 +367,7 @@
 											<string>9D13DD2510AE122B00039EF3</string>
 											<string>9D13DD9210AE58E400039EF3</string>
 											<string>9D13DD9D10AE5C3900039EF3</string>
-											<string>9D0FD8B311012D9400D8DD8E</string>
 											<string>9D0FD8B411012D9400D8DD8E</string>
-											<string>9D0FD8B511012D9400D8DD8E</string>
-											<string>9D0FD8B611012D9400D8DD8E</string>
-											<string>9D0FD8B711012D9400D8DD8E</string>
-											<string>9D0FD8B811012D9400D8DD8E</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -428,9 +425,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>9D0FD8BA11012D9400D8DD8E</string>
+				<string>9D0FE5B7110767B500D8DD8E</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>9D0FD8BB11012D9400D8DD8E</string>
+				<string>9D0FE5B8110767B500D8DD8E</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>

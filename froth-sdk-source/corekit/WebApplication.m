@@ -30,6 +30,8 @@
 #import "WebApplication.h"
 #import "froth.h"
 
+#import "WebMutableRequest.h"
+
 #define kParamsUriRootKey		@"com.cocoa-web.uri-root"
 #define kParamsUriDebugEnabled	@"com.cocoa-web.debug-enabled"
 #define kWebAppBundleLocation	@"~/WebApps"
@@ -433,13 +435,13 @@
 	//Now generate a x-session-froth cookie if needed, this is generated from the request.session so we can use
 	//any user values set in the session, for api requests controllers must supply the session key in an alternative way.
 	if(![request valueForCookie:@"x-froth-session"]) {
-		NSLog(@"WebApplication: Generating new x-froth-session coookie for request :%@", request.session.guid);
-		[response setCookieValue:[request.session.guid stringByReplacingOccurrencesOfString:@"\000" withString:@""]	//Not sure yet why the guid is getting padded with \000
+		NSLog(@"WebApplication: Generating new x-froth-session coookie for request :%@:%@", request.session.guid, request.uri);
+		[response setCookieValue:request.session.guid
 						  forKey:@"x-froth-session" 
-						  expires:[[NSDate date] addTimeInterval:172800] //2 days //TODO: Make this configurable via webApp configuration dictionary in bundle
+						 expires:[[NSDate date] addTimeInterval:172800] //2 days //TODO: Make this configurable via webApp configuration dictionary in bundle
 						  secure:NO
 						  domain:froth_str(@".%@", [request valueForHeader:@"HTTP_HOST"])
-						  path:@"/"];
+							path:@"/"];
 		//TODO: only set the cookie for the webApp root as defined in webApp properties
 	}
 
@@ -464,8 +466,8 @@
 	[rs setHeader:@"text/html; charset=UTF-8" forKey:@"Content-Type"];
 	
 	NSMutableString *s = [[NSMutableString alloc] init];
-	[s appendFormat:@"<html><head><title>No page found: http://%@%@</title></head><body>", [webReq domain], [webReq url]];
-	[s appendFormat:@"<h1>404 error: File not found - '%@'</h1>", [webReq url]];
+	[s appendFormat:@"<html><head><title>No page found: http://%@%@</title></head><body>", [webReq domain], [webReq uri]];
+	[s appendFormat:@"<h1>404 error: File not found - '%@'</h1>", [webReq uri]];
 	[s appendFormat:@"<p>Did you mean to visit <a href='http://%@'>http://%@</a>?</p>", [webReq domain], [webReq domain]];
 	[s appendString:@"<p><i>This Site is powered by <a href='http://www.frothkit.org'>Froth</a></i></p></body></html>"];
 	rs.bodyString = [s autorelease];
@@ -491,6 +493,8 @@
 		res = [self _notFoundResponseForRequest:req];
 	}
 	
+	[(WebMutableRequest*)req setResponse:res];
+	
 	//Clean up
 	[delegate release], delegate = nil;
 	[controller release];
@@ -505,6 +509,10 @@
 	This are handled by the -_notFoundResponseForRequest: method based on a controller name of /exe
  */
 - (id)internalEXEHandle:(WebRequest*)req {
+	if([req.action isEqualToString:@"version"]) {
+		return [WebResponse xmlResponseWithBody:froth_str(@"<froth version='%@'/>", FROTH_VERSION_STRING)];
+	}
+	
 	/*if([req.action isEqualToString:@"timezones"]) {
 		NSMutableString* tz = [NSMutableString string];
 		[tz appendString:@"<h1>System TimeZone Database Names</h1>"];

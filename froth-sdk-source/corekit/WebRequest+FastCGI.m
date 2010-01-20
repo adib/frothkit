@@ -33,7 +33,7 @@
 #import "Froth+Exceptions.h"
 #import "NSDictionary+Query.h"
 
-@implementation WebRequest (FastCGI)
+@implementation WebMutableRequest (FastCGI)
 
 - (void)setHTTPRequestPointer:(char**)env {
 	char **p;
@@ -85,10 +85,6 @@
 	
 	[e release];
 	[c release];
-}
-
-- (void)setBodyData:(NSData*)data {
-	bodyDataValue = [data retain];
 }
 
 @end

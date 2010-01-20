@@ -95,7 +95,7 @@
 /*!
 	\brief	Called from a httpd connector or other httpd server object when a request is received.
 	\param  req A WebRequest instance initalized from httpd HTTP request data.
-	\return	A WebResponse instance that wraps data that will get sent as a HTTP response.
+	\return	An autoreleased WebResponse instance that wraps data that will get sent as a HTTP response.
 */
 - (WebResponse*)handle:(WebRequest*)req;
 

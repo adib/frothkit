@@ -46,6 +46,7 @@
 		[tcase setUp];
 				
 		for(NSString* testMethod in [tcase tests]) {
+			NSLog(@"++start tests");
 			SEL selector = NSSelectorFromString(testMethod);
 			[tcase performSelector:selector];
 		}
@@ -67,7 +68,7 @@
 					[outs appendString:@"<div class='test pass'>"];
 				}
 				
-				[outs appendFormat:@"<br><i><b>%@</b></i><br>%@", [exp name], [exp reason]];
+				[outs appendFormat:@"<br><i><b>%@</b></i><br>%@<br>%@", [exp name], [exp reason], [exp userInfo]];
 			
 			} else {	//Not a built in exception by an application level exception, this to needs to be reported.
 				[outs appendString:@"<div class='test fail'>"];

@@ -29,6 +29,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class WebRequest;
+
 /*!
 	\brief Provides a final wrapper on an http response 
  */

@@ -54,6 +54,182 @@
 		9D0FD8E71101310800D8DD8E /* WebApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD8E11101310800D8DD8E /* WebApplicationTests.m */; };
 		9D0FD8E81101310800D8DD8E /* WebApplicationTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD8E01101310800D8DD8E /* WebApplicationTests.h */; };
 		9D0FD8E91101310800D8DD8E /* WebApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD8E11101310800D8DD8E /* WebApplicationTests.m */; };
+		9D0FD98F11013B4100D8DD8E /* BTLSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD96A11013B4100D8DD8E /* BTLSocket.h */; };
+		9D0FD99011013B4100D8DD8E /* BTLSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD96B11013B4100D8DD8E /* BTLSocket.m */; };
+		9D0FD99111013B4100D8DD8E /* BTLSocket+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD96C11013B4100D8DD8E /* BTLSocket+Protected.h */; };
+		9D0FD99211013B4100D8DD8E /* BTLConnectionlessSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD96E11013B4100D8DD8E /* BTLConnectionlessSocket.h */; };
+		9D0FD99311013B4100D8DD8E /* BTLConnectionlessSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD96F11013B4100D8DD8E /* BTLConnectionlessSocket.m */; };
+		9D0FD99411013B4100D8DD8E /* BTLUDPSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97011013B4100D8DD8E /* BTLUDPSocket.h */; };
+		9D0FD99511013B4100D8DD8E /* BTLUDPSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97111013B4100D8DD8E /* BTLUDPSocket.m */; };
+		9D0FD99611013B4100D8DD8E /* BTLConnectionOrientedSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97311013B4100D8DD8E /* BTLConnectionOrientedSocket.h */; };
+		9D0FD99711013B4100D8DD8E /* BTLConnectionOrientedSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97411013B4100D8DD8E /* BTLConnectionOrientedSocket.m */; };
+		9D0FD99811013B4100D8DD8E /* BTLTCPSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97511013B4100D8DD8E /* BTLTCPSocket.h */; };
+		9D0FD99911013B4100D8DD8E /* BTLTCPSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97611013B4100D8DD8E /* BTLTCPSocket.m */; };
+		9D0FD99A11013B4100D8DD8E /* BTLSocketAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97811013B4100D8DD8E /* BTLSocketAddress.h */; };
+		9D0FD99B11013B4100D8DD8E /* BTLSocketAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97911013B4100D8DD8E /* BTLSocketAddress.m */; };
+		9D0FD99C11013B4100D8DD8E /* BTLSocketIPAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97B11013B4100D8DD8E /* BTLSocketIPAddress.h */; };
+		9D0FD99D11013B4100D8DD8E /* BTLSocketIPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97C11013B4100D8DD8E /* BTLSocketIPAddress.m */; };
+		9D0FD99E11013B4100D8DD8E /* BTLSocketIPV4Address.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97D11013B4100D8DD8E /* BTLSocketIPV4Address.h */; };
+		9D0FD99F11013B4100D8DD8E /* BTLSocketIPV4Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97E11013B4100D8DD8E /* BTLSocketIPV4Address.m */; };
+		9D0FD9A011013B4100D8DD8E /* BTLSocketIPV6Address.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97F11013B4100D8DD8E /* BTLSocketIPV6Address.h */; };
+		9D0FD9A111013B4100D8DD8E /* BTLSocketIPV6Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98011013B4100D8DD8E /* BTLSocketIPV6Address.m */; };
+		9D0FD9A211013B4100D8DD8E /* BTLSocketBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98211013B4100D8DD8E /* BTLSocketBuffer.h */; };
+		9D0FD9A311013B4100D8DD8E /* BTLSocketBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98311013B4100D8DD8E /* BTLSocketBuffer.m */; };
+		9D0FD9A411013B4100D8DD8E /* BTLSocketBuffer+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98411013B4100D8DD8E /* BTLSocketBuffer+Protected.h */; };
+		9D0FD9A511013B4100D8DD8E /* BTLSocketHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98611013B4100D8DD8E /* BTLSocketHandler.h */; };
+		9D0FD9A611013B4100D8DD8E /* BTLSocketHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98711013B4100D8DD8E /* BTLSocketHandler.m */; };
+		9D0FD9A711013B4100D8DD8E /* BTLSocketHandlerList.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98811013B4100D8DD8E /* BTLSocketHandlerList.h */; };
+		9D0FD9A811013B4100D8DD8E /* BTLSocketHandlerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98911013B4100D8DD8E /* BTLSocketHandlerList.m */; };
+		9D0FD9A911013B4100D8DD8E /* BTLSocketHandlerList+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98A11013B4100D8DD8E /* BTLSocketHandlerList+Protected.h */; };
+		9D0FD9AA11013B4100D8DD8E /* BTLSocketManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98C11013B4100D8DD8E /* BTLSocketManager.h */; };
+		9D0FD9AB11013B4100D8DD8E /* BTLSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98D11013B4100D8DD8E /* BTLSocketManager.m */; };
+		9D0FD9AC11013B4100D8DD8E /* BTLSocketManager+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98E11013B4100D8DD8E /* BTLSocketManager+Protected.h */; };
+		9D0FD9AD11013B4100D8DD8E /* BTLSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD96A11013B4100D8DD8E /* BTLSocket.h */; };
+		9D0FD9AE11013B4100D8DD8E /* BTLSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD96B11013B4100D8DD8E /* BTLSocket.m */; };
+		9D0FD9AF11013B4100D8DD8E /* BTLSocket+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD96C11013B4100D8DD8E /* BTLSocket+Protected.h */; };
+		9D0FD9B011013B4100D8DD8E /* BTLConnectionlessSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD96E11013B4100D8DD8E /* BTLConnectionlessSocket.h */; };
+		9D0FD9B111013B4100D8DD8E /* BTLConnectionlessSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD96F11013B4100D8DD8E /* BTLConnectionlessSocket.m */; };
+		9D0FD9B211013B4100D8DD8E /* BTLUDPSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97011013B4100D8DD8E /* BTLUDPSocket.h */; };
+		9D0FD9B311013B4100D8DD8E /* BTLUDPSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97111013B4100D8DD8E /* BTLUDPSocket.m */; };
+		9D0FD9B411013B4100D8DD8E /* BTLConnectionOrientedSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97311013B4100D8DD8E /* BTLConnectionOrientedSocket.h */; };
+		9D0FD9B511013B4100D8DD8E /* BTLConnectionOrientedSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97411013B4100D8DD8E /* BTLConnectionOrientedSocket.m */; };
+		9D0FD9B611013B4100D8DD8E /* BTLTCPSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97511013B4100D8DD8E /* BTLTCPSocket.h */; };
+		9D0FD9B711013B4100D8DD8E /* BTLTCPSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97611013B4100D8DD8E /* BTLTCPSocket.m */; };
+		9D0FD9B811013B4100D8DD8E /* BTLSocketAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97811013B4100D8DD8E /* BTLSocketAddress.h */; };
+		9D0FD9B911013B4100D8DD8E /* BTLSocketAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97911013B4100D8DD8E /* BTLSocketAddress.m */; };
+		9D0FD9BA11013B4100D8DD8E /* BTLSocketIPAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97B11013B4100D8DD8E /* BTLSocketIPAddress.h */; };
+		9D0FD9BB11013B4100D8DD8E /* BTLSocketIPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97C11013B4100D8DD8E /* BTLSocketIPAddress.m */; };
+		9D0FD9BC11013B4100D8DD8E /* BTLSocketIPV4Address.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97D11013B4100D8DD8E /* BTLSocketIPV4Address.h */; };
+		9D0FD9BD11013B4100D8DD8E /* BTLSocketIPV4Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97E11013B4100D8DD8E /* BTLSocketIPV4Address.m */; };
+		9D0FD9BE11013B4100D8DD8E /* BTLSocketIPV6Address.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97F11013B4100D8DD8E /* BTLSocketIPV6Address.h */; };
+		9D0FD9BF11013B4100D8DD8E /* BTLSocketIPV6Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98011013B4100D8DD8E /* BTLSocketIPV6Address.m */; };
+		9D0FD9C011013B4100D8DD8E /* BTLSocketBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98211013B4100D8DD8E /* BTLSocketBuffer.h */; };
+		9D0FD9C111013B4100D8DD8E /* BTLSocketBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98311013B4100D8DD8E /* BTLSocketBuffer.m */; };
+		9D0FD9C211013B4100D8DD8E /* BTLSocketBuffer+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98411013B4100D8DD8E /* BTLSocketBuffer+Protected.h */; };
+		9D0FD9C311013B4100D8DD8E /* BTLSocketHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98611013B4100D8DD8E /* BTLSocketHandler.h */; };
+		9D0FD9C411013B4100D8DD8E /* BTLSocketHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98711013B4100D8DD8E /* BTLSocketHandler.m */; };
+		9D0FD9C511013B4100D8DD8E /* BTLSocketHandlerList.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98811013B4100D8DD8E /* BTLSocketHandlerList.h */; };
+		9D0FD9C611013B4100D8DD8E /* BTLSocketHandlerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98911013B4100D8DD8E /* BTLSocketHandlerList.m */; };
+		9D0FD9C711013B4100D8DD8E /* BTLSocketHandlerList+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98A11013B4100D8DD8E /* BTLSocketHandlerList+Protected.h */; };
+		9D0FD9C811013B4100D8DD8E /* BTLSocketManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98C11013B4100D8DD8E /* BTLSocketManager.h */; };
+		9D0FD9C911013B4100D8DD8E /* BTLSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98D11013B4100D8DD8E /* BTLSocketManager.m */; };
+		9D0FD9CA11013B4100D8DD8E /* BTLSocketManager+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98E11013B4100D8DD8E /* BTLSocketManager+Protected.h */; };
+		9D0FD9CB11013B4100D8DD8E /* BTLSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD96A11013B4100D8DD8E /* BTLSocket.h */; };
+		9D0FD9CC11013B4100D8DD8E /* BTLSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD96B11013B4100D8DD8E /* BTLSocket.m */; };
+		9D0FD9CD11013B4100D8DD8E /* BTLSocket+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD96C11013B4100D8DD8E /* BTLSocket+Protected.h */; };
+		9D0FD9CE11013B4100D8DD8E /* BTLConnectionlessSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD96E11013B4100D8DD8E /* BTLConnectionlessSocket.h */; };
+		9D0FD9CF11013B4100D8DD8E /* BTLConnectionlessSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD96F11013B4100D8DD8E /* BTLConnectionlessSocket.m */; };
+		9D0FD9D011013B4100D8DD8E /* BTLUDPSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97011013B4100D8DD8E /* BTLUDPSocket.h */; };
+		9D0FD9D111013B4100D8DD8E /* BTLUDPSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97111013B4100D8DD8E /* BTLUDPSocket.m */; };
+		9D0FD9D211013B4100D8DD8E /* BTLConnectionOrientedSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97311013B4100D8DD8E /* BTLConnectionOrientedSocket.h */; };
+		9D0FD9D311013B4100D8DD8E /* BTLConnectionOrientedSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97411013B4100D8DD8E /* BTLConnectionOrientedSocket.m */; };
+		9D0FD9D411013B4100D8DD8E /* BTLTCPSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97511013B4100D8DD8E /* BTLTCPSocket.h */; };
+		9D0FD9D511013B4100D8DD8E /* BTLTCPSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97611013B4100D8DD8E /* BTLTCPSocket.m */; };
+		9D0FD9D611013B4100D8DD8E /* BTLSocketAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97811013B4100D8DD8E /* BTLSocketAddress.h */; };
+		9D0FD9D711013B4100D8DD8E /* BTLSocketAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97911013B4100D8DD8E /* BTLSocketAddress.m */; };
+		9D0FD9D811013B4100D8DD8E /* BTLSocketIPAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97B11013B4100D8DD8E /* BTLSocketIPAddress.h */; };
+		9D0FD9D911013B4100D8DD8E /* BTLSocketIPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97C11013B4100D8DD8E /* BTLSocketIPAddress.m */; };
+		9D0FD9DA11013B4100D8DD8E /* BTLSocketIPV4Address.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97D11013B4100D8DD8E /* BTLSocketIPV4Address.h */; };
+		9D0FD9DB11013B4100D8DD8E /* BTLSocketIPV4Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97E11013B4100D8DD8E /* BTLSocketIPV4Address.m */; };
+		9D0FD9DC11013B4100D8DD8E /* BTLSocketIPV6Address.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97F11013B4100D8DD8E /* BTLSocketIPV6Address.h */; };
+		9D0FD9DD11013B4100D8DD8E /* BTLSocketIPV6Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98011013B4100D8DD8E /* BTLSocketIPV6Address.m */; };
+		9D0FD9DE11013B4100D8DD8E /* BTLSocketBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98211013B4100D8DD8E /* BTLSocketBuffer.h */; };
+		9D0FD9DF11013B4100D8DD8E /* BTLSocketBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98311013B4100D8DD8E /* BTLSocketBuffer.m */; };
+		9D0FD9E011013B4100D8DD8E /* BTLSocketBuffer+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98411013B4100D8DD8E /* BTLSocketBuffer+Protected.h */; };
+		9D0FD9E111013B4100D8DD8E /* BTLSocketHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98611013B4100D8DD8E /* BTLSocketHandler.h */; };
+		9D0FD9E211013B4100D8DD8E /* BTLSocketHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98711013B4100D8DD8E /* BTLSocketHandler.m */; };
+		9D0FD9E311013B4100D8DD8E /* BTLSocketHandlerList.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98811013B4100D8DD8E /* BTLSocketHandlerList.h */; };
+		9D0FD9E411013B4100D8DD8E /* BTLSocketHandlerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98911013B4100D8DD8E /* BTLSocketHandlerList.m */; };
+		9D0FD9E511013B4100D8DD8E /* BTLSocketHandlerList+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98A11013B4100D8DD8E /* BTLSocketHandlerList+Protected.h */; };
+		9D0FD9E611013B4100D8DD8E /* BTLSocketManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98C11013B4100D8DD8E /* BTLSocketManager.h */; };
+		9D0FD9E711013B4100D8DD8E /* BTLSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98D11013B4100D8DD8E /* BTLSocketManager.m */; };
+		9D0FD9E811013B4100D8DD8E /* BTLSocketManager+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98E11013B4100D8DD8E /* BTLSocketManager+Protected.h */; };
+		9D0FD9E911013B4100D8DD8E /* BTLSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD96A11013B4100D8DD8E /* BTLSocket.h */; };
+		9D0FD9EA11013B4100D8DD8E /* BTLSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD96B11013B4100D8DD8E /* BTLSocket.m */; };
+		9D0FD9EB11013B4100D8DD8E /* BTLSocket+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD96C11013B4100D8DD8E /* BTLSocket+Protected.h */; };
+		9D0FD9EC11013B4100D8DD8E /* BTLConnectionlessSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD96E11013B4100D8DD8E /* BTLConnectionlessSocket.h */; };
+		9D0FD9ED11013B4100D8DD8E /* BTLConnectionlessSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD96F11013B4100D8DD8E /* BTLConnectionlessSocket.m */; };
+		9D0FD9EE11013B4100D8DD8E /* BTLUDPSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97011013B4100D8DD8E /* BTLUDPSocket.h */; };
+		9D0FD9EF11013B4100D8DD8E /* BTLUDPSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97111013B4100D8DD8E /* BTLUDPSocket.m */; };
+		9D0FD9F011013B4100D8DD8E /* BTLConnectionOrientedSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97311013B4100D8DD8E /* BTLConnectionOrientedSocket.h */; };
+		9D0FD9F111013B4100D8DD8E /* BTLConnectionOrientedSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97411013B4100D8DD8E /* BTLConnectionOrientedSocket.m */; };
+		9D0FD9F211013B4100D8DD8E /* BTLTCPSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97511013B4100D8DD8E /* BTLTCPSocket.h */; };
+		9D0FD9F311013B4100D8DD8E /* BTLTCPSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97611013B4100D8DD8E /* BTLTCPSocket.m */; };
+		9D0FD9F411013B4100D8DD8E /* BTLSocketAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97811013B4100D8DD8E /* BTLSocketAddress.h */; };
+		9D0FD9F511013B4100D8DD8E /* BTLSocketAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97911013B4100D8DD8E /* BTLSocketAddress.m */; };
+		9D0FD9F611013B4100D8DD8E /* BTLSocketIPAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97B11013B4100D8DD8E /* BTLSocketIPAddress.h */; };
+		9D0FD9F711013B4100D8DD8E /* BTLSocketIPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97C11013B4100D8DD8E /* BTLSocketIPAddress.m */; };
+		9D0FD9F811013B4100D8DD8E /* BTLSocketIPV4Address.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97D11013B4100D8DD8E /* BTLSocketIPV4Address.h */; };
+		9D0FD9F911013B4100D8DD8E /* BTLSocketIPV4Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD97E11013B4100D8DD8E /* BTLSocketIPV4Address.m */; };
+		9D0FD9FA11013B4100D8DD8E /* BTLSocketIPV6Address.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD97F11013B4100D8DD8E /* BTLSocketIPV6Address.h */; };
+		9D0FD9FB11013B4100D8DD8E /* BTLSocketIPV6Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98011013B4100D8DD8E /* BTLSocketIPV6Address.m */; };
+		9D0FD9FC11013B4100D8DD8E /* BTLSocketBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98211013B4100D8DD8E /* BTLSocketBuffer.h */; };
+		9D0FD9FD11013B4100D8DD8E /* BTLSocketBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98311013B4100D8DD8E /* BTLSocketBuffer.m */; };
+		9D0FD9FE11013B4100D8DD8E /* BTLSocketBuffer+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98411013B4100D8DD8E /* BTLSocketBuffer+Protected.h */; };
+		9D0FD9FF11013B4100D8DD8E /* BTLSocketHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98611013B4100D8DD8E /* BTLSocketHandler.h */; };
+		9D0FDA0011013B4100D8DD8E /* BTLSocketHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98711013B4100D8DD8E /* BTLSocketHandler.m */; };
+		9D0FDA0111013B4100D8DD8E /* BTLSocketHandlerList.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98811013B4100D8DD8E /* BTLSocketHandlerList.h */; };
+		9D0FDA0211013B4100D8DD8E /* BTLSocketHandlerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98911013B4100D8DD8E /* BTLSocketHandlerList.m */; };
+		9D0FDA0311013B4100D8DD8E /* BTLSocketHandlerList+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98A11013B4100D8DD8E /* BTLSocketHandlerList+Protected.h */; };
+		9D0FDA0411013B4100D8DD8E /* BTLSocketManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98C11013B4100D8DD8E /* BTLSocketManager.h */; };
+		9D0FDA0511013B4100D8DD8E /* BTLSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD98D11013B4100D8DD8E /* BTLSocketManager.m */; };
+		9D0FDA0611013B4100D8DD8E /* BTLSocketManager+Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FD98E11013B4100D8DD8E /* BTLSocketManager+Protected.h */; };
+		9D0FDA0D11013B7200D8DD8E /* BTLEndian.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDA0811013B7200D8DD8E /* BTLEndian.h */; };
+		9D0FDA0F11013B7200D8DD8E /* BTLGetError.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDA0A11013B7200D8DD8E /* BTLGetError.h */; };
+		9D0FDA1011013B7200D8DD8E /* BTLGetError.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FDA0B11013B7200D8DD8E /* BTLGetError.c */; };
+		9D0FDA1111013B7200D8DD8E /* BTLSockets.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDA0C11013B7200D8DD8E /* BTLSockets.h */; };
+		9D0FDA1211013B7200D8DD8E /* BTLEndian.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDA0811013B7200D8DD8E /* BTLEndian.h */; };
+		9D0FDA1411013B7200D8DD8E /* BTLGetError.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDA0A11013B7200D8DD8E /* BTLGetError.h */; };
+		9D0FDA1511013B7200D8DD8E /* BTLGetError.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FDA0B11013B7200D8DD8E /* BTLGetError.c */; };
+		9D0FDA1611013B7200D8DD8E /* BTLSockets.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDA0C11013B7200D8DD8E /* BTLSockets.h */; };
+		9D0FDA1711013B7200D8DD8E /* BTLEndian.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDA0811013B7200D8DD8E /* BTLEndian.h */; };
+		9D0FDA1911013B7200D8DD8E /* BTLGetError.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDA0A11013B7200D8DD8E /* BTLGetError.h */; };
+		9D0FDA1A11013B7200D8DD8E /* BTLGetError.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FDA0B11013B7200D8DD8E /* BTLGetError.c */; };
+		9D0FDA1B11013B7200D8DD8E /* BTLSockets.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDA0C11013B7200D8DD8E /* BTLSockets.h */; };
+		9D0FDA1C11013B7200D8DD8E /* BTLEndian.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDA0811013B7200D8DD8E /* BTLEndian.h */; };
+		9D0FDA1E11013B7200D8DD8E /* BTLGetError.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDA0A11013B7200D8DD8E /* BTLGetError.h */; };
+		9D0FDA1F11013B7200D8DD8E /* BTLGetError.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FDA0B11013B7200D8DD8E /* BTLGetError.c */; };
+		9D0FDA2011013B7200D8DD8E /* BTLSockets.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDA0C11013B7200D8DD8E /* BTLSockets.h */; };
+		9D0FDB1C11014D3C00D8DD8E /* NetworkingTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDB1A11014D3C00D8DD8E /* NetworkingTests.h */; };
+		9D0FDB1D11014D3C00D8DD8E /* NetworkingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FDB1B11014D3C00D8DD8E /* NetworkingTests.m */; };
+		9D0FDB1E11014D3C00D8DD8E /* NetworkingTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDB1A11014D3C00D8DD8E /* NetworkingTests.h */; };
+		9D0FDB1F11014D3C00D8DD8E /* NetworkingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FDB1B11014D3C00D8DD8E /* NetworkingTests.m */; };
+		9D0FDB2011014D3C00D8DD8E /* NetworkingTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDB1A11014D3C00D8DD8E /* NetworkingTests.h */; };
+		9D0FDB2111014D3C00D8DD8E /* NetworkingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FDB1B11014D3C00D8DD8E /* NetworkingTests.m */; };
+		9D0FDB2211014D3C00D8DD8E /* NetworkingTests.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDB1A11014D3C00D8DD8E /* NetworkingTests.h */; };
+		9D0FDB2311014D3C00D8DD8E /* NetworkingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FDB1B11014D3C00D8DD8E /* NetworkingTests.m */; };
+		9D0FDB2711014DA900D8DD8E /* BTLTCPSocketTestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDB2511014DA900D8DD8E /* BTLTCPSocketTestDelegate.h */; };
+		9D0FDB2811014DA900D8DD8E /* BTLTCPSocketTestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FDB2611014DA900D8DD8E /* BTLTCPSocketTestDelegate.m */; };
+		9D0FDB2911014DA900D8DD8E /* BTLTCPSocketTestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDB2511014DA900D8DD8E /* BTLTCPSocketTestDelegate.h */; };
+		9D0FDB2A11014DA900D8DD8E /* BTLTCPSocketTestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FDB2611014DA900D8DD8E /* BTLTCPSocketTestDelegate.m */; };
+		9D0FDB2B11014DA900D8DD8E /* BTLTCPSocketTestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDB2511014DA900D8DD8E /* BTLTCPSocketTestDelegate.h */; };
+		9D0FDB2C11014DA900D8DD8E /* BTLTCPSocketTestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FDB2611014DA900D8DD8E /* BTLTCPSocketTestDelegate.m */; };
+		9D0FDB2D11014DA900D8DD8E /* BTLTCPSocketTestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDB2511014DA900D8DD8E /* BTLTCPSocketTestDelegate.h */; };
+		9D0FDB2E11014DA900D8DD8E /* BTLTCPSocketTestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FDB2611014DA900D8DD8E /* BTLTCPSocketTestDelegate.m */; };
+		9D0FDEF21104CAD900D8DD8E /* HTTPd.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDEF01104CAD900D8DD8E /* HTTPd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D0FDEF31104CAD900D8DD8E /* HTTPd.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FDEF11104CAD900D8DD8E /* HTTPd.m */; };
+		9D0FDEF41104CAD900D8DD8E /* HTTPd.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDEF01104CAD900D8DD8E /* HTTPd.h */; };
+		9D0FDEF51104CAD900D8DD8E /* HTTPd.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FDEF11104CAD900D8DD8E /* HTTPd.m */; };
+		9D0FDEF61104CAD900D8DD8E /* HTTPd.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDEF01104CAD900D8DD8E /* HTTPd.h */; };
+		9D0FDEF71104CAD900D8DD8E /* HTTPd.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FDEF11104CAD900D8DD8E /* HTTPd.m */; };
+		9D0FDEF81104CAD900D8DD8E /* HTTPd.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FDEF01104CAD900D8DD8E /* HTTPd.h */; };
+		9D0FDEF91104CAD900D8DD8E /* HTTPd.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FDEF11104CAD900D8DD8E /* HTTPd.m */; };
+		9D0FE1C911051D2300D8DD8E /* WebRequest+HTTPd.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FE1C711051D2300D8DD8E /* WebRequest+HTTPd.h */; };
+		9D0FE1CA11051D2300D8DD8E /* WebRequest+HTTPd.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FE1C811051D2300D8DD8E /* WebRequest+HTTPd.m */; };
+		9D0FE1CB11051D2300D8DD8E /* WebRequest+HTTPd.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FE1C711051D2300D8DD8E /* WebRequest+HTTPd.h */; };
+		9D0FE1CC11051D2300D8DD8E /* WebRequest+HTTPd.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FE1C811051D2300D8DD8E /* WebRequest+HTTPd.m */; };
+		9D0FE1CD11051D2300D8DD8E /* WebRequest+HTTPd.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FE1C711051D2300D8DD8E /* WebRequest+HTTPd.h */; };
+		9D0FE1CE11051D2300D8DD8E /* WebRequest+HTTPd.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FE1C811051D2300D8DD8E /* WebRequest+HTTPd.m */; };
+		9D0FE1CF11051D2300D8DD8E /* WebRequest+HTTPd.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FE1C711051D2300D8DD8E /* WebRequest+HTTPd.h */; };
+		9D0FE1D011051D2300D8DD8E /* WebRequest+HTTPd.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FE1C811051D2300D8DD8E /* WebRequest+HTTPd.m */; };
+		9D0FE32D1106104D00D8DD8E /* WebMutableRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FE32B1106104D00D8DD8E /* WebMutableRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D0FE32E1106104D00D8DD8E /* WebMutableRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FE32C1106104D00D8DD8E /* WebMutableRequest.m */; };
+		9D0FE32F1106104D00D8DD8E /* WebMutableRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FE32B1106104D00D8DD8E /* WebMutableRequest.h */; };
+		9D0FE3301106104D00D8DD8E /* WebMutableRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FE32C1106104D00D8DD8E /* WebMutableRequest.m */; };
+		9D0FE3311106104D00D8DD8E /* WebMutableRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FE32B1106104D00D8DD8E /* WebMutableRequest.h */; };
+		9D0FE3321106104D00D8DD8E /* WebMutableRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FE32C1106104D00D8DD8E /* WebMutableRequest.m */; };
+		9D0FE3331106104D00D8DD8E /* WebMutableRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0FE32B1106104D00D8DD8E /* WebMutableRequest.h */; };
+		9D0FE3341106104D00D8DD8E /* WebMutableRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FE32C1106104D00D8DD8E /* WebMutableRequest.m */; };
 		9D135E4710111F17005172A4 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D135E3A10111F17005172A4 /* JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D135E4810111F17005172A4 /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D135E3B10111F17005172A4 /* NSObject+SBJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D135E4910111F17005172A4 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D135E3C10111F17005172A4 /* NSObject+SBJSON.m */; };
@@ -750,6 +926,50 @@
 		9D0FD43810FFC46600D8DD8E /* S3Bucket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3Bucket.m; sourceTree = "<group>"; };
 		9D0FD8E01101310800D8DD8E /* WebApplicationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebApplicationTests.h; sourceTree = "<group>"; };
 		9D0FD8E11101310800D8DD8E /* WebApplicationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebApplicationTests.m; sourceTree = "<group>"; };
+		9D0FD96A11013B4100D8DD8E /* BTLSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLSocket.h; sourceTree = "<group>"; };
+		9D0FD96B11013B4100D8DD8E /* BTLSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLSocket.m; sourceTree = "<group>"; };
+		9D0FD96C11013B4100D8DD8E /* BTLSocket+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BTLSocket+Protected.h"; sourceTree = "<group>"; };
+		9D0FD96E11013B4100D8DD8E /* BTLConnectionlessSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLConnectionlessSocket.h; sourceTree = "<group>"; };
+		9D0FD96F11013B4100D8DD8E /* BTLConnectionlessSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLConnectionlessSocket.m; sourceTree = "<group>"; };
+		9D0FD97011013B4100D8DD8E /* BTLUDPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLUDPSocket.h; sourceTree = "<group>"; };
+		9D0FD97111013B4100D8DD8E /* BTLUDPSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLUDPSocket.m; sourceTree = "<group>"; };
+		9D0FD97311013B4100D8DD8E /* BTLConnectionOrientedSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLConnectionOrientedSocket.h; sourceTree = "<group>"; };
+		9D0FD97411013B4100D8DD8E /* BTLConnectionOrientedSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLConnectionOrientedSocket.m; sourceTree = "<group>"; };
+		9D0FD97511013B4100D8DD8E /* BTLTCPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLTCPSocket.h; sourceTree = "<group>"; };
+		9D0FD97611013B4100D8DD8E /* BTLTCPSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLTCPSocket.m; sourceTree = "<group>"; };
+		9D0FD97811013B4100D8DD8E /* BTLSocketAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLSocketAddress.h; sourceTree = "<group>"; };
+		9D0FD97911013B4100D8DD8E /* BTLSocketAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLSocketAddress.m; sourceTree = "<group>"; };
+		9D0FD97B11013B4100D8DD8E /* BTLSocketIPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLSocketIPAddress.h; sourceTree = "<group>"; };
+		9D0FD97C11013B4100D8DD8E /* BTLSocketIPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLSocketIPAddress.m; sourceTree = "<group>"; };
+		9D0FD97D11013B4100D8DD8E /* BTLSocketIPV4Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLSocketIPV4Address.h; sourceTree = "<group>"; };
+		9D0FD97E11013B4100D8DD8E /* BTLSocketIPV4Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLSocketIPV4Address.m; sourceTree = "<group>"; };
+		9D0FD97F11013B4100D8DD8E /* BTLSocketIPV6Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLSocketIPV6Address.h; sourceTree = "<group>"; };
+		9D0FD98011013B4100D8DD8E /* BTLSocketIPV6Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLSocketIPV6Address.m; sourceTree = "<group>"; };
+		9D0FD98211013B4100D8DD8E /* BTLSocketBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLSocketBuffer.h; sourceTree = "<group>"; };
+		9D0FD98311013B4100D8DD8E /* BTLSocketBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLSocketBuffer.m; sourceTree = "<group>"; };
+		9D0FD98411013B4100D8DD8E /* BTLSocketBuffer+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BTLSocketBuffer+Protected.h"; sourceTree = "<group>"; };
+		9D0FD98611013B4100D8DD8E /* BTLSocketHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLSocketHandler.h; sourceTree = "<group>"; };
+		9D0FD98711013B4100D8DD8E /* BTLSocketHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLSocketHandler.m; sourceTree = "<group>"; };
+		9D0FD98811013B4100D8DD8E /* BTLSocketHandlerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLSocketHandlerList.h; sourceTree = "<group>"; };
+		9D0FD98911013B4100D8DD8E /* BTLSocketHandlerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLSocketHandlerList.m; sourceTree = "<group>"; };
+		9D0FD98A11013B4100D8DD8E /* BTLSocketHandlerList+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BTLSocketHandlerList+Protected.h"; sourceTree = "<group>"; };
+		9D0FD98C11013B4100D8DD8E /* BTLSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLSocketManager.h; sourceTree = "<group>"; };
+		9D0FD98D11013B4100D8DD8E /* BTLSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLSocketManager.m; sourceTree = "<group>"; };
+		9D0FD98E11013B4100D8DD8E /* BTLSocketManager+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BTLSocketManager+Protected.h"; sourceTree = "<group>"; };
+		9D0FDA0811013B7200D8DD8E /* BTLEndian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLEndian.h; sourceTree = "<group>"; };
+		9D0FDA0A11013B7200D8DD8E /* BTLGetError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLGetError.h; sourceTree = "<group>"; };
+		9D0FDA0B11013B7200D8DD8E /* BTLGetError.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BTLGetError.c; sourceTree = "<group>"; };
+		9D0FDA0C11013B7200D8DD8E /* BTLSockets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLSockets.h; sourceTree = "<group>"; };
+		9D0FDB1A11014D3C00D8DD8E /* NetworkingTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingTests.h; sourceTree = "<group>"; };
+		9D0FDB1B11014D3C00D8DD8E /* NetworkingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkingTests.m; sourceTree = "<group>"; };
+		9D0FDB2511014DA900D8DD8E /* BTLTCPSocketTestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLTCPSocketTestDelegate.h; sourceTree = "<group>"; };
+		9D0FDB2611014DA900D8DD8E /* BTLTCPSocketTestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLTCPSocketTestDelegate.m; sourceTree = "<group>"; };
+		9D0FDEF01104CAD900D8DD8E /* HTTPd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPd.h; sourceTree = "<group>"; };
+		9D0FDEF11104CAD900D8DD8E /* HTTPd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPd.m; sourceTree = "<group>"; };
+		9D0FE1C711051D2300D8DD8E /* WebRequest+HTTPd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WebRequest+HTTPd.h"; sourceTree = "<group>"; };
+		9D0FE1C811051D2300D8DD8E /* WebRequest+HTTPd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WebRequest+HTTPd.m"; sourceTree = "<group>"; };
+		9D0FE32B1106104D00D8DD8E /* WebMutableRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebMutableRequest.h; sourceTree = "<group>"; };
+		9D0FE32C1106104D00D8DD8E /* WebMutableRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebMutableRequest.m; sourceTree = "<group>"; };
 		9D135E3A10111F17005172A4 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		9D135E3B10111F17005172A4 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		9D135E3C10111F17005172A4 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -1035,18 +1255,117 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9D0FD7061100E92800D8DD8E /* SCGI Connector */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "SCGI Connector";
-			sourceTree = "<group>";
-		};
 		9D0FD7151100ECC300D8DD8E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				9D0FDD491103E4F000D8DD8E /* BTLSockets */,
 			);
-			name = Networking;
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		9D0FD96911013B4100D8DD8E /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				9D0FD97211013B4100D8DD8E /* Connection-Oriented */,
+				9D0FD96D11013B4100D8DD8E /* Connectionless */,
+				9D0FD96A11013B4100D8DD8E /* BTLSocket.h */,
+				9D0FD96B11013B4100D8DD8E /* BTLSocket.m */,
+				9D0FD96C11013B4100D8DD8E /* BTLSocket+Protected.h */,
+			);
+			name = Socket;
+			sourceTree = "<group>";
+		};
+		9D0FD96D11013B4100D8DD8E /* Connectionless */ = {
+			isa = PBXGroup;
+			children = (
+				9D0FD96E11013B4100D8DD8E /* BTLConnectionlessSocket.h */,
+				9D0FD96F11013B4100D8DD8E /* BTLConnectionlessSocket.m */,
+				9D0FD97011013B4100D8DD8E /* BTLUDPSocket.h */,
+				9D0FD97111013B4100D8DD8E /* BTLUDPSocket.m */,
+			);
+			name = Connectionless;
+			sourceTree = "<group>";
+		};
+		9D0FD97211013B4100D8DD8E /* Connection-Oriented */ = {
+			isa = PBXGroup;
+			children = (
+				9D0FD97311013B4100D8DD8E /* BTLConnectionOrientedSocket.h */,
+				9D0FD97411013B4100D8DD8E /* BTLConnectionOrientedSocket.m */,
+				9D0FD97511013B4100D8DD8E /* BTLTCPSocket.h */,
+				9D0FD97611013B4100D8DD8E /* BTLTCPSocket.m */,
+			);
+			name = "Connection-Oriented";
+			sourceTree = "<group>";
+		};
+		9D0FD97711013B4100D8DD8E /* SocketAddresses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SocketAddresses;
+			sourceTree = "<group>";
+		};
+		9D0FD97A11013B4100D8DD8E /* IP */ = {
+			isa = PBXGroup;
+			children = (
+				9D0FD97B11013B4100D8DD8E /* BTLSocketIPAddress.h */,
+				9D0FD97C11013B4100D8DD8E /* BTLSocketIPAddress.m */,
+				9D0FD97D11013B4100D8DD8E /* BTLSocketIPV4Address.h */,
+				9D0FD97E11013B4100D8DD8E /* BTLSocketIPV4Address.m */,
+				9D0FD97F11013B4100D8DD8E /* BTLSocketIPV6Address.h */,
+				9D0FD98011013B4100D8DD8E /* BTLSocketIPV6Address.m */,
+				9D0FD97811013B4100D8DD8E /* BTLSocketAddress.h */,
+				9D0FD97911013B4100D8DD8E /* BTLSocketAddress.m */,
+			);
+			name = IP;
+			sourceTree = "<group>";
+		};
+		9D0FD98111013B4100D8DD8E /* SocketBuffer */ = {
+			isa = PBXGroup;
+			children = (
+				9D0FD98211013B4100D8DD8E /* BTLSocketBuffer.h */,
+				9D0FD98311013B4100D8DD8E /* BTLSocketBuffer.m */,
+				9D0FD98411013B4100D8DD8E /* BTLSocketBuffer+Protected.h */,
+			);
+			name = SocketBuffer;
+			sourceTree = "<group>";
+		};
+		9D0FD98511013B4100D8DD8E /* SocketHandler */ = {
+			isa = PBXGroup;
+			children = (
+				9D0FD98611013B4100D8DD8E /* BTLSocketHandler.h */,
+				9D0FD98711013B4100D8DD8E /* BTLSocketHandler.m */,
+				9D0FD98811013B4100D8DD8E /* BTLSocketHandlerList.h */,
+				9D0FD98911013B4100D8DD8E /* BTLSocketHandlerList.m */,
+				9D0FD98A11013B4100D8DD8E /* BTLSocketHandlerList+Protected.h */,
+			);
+			name = SocketHandler;
+			sourceTree = "<group>";
+		};
+		9D0FD98B11013B4100D8DD8E /* SocketManager */ = {
+			isa = PBXGroup;
+			children = (
+				9D0FD98C11013B4100D8DD8E /* BTLSocketManager.h */,
+				9D0FD98D11013B4100D8DD8E /* BTLSocketManager.m */,
+				9D0FD98E11013B4100D8DD8E /* BTLSocketManager+Protected.h */,
+			);
+			name = SocketManager;
+			sourceTree = "<group>";
+		};
+		9D0FDD491103E4F000D8DD8E /* BTLSockets */ = {
+			isa = PBXGroup;
+			children = (
+				9D0FDA0C11013B7200D8DD8E /* BTLSockets.h */,
+				9D0FDA0811013B7200D8DD8E /* BTLEndian.h */,
+				9D0FDA0A11013B7200D8DD8E /* BTLGetError.h */,
+				9D0FDA0B11013B7200D8DD8E /* BTLGetError.c */,
+				9D0FD98B11013B4100D8DD8E /* SocketManager */,
+				9D0FD98511013B4100D8DD8E /* SocketHandler */,
+				9D0FD98111013B4100D8DD8E /* SocketBuffer */,
+				9D0FD97711013B4100D8DD8E /* SocketAddresses */,
+				9D0FD97A11013B4100D8DD8E /* IP */,
+				9D0FD96911013B4100D8DD8E /* Socket */,
+			);
+			name = BTLSockets;
 			sourceTree = "<group>";
 		};
 		9D135D6010111806005172A4 /* linux */ = {
@@ -1079,9 +1398,8 @@
 		9D1471B910E0103A009D881B /* HTTP Connectors */ = {
 			isa = PBXGroup;
 			children = (
-				9D0FD7061100E92800D8DD8E /* SCGI Connector */,
+				9DF5DCC610E181EB00BB7721 /* Httpd Connector */,
 				9DBE33C40F53621600CFC8FC /* FastCGI Connector */,
-				9DF5DCC610E181EB00BB7721 /* Embedded (OSX Only) */,
 			);
 			name = "HTTP Connectors";
 			sourceTree = "<group>";
@@ -1089,8 +1407,8 @@
 		9D14731010E03D9D009D881B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9D14731410E03D9D009D881B /* fmtool */,
 				9D0FD7691100F5D100D8DD8E /* fmtool */,
+				9D14731410E03D9D009D881B /* fmtool */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1115,6 +1433,10 @@
 				9D5461FE10FBB46C001F07AC /* S3DataConnectorTests.m */,
 				9D54676410FD310B001F07AC /* NSDateTests.h */,
 				9D54676510FD310B001F07AC /* NSDateTests.m */,
+				9D0FDB1A11014D3C00D8DD8E /* NetworkingTests.h */,
+				9D0FDB1B11014D3C00D8DD8E /* NetworkingTests.m */,
+				9D0FDB2511014DA900D8DD8E /* BTLTCPSocketTestDelegate.h */,
+				9D0FDB2611014DA900D8DD8E /* BTLTCPSocketTestDelegate.m */,
 			);
 			name = "Core Tests";
 			sourceTree = "<group>";
@@ -1424,6 +1746,8 @@
 				9D799DC6100662F100AB337E /* WebActionView.m */,
 				BA8585390FF5B3370060F4C6 /* WebRequest.h */,
 				BA85853A0FF5B3370060F4C6 /* WebRequest.m */,
+				9D0FE32B1106104D00D8DD8E /* WebMutableRequest.h */,
+				9D0FE32C1106104D00D8DD8E /* WebMutableRequest.m */,
 				9D58FAB01062B49F000ECD1C /* WebRequest+Params.h */,
 				9D58FAB11062B49F000ECD1C /* WebRequest+Params.m */,
 				9D799DD010066EA400AB337E /* WebResponse.h */,
@@ -1480,11 +1804,15 @@
 			name = "FastCGI Connector";
 			sourceTree = "<group>";
 		};
-		9DF5DCC610E181EB00BB7721 /* Embedded (OSX Only) */ = {
+		9DF5DCC610E181EB00BB7721 /* Httpd Connector */ = {
 			isa = PBXGroup;
 			children = (
+				9D0FE1C711051D2300D8DD8E /* WebRequest+HTTPd.h */,
+				9D0FE1C811051D2300D8DD8E /* WebRequest+HTTPd.m */,
+				9D0FDEF01104CAD900D8DD8E /* HTTPd.h */,
+				9D0FDEF11104CAD900D8DD8E /* HTTPd.m */,
 			);
-			name = "Embedded (OSX Only)";
+			name = "Httpd Connector";
 			sourceTree = "<group>";
 		};
 		9DF5DD1210E27EDC00BB7721 /* Testing - Incomplete */ = {
@@ -1595,6 +1923,31 @@
 				9D0FD2FF10FFAA0F00D8DD8E /* S3DataConnector.h in Headers */,
 				9D0FD43D10FFC46600D8DD8E /* S3Bucket.h in Headers */,
 				9D0FD8E61101310800D8DD8E /* WebApplicationTests.h in Headers */,
+				9D0FD9CB11013B4100D8DD8E /* BTLSocket.h in Headers */,
+				9D0FD9CD11013B4100D8DD8E /* BTLSocket+Protected.h in Headers */,
+				9D0FD9CE11013B4100D8DD8E /* BTLConnectionlessSocket.h in Headers */,
+				9D0FD9D011013B4100D8DD8E /* BTLUDPSocket.h in Headers */,
+				9D0FD9D211013B4100D8DD8E /* BTLConnectionOrientedSocket.h in Headers */,
+				9D0FD9D411013B4100D8DD8E /* BTLTCPSocket.h in Headers */,
+				9D0FD9D611013B4100D8DD8E /* BTLSocketAddress.h in Headers */,
+				9D0FD9D811013B4100D8DD8E /* BTLSocketIPAddress.h in Headers */,
+				9D0FD9DA11013B4100D8DD8E /* BTLSocketIPV4Address.h in Headers */,
+				9D0FD9DC11013B4100D8DD8E /* BTLSocketIPV6Address.h in Headers */,
+				9D0FD9DE11013B4100D8DD8E /* BTLSocketBuffer.h in Headers */,
+				9D0FD9E011013B4100D8DD8E /* BTLSocketBuffer+Protected.h in Headers */,
+				9D0FD9E111013B4100D8DD8E /* BTLSocketHandler.h in Headers */,
+				9D0FD9E311013B4100D8DD8E /* BTLSocketHandlerList.h in Headers */,
+				9D0FD9E511013B4100D8DD8E /* BTLSocketHandlerList+Protected.h in Headers */,
+				9D0FD9E611013B4100D8DD8E /* BTLSocketManager.h in Headers */,
+				9D0FD9E811013B4100D8DD8E /* BTLSocketManager+Protected.h in Headers */,
+				9D0FDA1711013B7200D8DD8E /* BTLEndian.h in Headers */,
+				9D0FDA1911013B7200D8DD8E /* BTLGetError.h in Headers */,
+				9D0FDA1B11013B7200D8DD8E /* BTLSockets.h in Headers */,
+				9D0FDB2011014D3C00D8DD8E /* NetworkingTests.h in Headers */,
+				9D0FDB2B11014DA900D8DD8E /* BTLTCPSocketTestDelegate.h in Headers */,
+				9D0FDEF61104CAD900D8DD8E /* HTTPd.h in Headers */,
+				9D0FE1CD11051D2300D8DD8E /* WebRequest+HTTPd.h in Headers */,
+				9D0FE3311106104D00D8DD8E /* WebMutableRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1690,6 +2043,31 @@
 				9D54676810FD310B001F07AC /* NSDateTests.h in Headers */,
 				9D0FD43910FFC46600D8DD8E /* S3Bucket.h in Headers */,
 				9D0FD8E21101310800D8DD8E /* WebApplicationTests.h in Headers */,
+				9D0FD98F11013B4100D8DD8E /* BTLSocket.h in Headers */,
+				9D0FD99111013B4100D8DD8E /* BTLSocket+Protected.h in Headers */,
+				9D0FD99211013B4100D8DD8E /* BTLConnectionlessSocket.h in Headers */,
+				9D0FD99411013B4100D8DD8E /* BTLUDPSocket.h in Headers */,
+				9D0FD99611013B4100D8DD8E /* BTLConnectionOrientedSocket.h in Headers */,
+				9D0FD99811013B4100D8DD8E /* BTLTCPSocket.h in Headers */,
+				9D0FD99A11013B4100D8DD8E /* BTLSocketAddress.h in Headers */,
+				9D0FD99C11013B4100D8DD8E /* BTLSocketIPAddress.h in Headers */,
+				9D0FD99E11013B4100D8DD8E /* BTLSocketIPV4Address.h in Headers */,
+				9D0FD9A011013B4100D8DD8E /* BTLSocketIPV6Address.h in Headers */,
+				9D0FD9A211013B4100D8DD8E /* BTLSocketBuffer.h in Headers */,
+				9D0FD9A411013B4100D8DD8E /* BTLSocketBuffer+Protected.h in Headers */,
+				9D0FD9A511013B4100D8DD8E /* BTLSocketHandler.h in Headers */,
+				9D0FD9A711013B4100D8DD8E /* BTLSocketHandlerList.h in Headers */,
+				9D0FD9A911013B4100D8DD8E /* BTLSocketHandlerList+Protected.h in Headers */,
+				9D0FD9AA11013B4100D8DD8E /* BTLSocketManager.h in Headers */,
+				9D0FD9AC11013B4100D8DD8E /* BTLSocketManager+Protected.h in Headers */,
+				9D0FDA0D11013B7200D8DD8E /* BTLEndian.h in Headers */,
+				9D0FDA0F11013B7200D8DD8E /* BTLGetError.h in Headers */,
+				9D0FDA1111013B7200D8DD8E /* BTLSockets.h in Headers */,
+				9D0FDB1C11014D3C00D8DD8E /* NetworkingTests.h in Headers */,
+				9D0FDB2711014DA900D8DD8E /* BTLTCPSocketTestDelegate.h in Headers */,
+				9D0FDEF21104CAD900D8DD8E /* HTTPd.h in Headers */,
+				9D0FE1C911051D2300D8DD8E /* WebRequest+HTTPd.h in Headers */,
+				9D0FE32D1106104D00D8DD8E /* WebMutableRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1785,6 +2163,31 @@
 				9D0FD30010FFAA1100D8DD8E /* S3DataConnector.h in Headers */,
 				9D0FD43F10FFC46600D8DD8E /* S3Bucket.h in Headers */,
 				9D0FD8E81101310800D8DD8E /* WebApplicationTests.h in Headers */,
+				9D0FD9E911013B4100D8DD8E /* BTLSocket.h in Headers */,
+				9D0FD9EB11013B4100D8DD8E /* BTLSocket+Protected.h in Headers */,
+				9D0FD9EC11013B4100D8DD8E /* BTLConnectionlessSocket.h in Headers */,
+				9D0FD9EE11013B4100D8DD8E /* BTLUDPSocket.h in Headers */,
+				9D0FD9F011013B4100D8DD8E /* BTLConnectionOrientedSocket.h in Headers */,
+				9D0FD9F211013B4100D8DD8E /* BTLTCPSocket.h in Headers */,
+				9D0FD9F411013B4100D8DD8E /* BTLSocketAddress.h in Headers */,
+				9D0FD9F611013B4100D8DD8E /* BTLSocketIPAddress.h in Headers */,
+				9D0FD9F811013B4100D8DD8E /* BTLSocketIPV4Address.h in Headers */,
+				9D0FD9FA11013B4100D8DD8E /* BTLSocketIPV6Address.h in Headers */,
+				9D0FD9FC11013B4100D8DD8E /* BTLSocketBuffer.h in Headers */,
+				9D0FD9FE11013B4100D8DD8E /* BTLSocketBuffer+Protected.h in Headers */,
+				9D0FD9FF11013B4100D8DD8E /* BTLSocketHandler.h in Headers */,
+				9D0FDA0111013B4100D8DD8E /* BTLSocketHandlerList.h in Headers */,
+				9D0FDA0311013B4100D8DD8E /* BTLSocketHandlerList+Protected.h in Headers */,
+				9D0FDA0411013B4100D8DD8E /* BTLSocketManager.h in Headers */,
+				9D0FDA0611013B4100D8DD8E /* BTLSocketManager+Protected.h in Headers */,
+				9D0FDA1C11013B7200D8DD8E /* BTLEndian.h in Headers */,
+				9D0FDA1E11013B7200D8DD8E /* BTLGetError.h in Headers */,
+				9D0FDA2011013B7200D8DD8E /* BTLSockets.h in Headers */,
+				9D0FDB2211014D3C00D8DD8E /* NetworkingTests.h in Headers */,
+				9D0FDB2D11014DA900D8DD8E /* BTLTCPSocketTestDelegate.h in Headers */,
+				9D0FDEF81104CAD900D8DD8E /* HTTPd.h in Headers */,
+				9D0FE1CF11051D2300D8DD8E /* WebRequest+HTTPd.h in Headers */,
+				9D0FE3331106104D00D8DD8E /* WebMutableRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1880,6 +2283,31 @@
 				9D0FD30110FFAA1300D8DD8E /* S3DataConnector.h in Headers */,
 				9D0FD43B10FFC46600D8DD8E /* S3Bucket.h in Headers */,
 				9D0FD8E41101310800D8DD8E /* WebApplicationTests.h in Headers */,
+				9D0FD9AD11013B4100D8DD8E /* BTLSocket.h in Headers */,
+				9D0FD9AF11013B4100D8DD8E /* BTLSocket+Protected.h in Headers */,
+				9D0FD9B011013B4100D8DD8E /* BTLConnectionlessSocket.h in Headers */,
+				9D0FD9B211013B4100D8DD8E /* BTLUDPSocket.h in Headers */,
+				9D0FD9B411013B4100D8DD8E /* BTLConnectionOrientedSocket.h in Headers */,
+				9D0FD9B611013B4100D8DD8E /* BTLTCPSocket.h in Headers */,
+				9D0FD9B811013B4100D8DD8E /* BTLSocketAddress.h in Headers */,
+				9D0FD9BA11013B4100D8DD8E /* BTLSocketIPAddress.h in Headers */,
+				9D0FD9BC11013B4100D8DD8E /* BTLSocketIPV4Address.h in Headers */,
+				9D0FD9BE11013B4100D8DD8E /* BTLSocketIPV6Address.h in Headers */,
+				9D0FD9C011013B4100D8DD8E /* BTLSocketBuffer.h in Headers */,
+				9D0FD9C211013B4100D8DD8E /* BTLSocketBuffer+Protected.h in Headers */,
+				9D0FD9C311013B4100D8DD8E /* BTLSocketHandler.h in Headers */,
+				9D0FD9C511013B4100D8DD8E /* BTLSocketHandlerList.h in Headers */,
+				9D0FD9C711013B4100D8DD8E /* BTLSocketHandlerList+Protected.h in Headers */,
+				9D0FD9C811013B4100D8DD8E /* BTLSocketManager.h in Headers */,
+				9D0FD9CA11013B4100D8DD8E /* BTLSocketManager+Protected.h in Headers */,
+				9D0FDA1211013B7200D8DD8E /* BTLEndian.h in Headers */,
+				9D0FDA1411013B7200D8DD8E /* BTLGetError.h in Headers */,
+				9D0FDA1611013B7200D8DD8E /* BTLSockets.h in Headers */,
+				9D0FDB1E11014D3C00D8DD8E /* NetworkingTests.h in Headers */,
+				9D0FDB2911014DA900D8DD8E /* BTLTCPSocketTestDelegate.h in Headers */,
+				9D0FDEF41104CAD900D8DD8E /* HTTPd.h in Headers */,
+				9D0FE1CB11051D2300D8DD8E /* WebRequest+HTTPd.h in Headers */,
+				9D0FE32F1106104D00D8DD8E /* WebMutableRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2155,6 +2583,25 @@
 				9D0FD30210FFAA1800D8DD8E /* S3DataConnector.m in Sources */,
 				9D0FD43E10FFC46600D8DD8E /* S3Bucket.m in Sources */,
 				9D0FD8E71101310800D8DD8E /* WebApplicationTests.m in Sources */,
+				9D0FD9CC11013B4100D8DD8E /* BTLSocket.m in Sources */,
+				9D0FD9CF11013B4100D8DD8E /* BTLConnectionlessSocket.m in Sources */,
+				9D0FD9D111013B4100D8DD8E /* BTLUDPSocket.m in Sources */,
+				9D0FD9D311013B4100D8DD8E /* BTLConnectionOrientedSocket.m in Sources */,
+				9D0FD9D511013B4100D8DD8E /* BTLTCPSocket.m in Sources */,
+				9D0FD9D711013B4100D8DD8E /* BTLSocketAddress.m in Sources */,
+				9D0FD9D911013B4100D8DD8E /* BTLSocketIPAddress.m in Sources */,
+				9D0FD9DB11013B4100D8DD8E /* BTLSocketIPV4Address.m in Sources */,
+				9D0FD9DD11013B4100D8DD8E /* BTLSocketIPV6Address.m in Sources */,
+				9D0FD9DF11013B4100D8DD8E /* BTLSocketBuffer.m in Sources */,
+				9D0FD9E211013B4100D8DD8E /* BTLSocketHandler.m in Sources */,
+				9D0FD9E411013B4100D8DD8E /* BTLSocketHandlerList.m in Sources */,
+				9D0FD9E711013B4100D8DD8E /* BTLSocketManager.m in Sources */,
+				9D0FDA1A11013B7200D8DD8E /* BTLGetError.c in Sources */,
+				9D0FDB2111014D3C00D8DD8E /* NetworkingTests.m in Sources */,
+				9D0FDB2C11014DA900D8DD8E /* BTLTCPSocketTestDelegate.m in Sources */,
+				9D0FDEF71104CAD900D8DD8E /* HTTPd.m in Sources */,
+				9D0FE1CE11051D2300D8DD8E /* WebRequest+HTTPd.m in Sources */,
+				9D0FE3321106104D00D8DD8E /* WebMutableRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2231,6 +2678,25 @@
 				9D54676910FD310B001F07AC /* NSDateTests.m in Sources */,
 				9D0FD43A10FFC46600D8DD8E /* S3Bucket.m in Sources */,
 				9D0FD8E31101310800D8DD8E /* WebApplicationTests.m in Sources */,
+				9D0FD99011013B4100D8DD8E /* BTLSocket.m in Sources */,
+				9D0FD99311013B4100D8DD8E /* BTLConnectionlessSocket.m in Sources */,
+				9D0FD99511013B4100D8DD8E /* BTLUDPSocket.m in Sources */,
+				9D0FD99711013B4100D8DD8E /* BTLConnectionOrientedSocket.m in Sources */,
+				9D0FD99911013B4100D8DD8E /* BTLTCPSocket.m in Sources */,
+				9D0FD99B11013B4100D8DD8E /* BTLSocketAddress.m in Sources */,
+				9D0FD99D11013B4100D8DD8E /* BTLSocketIPAddress.m in Sources */,
+				9D0FD99F11013B4100D8DD8E /* BTLSocketIPV4Address.m in Sources */,
+				9D0FD9A111013B4100D8DD8E /* BTLSocketIPV6Address.m in Sources */,
+				9D0FD9A311013B4100D8DD8E /* BTLSocketBuffer.m in Sources */,
+				9D0FD9A611013B4100D8DD8E /* BTLSocketHandler.m in Sources */,
+				9D0FD9A811013B4100D8DD8E /* BTLSocketHandlerList.m in Sources */,
+				9D0FD9AB11013B4100D8DD8E /* BTLSocketManager.m in Sources */,
+				9D0FDA1011013B7200D8DD8E /* BTLGetError.c in Sources */,
+				9D0FDB1D11014D3C00D8DD8E /* NetworkingTests.m in Sources */,
+				9D0FDB2811014DA900D8DD8E /* BTLTCPSocketTestDelegate.m in Sources */,
+				9D0FDEF31104CAD900D8DD8E /* HTTPd.m in Sources */,
+				9D0FE1CA11051D2300D8DD8E /* WebRequest+HTTPd.m in Sources */,
+				9D0FE32E1106104D00D8DD8E /* WebMutableRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2301,6 +2767,25 @@
 				9D0FD30310FFAA1800D8DD8E /* S3DataConnector.m in Sources */,
 				9D0FD44010FFC46600D8DD8E /* S3Bucket.m in Sources */,
 				9D0FD8E91101310800D8DD8E /* WebApplicationTests.m in Sources */,
+				9D0FD9EA11013B4100D8DD8E /* BTLSocket.m in Sources */,
+				9D0FD9ED11013B4100D8DD8E /* BTLConnectionlessSocket.m in Sources */,
+				9D0FD9EF11013B4100D8DD8E /* BTLUDPSocket.m in Sources */,
+				9D0FD9F111013B4100D8DD8E /* BTLConnectionOrientedSocket.m in Sources */,
+				9D0FD9F311013B4100D8DD8E /* BTLTCPSocket.m in Sources */,
+				9D0FD9F511013B4100D8DD8E /* BTLSocketAddress.m in Sources */,
+				9D0FD9F711013B4100D8DD8E /* BTLSocketIPAddress.m in Sources */,
+				9D0FD9F911013B4100D8DD8E /* BTLSocketIPV4Address.m in Sources */,
+				9D0FD9FB11013B4100D8DD8E /* BTLSocketIPV6Address.m in Sources */,
+				9D0FD9FD11013B4100D8DD8E /* BTLSocketBuffer.m in Sources */,
+				9D0FDA0011013B4100D8DD8E /* BTLSocketHandler.m in Sources */,
+				9D0FDA0211013B4100D8DD8E /* BTLSocketHandlerList.m in Sources */,
+				9D0FDA0511013B4100D8DD8E /* BTLSocketManager.m in Sources */,
+				9D0FDA1F11013B7200D8DD8E /* BTLGetError.c in Sources */,
+				9D0FDB2311014D3C00D8DD8E /* NetworkingTests.m in Sources */,
+				9D0FDB2E11014DA900D8DD8E /* BTLTCPSocketTestDelegate.m in Sources */,
+				9D0FDEF91104CAD900D8DD8E /* HTTPd.m in Sources */,
+				9D0FE1D011051D2300D8DD8E /* WebRequest+HTTPd.m in Sources */,
+				9D0FE3341106104D00D8DD8E /* WebMutableRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2372,6 +2857,25 @@
 				9D0FD30410FFAA1900D8DD8E /* S3DataConnector.m in Sources */,
 				9D0FD43C10FFC46600D8DD8E /* S3Bucket.m in Sources */,
 				9D0FD8E51101310800D8DD8E /* WebApplicationTests.m in Sources */,
+				9D0FD9AE11013B4100D8DD8E /* BTLSocket.m in Sources */,
+				9D0FD9B111013B4100D8DD8E /* BTLConnectionlessSocket.m in Sources */,
+				9D0FD9B311013B4100D8DD8E /* BTLUDPSocket.m in Sources */,
+				9D0FD9B511013B4100D8DD8E /* BTLConnectionOrientedSocket.m in Sources */,
+				9D0FD9B711013B4100D8DD8E /* BTLTCPSocket.m in Sources */,
+				9D0FD9B911013B4100D8DD8E /* BTLSocketAddress.m in Sources */,
+				9D0FD9BB11013B4100D8DD8E /* BTLSocketIPAddress.m in Sources */,
+				9D0FD9BD11013B4100D8DD8E /* BTLSocketIPV4Address.m in Sources */,
+				9D0FD9BF11013B4100D8DD8E /* BTLSocketIPV6Address.m in Sources */,
+				9D0FD9C111013B4100D8DD8E /* BTLSocketBuffer.m in Sources */,
+				9D0FD9C411013B4100D8DD8E /* BTLSocketHandler.m in Sources */,
+				9D0FD9C611013B4100D8DD8E /* BTLSocketHandlerList.m in Sources */,
+				9D0FD9C911013B4100D8DD8E /* BTLSocketManager.m in Sources */,
+				9D0FDA1511013B7200D8DD8E /* BTLGetError.c in Sources */,
+				9D0FDB1F11014D3C00D8DD8E /* NetworkingTests.m in Sources */,
+				9D0FDB2A11014DA900D8DD8E /* BTLTCPSocketTestDelegate.m in Sources */,
+				9D0FDEF51104CAD900D8DD8E /* HTTPd.m in Sources */,
+				9D0FE1CC11051D2300D8DD8E /* WebRequest+HTTPd.m in Sources */,
+				9D0FE3301106104D00D8DD8E /* WebMutableRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2511,6 +3015,7 @@
 					"-lutil",
 					"-lpython2.6",
 					"-luuid",
+					"-levent",
 					"-Wl,-rpath=$ORIGIN",
 				);
 				PREBINDING = NO;
@@ -2719,7 +3224,10 @@
 					"-lxml2",
 					"-lpcre",
 					"-lz",
+					"-lutil",
+					"-lpython2.6",
 					"-luuid",
+					"-levent",
 					"-Wl,-rpath=$ORIGIN",
 				);
 				PREBINDING = NO;

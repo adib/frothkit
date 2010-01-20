@@ -86,7 +86,10 @@
  \endcode
  
 */
- 
+
+#define FROTH_VERSION_STRING @"0.5.0"
+
+#import "HTTPd.h"
 #import "WebFastCgiController.h"
 
 #import "Froth+Defines.h"

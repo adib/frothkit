@@ -112,7 +112,7 @@
 		
 		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 		
-		WebRequest *rq = [[WebRequest alloc] init];	
+		WebMutableRequest *rq = [[WebMutableRequest alloc] init];	
 		
 		@try {
 			//Timer for stats
@@ -134,7 +134,7 @@
 				reqBodyData = [[NSData alloc] initWithBytes:buf length:dataLen];
 				free(buf);
 				
-				[rq setBodyData:reqBodyData];
+				[rq setBodyDataValue:reqBodyData];
 				[reqBodyData release];
 			}
 			
@@ -156,7 +156,7 @@
 			pthread_mutex_unlock(&counts_mutex);
 			
 			float t = -[start timeIntervalSinceNow];			
-			NSLog(@"FOWResolver: request [%@][%@] completed in [%.4f] on thread [%@]", rq.method, rq.url,  t, [[[NSThread currentThread] threadDictionary] valueForKey:@"location"]);
+			NSLog(@"FOWResolver: request [%@][%@] completed in [%.4f] on thread [%@]", rq.method, rq.uri,  t, [[[NSThread currentThread] threadDictionary] valueForKey:@"location"]);
 		} @catch (NSException *exception) {
 			FCGX_SetExitStatus(500, request.out);
 			NSMutableString *err = [NSMutableString stringWithFormat:

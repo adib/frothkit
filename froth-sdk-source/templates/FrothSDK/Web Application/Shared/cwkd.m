@@ -64,7 +64,7 @@ int main (int argc, const char * argv[]) {
 #endif
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	
-	NSLog(@"Froth Web Application Server - Version B0.9");
+	NSLog(@"Froth Web Application Server - Version %@", FROTH_VERSION_STRING);
 	
 	WebApplication *webApp = [[WebApplication alloc] init];
 	if(!webApp) 

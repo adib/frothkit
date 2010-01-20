@@ -38,7 +38,7 @@
 			@"test_getBucketWithName_", 
 			@"test_createBucketWithName_",
 			/*@"test_deleteBucketWithName_",*/
-			@"test_saveObjectWithData_", nil];
+			/*@"test_saveObjectWithData_",*/ nil];
 }
 
 - (void)setUp {

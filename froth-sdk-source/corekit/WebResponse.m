@@ -28,7 +28,7 @@
 //	OTHER DEALINGS IN THE SOFTWARE.
 
 #import "WebResponse.h"
-
+#import "WebRequest.h"
 
 @implementation WebResponse
 @synthesize code;
@@ -57,6 +57,7 @@
 	if(self = [super init]) {
 		headers = [[NSMutableDictionary alloc] init];
 		self.code = aCode;
+
 		if(contentType) {
 			[self setHeader:contentType forKey:@"Content-Type"];
 		}

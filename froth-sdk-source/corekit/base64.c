@@ -81,7 +81,7 @@ int encode64(const char* input, char* output, int length)
 	
 	for (j = 0; j < length; j += 3) {
 	
-		int len = length - j;
+		len = length - j;
 		if (len >= 3) len = 3;
 		for (i = 0; i < len; i++) in[i] = input[j + i];
 		for (i = len; i < 3; i++) in[i] = 0; 

@@ -27,13 +27,11 @@
 //	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 //	OTHER DEALINGS IN THE SOFTWARE.
 
-#import "WebRequest.h"
+#import "WebMutableRequest.h"
 
 /*	Provides the FASTCGI Integration for a froth WebRequest */
-@interface WebRequest (FastCGI)
-
+@interface WebMutableRequest (FastCGI)
 
 - (void)setHTTPRequestPointer:(char**)env;
-- (void)setBodyData:(NSData*)data;
 
 @end

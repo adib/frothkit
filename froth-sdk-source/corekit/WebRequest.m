@@ -34,22 +34,76 @@
 #import "Froth+Exceptions.h"
 #import "WebApplication.h"
 #import "NSString+Utilities.h"
+#import "WebResponse.h"
 
 @implementation WebRequest
+
+- (id)init {
+	if(self = [super init]) {
+		keepAlive = FALSE;
+	}
+	return self;
+}
+
+- (NSString*)description {
+	NSMutableString* str = [NSMutableString string];
+	[str appendFormat:@"%@ ", self.method];
+	[str appendFormat:@"%@ ", self.uri];
+	[str appendFormat:@"%@", self.ip];
+	return str;
+}
+
+- (void)dealloc {
+	[uri  release], uri = nil;
+	[queryString release], queryString = nil;
+	[host release], host = nil;
+	[ip release], ip = nil;
+	
+	[method release]; method = nil;
+	[cookies release]; cookies = nil;
+	[query release]; query = nil;
+	[headers release]; headers = nil;
+	[extension release]; extension = nil;
+	
+	[controller release]; controller = nil;
+	[action release]; action = nil;
+	
+	//TODO: Not sure whats up with mem-management here. This is causing a sigfault.
+	/*[bodyDataValue release]; bodyDataValue = nil;*/
+	[objectValue release]; objectValue = nil;
+	
+	[params release]; params = nil;
+	[session release]; session = nil;
+	[response release]; response = nil;
+	
+	[super dealloc];
+}
 
 #pragma mark -
 #pragma mark Basic HTTP Request Info
 
 - (NSString*)url {
-	NSString* s = [[self headers] objectForKey:@"REQUEST_URI"];
-	if(s == nil) {
-		s = @"/"; //What!?
+	NSLog(@"+++ [[DEPRECIATED]] WebRequest -url is depreciated, use -uri instead");
+	return [self uri];
+}
+
+- (NSString*)uri {
+	/*	Provides support for if the httpd connector sets the ivar, or 
+	 if their are retreived from environment variables (FastCGI) */
+	if(uri==nil) {
+		uri = [[[self headers] objectForKey:@"REQUEST_URI"] retain]; //For FASTCGI
+		if(uri == nil) {
+			uri = @"/"; //What!?
+		}
 	}
-	return s;
+	return uri;
 }
 
 - (NSString*)domain {
-	return [[self headers] objectForKey:@"SERVER_NAME"]; //HTTP_HOST / SERVER_NAME
+	if(host==nil) {
+		host = [[[self headers] objectForKey:@"SERVER_NAME"] retain];
+	}
+	return host;
 }
 
 - (NSDictionary*)headers {
@@ -59,12 +113,17 @@
 - (WebSession*)session {
 	if(!session) {
 		/* See WebSession's header for rules of getting the seesion key from a request */
-		NSString* sessionKey = [self valueForCookie:@"x-froth-session"];
+		id sessionKey = [self valueForCookie:@"x-froth-session"];
 
 		if(!sessionKey) {
 			sessionKey = [[self headers] valueForKey:@"X-FROTH-SESSION"];
 		}
-			
+		
+		//May have multiple session keys lingering in cookies under extrenious situations
+		if(sessionKey && [sessionKey isKindOfClass:[NSArray class]]) {
+			sessionKey = [sessionKey objectAtIndex:0];	//err.
+		}
+		
 		if(!sessionKey && [self.action isEqualToString:@"xfrothsession"]) {
 			//This could through an exception
 			sessionKey = [self.params objectAtIndex:0];
@@ -90,9 +149,8 @@
 
 - (NSString*)extension {
 	if(extension == nil) {
-		NSString* uri = [self.headers valueForKey:@"REQUEST_URI"];
-		uri = [uri stringByReplacingOccurrencesOfString:froth_str(@"?%@", [self.headers valueForKey:@"QUERY_STRING"]) withString:@""];
-		extension = [[uri pathExtension] retain];
+		NSString* path = [uri stringByReplacingOccurrencesOfString:froth_str(@"?%@", [self queryString]) withString:@""];
+		extension = [[path pathExtension] retain];
 		
 		if(extension && extension.length < 1) {
 			[extension release], extension = nil;
@@ -110,28 +168,32 @@
 }
 
 - (NSString*)method {
-	if(method != nil)	{	
-		return method;
+	if(method==nil)	{
+		method = [[[self.headers objectForKey:@"REQUEST_METHOD"] uppercaseString] retain];
 	}
-		
-	return [[self.headers objectForKey:@"REQUEST_METHOD"] uppercaseString];
-}
-
-//Why? maybe so we can edit a mutable request!! but thats bad...
-- (void)setMethod:(NSString*)newMethod { 
-	if(method != newMethod) {
-		[method release], method = nil;
-		method = [newMethod retain];
-	}
+	return method;
 }
 
 - (NSString*)contentType {
 	return [self.headers objectForKey:@"CONTENT_TYPE"];
 }
 
+- (NSString*)queryString {
+	if(queryString==nil) {
+		NSArray* comps = [self.uri componentsSeparatedByString:@"?"];
+		if(comps.count>1) {
+			queryString = [[comps objectAtIndex:1] retain];
+		}
+	}
+	return queryString;
+}
+
 - (NSDictionary*)query {
 	if(query == nil) {
-		NSString* qStr = [self.headers valueForKey:@"QUERY_STRING"];
+		NSString* qStr = [self queryString];
+		if(!qStr) {
+			qStr = [self.headers valueForKey:@"QUERY_STRING"];
+		}
 		query = [[NSDictionary dictionaryWithQuery:qStr] retain];
 	}
 	return query;
@@ -186,13 +248,6 @@
 	return objectValue;
 }
 
-- (void)setObjectValue:(id)object {
-	if(objectValue != object) {
-		[objectValue release], objectValue = nil;
-	}
-	objectValue = [object retain];
-}
-
 - (NSString*)valueForCookie:(NSString*)cookieKey {
 	return [self.cookies objectForKey:cookieKey];
 }
@@ -206,13 +261,12 @@
 
 - (void)_prepareControllerActionParamsProperties {
 	if(!controller && !action) {
-		NSString* uri = [self.headers valueForKey:@"REQUEST_URI"];
-		uri = [uri stringByReplacingOccurrencesOfString:froth_str(@"?%@", [self.headers valueForKey:@"QUERY_STRING"]) withString:@""];
+		NSString* path = [uri stringByReplacingOccurrencesOfString:froth_str(@"?%@", [self queryString]) withString:@""];
 		
 		NSString* localUri;
 		NSString* appUriRoot = [WebApplication deploymentUriPath];
 		if(appUriRoot) {
-			localUri = [uri stringByReplacingOccurrencesOfString:appUriRoot withString:@""];
+			localUri = [path stringByReplacingOccurrencesOfString:appUriRoot withString:@""];
 		} else {
 			localUri = appUriRoot;
 		}
@@ -270,40 +324,29 @@
 	return params;
 }
 
-#pragma mark -
-#pragma mark Other
-
-- (NSString*)description {
-	NSMutableString* string = [NSMutableString string];
-	[string appendFormat:@"%@ ", self.method];
-	[string appendFormat:@"%@ ", self.url];
-	[string appendFormat:@"%@", self.ip];
-	return string;
-}
-
 - (NSString*)ip {
-	return [[self.headers valueForKey:@"REMOTE_ADDR"] stringByReplacingOccurrencesOfString:@"::ffff:" withString:@""];
+	if(ip==nil) {
+		ip = [[[self.headers valueForKey:@"REMOTE_ADDR"] stringByReplacingOccurrencesOfString:@"::ffff:" withString:@""] retain];
+	}
+	return ip;
 }
 
-- (void)dealloc {
-	[method release]; method = nil;
-	[cookies release]; cookies = nil;
-	[query release]; query = nil;
-	[headers release]; headers = nil;
-	[extension release]; extension = nil;
-	//safe
-	
-	[controller release]; controller = nil;
-	[action release]; action = nil;
-	
-	//TODO: Not sure whats up with mem-management here. This is causing a sigfault.
-	/*[bodyDataValue release]; bodyDataValue = nil;*/
-	[objectValue release]; objectValue = nil;
-	
-	[params release]; params = nil;
-	[session release]; session = nil;
-	
-	[super dealloc];
+#pragma mark -
+
+- (WebResponse*)response {
+	return response;
+}
+
+- (void*)internalRequestPointer {
+	return req_p;
+}
+
+- (BOOL)keepAlive {
+	return keepAlive;
+}
+
+- (void)setKeepAlive:(BOOL)alive {
+	keepAlive = alive;
 }
 
 @end

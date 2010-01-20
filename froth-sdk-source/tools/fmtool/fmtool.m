@@ -99,8 +99,8 @@ int main (int argc, const char * argv[]) {
 		printf("FrothMachine Tools Version 0.0.2\n");
 		printf("-i [WebAppName] [mode] starts a webapp\n");
 		printf("-s [WebAppName] [mode] stops a webapp\n");
-		printf("-o [WebAppName] [mode] launches a webapp with stout to terminal");
-		printf("-c Outputs lighttpd configurations for all 'Enabled' webapps on the system for use with lighttpd's 'include_shell' tool");
+		printf("-c [WebAppName] [mode] launches a webapp with stout to terminal\n");
+		printf("-o Outputs lighttpd configurations for all 'Enabled' webapps on the system for use with lighttpd's 'include_shell' tool\n");
 	} 
 	
 	//We need to parse through all web apps installed to generate lighttpd configurations.
@@ -127,7 +127,14 @@ int main (int argc, const char * argv[]) {
 		} else if([option isEqualToString:@"-o"]) { //Does not support user paths
 			stopWebApp(webApp, port, userName);
 			NSString* binPath = froth_str(@"%@/Contents/Linux/%@", [webApp bundlePath], webAppName);
-			[NSTask launchedTaskWithLaunchPath:binPath arguments:[NSArray arrayWithObjects:port, port, nil]];
+			NSTask* task = [NSTask launchedTaskWithLaunchPath:binPath arguments:[NSArray arrayWithObjects:port, port, nil]];
+			[task waitUntilExit];
+		} else if([option isEqualToString:@"-c"]) {
+			//A rather hacky way to view the live out of an already running process. Should be cleaned up a bit with a pipe.
+			//strace -p [PID] -e write -e write=0 -s 1024
+			
+			//NSTask* task = [NSTask launchedTaskWithLaunchPath:binPath arguments:[NSArray arrayWithObjects:port, port, nil]];
+			//[task waitUntilExit];
 		}
 	}
 
@@ -148,7 +155,7 @@ NSBundle* bundleForWebApp(NSString* name, NSString* mode, NSString* user) {
 }
 
 int startWebApp(NSBundle* webApp, NSString* port, NSString* user) {
-	printf("+Starting webapp\n\t [%s]:[%s]", [port UTF8String], [[webApp executablePath] UTF8String]);
+	printf("+Starting webapp\n\t [%s]:[%s]\n", [port UTF8String], [[webApp executablePath] UTF8String]);
 	[NSTask launchedTaskWithLaunchPath:@"/sbin/start-stop-daemon" arguments:[NSArray arrayWithObjects:@"--start", @"--oknodo", @"--exec", [webApp executablePath], @"-b", @"--", port, port, port, nil]];
 	f_wait(0.2);
 	return 0;
@@ -165,7 +172,7 @@ int stopWebApp(NSBundle* webApp, NSString* port, NSString* user) {
 	f_wait(0.4);
 	
 	//Run cleanup script after kill. Fixes http://code.google.com/p/frothkit/issues/detail?id=17 issue with uuid not stopping when new guid is generated.
-	[NSTask launchedTaskWithLaunchPath:@"/usr/froth/bin/cleanup_uuid_process" arguments:[NSArray arrayWithObjects:port, port, nil]];
+	[NSTask launchedTaskWithLaunchPath:@"/usr/froth/bin/cleanup_uuid_process" arguments:[NSArray arrayWithObjects:port, port, port, nil]];
 	f_wait(0.2); //Errr...
 	return 0;
 }
