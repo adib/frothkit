@@ -13,33 +13,11 @@
 		9D0FD7591100F5D100D8DD8E /* fmtool.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* fmtool.m */; settings = {ATTRIBUTES = (); }; };
 		9D0FD75B1100F5D100D8DD8E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		9D0FD75D1100F5D100D8DD8E /* fmtool.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* fmtool.1 */; };
+		9D97A7E41110EE5C004A5CFB /* Froth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDF133E1110E8090005C695 /* Froth.framework */; };
+		9DDF133F1110E8090005C695 /* Froth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDF133E1110E8090005C695 /* Froth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
-		9D0FD75F1100F5D100D8DD8E /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = org.cocotron.1.0.linux.i386.gcc.default;
-			fileType = sourcecode.asm;
-			isEditable = 1;
-			outputFiles = (
-			);
-		};
-		9D0FD7601100F5D100D8DD8E /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = org.cocotron.1.0.linux.i386.gcc.default;
-			fileType = sourcecode.c;
-			isEditable = 1;
-			outputFiles = (
-			);
-		};
-		9D0FD7611100F5D100D8DD8E /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = org.cocotron.1.0.linux.i386.gcc.default;
-			fileType = sourcecode.cpp;
-			isEditable = 1;
-			outputFiles = (
-			);
-		};
 		9D13DDD210AF56BF00039EF3 /* PBXBuildRule */ = {
 			isa = PBXBuildRule;
 			compilerSpec = org.cocotron.1.0.linux.i386.gcc.default;
@@ -102,6 +80,8 @@
 		9D13DF2210AFA22800039EF3 /* confTemplate.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = confTemplate.conf; sourceTree = "<group>"; };
 		9D8D363210F2A2E4006CD62A /* dirinc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dirinc; sourceTree = "<group>"; };
 		9D8D363310F2A3A0006CD62A /* cleanup_uuid_process */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = cleanup_uuid_process; sourceTree = "<group>"; };
+		9D97A7E51110EE7D004A5CFB /* Changes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Changes; sourceTree = "<group>"; };
+		9DDF133E1110E8090005C695 /* Froth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Froth.framework; path = System/Library/Frameworks/Froth.framework; sourceTree = SDKROOT; };
 		C6859EA3029092ED04C91782 /* fmtool.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = fmtool.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D97A7E41110EE5C004A5CFB /* Froth.framework in Frameworks */,
 				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D0FD75B1100F5D100D8DD8E /* Foundation.framework in Frameworks */,
+				9DDF133F1110E8090005C695 /* Froth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +110,7 @@
 		08FB7794FE84155DC02AAC07 /* fmtool */ = {
 			isa = PBXGroup;
 			children = (
+				9D97A7E51110EE7D004A5CFB /* Changes */,
 				9D0FD73B1100F3D200D8DD8E /* Platform-Linux */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6859EA2029092E104C91782 /* Documentation */,
@@ -150,6 +133,7 @@
 		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				9DDF133E1110E8090005C695 /* Froth.framework */,
 				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
 			);
 			name = "External Frameworks and Libraries";
@@ -281,12 +265,9 @@
 				9D0FD7581100F5D100D8DD8E /* Sources */,
 				9D0FD75A1100F5D100D8DD8E /* Frameworks */,
 				9D0FD75C1100F5D100D8DD8E /* CopyFiles */,
-				9D0FD75E1100F5D100D8DD8E /* ShellScript */,
+				9D0FD75E1100F5D100D8DD8E /* Remote Deploy Script */,
 			);
 			buildRules = (
-				9D0FD75F1100F5D100D8DD8E /* PBXBuildRule */,
-				9D0FD7601100F5D100D8DD8E /* PBXBuildRule */,
-				9D0FD7611100F5D100D8DD8E /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -315,7 +296,7 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9D0FD75E1100F5D100D8DD8E /* ShellScript */ = {
+		9D0FD75E1100F5D100D8DD8E /* Remote Deploy Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			comments = "Simply Deployment Script to Deploy Machine Tools to server.";
@@ -323,11 +304,12 @@
 			);
 			inputPaths = (
 			);
+			name = "Remote Deploy Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "mkdir /tmp/1_5deploy\n\ncp ${PROJECT_DIR}/confTemplate-lighttpd1.5.conf /tmp/1_5deploy/confTemplate.conf\ncp ${PROJECT_DIR}/lighttpd-1.5.conf /tmp/1_5deploy/lighttpd.conf\n\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${BUILD_DIR}/${CONFIGURATION}/${PRODUCT_NAME} root@${FROTH_HOST}:/usr/froth/bin\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" /tmp/1_5deploy/confTemplate.conf root@${FROTH_HOST}:/var/froth/config\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" /tmp/1_5deploy/lighttpd.conf root@${FROTH_HOST}:/etc/lighttpd\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${PROJECT_DIR}/cleanup_uuid_process root@${FROTH_HOST}:/usr/froth/bin\n\nssh -i ${FROTH_IDENTITY} root@${FROTH_HOST} \"chmod 755 /usr/froth/bin/cleanup_uuid_process\"\n\nrm -r /tmp/1_5deploy";
+			shellScript = "mkdir /tmp/1_5deploy\n\ncp ${PROJECT_DIR}/confTemplate-lighttpd1.5.conf /tmp/1_5deploy/confTemplate.conf\ncp ${PROJECT_DIR}/lighttpd-1.5.conf /tmp/1_5deploy/lighttpd.conf\n\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME} root@${FROTH_HOST}:/usr/froth/bin\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" /tmp/1_5deploy/confTemplate.conf root@${FROTH_HOST}:/var/froth/config\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" /tmp/1_5deploy/lighttpd.conf root@${FROTH_HOST}:/etc/lighttpd\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${PROJECT_DIR}/cleanup_uuid_process root@${FROTH_HOST}:/usr/froth/bin\n\nssh -i ${FROTH_IDENTITY} root@${FROTH_HOST} \"chmod 755 /usr/froth/bin/cleanup_uuid_process\"\n\nrm -r /tmp/1_5deploy";
 		};
 		9D13DDDC10AF585800039EF3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -371,7 +353,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = i386;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = /Developer/Cocotron/1.0/Linux/i386/Frameworks;
 				FROTH_HOST = 204.236.224.163;
 				FROTH_IDENTITY = /Users/allan/aws/aphiltc1.pem;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -380,19 +361,9 @@
 				GCC_FAST_OBJC_DISPATCH = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = fmtool_Prefix.pch;
-				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)\"",
-					"\"/Developer/FrothSDK/Library/include\"",
-					"/Developer/Cocotron/1.0/PlatformInterfaces/i386-ubuntu-linux/include",
-				);
 				INSTALL_PATH = /usr/froth/bin;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Developer/FrothSDK/Library/lib/linux,
-					"/Developer/Cocotron/1.0/PlatformInterfaces/i386-ubuntu-linux/lib",
-				);
 				OTHER_CFLAGS = "-fPIC";
 				OTHER_LDFLAGS = (
 					"-lm",
@@ -427,13 +398,12 @@
 					"-lpython2.6",
 					"-lrt",
 					"-levent",
-					"-lfroth",
 					"-Wl,-rpath=$ORIGIN",
 					"-Wl,-rpath=/usr/froth/lib",
 					"-ObjC",
 				);
 				PRODUCT_NAME = fmtool;
-				SDKROOT = "";
+				SDKROOT = frothplatform0.5;
 				SYMROOT = /Users/allan/Development/builds/linux;
 				VALID_ARCHS = i386;
 			};
@@ -462,7 +432,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = frothplatform0.5;
 			};
 			name = Debug;
 		};
@@ -474,7 +444,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = frothplatform0.5;
 			};
 			name = Release;
 		};
@@ -484,28 +454,21 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = i386;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = /Developer/Cocotron/1.0/Linux/i386/Frameworks;
+				FRAMEWORK_SEARCH_PATHS = "";
 				FROTH_HOST = 204.236.224.163;
 				FROTH_IDENTITY = /Users/allan/aws/aphiltc1.pem;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_SYMBOL_SEPARATION = NO;
 				GCC_FAST_OBJC_DISPATCH = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = fmtool_Prefix.pch;
-				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)\"",
-					"\"/Developer/FrothSDK/Library/include\"",
-					"/Developer/Cocotron/1.0/PlatformInterfaces/i386-ubuntu-linux/include",
-				);
+				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = /usr/froth/bin;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Developer/FrothSDK/Library/lib/linux,
-					"/Developer/Cocotron/1.0/PlatformInterfaces/i386-ubuntu-linux/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "-fPIC";
 				OTHER_LDFLAGS = (
 					"-lm",
@@ -540,14 +503,13 @@
 					"-lrt",
 					"-levent",
 					"-lpython2.6",
-					"-lfroth",
 					"-Wl,-rpath=$ORIGIN",
 					"-Wl,-rpath=/usr/froth/lib",
 					"-ObjC",
 				);
 				PRODUCT_NAME = fmtool;
-				SDKROOT = "";
-				SYMROOT = /Users/allan/Development/builds/linux;
+				SDKROOT = frothplatform0.5;
+				SYMROOT = "$(PLATFORM_DIR)/BuildToolsSetup/build/tools";
 				VALID_ARCHS = i386;
 			};
 			name = Debug;

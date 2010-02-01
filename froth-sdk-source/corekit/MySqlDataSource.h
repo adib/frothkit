@@ -28,7 +28,7 @@
 //	OTHER DEALINGS IN THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "froth.h"
+#import "Froth.h"
 
 #ifdef __APPLE__
 #import <mysql.h>

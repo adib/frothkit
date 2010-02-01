@@ -1,0 +1,3 @@
+// !!!:allan:20100127 
+- Now builds against new Froth.platform Xcode SDK (frothplatform0.5)
+- Links with Froth.framework instead of old froth.so shared object.

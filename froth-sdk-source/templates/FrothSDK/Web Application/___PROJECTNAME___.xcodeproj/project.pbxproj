@@ -27,6 +27,7 @@
 		9D13DD8510AE58D400039EF3 /* test.css in Resources */ = {isa = PBXBuildFile; fileRef = 9D13DD8310AE58D400039EF3 /* test.css */; };
 		9D13DD8B10AE58DD00039EF3 /* test.css in Copy Static CSS Server Files */ = {isa = PBXBuildFile; fileRef = 9D13DD8310AE58D400039EF3 /* test.css */; };
 		9D13E2F210B3277300039EF3 /* libpython.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D13E2F110B3277300039EF3 /* libpython.dylib */; };
+		9D92234E11110388007A7918 /* Froth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D92234D11110388007A7918 /* Froth.framework */; };
 		9DE8202B10AB87CA006D1176 /* cwkd.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE8202A10AB87CA006D1176 /* cwkd.m */; };
 		9DE8203510AB8988006D1176 /* libmysqlclient_r.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE8203410AB8988006D1176 /* libmysqlclient_r.dylib */; };
 		9DE8203F10AB89C3006D1176 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE8203610AB89C3006D1176 /* libsqlite3.dylib */; };
@@ -159,6 +160,7 @@
 		9D13DD6910AE1A5900039EF3 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
 		9D13DD8310AE58D400039EF3 /* test.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = test.css; sourceTree = "<group>"; };
 		9D13E2F110B3277300039EF3 /* libpython.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpython.dylib; path = usr/lib/libpython.dylib; sourceTree = SDKROOT; };
+		9D92234D11110388007A7918 /* Froth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Froth.framework; path = System/Library/Frameworks/Froth.framework; sourceTree = SDKROOT; };
 		9DE8202A10AB87CA006D1176 /* cwkd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cwkd.m; sourceTree = "<group>"; };
 		9DE8203410AB8988006D1176 /* libmysqlclient_r.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmysqlclient_r.dylib; path = "/usr/local/mysql-5.0.67-osx10.5-x86/lib/libmysqlclient_r.dylib"; sourceTree = "<absolute>"; };
 		9DE8203610AB89C3006D1176 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -203,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D13DBEC10ACC8CA00039EF3 /* Foundation.framework in Frameworks */,
+				9D92234E11110388007A7918 /* Froth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +301,7 @@
 		9DE8202E10AB8804006D1176 /* Froth */ = {
 			isa = PBXGroup;
 			children = (
+				9D92234D11110388007A7918 /* Froth.framework */,
 				9D13E2F110B3277300039EF3 /* libpython.dylib */,
 				9DE8219B10AB8A30006D1176 /* libfroth.a */,
 				9DE8203410AB8988006D1176 /* libmysqlclient_r.dylib */,
@@ -412,7 +416,7 @@
 				9D13DB0E10ACC11100039EF3 /* Copy Static JS Server Files */,
 				9D13DB0F10ACC11100039EF3 /* Copy Static CSS Server Files */,
 				9D13DB1010ACC11100039EF3 /* Copy Static IMG Server Files */,
-				9D13DD3C10AE159500039EF3 /* Deploy Script */,
+				9D13DD3C10AE159500039EF3 /* Remote Deploy Script */,
 			);
 			buildRules = (
 				9D13DB1710ACC4F800039EF3 /* PBXBuildRule */,
@@ -474,19 +478,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9D13DD3C10AE159500039EF3 /* Deploy Script */ = {
+		9D13DD3C10AE159500039EF3 /* Remote Deploy Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Deploy Script";
+			name = "Remote Deploy Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "if [[ -n \"$FROTH_IDENTITY\" && \"$FROTH_IDENTITY\" != \"[ SSL IDENTITY FILE PATH ]\" ]]; then\n\techo '===== BUILDING WEBAPP FOR DEPLOYMENT ====='\n\trsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${BUILD_DIR}/${CONFIGURATION}/${PRODUCT_NAME}.webApp root@${FROTH_HOST}:/var/froth/apps/${CONFIGURATION}\n\techo '========= DEPLOYMENT COMPLETE ============'\n\n\t#connect to frothmachine to do some configurations for the webapp, and to launch it. These are run on the client side by running the /usr/froth/bin/setupWebApp WebAppName command. See that commands source for details... this command also restarts the server and launchs the webapp (or relaunches.)\n\n\tssh -i ${FROTH_IDENTITY} root@${FROTH_HOST} \"/usr/froth/bin/fmtool -i ${PRODUCT_NAME} ${CONFIGURATION}; /etc/init.d/lighttpd restart\"\nfi";
+			shellScript = "if [[ -n \"$FROTH_IDENTITY\" && \"$FROTH_IDENTITY\" != \"[ SSL IDENTITY FILE PATH ]\" ]]; then\n\techo '===== BUILDING WEBAPP FOR DEPLOYMENT ====='\n\trsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.webApp root@${FROTH_HOST}:/var/froth/apps/${CONFIGURATION}\n\techo '========= DEPLOYMENT COMPLETE ============'\n\n\t#connect to frothmachine to do some configurations for the webapp, and to launch it. These are run on the client side by running the /usr/froth/bin/setupWebApp WebAppName command. See that commands source for details... this command also restarts the server and launchs the webapp (or relaunches.)\n\n\tssh -i ${FROTH_IDENTITY} root@${FROTH_HOST} \"/usr/froth/bin/fmtool -i ${PRODUCT_NAME} ${CONFIGURATION}; /etc/init.d/lighttpd restart\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -529,6 +533,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -550,6 +558,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "___PROJECTNAME___";
+				SDKROOT = macosx10.5;
 				SYMROOT = /Users/$USER/Development/FrothSDK/builds;
 				WRAPPER_EXTENSION = webApp;
 			};
@@ -576,9 +585,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = i386;
 				COPY_PHASE_STRIP = NO;
-				EXECUTABLE_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Linux";
-				EXECUTABLE_SUFFIX = "";
-				FRAMEWORK_SEARCH_PATHS = /Developer/Cocotron/1.0/Linux/i386/Frameworks;
+				FRAMEWORK_SEARCH_PATHS = "";
 				FROTH_HOST = 204.236.224.163;
 				FROTH_IDENTITY = /Users/allan/aws/aphiltc1.pem;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -589,18 +596,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Shared/prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)\"/**",
-					"\"/Developer/FrothSDK/Library/include\"",
-					"/Developer/Cocotron/1.0/PlatformInterfaces/i386-ubuntu-linux/include",
-				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"/**";
 				INFOPLIST_FILE = "Resources/Info-Linux.plist";
 				INSTALL_PATH = "/var/froth/apps/$(CONFIGURATION)";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Developer/FrothSDK/Library/lib/linux,
-					"/Developer/Cocotron/1.0/PlatformInterfaces/i386-ubuntu-linux/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				MACH_O_TYPE = "";
 				OTHER_CFLAGS = "-fPIC";
 				OTHER_LDFLAGS = (
@@ -634,13 +633,12 @@
 					"-lutil",
 					"-lpython2.6",
 					"-luuid",
-					"-lfroth",
+					"-lrt",
+					"-levent",
 					"-Wl,-rpath=$ORIGIN",
-					"-Wl,-rpath=/usr/froth/lib",
-					"-ObjC",
 				);
 				PRODUCT_NAME = "___PROJECTNAME___";
-				SDKROOT = "";
+				SDKROOT = frothplatform0.5;
 				SYMROOT = /Users/$USER/Development/FrothSDK/builds/linux;
 				VALID_ARCHS = i386;
 				WRAPPER_EXTENSION = webApp;

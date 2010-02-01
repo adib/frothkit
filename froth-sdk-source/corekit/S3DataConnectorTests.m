@@ -34,11 +34,11 @@
 @implementation S3DataConnectorTests
 
 - (NSArray*)tests {
-	return [NSArray arrayWithObjects:@"test_getBuckets", 
+	return [NSArray arrayWithObjects:/*@"test_getBuckets", 
 			@"test_getBucketWithName_", 
-			@"test_createBucketWithName_",
+			@"test_createBucketWithName_",*
 			/*@"test_deleteBucketWithName_",*/
-			/*@"test_saveObjectWithData_",*/ nil];
+			@"test_saveObjectWithData_", nil];
 }
 
 - (void)setUp {
@@ -87,9 +87,9 @@
 }
 
 - (void)test_saveObjectWithData_ {
-	if([connector saveObjectWithData:[@"This is a test" dataUsingEncoding:NSUTF8StringEncoding]  
+	if([connector saveObjectWithData:[@"This is a test with sime interesting content asdf asdf awef awef adefawefa wefw" dataUsingEncoding:NSUTF8StringEncoding]  
 							  bucket:@"froth-test-bucket"
-								name:@"testdoc.txt" 
+								name:[NSString stringWithFormat:@"testdoc-%f.txt", [[NSDate date] timeIntervalSinceReferenceDate]] 
 						 contentType:@"text/plain" 
 							encoding:nil 
 							 expires:-1 

@@ -29,7 +29,7 @@
 
 #import "WebLayoutView.h"
 
-#import "froth.h"
+#import "Froth.h"
 
 #import "AGRegexTemplateMatcher.h"
 

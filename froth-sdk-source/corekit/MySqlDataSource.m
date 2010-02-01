@@ -226,7 +226,6 @@ void Object_SetProperty(char* theData,
 	const char *theCQuery = [self cStringFromString:sql];
 	
 	MYSQL* mConnection = [self mConnection];
-	//NSLog(@"getting here?");
 	int theQueryCode;
 	
 //	[self lock:YES];

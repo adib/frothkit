@@ -131,6 +131,8 @@ NSString * const S3AccessControlBucketOwnerFull =@"bucket-owner-full-control";
 	
 	if([req HTTPBody]) {
 		[stringToSign appendFormat:@"%@\n", [[req HTTPBody] md5DigestString]];
+	} else if([req valueForHTTPHeaderField:@"content-md5"]) { //hmmm
+		[stringToSign appendFormat:@"%@\n", [req valueForHTTPHeaderField:@"content-md5"]];
 	} else {
 		[stringToSign appendString:@"\n"];
 	}
@@ -303,9 +305,10 @@ NSString * const S3AccessControlBucketOwnerFull =@"bucket-owner-full-control";
 		[req setHTTPMethod:@"PUT"];
 		
 		//Generate the md5 for security for prevention of man-in-the-middle
-		[req setHTTPBody:data];
-		[req setValue:[data md5DigestString] forHTTPHeaderField:@"Content-MD5"];
-		[req setValue:[NSString stringWithFormat:@"%i", data.length] forHTTPHeaderField:@"Content-Length"];
+		//[req setValue:[data md5DigestString] forHTTPHeaderField:@"Content-MD5"];
+		
+		//Gets set automatically by libCurl..
+		//[req setValue:[NSString stringWithFormat:@"%i", data.length] forHTTPHeaderField:@"Content-Length"];
 		
 		if(contentType)
 			[req setValue:contentType forHTTPHeaderField:@"Content-Type"];
@@ -324,6 +327,7 @@ NSString * const S3AccessControlBucketOwnerFull =@"bucket-owner-full-control";
 		}
 		
 		[self signRequest:req];
+		[req setHTTPBody:data];
 		
 		NSError* nerror;
 		NSHTTPURLResponse* response = nil;
@@ -332,7 +336,8 @@ NSString * const S3AccessControlBucketOwnerFull =@"bucket-owner-full-control";
 		if(response && [response statusCode] == 200) {
 			return TRUE;
 		} else if(result) {
-			NSLog(@"response:%@", [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]);
+			NSLog(@"response:%@", [[[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding] autorelease]);
+			return FALSE;
 		}
 		return TRUE;
 	} 

@@ -27,7 +27,7 @@
 //	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 //	OTHER DEALINGS IN THE SOFTWARE.
 #import "WebAuthComponent.h"
-#import "froth.h"
+#import "Froth.h"
 
 @implementation WebAuthComponent
 

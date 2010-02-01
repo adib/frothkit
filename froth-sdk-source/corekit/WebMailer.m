@@ -29,7 +29,7 @@
 
 
 #import "WebMailer.h"
-#import "froth.h"
+#import "Froth.h"
 
 #ifndef __APPLE__
 #include <python2.6/Python.h>

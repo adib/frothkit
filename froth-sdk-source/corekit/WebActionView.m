@@ -29,7 +29,7 @@
 
 #import "WebActionView.h"
 
-#import "froth.h"
+#import "Froth.h"
 
 #import "AGRegexTemplateMatcher.h"
 
@@ -96,7 +96,7 @@ static NSMutableDictionary* m_staticTemplateCache = nil;
 			path = [bundle pathForResource:[[templateName componentsSeparatedByString:@"."] objectAtIndex:0] ofType:@"html"];
 			cachedTemplate =		[NSData dataWithContentsOfFile:path];
 			if(!cachedTemplate) {
-				froth_exception(@"ActionTemplateException", @"Unable to find action template resource for name %@", templateName);
+				froth_exception(@"ActionTemplateException", @"Unable to find action template resource for name %@ at path %@", templateName, path);
 			}
 		}
 	}

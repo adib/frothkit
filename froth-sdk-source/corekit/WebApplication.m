@@ -28,7 +28,7 @@
 //	OTHER DEALINGS IN THE SOFTWARE.
 
 #import "WebApplication.h"
-#import "froth.h"
+#import "Froth.h"
 
 #import "WebMutableRequest.h"
 
@@ -67,7 +67,7 @@
 	static NSDictionary* fDeploymentConfigDictionary;
 	if(fDeploymentConfigDictionary == nil) {
 		NSString* modernConfPath = froth_str(@"%@/Contents/Resources/Deployments.plist", [[NSBundle mainBundle] bundlePath]);
-		fDeploymentConfigDictionary = [NSDictionary dictionaryWithContentsOfFile:modernConfPath];
+		fDeploymentConfigDictionary = [[NSDictionary dictionaryWithContentsOfFile:modernConfPath] retain];
 		
 		//Legacy support
 		if(!fDeploymentConfigDictionary) {
@@ -153,7 +153,7 @@
 	//Make sure it conforms to the WebActionController
 	if(theClass && [theClass conformsToProtocol:@protocol(WebActionController)]) {
 		id <WebActionController> controller = [[theClass alloc] init];
-		controller.application = self;
+		[controller setApplication:self];
 		
 		return controller;
 	}
@@ -356,7 +356,10 @@
 			NSLog(@"WebApplication: Possible WebActionView Template [%@]", actionView.templateName);
 			
 			//The controller has a chance to overide this information
-			controller.view = actionView;
+			
+			//controller.view = actionView; //See issue 22 http://code.google.com/p/frothkit/issues/detail?id=22#c0
+			[controller setView:actionView];
+			
 			//[actionView release];
 		}
 	}
@@ -379,7 +382,7 @@
 		WebLayoutView* l_layout_view = [[WebLayoutView alloc] init];
 		l_layout_view.templateName = [NSString stringWithFormat:@"Layout.%@", controller.view.extention];
 		NSLog(@"WebApplication: Possible Layout Template [%@]", l_layout_view.templateName);
-		controller.layout = l_layout_view;
+		[controller setLayout:l_layout_view];
 		[l_layout_view release];
 	}
 	

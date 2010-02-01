@@ -65,6 +65,11 @@ WriteMemoryCallback(void *ptr, size_t size, size_t nmemb, void *data)
 	return realsize;
 }
 
+/*static size_t
+ReadMemoryCallback(void* ptr, size_t size, size_t nitems, void* data) {
+
+}*/
+
 //Simple wrapper as cocotron does not implement this, this should fully support all of NSMutableURLResponse
 @interface NSURLResponse_Froth : NSHTTPURLResponse {
 	int m_status;
@@ -101,16 +106,32 @@ WriteMemoryCallback(void *ptr, size_t size, size_t nmemb, void *data)
 	CURL* chandle = curl_easy_init();
 	curl_easy_setopt(chandle, CURLOPT_URL, [[[request URL] absoluteString] UTF8String]);
 	
+	FILE * uf;	//FILE uploaded if any
+	
 	NSString* method = [request HTTPMethod];
 	if([method isEqualToString:@"GET"]) {
 		curl_easy_setopt(chandle, CURLOPT_HTTPGET, 1);
 	} else if([method isEqualToString:@"POST"]) {
-		curl_easy_setopt(chandle, CURLOPT_POSTFIELDS, [[request HTTPBody] bytes]);
-		curl_easy_setopt(chandle, CURLOPT_POSTFIELDSIZE, [[request HTTPBody] length]);
+		NSData* body = [request HTTPBody];
+		curl_easy_setopt(chandle, CURLOPT_POSTFIELDS, [body bytes]);
+		curl_easy_setopt(chandle, CURLOPT_POSTFIELDSIZE, [body length]);
 	} else if([method isEqualToString:@"PUT"]) {
-		curl_easy_setopt(chandle, CURLOPT_UPLOAD, 1);
-		curl_easy_setopt(chandle, CURLOPT_READDATA, [[request HTTPBody] bytes]); //Not sure if this will work for puts...
-		curl_easy_setopt(chandle, CURLOPT_INFILESIZE, [[request HTTPBody] length]);
+		curl_easy_setopt(chandle, CURLOPT_PUT, 1L);
+		NSData* body = [request HTTPBody];
+		int dataLength = [body length];
+		
+		curl_easy_setopt(chandle, CURLOPT_UPLOAD, 1L);
+		curl_easy_setopt(chandle, CURLOPT_INFILESIZE, dataLength);	//This also sets the 'Content-Length' header...*/
+
+		if(dataLength>0) {
+			/* Hacky, and incomplete with no error checking! */
+			NSString* fname = [NSString stringWithFormat:@"/tmp/%f.fputdata", [[NSDate date] timeIntervalSinceReferenceDate]];
+			[body writeToFile:fname atomically:YES];
+			uf = fopen([fname UTF8String], "r");
+			//curl_easy_setopt(easyhandle, CURLOPT_READFUNCTION, read_function
+			curl_easy_setopt(chandle, CURLOPT_READDATA, uf);		
+		
+		}
 	} else if([method isEqualToString:@"DELETE"]) {
 		 curl_easy_setopt(chandle, CURLOPT_CUSTOMREQUEST, "DELETE");
 	}
@@ -126,17 +147,17 @@ WriteMemoryCallback(void *ptr, size_t size, size_t nmemb, void *data)
 			} else {
 				slist = curl_slist_append(slist, [[NSString stringWithFormat:@"%@:", headerKey] UTF8String]);
 			}
+			//NSLog(@"SetReq - Header [%@:%@]", headerKey, hvalue);
 		}
 		curl_easy_setopt(chandle, CURLOPT_HTTPHEADER, slist);
 	}
 		
 	curl_easy_setopt(chandle, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
 	curl_easy_setopt(chandle, CURLOPT_WRITEDATA, (void *)&response);
+	//curl_easy_setopt(chandle, CURLOPT_VERBOSE, 1);
 	
-	NSLog(@"getting here?");
 	if(curl_easy_perform(chandle) == 0) { //Success
 		curl_slist_free_all(slist);
-		
 		long code;
 		curl_easy_getinfo(chandle, CURLINFO_RESPONSE_CODE, &code);
 		NSLog(@"response code:%i",code);
@@ -149,12 +170,20 @@ WriteMemoryCallback(void *ptr, size_t size, size_t nmemb, void *data)
 		
 		curl_easy_cleanup(chandle);
 		
+		if(uf) {
+			fclose(uf);
+			NSLog(@"closing file descrp");
+		}
+		
 		NSData* data = [NSData dataWithBytes:(void*)response.memory length:response.size];
 		return data;
 	} else {
-		NSLog(@"--- NSURLConnection+LibCurl Wrapper Error ---");
+		NSLog(@"--- NSURLConnection+LibCurl Wrapper Error ---");		
 		curl_slist_free_all(slist);
 		curl_easy_cleanup(chandle);
+		if(uf) {
+			fclose(uf);
+		}
 		*errorp = [NSError errorWithDomain:@"FrothNSURLConnectionDomain" code:9231 userInfo:nil];
 		return NULL;
 	}
