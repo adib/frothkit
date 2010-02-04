@@ -43,6 +43,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		9D0524EB111B08BF0062FF97 /* Froth.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0DDF9E11173E1B0017A87C /* Froth.h */; };
+		9D0524EC111B08C00062FF97 /* Froth.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0DDF9E11173E1B0017A87C /* Froth.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D0DDF9F11173E1B0017A87C /* Froth.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0DDF9E11173E1B0017A87C /* Froth.h */; };
 		9D0DDFA011173E1B0017A87C /* Froth.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0DDF9E11173E1B0017A87C /* Froth.h */; };
 		9D0DDFA111173E1B0017A87C /* Froth.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0DDF9E11173E1B0017A87C /* Froth.h */; };
@@ -2546,6 +2548,7 @@
 				9D5D80001110B37100EA91B7 /* HTTPd.h in Headers */,
 				9D5D80011110B37100EA91B7 /* WebRequest+HTTPd.h in Headers */,
 				9D5D80021110B37100EA91B7 /* WebMutableRequest.h in Headers */,
+				9D0524EC111B08C00062FF97 /* Froth.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2905,6 +2908,7 @@
 				9D9225021111E79F007A7918 /* HTTPd.h in Headers */,
 				9D9225031111E79F007A7918 /* WebRequest+HTTPd.h in Headers */,
 				9D9225041111E79F007A7918 /* WebMutableRequest.h in Headers */,
+				9D0524EB111B08BF0062FF97 /* Froth.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3308,7 +3312,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ -n \"$FROTH_IDENTITY\" && \"$FROTH_IDENTITY\" != \"[ SSL IDENTITY FILE PATH ]\" ]]; then\n\tfor NEXTIP in `echo \"$FROTH_HOST\" | grep -o -e \"[^\\s]*\"`; do\n\t\trsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${INSTALL_PATH}/${WRAPPER_NAME} root@$NEXTIP:/usr/froth/lib\n\t\tssh -i ${FROTH_IDENTITY} root@${FROTH_HOST} \"ln -sf /usr/froth/lib/${EXECUTABLE_PATH} /usr/froth/lib/${EXECUTABLE_NAME}\"\n\tdone\nfi\n\n# ${INFOPLIST_PATH}\n# ${EXECUTABLE_FOLDER_PATH}\n# ${EXECUTABLE_PATH}";
+			shellScript = "if [[ -n \"$FROTH_IDENTITY\" && \"$FROTH_IDENTITY\" != \"[ SSL IDENTITY FILE PATH ]\" ]]; then\n\tfor NEXTIP in `echo \"$FROTH_HOST\" | grep -o -e \"[^\\s]*\"`; do\n\t\trsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${INSTALL_PATH}/${WRAPPER_NAME} root@$NEXTIP:/usr/froth/lib\n\t\tssh -i ${FROTH_IDENTITY} root@${FROTH_HOST} \"/bin/ln -sf /usr/froth/lib/${EXECUTABLE_PATH} /usr/froth/lib/${EXECUTABLE_NAME}\"\n\tdone\nfi\n\n# ${INFOPLIST_PATH}\n# ${EXECUTABLE_FOLDER_PATH}\n# ${EXECUTABLE_PATH}";
 			showEnvVarsInLog = 0;
 		};
 		9DF117F6110FF06C0066D794 /* Deploy Templates Script */ = {
@@ -4237,7 +4241,7 @@
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = /;
 				FRAMEWORK_VERSION = A;
-				FROTH_HOST = 204.236.224.163;
+				FROTH_HOST = "204.236.224.163 174.129.9.112";
 				FROTH_IDENTITY = "/Users/${USER}/aws/aphiltc1.pem";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_FAST_OBJC_DISPATCH = NO;

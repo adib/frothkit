@@ -129,7 +129,7 @@ static NSMutableDictionary* m_staticTemplateCache = nil;
 	return [result dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-- (NSData*)displayWithData:(NSDictionary*)data 
+- (NSData*)displayWithData:(id)data 
 				controller:(id)controller 
 				   request:(WebRequest*)request 
 			   application:(id)appData {

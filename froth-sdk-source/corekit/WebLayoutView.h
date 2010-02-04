@@ -36,23 +36,25 @@
 
 /*!
 	\brief	Subclassable layout class for generating the layout for the request. Like actions, this can be overiden to customize.
-				However unlike actions, unless this is subclassed and specified in the controller's init<Method>Action: method, then the
-				defualt site specific layout is used. (this object.).
+				
+				However unlike actions, unless this is subclassed and specified in the controller's init[MethodName]Action: method, then the
+				defualt site specific layout is used. (An instance of this class)
 			
-				The defualt implementation always looks for a Template file in the bundle named Layout.<extention>. Controllers can customize
-				the Template file name, and to do so, must do it in the - <methodNAme>Action: method block, allong with the same for changeing
-				the ACtion view's template file.
+				The defualt implementation always looks for a Template file in the bundle named Layout.[extention]. Controllers can customize
+				the Template file name, and to do so, must do it in the - [methodName]Action: method block, allong with the same for changeing
+				the Action view's template file.
  
 				The default layout view is cached for the life of the application. This provides faster loading as a round-trip to the
 				data does not have to occur, only template parsing.
  
 				Layout templates are provided with the following values.
-				result = The actual string result from the action.
-				controller = The controller that called the action
-				req = The request object for the action
-				app = The main application
-				layout = This class.
-				flash = a optional flash message sent by the controller with self.flash = @"a message to flash"
+				- result The actual string result from the action.
+				- controller The controller that called the action
+				- req The request object for the action
+				- app The main application
+				- layout This class.
+	
+				For an example of the templating syntex see WebActionView background reference.
  */
 @interface WebLayoutView : NSObject {
 	NSString* templateName;

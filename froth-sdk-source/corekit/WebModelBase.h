@@ -56,7 +56,7 @@
 				Subclasses dont need to specifically implement methods. They simply provide the class stucture
 				and also any dataSource specific requirements (See SDBDataSource.h).
  
-				To avoid compiler warnings (except in model @implementation), add getter/setter method declerations in model's header.
+				To avoid compiler warning, add getter/setter method declerations in model's header.
 				\code
 				- (void)set<Key>:(id)value;
 				- (id)<Key>
@@ -98,8 +98,11 @@
 //Class and actual name as set by -identifierName and -identifierClass
 @property (nonatomic, retain) NSString* uid;
 
-/*
-	WebDataSources should call this to initial an object based on existing datasource data
+/*!
+	\brief Called when an object is initialized from an existing datasource object data.
+ 
+	Subclasses can overide this (calling super's implementation) to provide additional setup of
+	EXISTING objects.
  */
 - (id)initFromDatabase;
 
@@ -108,7 +111,11 @@
 	or by implementing valueForKey and setValue:forKey kvo methods
  */
 
-//The data source name to use. The defualt is "Defualt"
+/*!
+	\brief The data source name for this class to use. The defualt is "Defualt"
+ 
+	Subclasses should overide this for their specific data source configuration (Configured in a DataSources.plist document)
+*/
 + (NSString*)dataSourceName;
 
 //Subclasses can overide this to provide a custom model name, the defualt is the Class name -Model <RemoteModelName> or <Class>Model
@@ -120,19 +127,30 @@
 //For integers return NSNumber, for guids return NSString. Defualt is NSString/guid
 + (Class)identifierClass;
 
-//Must return the list of all persistable keys
+/*!
+	\brief Must return the list of all persistable keys, if +hasStaticKeys returns true
+	
+	For subclasses that do not have dynamic keys, hasStaticKeys returns true, this method must
+	return an array of all local key names this object provides
+ */
 + (NSArray*)allPersistableKeys;
 
-//Subclasses can overide this to return TRUE for dynamicly adding new values with -setValue:forKey: without haveing a schema. Some models may not support this. */
+/*!
+	\brief Subclasses can overide this to return TRUE for dynamicly adding new values with -setValue:forKey: without haveing a schema. 
+ 
+	Some models may not support this. 
+	TODO: More documentation here.
+ */
 + (BOOL)hasStaticKeys;
 
-/*
-	Offers a subclass the ability to substatute a datasource name for a local property name, Data sources
-	can take this into account in their implementations.
+/*!
+	\brief Offers a subclass the ability to substatute a datasource name for a local property name, Data sources
+			can take this into account in their implementations.
  
-	Typically this is used in correspondance with 
-	+ (NSString*)persistableKeyForDataSourceKey:(NSString*)key
-	for the reverse direction.
+	Typically this is used in correspondance with the following for reverse direction
+	\code
+	+ (NSString*)persistableKeyForDataSourceKey:(NSString*)key;
+	\endcode
  */
 + (NSString*)dataSourceKeyForPersistableKey:(NSString*)key;
 + (NSString*)persistableKeyForDataSourceKey:(NSString*)key;
@@ -159,13 +177,27 @@
 /*! \brief Defualt initializer for newly created objects */
 - (id)init;
 
-/*! \brief Creates a object, populated with json dictionary data, not retained or autoreleased */
+/*! 
+	\brief Creates a object, populated with json dictionary data, not retained or autoreleased 
+	\param dictionary A NSDictionary typically created from a json string.
+	
+	The dictionary should have key/values that match that of the models's schema
+ */
 + (id)createWithProperties:(NSDictionary*)dictionary;
 
-/*! \brief Creates a object, populated with xml property data */
+/*! 
+	\brief [UNIMPLEMENTED] Creates a object, populated with xml property data 
+	\param node An NSXMLElement object.
+ */
 + (id)createWithXML:(NSXMLNode*)node;
 
-/*! \brief Convienence wrapper for creating via posts, accepts json or xml post content types. (uses -initWithProperties or -initWithXML) */
+/*! 
+	\brief Convienence wrapper for creating via posts, accepts json or xml post content types. (uses -initWithProperties or -initWithXML) 
+	\param request A web request instance that contains either XML or JSON data that can be mapped to the object.
+ 
+	This uses WebRequest's -postBody method that returns the object type based on the http request's content type or extention. The calls ether
+	-createWithProperties: for json requests or -createWithXML: for xml requests.
+ */
 + (id)createWithPostRequest:(WebRequest*)request;
 
 //Also supports...
@@ -176,44 +208,91 @@
   -countOf_<key>:(id)keyValue;
  */
 
-//Calls the dataSource's implementation for transactional support
+/*!
+	\brief Calls the dataSource's implementation for transactional support (if implemented by DataSource)
+		
+	For datasources that support transactions (Mysql, SimpleSDB, ect), this can be used to batch a group of
+	transactional writes for efficiancy. How this happens is dependent on the WebDataSource's implementation.
+*/
 + (void)beginTransactions;
+
+/*!
+	\brief Commit transaction when called preceeding a -beginTransactions call.
+ */
 + (void)endTransactions;
 
 /*!
 	\brief	Performs a object's save operation directly, unless a call to +beginTransaction was made.
+	\return If the save was successful
+ 
+	Objects must call this method to commit any changes to the datasource. If a call to beginTransactions was
+	made prior to the call to save, then the save is differed until the final -endTransactions is called.
  */
 - (BOOL)save;
 
+/*!
+	\brief Subclasses can overide this to provide additional logic after a save.
+	
+	Subclasses must call super's implementation within the method block
+ */
 - (void)didSaveForCreate;
+
+/*!
+	\brief Subclasses can overide this to provide additional logic after a save.
+	
+	Subclasses must call super's implementation within the method block
+ */
 - (void)didSaveForDelete;
+
+/*!
+	\brief Subclasses can overide this to provide additional logic after a save.
+	
+	Subclasses must call super's implementation within the method block
+ */
 - (void)didSaveForUpdate;
 
 /*!
 	\brief Deletes an object immediatly from the datasource
-	@return	If the delete was successful
+	\return	If the delete was successful
 	
 	The object should not do a subsequent save. Doing so will cause an exception to be thrown.
  */
 - (BOOL)delete;
 
-//Basic Structure Info
+/*!
+	\brief Typically used for objects with dynamic properties, returns if a given property has been set for the object
+ */
 - (BOOL)hasAttribute:(NSString*)key;
 
-//An array of keys that have changes since last save
+/*! \brief An array of keys that have changes since last save */
 - (NSArray*)dirtyKeys;
+
+/*! \brief If the object has changes since fetch, or last save */
 - (BOOL)isDirty;
+
+/*! 
+	\brief Mark a given key as dirty 
+	\param key The key to mark as dirty
+ */
 - (void)dirty:(NSString*)key;
+
+/*!
+	\brief Marks the object as clean, without saving it to the datasource
+ */
 - (void)makeClean;
 
-/*
-	This data can be used by datasources for storing data source specific info. Subclasses
-	can utilize this data according to the datasources specifictionm
+/*!
+	\brief The internal mustable dictionary used for object storage
+ 
+			This data can be used by datasources for storing data source specific info. Subclasses
+			can utilize this data according to the datasources specs.
+ 
+			TODO: why is this public?
  */
 - (NSMutableDictionary*)dataSourceData;
 
-/*
-	Returns the current backing data dictionary for the current state of the object
+/*!
+	\brief Returns the current backing data dictionary for the current state of the object
 	Data sources that allow for write all, should use this if +hasStaticKeys returns NO
  */
 - (NSDictionary*)data;
@@ -222,9 +301,9 @@
 	\brief Subclasses can overide this and include extra key/values to be included in the seralization of the object
  
 	This essentially allows for a one-way encoding to a json string. Currently their is
-	no support for getting a WebModelBase object from a json string.
+	no quick way of deseralizing a WebModelBase from a json string.
  
-	Essenstailly only the "allPersistableKeys" provided are supported as a raw json string unless this is overridden my subclasses
+	Only the "allPersistableKeys" provided are supported as a raw json string unless this is overridden my subclasses.
  
 	All objects must be considered seralizable according to Froth seralization rules (NSDictionary, NSNumber, NSDate, NSArray, <Seralizable> adhearing classes)
  */

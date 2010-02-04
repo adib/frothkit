@@ -36,6 +36,8 @@
 
 /*!
 	\brief	A WebApplication object manages the request/response cycle between the httpd server and web application controllers instances. 
+ 
+	CHANGES:
  */
 @interface WebApplication : NSObject {
 	@private
