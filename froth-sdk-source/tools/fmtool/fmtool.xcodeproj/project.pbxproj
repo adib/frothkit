@@ -323,7 +323,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "rsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${BUILD_DIR}/${CONFIGURATION}/${PRODUCT_NAME} root@${FROTH_HOST}:/usr/froth/bin\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${PROJECT_DIR}/confTemplate.conf root@${FROTH_HOST}:/var/froth/config\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${PROJECT_DIR}/cleanup_uuid_process root@${FROTH_HOST}:/usr/froth/bin\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${PROJECT_DIR}/lighttpd.conf root@${FROTH_HOST}:/etc/lighttpd\n\nssh -i ${FROTH_IDENTITY} root@${FROTH_HOST} \"chmod 755 /usr/froth/bin/cleanup_uuid_process\"";
+			shellScript = "mkdir /tmp/1_4deploy\n\ncp ${PROJECT_DIR}/confTemplate.conf /tmp/1_4deploy/confTemplate.conf\ncp ${PROJECT_DIR}/lighttpd.conf /tmp/1_4deploy/lighttpd.conf\n\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME} root@${FROTH_HOST}:/usr/froth/bin\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" /tmp/1_4deploy/confTemplate.conf root@${FROTH_HOST}:/var/froth/config\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" /tmp/1_4deploy/lighttpd.conf root@${FROTH_HOST}:/etc/lighttpd\nrsync -avvz -e \"ssh -i ${FROTH_IDENTITY}\" ${PROJECT_DIR}/cleanup_uuid_process root@${FROTH_HOST}:/usr/froth/bin\n\nssh -i ${FROTH_IDENTITY} root@${FROTH_HOST} \"chmod 755 /usr/froth/bin/cleanup_uuid_process\"\n\nrm -r /tmp/1_4deploy\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -353,7 +353,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = i386;
 				COPY_PHASE_STRIP = NO;
-				FROTH_HOST = 204.236.224.163;
+				FROTH_HOST = 174.129.9.112;
 				FROTH_IDENTITY = /Users/allan/aws/aphiltc1.pem;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
