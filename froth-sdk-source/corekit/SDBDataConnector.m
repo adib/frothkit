@@ -273,6 +273,20 @@ static NSMutableDictionary* threadPool = nil;
 
 #pragma mark Setters
 
+- (void)createDomain:(NSString*)domain {
+	int r = sdb_create_domain(sdb, [domain UTF8String]);
+	if(r < 0) {
+		NSLog(@"*** SDKDataConnector - error for createDomain: [%i]", r);
+	}
+}
+
+- (void)deleteDomain:(NSString*)domain {
+	int r = sdb_delete_domain(sdb, [domain UTF8String]);
+	if(r < 0) {
+		NSLog(@"*** SDKDataConnector - error for deleteDomain: [%i]", r);
+	}
+}
+
 - (void)setValue:(NSString*)value forKey:(NSString*)key forItem:(NSString*)item inDomain:(NSString*)domain {
 	if(!m_asMulti) {
 		int r = sdb_put(sdb, 
@@ -281,7 +295,17 @@ static NSMutableDictionary* threadPool = nil;
 						[key cStringUsingEncoding:NSUTF8StringEncoding],
 						[value cStringUsingEncoding:NSUTF8StringEncoding]);
 		if(r < 0) {
-			NSLog(@"*** SDBDataConnector - error for setValue: [%i]", r);
+			if(r == SDB_E_AWS_NO_SUCH_DOMAIN) {
+				[self createDomain:domain];
+				//try again.
+				sdb_put(sdb, 
+						[domain cStringUsingEncoding:NSUTF8StringEncoding],
+						[item cStringUsingEncoding:NSUTF8StringEncoding],
+						[key cStringUsingEncoding:NSUTF8StringEncoding],
+						[value cStringUsingEncoding:NSUTF8StringEncoding]);
+			} else {
+				NSLog(@"*** SDBDataConnector - error for setValue: [%i]", r);
+			}
 		}	
 	} else {
 		sdb_multi res = sdb_multi_put(sdb, 
@@ -349,7 +373,18 @@ static NSMutableDictionary* threadPool = nil;
 						cvalues);
 		
 		if(r < 0) {
-			NSLog(@"*** SDBDataConnector - error for setValues: [%i]", r);
+			if(r == SDB_E_AWS_NO_SUCH_DOMAIN) {
+				[self createDomain:domain];
+				//try again.
+				sdb_put_many(sdb, 
+							[domain cStringUsingEncoding:NSUTF8StringEncoding],
+							[item cStringUsingEncoding:NSUTF8StringEncoding],
+							(size_t)ksize,
+							ckeys,
+							cvalues);
+			} else {
+				NSLog(@"*** SDBDataConnector - error for setValues: [%i]", r);
+			}
 		}
 	} else {
 		sdb_multi r = sdb_multi_put_many(sdb, 

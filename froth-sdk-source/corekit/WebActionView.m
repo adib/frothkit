@@ -84,8 +84,14 @@ static NSMutableDictionary* m_staticTemplateCache = nil;
 			froth_exception(@"ActionTemplateException", @"Unable to load bundle for action controller");
 		}
 		
+//TODO: fix this dumb hack properly...
+#ifdef __APPLE__
 		if([templateName hasSuffix:@".(null)"]) 
 			templateName = [[templateName stringByReplacingOccurrencesOfString:@".(null)" withString:@".html"] retain];
+#else
+		if([templateName hasSuffix:@".*nil*"])
+			templateName = [[templateName stringByReplacingOccurrencesOfString:@".*nil*" withString:@".html"] retain];
+#endif
 			
 		NSString* path =		[bundle pathForResource:templateName ofType:nil];
 		cachedTemplate =		[NSData dataWithContentsOfFile:path];

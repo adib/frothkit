@@ -108,6 +108,13 @@
 }
 
 #pragma mark -
+#pragma mark For Views
+
+- (NSString*)uri {
+	return [[self class] deploymentUriPath];
+}
+
+#pragma mark -
 #pragma mark Internal Request Processing
 
 /*
@@ -342,12 +349,12 @@
 			NSString* extention = request.extension;
 			if(!extention) {
 				NSString* contentType = request.contentType;
-				if(!contentType || [contentType isEqualToString:@"text/html"]) {
-					extention = @"html";
-				} else if([contentType isEqualToString:@"text/xml"]) {
+				if([contentType isEqualToString:@"text/xml"]) {
 					extention = @"xml";
 				} else if([contentType isEqualToString:@"text/json"]) {
 					extention = @"json";
+				} else {
+					extention = @"html"; //finally defualt as html
 				}
 			}
 		

@@ -82,6 +82,16 @@
 
 // ---- Setters ---- //
 
+/*!
+	\brief Creates a domain with given name
+ */
+- (void)createDomain:(NSString*)domain;
+
+/*!
+	\brief Deletes a domain, and subsequently all items as well.
+ */
+- (void)deleteDomain:(NSString*)domain;
+
 //Put/Replace a single attribute in an item
 - (void)setValue:(NSString*)value forKey:(NSString*)key forItem:(NSString*)item inDomain:(NSString*)domain;
 - (void)replaceValue:(NSString*)value forKey:(NSString*)key forItem:(NSString*)item inDomain:(NSString*)domain;

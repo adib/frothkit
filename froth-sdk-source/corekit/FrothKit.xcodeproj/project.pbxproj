@@ -45,6 +45,18 @@
 /* Begin PBXBuildFile section */
 		9D0524EB111B08BF0062FF97 /* Froth.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0DDF9E11173E1B0017A87C /* Froth.h */; };
 		9D0524EC111B08C00062FF97 /* Froth.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0DDF9E11173E1B0017A87C /* Froth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D05290B111CB1400062FF97 /* MemcachedConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D052909111CB1400062FF97 /* MemcachedConnector.h */; };
+		9D05290C111CB1400062FF97 /* MemcachedConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D05290A111CB1400062FF97 /* MemcachedConnector.m */; };
+		9D05290D111CB1400062FF97 /* MemcachedConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D052909111CB1400062FF97 /* MemcachedConnector.h */; };
+		9D05290E111CB1400062FF97 /* MemcachedConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D05290A111CB1400062FF97 /* MemcachedConnector.m */; };
+		9D05290F111CB1400062FF97 /* MemcachedConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D052909111CB1400062FF97 /* MemcachedConnector.h */; };
+		9D052910111CB1400062FF97 /* MemcachedConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D05290A111CB1400062FF97 /* MemcachedConnector.m */; };
+		9D052911111CB1400062FF97 /* MemcachedConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D052909111CB1400062FF97 /* MemcachedConnector.h */; };
+		9D052912111CB1400062FF97 /* MemcachedConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D05290A111CB1400062FF97 /* MemcachedConnector.m */; };
+		9D052913111CB1400062FF97 /* MemcachedConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D052909111CB1400062FF97 /* MemcachedConnector.h */; };
+		9D052914111CB1400062FF97 /* MemcachedConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D05290A111CB1400062FF97 /* MemcachedConnector.m */; };
+		9D052915111CB1400062FF97 /* MemcachedConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D052909111CB1400062FF97 /* MemcachedConnector.h */; };
+		9D052916111CB1400062FF97 /* MemcachedConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D05290A111CB1400062FF97 /* MemcachedConnector.m */; };
 		9D0DDF9F11173E1B0017A87C /* Froth.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0DDF9E11173E1B0017A87C /* Froth.h */; };
 		9D0DDFA011173E1B0017A87C /* Froth.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0DDF9E11173E1B0017A87C /* Froth.h */; };
 		9D0DDFA111173E1B0017A87C /* Froth.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0DDF9E11173E1B0017A87C /* Froth.h */; };
@@ -1345,6 +1357,8 @@
 
 /* Begin PBXFileReference section */
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		9D052909111CB1400062FF97 /* MemcachedConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemcachedConnector.h; sourceTree = "<group>"; };
+		9D05290A111CB1400062FF97 /* MemcachedConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemcachedConnector.m; sourceTree = "<group>"; };
 		9D0DDF9E11173E1B0017A87C /* Froth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Froth.h; sourceTree = "<group>"; };
 		9D0FD43710FFC46600D8DD8E /* S3Bucket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3Bucket.h; sourceTree = "<group>"; };
 		9D0FD43810FFC46600D8DD8E /* S3Bucket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3Bucket.m; sourceTree = "<group>"; };
@@ -1667,7 +1681,7 @@
 				9D798F030FF58ED300AB337E /* Documentation */,
 				9D799DCB1006636000AB337E /* FrothKit */,
 				9D6DE4790F546C7B00B9AD49 /* Additions */,
-				9D79A2551006B08600AB337E /* Support */,
+				9D79A2551006B08600AB337E /* Supporting APIs */,
 				9D13E28910B30DAE00039EF3 /* Scripts */,
 				9D1471B910E0103A009D881B /* HTTP Connectors */,
 				9DF5DD1210E27EDC00BB7721 /* Testing - Incomplete */,
@@ -1709,6 +1723,15 @@
 				9D92240D1111E700007A7918 /* Froth.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9D0528E7111CB0060062FF97 /* Memchache - Incomplete */ = {
+			isa = PBXGroup;
+			children = (
+				9D052909111CB1400062FF97 /* MemcachedConnector.h */,
+				9D05290A111CB1400062FF97 /* MemcachedConnector.m */,
+			);
+			name = "Memchache - Incomplete";
 			sourceTree = "<group>";
 		};
 		9D0FD7151100ECC300D8DD8E /* Networking */ = {
@@ -2020,9 +2043,10 @@
 			name = FrothKit;
 			sourceTree = "<group>";
 		};
-		9D79A2551006B08600AB337E /* Support */ = {
+		9D79A2551006B08600AB337E /* Supporting APIs */ = {
 			isa = PBXGroup;
 			children = (
+				9D0528E7111CB0060062FF97 /* Memchache - Incomplete */,
 				9D0FD7151100ECC300D8DD8E /* Networking */,
 				9D79A709100746BB00AB337E /* Templating */,
 				9D5888FD101658E3008D1DF9 /* XML */,
@@ -2030,7 +2054,7 @@
 				9D648E8D10140DB2002A4048 /* Regex */,
 				9D7998DC100520EE00AB337E /* Amazon */,
 			);
-			name = Support;
+			name = "Supporting APIs";
 			sourceTree = "<group>";
 		};
 		9D79A709100746BB00AB337E /* Templating */ = {
@@ -2429,6 +2453,7 @@
 				9D0FE1CD11051D2300D8DD8E /* WebRequest+HTTPd.h in Headers */,
 				9D0FE3311106104D00D8DD8E /* WebMutableRequest.h in Headers */,
 				9D0DDFA111173E1B0017A87C /* Froth.h in Headers */,
+				9D05290D111CB1400062FF97 /* MemcachedConnector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2549,6 +2574,7 @@
 				9D5D80011110B37100EA91B7 /* WebRequest+HTTPd.h in Headers */,
 				9D5D80021110B37100EA91B7 /* WebMutableRequest.h in Headers */,
 				9D0524EC111B08C00062FF97 /* Froth.h in Headers */,
+				9D052915111CB1400062FF97 /* MemcachedConnector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2669,6 +2695,7 @@
 				9D0FE1C911051D2300D8DD8E /* WebRequest+HTTPd.h in Headers */,
 				9D0FE32D1106104D00D8DD8E /* WebMutableRequest.h in Headers */,
 				9D0DDF9F11173E1B0017A87C /* Froth.h in Headers */,
+				9D05290F111CB1400062FF97 /* MemcachedConnector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2789,6 +2816,7 @@
 				9D0FE1CF11051D2300D8DD8E /* WebRequest+HTTPd.h in Headers */,
 				9D0FE3331106104D00D8DD8E /* WebMutableRequest.h in Headers */,
 				9D0DDFA211173E1B0017A87C /* Froth.h in Headers */,
+				9D05290B111CB1400062FF97 /* MemcachedConnector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2909,6 +2937,7 @@
 				9D9225031111E79F007A7918 /* WebRequest+HTTPd.h in Headers */,
 				9D9225041111E79F007A7918 /* WebMutableRequest.h in Headers */,
 				9D0524EB111B08BF0062FF97 /* Froth.h in Headers */,
+				9D052913111CB1400062FF97 /* MemcachedConnector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3029,6 +3058,7 @@
 				9D0FE1CB11051D2300D8DD8E /* WebRequest+HTTPd.h in Headers */,
 				9D0FE32F1106104D00D8DD8E /* WebMutableRequest.h in Headers */,
 				9D0DDFA011173E1B0017A87C /* Froth.h in Headers */,
+				9D052911111CB1400062FF97 /* MemcachedConnector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3424,6 +3454,7 @@
 				9D0FDEF71104CAD900D8DD8E /* HTTPd.m in Sources */,
 				9D0FE1CE11051D2300D8DD8E /* WebRequest+HTTPd.m in Sources */,
 				9D0FE3321106104D00D8DD8E /* WebMutableRequest.m in Sources */,
+				9D05290E111CB1400062FF97 /* MemcachedConnector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3519,6 +3550,7 @@
 				9D5D80581110B39000EA91B7 /* HTTPd.m in Sources */,
 				9D5D80591110B39000EA91B7 /* WebRequest+HTTPd.m in Sources */,
 				9D5D805A1110B39000EA91B7 /* WebMutableRequest.m in Sources */,
+				9D052916111CB1400062FF97 /* MemcachedConnector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3614,6 +3646,7 @@
 				9D0FDEF31104CAD900D8DD8E /* HTTPd.m in Sources */,
 				9D0FE1CA11051D2300D8DD8E /* WebRequest+HTTPd.m in Sources */,
 				9D0FE32E1106104D00D8DD8E /* WebMutableRequest.m in Sources */,
+				9D052910111CB1400062FF97 /* MemcachedConnector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3703,6 +3736,7 @@
 				9D0FDEF91104CAD900D8DD8E /* HTTPd.m in Sources */,
 				9D0FE1D011051D2300D8DD8E /* WebRequest+HTTPd.m in Sources */,
 				9D0FE3341106104D00D8DD8E /* WebMutableRequest.m in Sources */,
+				9D05290C111CB1400062FF97 /* MemcachedConnector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3798,6 +3832,7 @@
 				9D9225621111E7F4007A7918 /* HTTPd.m in Sources */,
 				9D9225631111E7F4007A7918 /* WebRequest+HTTPd.m in Sources */,
 				9D9225641111E7F4007A7918 /* WebMutableRequest.m in Sources */,
+				9D052914111CB1400062FF97 /* MemcachedConnector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3888,6 +3923,7 @@
 				9D0FDEF51104CAD900D8DD8E /* HTTPd.m in Sources */,
 				9D0FE1CC11051D2300D8DD8E /* WebRequest+HTTPd.m in Sources */,
 				9D0FE3301106104D00D8DD8E /* WebMutableRequest.m in Sources */,
+				9D052912111CB1400062FF97 /* MemcachedConnector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4241,7 +4277,7 @@
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = /;
 				FRAMEWORK_VERSION = A;
-				FROTH_HOST = "204.236.224.163 174.129.9.112";
+				FROTH_HOST = 204.236.224.163;
 				FROTH_IDENTITY = "/Users/${USER}/aws/aphiltc1.pem";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_FAST_OBJC_DISPATCH = NO;

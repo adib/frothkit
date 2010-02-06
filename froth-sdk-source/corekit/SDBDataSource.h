@@ -49,6 +49,8 @@
 				in the condition dictionary. For details on the every condition see here. <br>
 				<a href="http://docs.amazonwebservices.com/AmazonSimpleDB/latest/DeveloperGuide/RangeValueQueriesSelect.html">Amazon Range Value Queries</a>
  
+				Changes:
+				
  */
 @interface SDBDataSource : NSObject <WebDataSource> {
 	BOOL		_memcachedEnabled;

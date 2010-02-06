@@ -71,7 +71,19 @@
 	OLD: The deployment path is the value of Info.plist (or Info-Mac.plist)'s froth_root_(deploymentMode) key.
  */
 + (NSString*)deploymentUriPath;
+
+/*!
+	\brief	Returns +deploymentUriPath
 	
+	This is primary for templates for locating resources.
+ 
+	Example:
+	\code
+	<img src="{app.uri}/static/myimage"/>
+	\endcode
+ */
+- (NSString*)uri;
+
 /*!
 	\brief Returns the bundles /Contents/Resources/Deployments.plist dictionary
 	

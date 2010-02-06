@@ -59,9 +59,14 @@
 			froth_exception(@"LayoutViewTemplateException", @"Unable to load bundle for action controller");
 		}
 		
+#ifdef __APPLE__
 		if([templateName hasSuffix:@".(null)"]) 
 			templateName = [[templateName stringByReplacingOccurrencesOfString:@".(null)" withString:@".html"] retain];
-		
+#else
+		if([templateName hasSuffix:@".*nil*"])
+			templateName = [[templateName stringByReplacingOccurrencesOfString:@".*nil*" withString:@".html"] retain];
+#endif
+							 
 		NSString* path = [[bundle resourcePath] stringByAppendingPathComponent:templateName];	//[bundle pathForResource:self.templateName ofType:nil];
 		
 		//NSLog(@"path for layout resource:%@", path);
