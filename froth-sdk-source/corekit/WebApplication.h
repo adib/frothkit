@@ -38,6 +38,7 @@
 	\brief	A WebApplication object manages the request/response cycle between the httpd server and web application controllers instances. 
  
 	CHANGES:
+	allan:20100205 Added reserved actions "update, create, delete for mapping to - appropriate action for get based requests
  */
 @interface WebApplication : NSObject {
 	@private

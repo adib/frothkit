@@ -227,15 +227,19 @@
 		}
 	}
 	
-	if(!actionSelector && ([rmethod isEqualToString:@"POST"] || [rmethod isEqualToString:@"PUT"])) {
-		if(action) {	//Not really an action but a index value for rest style
-			actionSelector = @selector(update:);
-		} else {
+	//TODO: make this better..
+	if([action isEqualToString:@"update"] || 
+	   [action isEqualToString:@"create"] || 
+		(!actionSelector && ([rmethod isEqualToString:@"POST"] || [rmethod isEqualToString:@"PUT"]))) 
+	{
+		if(!action || [action isEqualToString:@"create"]) {	//Not really an action but a index value for rest style
 			actionSelector = @selector(create:);
+		} else {
+			actionSelector = @selector(update:);
 		}
 	}
 	
-	if(!actionSelector && [rmethod isEqualToString:@"DELETE"]) {
+	if([action isEqualToString:@"delete"] || (!actionSelector && [rmethod isEqualToString:@"DELETE"])) {
 		actionSelector = @selector(delete:);
 	}
 	
