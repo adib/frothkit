@@ -127,6 +127,7 @@
 
 //Utilities and Data Connectors
 #import "SDBDataConnector.h"
+#import "MemcachedConnector.h"
 #import "MGTemplateMarker.h"
 #import "AGRegexTemplateMatcher.h"
 #import "DDXML.h"
