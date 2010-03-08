@@ -94,13 +94,13 @@ int main (int argc, const char * argv[]) {
 	}
 	
 	if(!option) {
-		printf("FrothMachine Tools Version 0.0.2\n\nFor useage info use fmtool -h\n\n");
+		printf("FrothMachine Tools Version 0.0.3\n\nFor useage info use fmtool -h\n\n");
 	} else if([option isEqualToString:@"-h"]) {
 		printf("FrothMachine Tools Version 0.0.2\n");
 		printf("-i [WebAppName] [mode] starts a webapp\n");
 		printf("-s [WebAppName] [mode] stops a webapp\n");
-		printf("-c [WebAppName] [mode] launches a webapp with stout to terminal\n");
-		printf("-o Outputs lighttpd configurations for all 'Enabled' webapps on the system for use with lighttpd's 'include_shell' tool\n");
+		printf("-o [WebAppName] [mode] launches a webapp with stout to terminal\n");
+		printf("-c Outputs lighttpd configurations for all 'Enabled' webapps on the system for use with lighttpd's 'include_shell' option\n");
 	} 
 	
 	//We need to parse through all web apps installed to generate lighttpd configurations.
