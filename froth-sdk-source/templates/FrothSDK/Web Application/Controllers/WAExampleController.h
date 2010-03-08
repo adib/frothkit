@@ -3,6 +3,9 @@
 //  TemplateProject
 //
 
+#import <Foundation/Foundation.h>
+#import <Froth/Froth.h>
+
 @interface WAExampleController : WebActiveController {
 
 }

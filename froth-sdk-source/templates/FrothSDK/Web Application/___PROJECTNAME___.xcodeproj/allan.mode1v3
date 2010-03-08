@@ -230,8 +230,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -268,10 +266,17 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>089C166AFE841209C02AAC07</string>
+								<string>32C88E010371C26100C91783</string>
+								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
-							<array/>
+							<array>
+								<array>
+									<integer>12</integer>
+									<integer>11</integer>
+								</array>
+							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
 							<string>{{0, 0}, {252, 690}}</string>
 						</dict>
@@ -303,12 +308,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>prefix.pch</string>
+								<string>cwkd.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -316,11 +323,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>prefix.pch</string>
+										<string>cwkd.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>9D9223EE11110B19007A7918</string>
+										<string>9D3F81A511288398002CEC96</string>
 										<key>history</key>
 										<array>
 											<string>9D13DD9010AE58E400039EF3</string>
@@ -335,8 +342,8 @@
 											<string>9D0FD8B011012D9400D8DD8E</string>
 											<string>9D0FD8B111012D9400D8DD8E</string>
 											<string>9D0FE42611062B4700D8DD8E</string>
-											<string>9D5D82001110DC1900EA91B7</string>
-											<string>9D922350111103CC007A7918</string>
+											<string>9D6484BE111A2D7E00E2B358</string>
+											<string>9D6484C0111A2D7E00E2B358</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -411,9 +418,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>9D922376111104F1007A7918</string>
+				<string>9D3F81A611288398002CEC96</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>9D922377111104F1007A7918</string>
+				<string>9D3F81A711288398002CEC96</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>

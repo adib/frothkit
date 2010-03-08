@@ -27,6 +27,7 @@
 		9D13DD8510AE58D400039EF3 /* test.css in Resources */ = {isa = PBXBuildFile; fileRef = 9D13DD8310AE58D400039EF3 /* test.css */; };
 		9D13DD8B10AE58DD00039EF3 /* test.css in Copy Static CSS Server Files */ = {isa = PBXBuildFile; fileRef = 9D13DD8310AE58D400039EF3 /* test.css */; };
 		9D13E2F210B3277300039EF3 /* libpython.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D13E2F110B3277300039EF3 /* libpython.dylib */; };
+		9D3FA37D114562C8002CEC96 /* Memcached.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D3FA37C114562C8002CEC96 /* Memcached.plist */; };
 		9D92234E11110388007A7918 /* Froth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D92234D11110388007A7918 /* Froth.framework */; };
 		9DE8202B10AB87CA006D1176 /* cwkd.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE8202A10AB87CA006D1176 /* cwkd.m */; };
 		9DE8203510AB8988006D1176 /* libmysqlclient_r.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE8203410AB8988006D1176 /* libmysqlclient_r.dylib */; };
@@ -43,33 +44,6 @@
 		9DE8219C10AB8A30006D1176 /* libfroth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE8219B10AB8A30006D1176 /* libfroth.a */; };
 		9DE8234510AC88BB006D1176 /* WAExampleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE8234410AC88BB006D1176 /* WAExampleController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXBuildRule section */
-		9D13DB1710ACC4F800039EF3 /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = org.cocotron.1.0.linux.i386.gcc.default;
-			fileType = sourcecode.asm;
-			isEditable = 1;
-			outputFiles = (
-			);
-		};
-		9D13DB1810ACC4F800039EF3 /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = org.cocotron.1.0.linux.i386.gcc.default;
-			fileType = sourcecode.c;
-			isEditable = 1;
-			outputFiles = (
-			);
-		};
-		9D13DB1910ACC4F800039EF3 /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = org.cocotron.1.0.linux.i386.gcc.default;
-			fileType = sourcecode.cpp;
-			isEditable = 1;
-			outputFiles = (
-			);
-		};
-/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		9D13DCEB10AE0D6100039EF3 /* PBXContainerItemProxy */ = {
@@ -160,6 +134,7 @@
 		9D13DD6910AE1A5900039EF3 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
 		9D13DD8310AE58D400039EF3 /* test.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = test.css; sourceTree = "<group>"; };
 		9D13E2F110B3277300039EF3 /* libpython.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpython.dylib; path = usr/lib/libpython.dylib; sourceTree = SDKROOT; };
+		9D3FA37C114562C8002CEC96 /* Memcached.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Memcached.plist; sourceTree = "<group>"; };
 		9D92234D11110388007A7918 /* Froth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Froth.framework; path = System/Library/Frameworks/Froth.framework; sourceTree = SDKROOT; };
 		9DE8202A10AB87CA006D1176 /* cwkd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cwkd.m; sourceTree = "<group>"; };
 		9DE8203410AB8988006D1176 /* libmysqlclient_r.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmysqlclient_r.dylib; path = "/usr/local/mysql-5.0.67-osx10.5-x86/lib/libmysqlclient_r.dylib"; sourceTree = "<absolute>"; };
@@ -373,10 +348,11 @@
 		9DE8238510AC8D83006D1176 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9D13DB1510ACC11100039EF3 /* Info-Linux.plist */,
 				9DE8238B10AC8E0D006D1176 /* Info.plist */,
 				9D0FD8AB11012C6900D8DD8E /* Deployments.plist */,
 				9D13DD0110AE0E0100039EF3 /* DataSources.plist */,
-				9D13DB1510ACC11100039EF3 /* Info-Linux.plist */,
+				9D3FA37C114562C8002CEC96 /* Memcached.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -419,9 +395,6 @@
 				9D13DD3C10AE159500039EF3 /* Remote Deploy Script */,
 			);
 			buildRules = (
-				9D13DB1710ACC4F800039EF3 /* PBXBuildRule */,
-				9D13DB1810ACC4F800039EF3 /* PBXBuildRule */,
-				9D13DB1910ACC4F800039EF3 /* PBXBuildRule */,
 			);
 			comments = "Linux and Amazon Compatible Target.\n\nTODOs \n[DONE]1. Implement a run script to do automatic deployments\n\na. This uses rsync and a shell script to upload the bundle to the appropriate [configuration] folder.\nrsync -avvz -e \"ssh -i $(FROTHMACHINE_IDENTITY)\" #(PRODUCT_PATH) root@174.129.9.112:/var/froth/apps/beta\n\n2. Implement a remove debugging system for ec3\n\n";
 			dependencies = (
@@ -472,6 +445,7 @@
 				9D13DD0310AE0E0F00039EF3 /* DataSources.plist in Resources */,
 				9D13DD8410AE58D400039EF3 /* test.css in Resources */,
 				9D0FD8AD11012C6900D8DD8E /* Deployments.plist in Resources */,
+				9D3FA37D114562C8002CEC96 /* Memcached.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,7 +561,7 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				FROTH_HOST = 204.236.224.163;
-				FROTH_IDENTITY = /Users/allan/aws/aphiltc1.pem;
+				FROTH_IDENTITY = /Users/$USER/aws/aphiltc1.pem;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -635,6 +609,7 @@
 					"-luuid",
 					"-lrt",
 					"-levent",
+					"-lmemcached",
 					"-Wl,-rpath=$ORIGIN",
 				);
 				PRODUCT_NAME = "___PROJECTNAME___";
