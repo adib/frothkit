@@ -138,7 +138,14 @@
 				[reqBodyData release];
 			}
 			
-			WebResponse *rs = [webApp performSelector:@selector(handle:) withObject:rq];
+			WebResponse *rs;
+			
+			//TEMP: bypass for favicon.ico until we get this implemented...
+			if(![rq.uri hasSuffix:@"favicon.ico"]) {
+				rs = [webApp performSelector:@selector(handle:) withObject:rq];
+			} else {
+				rs = [WebResponse responseWithCode:404];
+			}
 			
 			if(!rs) {
 				[NSException raise:@"InvalidWebResponseObject" format:@"Probably becouse an action was defined, but returned a nil FOWResponse", nil];

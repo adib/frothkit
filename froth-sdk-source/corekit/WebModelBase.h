@@ -252,6 +252,14 @@
 - (void)didSaveForUpdate;
 
 /*!
+ \brief Subclasses can overide this to provide additional logic before a save if the object is dirty
+ 
+ This gets called during an object save, if the object is dirty. Subclasses can
+ overide this to set a modified date or provide other pre save properties
+ */
+- (void)willSaveForDirty;
+
+/*!
 	\brief Deletes an object immediatly from the datasource
 	\return	If the delete was successful
 	

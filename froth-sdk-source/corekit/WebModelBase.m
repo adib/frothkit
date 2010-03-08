@@ -312,9 +312,15 @@ static id findFirstByMethodImp(id self, SEL _cmd, id value1) {
 	//For subclasses
 }
 
+- (void)willSaveForDirty {
+	//For subclasses
+}
+
 - (BOOL)save {
 	BOOL success = NO;
 	if([self isDirty]) {
+		[self willSaveForDirty];
+		
 		Class myClass = [self class];
 		if(m_notPersisted) {
 			success = [[myClass dataSource] createObject:self];
@@ -340,7 +346,7 @@ static id findFirstByMethodImp(id self, SEL _cmd, id value1) {
 			[self didSaveForDelete];
 			return YES;
 		}
-	}
+	} 
 	return NO;
 }
 
@@ -413,6 +419,14 @@ static id findFirstByMethodImp(id self, SEL _cmd, id value1) {
 	else
 		return YES;
 }
+
+/*- (void)setValue:(id)value forKey:(NSString*)key {
+	[self setValue:value forUndefinedKey:key];
+}
+
+- (id)valueForKey:(NSString*)key {
+	return [self valueForUndefinedKey:key];
+}*/
 
 - (id)valueForUndefinedKey:(NSString*)key {
 	if([self hasAttribute:key]) {

@@ -100,7 +100,7 @@ static MemoryDataSource* _staticSharedMemorySource;
 			//@synchronized(_staticSharedMemorySource) {
 				MemoryDataSource* mds = [m_initializedDataSources objectForKey:@"MEMORY_DATASOURCE"];
 				if(!mds) {
-					NSLog(@"Creating the defualy memory data source for runtime memory objects");
+					NSLog(@"Creating the defualt memory data source for runtime memory objects");
 					//Cache it and make it synchronized for thread safty as it should be shared accross all threads
 					_staticSharedMemorySource = [[MemoryDataSource alloc] initWithOptions:nil];
 					[m_initializedDataSources setObject:_staticSharedMemorySource forKey:@"MEMORY_DATASOURCE"];

@@ -96,13 +96,15 @@ static NSMutableDictionary* m_staticTemplateCache = nil;
 		NSString* path =		[bundle pathForResource:templateName ofType:nil];
 		cachedTemplate =		[NSData dataWithContentsOfFile:path];
 		if(cachedTemplate) {
-			//[m_staticTemplateCache setObject:cachedTemplate forKey:templateName];
+			[m_staticTemplateCache setObject:cachedTemplate forKey:templateName];
 		} else {
 			//Now try with .html as defualt
 			path = [bundle pathForResource:[[templateName componentsSeparatedByString:@"."] objectAtIndex:0] ofType:@"html"];
-			cachedTemplate =		[NSData dataWithContentsOfFile:path];
+			cachedTemplate = [NSData dataWithContentsOfFile:path];
 			if(!cachedTemplate) {
 				froth_exception(@"ActionTemplateException", @"Unable to find action template resource for name %@ at path %@", templateName, path);
+			} else {
+				[m_staticTemplateCache setObject:cachedTemplate forKey:templateName];
 			}
 		}
 	}
@@ -122,7 +124,7 @@ static NSMutableDictionary* m_staticTemplateCache = nil;
 	[engine setMatcher:[AGRegexTemplateMatcher matcherWithTemplateEngine:engine]];
 	
 	NSString* template = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-	NSDictionary* variables = [NSDictionary dictionaryWithObjectsAndKeys:object, @"data", 
+	NSDictionary* variables = [NSDictionary dictionaryWithObjectsAndKeys:(object!=nil)?object:[NSNull null], @"data", 
 							   controller, @"controller", 
 							   req, @"request", 
 							   app, @"app", 

@@ -77,6 +77,10 @@
 	return fDeploymentConfigDictionary;
 }
 
++ (NSString*)siteDomain {
+	return [[self deploymentConfigDictionary] valueForKeyPath:froth_str(@"Modes.%@.SiteDomain", [self deploymentMode])];
+}
+
 - (id)init {
 	if(self = [super init]) {
 		m_app_path = [[NSBundle mainBundle] bundlePath];
@@ -144,7 +148,7 @@
 	NSString* controllerName = [self _controllerNameForRequest:wr];
 	NSString* className = [NSString stringWithFormat:@"WA%@Controller", controllerName];
 	
-	NSLog(@"WebApplication: Possible WebActionController [%@] for controller name [%@]", className, controllerName);
+	//NSLog(@"WebApplication: Possible WebActionController [%@] for controller name [%@]", className, controllerName);
 	
 	Class theClass = NSClassFromString(className);
 	
@@ -314,7 +318,7 @@
 	//Fix this for component overides of names
 	SEL selector = [self _selectorForWebRequest:request controller:controller];
 	
-	NSLog(@"WebApplication: Possible ObjC method for action [%@]", NSStringFromSelector(selector));
+	//NSLog(@"WebApplication: Possible ObjC method for action [%@]", NSStringFromSelector(selector));
 
 	//Finally do the action
 	//Initialize, setup view, then performSelector..
@@ -345,7 +349,7 @@
 		NSString* webViewClassName = [full stringByReplacingOccurrencesOfString:@"Action" withString:@""];
 		webViewClassName = [webViewClassName stringByReplacingOccurrencesOfString:@"action" withString:@""];
 		
-		NSLog(@"WebApplication: Possible WebActionView Class Name [%@]", webViewClassName);
+		//NSLog(@"WebApplication: Possible WebActionView Class Name [%@]", webViewClassName);
 	
 		WebActionView* actionView = [self _webViewForName:webViewClassName];
 		if(actionView) {
@@ -364,7 +368,7 @@
 		
 			actionView.extention	= extention;
 			actionView.templateName = [NSString stringWithFormat:@"%@.%@", webViewClassName, extention];
-			NSLog(@"WebApplication: Possible WebActionView Template [%@]", actionView.templateName);
+			//NSLog(@"WebApplication: Possible WebActionView Template [%@]", actionView.templateName);
 			
 			//The controller has a chance to overide this information
 			
@@ -392,7 +396,7 @@
 		 */
 		WebLayoutView* l_layout_view = [[WebLayoutView alloc] init];
 		l_layout_view.templateName = [NSString stringWithFormat:@"Layout.%@", controller.view.extention];
-		NSLog(@"WebApplication: Possible Layout Template [%@]", l_layout_view.templateName);
+		//NSLog(@"WebApplication: Possible Layout Template [%@]", l_layout_view.templateName);
 		[controller setLayout:l_layout_view];
 		[l_layout_view release];
 	}
@@ -448,7 +452,7 @@
 
 	//Now generate a x-session-froth cookie if needed, this is generated from the request.session so we can use
 	//any user values set in the session, for api requests controllers must supply the session key in an alternative way.
-	if(![request valueForCookie:@"x-froth-session"]) {
+	if(![request valueForCookie:@"x-froth-session"] && ![[request headers] valueForKey:@"X-FROTH-SESSION"]) {
 		NSLog(@"WebApplication: Generating new x-froth-session coookie for request :%@:%@", request.session.guid, request.uri);
 		[response setCookieValue:request.session.guid
 						  forKey:@"x-froth-session" 

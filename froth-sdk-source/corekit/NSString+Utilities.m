@@ -28,6 +28,7 @@
 //	OTHER DEALINGS IN THE SOFTWARE.
 
 #import "NSString+Utilities.h"
+#import "AGRegex.h"
 
 #ifndef __APPLE__
 #import <uuid/uuid.h>
@@ -105,6 +106,18 @@
 	decoded = [decoded stringByReplacingOccurrencesOfString:@"%40" withString:@"@"];
 	decoded = [decoded stringByReplacingOccurrencesOfString:@"%3A" withString:@":"];
 	decoded = [decoded stringByReplacingOccurrencesOfString:@"%2C" withString:@","];
+	decoded = [decoded stringByReplacingOccurrencesOfString:@"%2F" withString:@"/"];
+	decoded = [decoded stringByReplacingOccurrencesOfString:@"%3C" withString:@"<"];
+	decoded = [decoded stringByReplacingOccurrencesOfString:@"%3E" withString:@">"];
+	decoded = [decoded stringByReplacingOccurrencesOfString:@"%23" withString:@"#"];
+	decoded = [decoded stringByReplacingOccurrencesOfString:@"%25" withString:@"%"];
+	decoded = [decoded stringByReplacingOccurrencesOfString:@"%22" withString:@"\""];
+	decoded = [decoded stringByReplacingOccurrencesOfString:@"%3F" withString:@"?"];
+	decoded = [decoded stringByReplacingOccurrencesOfString:@"%7B" withString:@"{"];
+	decoded = [decoded stringByReplacingOccurrencesOfString:@"%7D" withString:@"}"];
+	decoded = [decoded stringByReplacingOccurrencesOfString:@"%3D" withString:@"="];
+	decoded = [decoded stringByReplacingOccurrencesOfString:@"%2B" withString:@"+"];
+	decoded = [decoded stringByReplacingOccurrencesOfString:@"%3B" withString:@";"];
 	return [decoded urlDecoded];
 }
 
@@ -120,6 +133,14 @@
 - (NSString*)html {
 	NSString* html = [self stringByReplacingOccurrencesOfString:@"\n" withString:@"<br>"];
 	return html;
+}
+
+- (NSString*)htmlSanatize {
+	NSString* save = [self stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+	save = [save stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+	save = [save stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+	save = [save stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"];
+	return save;
 }
 
 - (NSString*)ejson {
@@ -182,6 +203,14 @@
 	NSString* lastPartOfString = [self substringWithRange:NSMakeRange(1, self.length-1)];
 	return [firstCharCapital stringByAppendingString:lastPartOfString];
 #endif
+}
+
+- (BOOL)isValidEmail {
+	AGRegex * email = [AGRegex regexWithPattern:@"^(\\w|\\-|\\_|\\.)+@((\\w|\\-|\\_)+\\.)+[a-zA-Z]{2,}$"];
+	if([email findInString:self])
+		return YES;
+	
+	return NO;
 }
 
 @end

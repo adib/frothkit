@@ -74,6 +74,11 @@
 + (NSString*)deploymentUriPath;
 
 /*!
+	\brief	Returns the host name for the current deployment mode. Configurated with SiteDomain under given deployment mode.
+ */
++ (NSString*)siteDomain;
+
+/*!
 	\brief	Returns +deploymentUriPath
 	
 	This is primary for templates for locating resources.

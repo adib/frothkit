@@ -83,7 +83,8 @@
 	if(!bundle) {
 		froth_exception(@"WebMailerException", @"Unable to load bundle for action controller");
 	}
-	NSString* templatePath = [bundle pathForResource:froth_str(@"%@.email", templateName) ofType:nil];
+	
+	NSString* templatePath = [[bundle resourcePath] stringByAppendingPathComponent:froth_str(@"%@.email", templateName)];
 	if(!templatePath) {
 		froth_exception(@"WebMailerException", froth_str(@"No template with name %@[.email] found in webApp bundle", templateName));
 	}
@@ -182,7 +183,7 @@
 	if(!bundle) {
 		froth_exception(@"WebMailerException", @"Unable to load bundle for action controller");
 	}
-	NSString* templatePath = [bundle pathForResource:froth_str(@"%@.email", templateName) ofType:nil];
+	NSString* templatePath = [[bundle resourcePath] stringByAppendingPathComponent:froth_str(@"%@.email", templateName)];
 	if(!templatePath) {
 		froth_exception(@"WebMailerException", froth_str(@"No template with name %@.email found in webApp bundle", templateName));
 	}

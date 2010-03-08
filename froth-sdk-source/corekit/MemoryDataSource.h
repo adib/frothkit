@@ -43,6 +43,7 @@
 */
 @interface MemoryDataSource : NSObject <WebDataSource> {
 	NSMutableDictionary* m_memory_storage;
+	BOOL _memcachedEnabled;
 }
 
 @end

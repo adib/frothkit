@@ -28,6 +28,9 @@
 //	OTHER DEALINGS IN THE SOFTWARE.
 
 #import "MemoryDataSource.h"
+#import "MemcachedConnector.h"
+#import "Froth+Defines.h"
+#import "JSON.h"
 
 /*
 	Objects are internally stored in the object dictionary with the following structure
@@ -43,6 +46,10 @@
 - (id <WebDataSource>)initWithOptions:(NSDictionary*)options {
 	if(self = [super init]) {
 		m_memory_storage = [[NSMutableDictionary dictionary] retain];
+		_memcachedEnabled = [[options valueForKey:@"UseMemcached"] boolValue];
+		if(_memcachedEnabled) {
+			NSLog(@"--- MemoryDataSource using memcache ---");
+		}
 	}
 	return self;
 }
@@ -52,8 +59,20 @@
 }
 
 - (BOOL)createObject:(WebModelBase*)object {
-	@synchronized(m_memory_storage) {
-		[m_memory_storage setObject:object forKey:[self _memoryKeyForObject:object]];
+	if(_memcachedEnabled) {
+		NSArray* dirtyKeys = [object dirtyKeys];
+		NSString* objkey = [self _memoryKeyForObject:object];
+		for(NSString* key in dirtyKeys) {
+			NSString* nkey = froth_str(@"%@:%@", objkey, key);
+			[[MemcachedConnector sharedConnector] setValue:[object valueForKey:key] forKey:nkey];
+		}
+		
+		//Create the key table
+		[[MemcachedConnector sharedConnector] setValue:[[object data] allKeys] forKey:objkey];
+	} else {
+		@synchronized(m_memory_storage) {
+			[m_memory_storage setObject:object forKey:[self _memoryKeyForObject:object]];
+		}
 	}
 	return YES;
 }
@@ -64,19 +83,60 @@
 }
 
 - (BOOL)deleteObject:(WebModelBase*)object {
-	@synchronized(m_memory_storage) {
-		[m_memory_storage removeObjectForKey:[self _memoryKeyForObject:object]];
+	if(_memcachedEnabled) {
+		//TODO...
+	} else {
+		@synchronized(m_memory_storage) {
+			[m_memory_storage removeObjectForKey:[self _memoryKeyForObject:object]];
+		}
 	}
 	return YES;
 }
 
 - (id)getObjectOfModel:(Class)aModelClass withIdentifier:(id)identifier {
+	
+	if(!identifier) {
+		return nil;
+	}
+	
 	NSString* key = [NSString stringWithFormat:@"%@:%@", [aModelClass modelName], identifier];
-	id object = [m_memory_storage objectForKey:key];
-	return object;
+	if(_memcachedEnabled) {
+		NSString* kTable = [[MemcachedConnector sharedConnector] valueForKey:key];
+		if(kTable) {
+			WebModelBase* obj = [[aModelClass alloc] initFromDatabase];
+			[obj setValue:identifier forKey:[aModelClass identifierName]];
+			
+			NSArray* keys = [kTable JSONValue];
+			
+			for(NSString* okey in keys) {
+				NSString* nkey = froth_str(@"%@:%@", key, okey);
+				NSString* value = [[MemcachedConnector sharedConnector] valueForKey:nkey];
+				
+				//Auto deseralize if seralized.
+				id valueObj = [value JSONValue];
+				if(!valueObj) {
+					valueObj = value;
+				}
+				
+				[obj setValue:valueObj forUndefinedKey:okey];
+			}
+			
+			[obj makeClean];
+			return obj;
+		} 
+		return nil;
+	} else {
+		id object = [m_memory_storage objectForKey:key];
+		return object;
+	}
 }
 
 - (id)get:(ResultType)firstOrAll forObjectModel:(Class)aModelClass withConditions:(NSDictionary*)conditions {
+	//TODO: Non Supported Method
+	return nil;
+}
+
+- (NSArray*)getObjectsOfModel:(Class)aModelClass withDataSourceQuery:(NSString*)dataSourceSpecificData {
 	//TODO: Non Supported Method
 	return nil;
 }

@@ -65,6 +65,8 @@
 			user = [[user componentsSeparatedByString:@"@"] objectAtIndex:0];
 		}
 		
+		NSString* onLoginSucessPath = [config valueForKey:@"onLoginSucessPath"];
+		NSString* onLoginFailedPath = [config valueForKey:@"onLoginFailedPath"];
 		NSString* modelName = [config valueForKey:@"model"];
 		NSString* modelUserKey = [config valueForKey:@"userKey"];
 		NSString* modelPassKey = [config valueForKey:@"passKey"];
@@ -89,11 +91,16 @@
 			
 			//Send the user to the website root.
 			if(!redirect_path) 
-				redirect_path = [NSString stringWithFormat:@"http://%@/home", [[request headers] valueForKey:@"SERVER_NAME"]];
+				redirect_path = [NSString stringWithFormat:@"http://%@/%@", [WebApplication siteDomain], (onLoginSucessPath!=nil)?onLoginSucessPath:[WebApplication deploymentUriPath]];
 			
 			return [WebResponse redirectResponseWithUrl:redirect_path];
 		} else {
-			return [WebResponse htmlResponseWithBody:@"Auth Failed"];
+			if(onLoginFailedPath) {
+				NSString* url = [NSString stringWithFormat:@"http://%@/%@", [WebApplication siteDomain], onLoginFailedPath];
+				return [WebResponse redirectResponseWithUrl:url];
+			} else {
+				return [WebResponse htmlResponseWithBody:@"Auth Failed"];
+			}
 		}
 	}
 }

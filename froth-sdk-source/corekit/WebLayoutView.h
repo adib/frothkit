@@ -50,7 +50,7 @@
 				Layout templates are provided with the following values.
 				- result The actual string result from the action.
 				- controller The controller that called the action
-				- req The request object for the action
+				- request The request object for the action
 				- app The main application
 				- layout This class.
 	

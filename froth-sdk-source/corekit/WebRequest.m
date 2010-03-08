@@ -119,6 +119,11 @@
 			sessionKey = [[self headers] valueForKey:@"X-FROTH-SESSION"];
 		}
 		
+		if(!sessionKey) {
+			//FastCGI forwarded headers
+			sessionKey = [[self headers] valueForKey:@"HTTP_X_FROTH_SESSION"];
+		}
+		
 		//May have multiple session keys lingering in cookies under extrenious situations
 		if(sessionKey && [sessionKey isKindOfClass:[NSArray class]]) {
 			sessionKey = [sessionKey objectAtIndex:0];	//err.
@@ -135,7 +140,7 @@
 				sessionKey = [self.params objectAtIndex:index+1];
 			}
 		}
-			
+		
 		//Get an existing persisted session
 		session = [[WebSession sessionWithKey:sessionKey] retain];
 		
@@ -213,7 +218,7 @@
 	}
 	
 	if([self.method isEqualToString:@"GET"]) {
-		objectValue = [query retain];
+		objectValue = [[self query] retain];
 	} else {	
 		NSString* contentType = [self contentType];
 		NSString* ext = [self extension];

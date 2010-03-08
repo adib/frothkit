@@ -46,6 +46,9 @@
 - (NSString*)postFormDecoded;
 - (NSString*)postFormEncoded;
 
+// Returns an html safe string
+- (NSString*)htmlSanatize;
+
 // Converts all line breaks, tabs into %nbsps and <br> elements for nice html display.
 - (NSString*)html;
 
@@ -56,5 +59,8 @@
 - (NSString*)underscoreToCamelCase;
 
 - (NSString*)firstLetterCaptialized;
+
+// Simple email validation
+- (BOOL)isValidEmail;
 
 @end

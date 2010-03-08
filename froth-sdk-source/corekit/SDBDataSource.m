@@ -295,9 +295,9 @@ static NSDateFormatter* sdbDateFormatter = nil;
 	 */
 	
 	
-	NSTimeInterval start = [[NSDate date] timeIntervalSinceReferenceDate];
+	//NSTimeInterval start = [[NSDate date] timeIntervalSinceReferenceDate];
 	NSDictionary* attributes = [[SDBDataConnector sharedDataConnectorForAccount:_awsAccount secret:_awsSecret] getAttributesForItem:identifier inDomain:[aModelClass modelName]];
-	NSLog(@"[TIME]:time for getByIdentifier() [%f]", [[NSDate date] timeIntervalSinceReferenceDate] - start);
+	//NSLog(@"[TIME]:time for getByIdentifier() [%f]", [[NSDate date] timeIntervalSinceReferenceDate] - start);
 	return [self _objectFromData:attributes identifier:identifier model:aModelClass];
 }
 
@@ -368,6 +368,11 @@ static NSDateFormatter* sdbDateFormatter = nil;
 			query = [NSString stringWithFormat:@"select * from `%@` where (%@)", domain, [self _recursiveQueryFromConditions:conditions compoundType:nil]];
 		else
 			query = [NSString stringWithFormat:@"select * from `%@`", domain];
+	} else if(firstOrAll == ResultCount) {
+		if(conditions)
+			query = [NSString stringWithFormat:@"select count(*) from `%@` where (%@)", domain, [self _recursiveQueryFromConditions:conditions compoundType:nil]];
+		else
+			query = [NSString stringWithFormat:@"select count(*) from `%@`", domain];
 	}
 	
 	NSLog(@"simpledb query: %@", query);
@@ -381,6 +386,11 @@ static NSDateFormatter* sdbDateFormatter = nil;
 		} else {
 			return nil;
 		}
+	} else if(firstOrAll == ResultCount) {
+		if(results.count>0)
+			return [[results objectAtIndex:0] valueForKeyPath:@"Domain.Count"];
+		else
+			return @"0";
 	}
 	
 	NSMutableArray* convRes = [NSMutableArray arrayWithCapacity:[results count]];
@@ -395,9 +405,7 @@ static NSDateFormatter* sdbDateFormatter = nil;
 - (NSArray*)getObjectsOfModel:(Class)aModelClass withDataSourceQuery:(NSString*)dataSourceSpecificData {
 	NSArray* results = [[SDBDataConnector sharedDataConnectorForAccount:_awsAccount secret:_awsSecret] getItemsWithSelect:dataSourceSpecificData];
 	NSMutableArray* convRes = [NSMutableArray arrayWithCapacity:[results count]];
-	
-	//NSLog(@"query:%@ results:%@", dataSourceSpecificData, results);
-		
+			
 	for(NSDictionary* res in results) {
 		NSString* key = [res.allKeys objectAtIndex:0];
 		[convRes addObject:[self _objectFromData:[res objectForKey:key] identifier:key model:aModelClass]]; //object safly retained by convRes array.
@@ -465,12 +473,19 @@ static NSDateFormatter* sdbDateFormatter = nil;
 		NSArray* currentValues = [self valueForUndefinedKey:key];
 		if(!currentValues) {
 			NSMutableArray* mutibleVals = [NSMutableArray array];
-			[mutibleVals addObject:value];
+			[mutibleVals addObject:value]; //?
 			
 			//Mark dirty
 			[self _markDirtyAddValue:value forKey:key];
 			
-			//Add the change
+			//Add the change??
+			[self setValue:mutibleVals forUndefinedKey:key];
+		} else if(![currentValues isKindOfClass:[NSArray class]]) {
+			NSMutableArray* mutibleVals = [NSMutableArray array];
+			[mutibleVals addObject:currentValues];
+			[mutibleVals addObject:value];
+			[self _markDirtyAddValue:value forKey:key];
+			[self _markDirtyAddValue:currentValues forKey:key];
 			[self setValue:mutibleVals forUndefinedKey:key];
 		} else {
 			if(![currentValues containsObject:value]) {
@@ -483,14 +498,17 @@ static NSDateFormatter* sdbDateFormatter = nil;
 
 - (void)removeValue:(id)value forKey:(NSString*)key {
 	if(value && key) {
-		NSArray* currentValues = [self valueForUndefinedKey:key];
+		NSArray* currentValues = [self valueForUndefinedKey:key];		
 		if(!currentValues) {
 			NSMutableArray* mutibleVals = [NSMutableArray array];
-			[mutibleVals addObject:value];
+			[mutibleVals addObject:value]; //?
 			
 			//Mark dirty
 			[self _markDirtyRemoveValue:value forKey:key];
-		} else {
+		} else if(![currentValues isKindOfClass:[NSArray class]]) {
+			[self _markDirtyRemoveValue:value forKey:key];
+			[self setValue:[NSArray array] forUndefinedKey:key];
+		} else { 
 			if([currentValues containsObject:value]) {
 
 				NSMutableArray* newArr = [NSMutableArray arrayWithArray:currentValues];

@@ -106,7 +106,7 @@ ReadMemoryCallback(void* ptr, size_t size, size_t nitems, void* data) {
 	CURL* chandle = curl_easy_init();
 	curl_easy_setopt(chandle, CURLOPT_URL, [[[request URL] absoluteString] UTF8String]);
 	
-	FILE * uf;	//FILE uploaded if any
+	FILE * uf = NULL;	//FILE uploaded if any
 	
 	NSString* method = [request HTTPMethod];
 	if([method isEqualToString:@"GET"]) {
@@ -167,15 +167,16 @@ ReadMemoryCallback(void* ptr, size_t size, size_t nitems, void* data) {
 		//*responsep = [[NSURLResponse_Froth alloc] initWithStatusCode:code];
 		
 		//TODO add header response as well...
+				
+		if(uf) {
+			NSLog(@"closing file descrp");
+			fclose(uf);
+		}
 		
 		curl_easy_cleanup(chandle);
 		
-		if(uf) {
-			fclose(uf);
-			NSLog(@"closing file descrp");
-		}
-		
 		NSData* data = [NSData dataWithBytes:(void*)response.memory length:response.size];
+		
 		return data;
 	} else {
 		NSLog(@"--- NSURLConnection+LibCurl Wrapper Error ---");		

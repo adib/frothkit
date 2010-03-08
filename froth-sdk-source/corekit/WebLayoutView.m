@@ -69,15 +69,20 @@
 							 
 		NSString* path = [[bundle resourcePath] stringByAppendingPathComponent:templateName];	//[bundle pathForResource:self.templateName ofType:nil];
 		
-		//NSLog(@"path for layout resource:%@", path);
-		NSString* objectData = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-		if(objectData) {
-			cachedTemplate = objectData;
+		cachedTemplate = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+		if(cachedTemplate) {
+			//cache the template...
+			[m_cachedTemplates setObject:cachedTemplate forKey:self.templateName];
 		} else {
-			froth_exception(@"LayoutViewTemplateException", @"Unable to find layout template resource for name %@", templateName);
-		}
-		//TODO: temp remove cahcing so we can do live template updates
-		//[m_cachedTemplates setObject:objectData forKey:self.templateName];
+			//No try .html as defualt
+			path = [bundle pathForResource:self.templateName ofType:@"html"];
+			cachedTemplate = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+			if(!cachedTemplate) {
+				froth_exception(@"LayoutViewTemplateException", @"Unable to find layout template resource for name %@", templateName);
+			} else {
+				[m_cachedTemplates setObject:cachedTemplate forKey:self.templateName];
+			}
+		}		
 	}
 	return cachedTemplate;
 }

@@ -29,7 +29,7 @@
 
 #import <Foundation/Foundation.h>
 
-/* 
+/*! 
 	\brief	This uses the embeded python interpreter to send email using a template based design. 
 			
 			Email templates should have the .email extension. The supplied dictionary to the class methods
@@ -43,11 +43,13 @@
 
 }
 
-/* \brief Sends an email using a template file. This allows for powerful email processing and sending
-   @param templData A ns dictionary that will be parsed from the template, it must also contain the following
+/*! \brief Sends an email using a template file. This allows for powerful email processing and sending
+	\param templateName A template file with extention .email
+	\param templData A ns dictionary that will be parsed from the template, it must also contain the following
 			values for the engine. 
-			to:NSArray of emails
-			subject:Subject of email
+			- to: NSArray of emails
+			- subject: Subject of email
+			- from (an optional email to use instead of account address)
 */
 + (void)sendEmailWithTemplate:(NSString*)templateName 
 					   dict:(NSDictionary*)templData

@@ -55,7 +55,7 @@
 		9D052912111CB1400062FF97 /* MemcachedConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D05290A111CB1400062FF97 /* MemcachedConnector.m */; };
 		9D052913111CB1400062FF97 /* MemcachedConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D052909111CB1400062FF97 /* MemcachedConnector.h */; };
 		9D052914111CB1400062FF97 /* MemcachedConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D05290A111CB1400062FF97 /* MemcachedConnector.m */; };
-		9D052915111CB1400062FF97 /* MemcachedConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D052909111CB1400062FF97 /* MemcachedConnector.h */; };
+		9D052915111CB1400062FF97 /* MemcachedConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D052909111CB1400062FF97 /* MemcachedConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D052916111CB1400062FF97 /* MemcachedConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D05290A111CB1400062FF97 /* MemcachedConnector.m */; };
 		9D0DDF9F11173E1B0017A87C /* Froth.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0DDF9E11173E1B0017A87C /* Froth.h */; };
 		9D0DDFA011173E1B0017A87C /* Froth.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0DDF9E11173E1B0017A87C /* Froth.h */; };
@@ -2461,6 +2461,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D052915111CB1400062FF97 /* MemcachedConnector.h in Headers */,
 				9D5D7F921110B37100EA91B7 /* NSDictionary+Query.h in Headers */,
 				9D5D7F931110B37100EA91B7 /* NSData+Utilities.h in Headers */,
 				9D5D7F941110B37100EA91B7 /* NSString+Utilities.h in Headers */,
@@ -2574,7 +2575,6 @@
 				9D5D80011110B37100EA91B7 /* WebRequest+HTTPd.h in Headers */,
 				9D5D80021110B37100EA91B7 /* WebMutableRequest.h in Headers */,
 				9D0524EC111B08C00062FF97 /* Froth.h in Headers */,
-				9D052915111CB1400062FF97 /* MemcachedConnector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4305,6 +4305,7 @@
 					"-luuid",
 					"-lrt",
 					"-levent",
+					"-lmemcached",
 					"-Wl,-rpath=$ORIGIN",
 				);
 				PREBINDING = NO;
