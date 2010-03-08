@@ -1,4 +1,4 @@
-<pkmkdoc spec="1.12"><properties><title>FrothSDK</title><build>/Users/allan/Desktop/FrothSDK.pkg</build><organization>com.thinkingcode</organization><userSees ui="both"/><min-target os="3"/><domain system="true"/></properties><distribution><versions min-spec="1.000000"/><scripts></scripts></distribution><description>Installs prebuilt frothkit support folders and prepares cocotron tools for froth development. Installs a Froth WebApplication xcode template for quickly getting started with Froth web app development from Xcode.
+<pkmkdoc spec="1.12"><properties><title>FrothSDK Leopard</title><build>/Users/allan/Development/froth/releases/FrothSDKLeopard_DP2.pkg</build><organization>com.thinkingcode</organization><userSees ui="both"/><min-target os="3"/><domain system="true"/></properties><distribution><versions min-spec="1.000000"/><scripts></scripts></distribution><description>Installs prebuilt frothkit support folders and prepares cocotron tools for froth development. Installs a Froth WebApplication xcode template for quickly getting started with Froth web app development from Xcode.
 
 Custom builds are still supported with this installer, simply checkout the latest sources from frothkit.googlecode.com and build the kit.
 
@@ -14,25 +14,17 @@ This installer will overwrite previous linux platform interfaces for Cocotron. I
 
 You will need to launch a Froth Deployment Amazon Machine Image. For more information on these machine images see.
 
-http://www.frothkit.org</description><contents><choice title="Cocotron" id="cocotron" description="Installs Cocotron tools for development of froth web applications." starts_selected="true" starts_enabled="true" starts_hidden="false"><pkgref id="com.thinkingcode.frothsdk.cocotron.pkg"/></choice><choice title="FrothSDK" id="frothsdk" description="Installs the main FrothSDK libraries and headers and documentation in /Developer/FrothSDK" starts_selected="true" starts_enabled="true" starts_hidden="false"><pkgref id="com.thinkingcode.frothsdk.frothsdk.pkg"/></choice><choice title="Specifications" id="xcodespecs" starts_selected="true" starts_enabled="true" starts_hidden="true"><pkgref id="com.thinkingcode.frothsdk.specifications.pkg"/></choice><choice title="Xcode Templates" id="templates" starts_selected="true" starts_enabled="true" starts_hidden="true"><pkgref id="com.thinkingcode.frothsdk.templates.pkg"/></choice></contents><resources bg-scale="proportional" bg-align="topleft"><locale lang="en"><resource mod="true" type="background">/Users/allan/Development/froth/internal-docs/installer.png</resource><resource mime-type="text/rtf" kind="embedded" type="welcome"><![CDATA[{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf540
+http://www.frothkit.org</description><contents><choice title="Froth Platform" id="frothsdk" description="Installs the main FrothSDK frameworks, headers and  documentation as a Xcode SDK at /Developer/Platforms/Froth.platform" starts_selected="true" starts_enabled="true" starts_hidden="false"><pkgref id="com.thinkingcode.frothsdkLeopard.froth.pkg"/></choice></contents><resources bg-scale="proportional" bg-align="topleft"><locale lang="en"><resource mod="true" type="background">/Users/allan/Development/froth/internal-docs/installer.png</resource><resource mime-type="text/rtf" kind="embedded" type="welcome"><![CDATA[{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf540
 {\fonttbl\f0\fnil\fcharset0 LucidaGrande;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
 
-\f0\fs26 \cf0 Installs prebuilt frothkit support folders and prepares cocotron tools for froth development. Installs a Froth WebApplication xcode template for quickly getting started with Froth web app development from Xcode.\
+\f0\fs26 \cf0 The SDK installer will install a Xcode Platform SDK into...\
+/Developer/Platforms/Froth.platform\
+\
+This sdk includes Xcode docsets, the Froth.framework as well as everything needed to build and deploy Froth Web Applications and standard command tools using Cocoa for targeting Ubuntu Linux machines. This installer no longer touches the Cocotron directory, and can safely coexist with existing Cocotron development installations.\
 \
 Custom builds are still supported with this installer, simply checkout the latest sources from frothkit.googlecode.com and build the kit.\
 \
-FrothSDK Root\
-/Developer/FrothSDK\
-\
-Cocotron Root\
-/Developer/Cocotron\
-\
-This installer will automatically install prebuild Foundation.framework from the cocotron project - http://cocotron.googlecode.com\
-\
-This installer will overwrite previous linux platform interfaces for Cocotron. If you already have a customized platform interface for linux development you will want to backup the folder /Cocotron/PlatformInterfaces/i386-ubuntu-linux\
-\
-You will need to launch a Froth Deployment Amazon Machine Image for deployment to amazon ec2. For more information on these machine images see.\
-\
-http://www.frothkit.org}]]></resource></locale></resources><requirements><requirement id="file" operator="eq" value="true" passIf="false"><file>/Developer</file><message-title>Developer Tools Not Found</message-title><message>FrothSDK requires Apple's free developer tools availible from http://developer.apple.com</message></requirement></requirements><flags/><preinstall><action id="com.apple.packagemaker.actions.getapplication"><item1-title>com.apple.Xcode</item1-title><item2-title>Xcode</item2-title></action><action id="com.apple.packagemaker.actions.quitapplication"/></preinstall><item type="file">01cocotron.xml</item><item type="file">02frothsdk.xml</item><item type="file">03specifications.xml</item><item type="file">04web.xml</item><mod>properties.userDomain</mod><mod>preinstallActions.actions</mod><mod>properties.anywhereDomain</mod><mod>properties.customizeOption</mod><mod>properties.systemDomain</mod><mod>properties.title</mod><mod>description</mod></pkmkdoc>
+You will need to launch a Froth Deployment Amazon Machine Image for deployment to amazon ec2. For more information on these machine images as well as changes to this sdk see...\
+http://www.frothkit.org}]]></resource></locale></resources><requirements><requirement id="file" operator="eq" value="true" passIf="false"><file>/Developer</file><message-title>Developer Tools Not Found</message-title><message>FrothSDK requires Apple's free developer tools availible from http://developer.apple.com</message></requirement><requirement id="sosv" operator="lt" value="'10.6'"><message-title>Incorrect System Version</message-title><message>This installer is only for Mac OS X Leopard (10.5.x). For a snow leapard installer see http://www.frothkit.org</message></requirement></requirements><flags/><preinstall><action id="com.apple.packagemaker.actions.getapplication"><item1-title>com.apple.Xcode</item1-title><item2-title>Xcode</item2-title></action><action id="com.apple.packagemaker.actions.quitapplication"/></preinstall><item type="file">01froth.xml</item><mod>properties.userDomain</mod><mod>preinstallActions.actions</mod><mod>properties.anywhereDomain</mod><mod>properties.customizeOption</mod><mod>properties.systemDomain</mod><mod>properties.title</mod><mod>description</mod></pkmkdoc>
