@@ -36,7 +36,7 @@ extern NSString * const S3AccessControlBucketOwnerRead;	//@"bucket-owner-read",
 extern NSString * const S3AccessControlBucketOwnerFull;	//@"bucket-owner-full-control"
 
 /*! 
-	\brief	[INCOMPLETE] Provides an connector for accessing Amazon S3 data.
+ \brief	[INCOMPLETE] Provides an connector for accessing Amazon S3 data.
  */
 @interface S3DataConnector : NSObject {
 	NSString* secret;
@@ -44,44 +44,44 @@ extern NSString * const S3AccessControlBucketOwnerFull;	//@"bucket-owner-full-co
 }
 
 /*!
-	\brief Provides a shared data connector given account and aws secret
+ \brief Provides a shared data connector given account and aws secret
  */
 + (S3DataConnector*)sharedDataConnectorForAccount:(NSString*)account secret:(NSString*)secret;
 - (id)initWithAccount:(NSString*)account secret:(NSString*)secret;
 
 /*!
-	\brief Returns an array of NSDictionary representation of buckets connector's zone
-	
-	The dictionary objects in the array contain the following key values corresponding to Amazon s3 xml response names
-	- Name, NSString
-	- CreationDate, NSDate
-*/	
+ \brief Returns an array of NSDictionary representation of buckets connector's zone
+ 
+ The dictionary objects in the array contain the following key values corresponding to Amazon s3 xml response names
+ - Name, NSString
+ - CreationDate, NSDate
+ */	
 - (NSArray*)getBuckets;
 
 /*!
-	\brief Creates a bucket on the amazon ec2 for account
-	
-	\param name			The name of the bucket to create
-	\return	False if the operation failed
+ \brief Creates a bucket on the amazon ec2 for account
+ 
+ \param name			The name of the bucket to create
+ \return	False if the operation failed
  */
 - (BOOL)createBucketWithName:(NSString*)name;
 
 /*!
-	\brief Deletes the bucket with given name.
-	\param name		The name of the bucket to delete.
-	\return FALSE if the operation failed
-*/
+ \brief Deletes the bucket with given name.
+ \param name		The name of the bucket to delete.
+ \return FALSE if the operation failed
+ */
 - (BOOL)deleteBucketWithName:(NSString*)name;
 
 /*!
-	 \brief	Gets the keys (files) from a bucket on the amazon ec2 for account
-	 
-	 \param name		The name of the bucket
-	 \param path		Allows for a file based retreival of objects. pass null to get all from bucket
-	 \param maxKeys	The maximum amount of keys (files) to retrieve from the bucket, pass < 0 to retreive all.
-	 \param from		The start index to reteive keys (usefull for pagenation) 0 to start from beginning.
-	 \return nil if the opperation failed, otherwise an autoreleased bucket
-*/
+ \brief	Gets the keys (files) from a bucket on the amazon ec2 for account
+ 
+ \param name		The name of the bucket
+ \param path		Allows for a file based retreival of objects. pass null to get all from bucket
+ \param maxKeys	The maximum amount of keys (files) to retrieve from the bucket, pass < 0 to retreive all.
+ \param from		The start index to reteive keys (usefull for pagenation) 0 to start from beginning.
+ \return nil if the opperation failed, otherwise an autoreleased bucket
+ */
 - (S3Bucket*)getBucketWithName:(NSString*)name path:(NSString*)path from:(int)marker max:(int)maxKeys;
 
 - (BOOL)saveObjectWithData:(NSData*)data 
@@ -93,4 +93,7 @@ extern NSString * const S3AccessControlBucketOwnerFull;	//@"bucket-owner-full-co
 					access:(NSString*)acl
 					  meta:(NSDictionary*)meta;
 
+- (NSData*)getObjectWithName:(NSString*)name fromBucket:(NSString*)bucket;
+
 @end
+

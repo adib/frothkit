@@ -121,7 +121,7 @@ NSString * const S3AccessControlBucketOwnerFull =@"bucket-owner-full-control";
 	if (![[doms objectAtIndex:0] isEqualToString:[refDoms objectAtIndex:0]]) {
 		requestPath = [NSString stringWithFormat:@"/%@%@", [doms objectAtIndex:0], requestPath];
 	}
-		
+	
 	return requestPath;
 }
 
@@ -190,7 +190,7 @@ NSString * const S3AccessControlBucketOwnerFull =@"bucket-owner-full-control";
 			for(NSXMLElement* xb in xbuckets) {
 				NSString* name = [[xb elementForName:@"Name"] stringValue];
 				NSString* dateStr =[[xb elementForName:@"CreationDate"] stringValue];
-
+				
 				NSDate* date = [NSDate isoDateFromString:dateStr];
 				[results addObject:[NSDictionary dictionaryWithObjectsAndKeys:date, @"CreationDate", name, @"Name", nil]];
 			}
@@ -342,6 +342,28 @@ NSString * const S3AccessControlBucketOwnerFull =@"bucket-owner-full-control";
 		return TRUE;
 	} 
 	return FALSE;
+}
+
+- (NSData*)getObjectWithName:(NSString*)name fromBucket:(NSString*)bucket {
+	if(name && bucket) {
+		NSString* requestString = [NSString stringWithFormat:@"http://%@.%@/%@", bucket, S3CONNECTOR_HOST, name];
+		NSMutableURLRequest* req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString]];
+		
+		[self signRequest:req];
+		
+		NSError* nerror;
+		NSHTTPURLResponse* response = nil;
+		NSData* result = [NSURLConnection sendSynchronousRequest:req returningResponse:&response error:&nerror];
+		
+		if(response && [response statusCode] == 200) {
+			return result;
+		} else if(result) {
+			//NSLog(@"response:%@", [[[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding] autorelease]);
+			return result;
+		}
+		return nil;
+	}
+	return nil;
 }
 
 @end

@@ -103,8 +103,8 @@ static MemcachedConnector* _sharedServersConnector = nil;
 #pragma mark -
 #pragma mark Shared
 
-- (void)handleReturnError:(memcached_return_t)rc {
-	NSLog(@"[MemcachedConnector LogError:] error :%@", [NSString stringWithUTF8String:memcached_strerror(memc, rc)]);
+- (void)handleReturnError:(memcached_return_t)rc forKey:(NSString*)key {
+	NSLog(@"[MemcachedConnector LogError:] error key:[%@] :%@", key, [NSString stringWithUTF8String:memcached_strerror(memc, rc)]);
 }
 
 #pragma mark -
@@ -150,7 +150,7 @@ static MemcachedConnector* _sharedServersConnector = nil;
 	
 	rc = memcached_set(memc, [key UTF8String], [key length], [storableValue UTF8String], [storableValue length], (time_t)interval, (uint32_t)0);
 	if(rc) {
-		[self handleReturnError:rc];
+		[self handleReturnError:rc forKey:key];
 	}
 }
 
@@ -180,7 +180,7 @@ static MemcachedConnector* _sharedServersConnector = nil;
 	
 	rc = memcached_append(memc, [key UTF8String], [key length], [storableValue UTF8String], [storableValue length], (time_t)0, (uint32_t)0);
 	if(rc) {
-		[self handleReturnError:rc];
+		[self handleReturnError:rc forKey:key];
 	}
 }
 
@@ -188,9 +188,9 @@ static MemcachedConnector* _sharedServersConnector = nil;
 	memcached_return_t rc;
 	
 	NSString* storableValue;
-	if([value isKindOfClass:[NSString class]]) {
+	if([value isKindOfClass:[NSString class]] && [value length] > 0) {
 		storableValue = value;
-	} else {
+	} else if(value) {
 		NSString* json = [value JSONRepresentation];
 		if(json) {
 			storableValue = json;
@@ -198,11 +198,13 @@ static MemcachedConnector* _sharedServersConnector = nil;
 			NSLog(@"[MemcachedConnector setValue:forKey:] error: Value not seralizable");
 			return;
 		}
+	} else {
+		NSLog(@"[MemcachedConnector setValue:forKey:] error: Value not nil");
 	}
 	
 	rc = memcached_prepend(memc, [key UTF8String], [key length], [storableValue UTF8String], [storableValue length], (time_t)0, (uint32_t)0);
 	if(rc) {
-		[self handleReturnError:rc];
+		[self handleReturnError:rc forKey:key];
 	}
 }
 
@@ -218,7 +220,7 @@ static MemcachedConnector* _sharedServersConnector = nil;
 	if(!rc && results) {
 		return [[[NSString alloc] initWithBytes:results length:rl encoding:NSUTF8StringEncoding] autorelease];
 	} else if(rc) {
-		[self handleReturnError:rc];
+		[self handleReturnError:rc forKey:key];
 	}
 	return nil;
 }
@@ -245,7 +247,7 @@ static MemcachedConnector* _sharedServersConnector = nil;
 		return 1;
 	}
 
-	[self handleReturnError:rc];
+	[self handleReturnError:rc forKey:key];
 	return NSNotFound;
 }
 
@@ -261,7 +263,7 @@ static MemcachedConnector* _sharedServersConnector = nil;
 	if(!rc)
 		return (int)inc;
 	
-	[self handleReturnError:rc];
+	[self handleReturnError:rc forKey:key];
 	return NSNotFound;
 }
 

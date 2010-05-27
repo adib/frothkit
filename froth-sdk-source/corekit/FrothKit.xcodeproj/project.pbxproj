@@ -4277,8 +4277,8 @@
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = /;
 				FRAMEWORK_VERSION = A;
-				FROTH_HOST = 174.129.9.112;
-				FROTH_IDENTITY = "/Users/${USER}/aws/aphiltc1.pem";
+				FROTH_HOST = 174.129.20.125;
+				FROTH_IDENTITY = "/Volumes/Stick/amazon-webservices/aphiltc1.pem";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_FAST_OBJC_DISPATCH = NO;
 				GCC_LINK_WITH_DYNAMIC_LIBRARIES = YES;

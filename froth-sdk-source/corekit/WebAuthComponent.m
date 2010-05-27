@@ -93,6 +93,9 @@
 			if(!redirect_path) 
 				redirect_path = [NSString stringWithFormat:@"http://%@/%@", [WebApplication siteDomain], (onLoginSucessPath!=nil)?onLoginSucessPath:[WebApplication deploymentUriPath]];
 			
+			if([[request extension] isEqualToString:@"json"]) {
+				return froth_str(@"{\"session\":\"%@\"}", [[request session] guid]);
+			}
 			return [WebResponse redirectResponseWithUrl:redirect_path];
 		} else {
 			if(onLoginFailedPath) {
@@ -130,7 +133,7 @@
 	}
 	
 	/*
-		Handle built in supplied methods specific to the specified <Identity>Controller
+	 Handle built in supplied methods specific to the specified <Identity>Controller
 	 */
 	NSString* identityController = [config valueForKey:@"controller"];
 	if([request.controller isEqualToString:identityController]) {

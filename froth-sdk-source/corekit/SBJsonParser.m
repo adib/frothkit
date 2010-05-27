@@ -335,7 +335,7 @@ static char ctrl[0x22];
                     break;
             }
 			//TODO: fix for better performance for cocotron/froth
-			[*o appendFormat:@"%c", &uc];
+			[*o appendFormat:@"%C", uc];
             //CFStringAppendCharacters((CFMutableStringRef)*o, &uc, 1);
             c++;
             
