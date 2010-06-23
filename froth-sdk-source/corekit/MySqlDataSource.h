@@ -37,7 +37,7 @@
 #endif
 
 #include <pthread.h>
-
+#define kSystemThreads 4
 #define USE_THREAD_MODE 1
 
 @interface WebMySQLConnection : NSObject {

@@ -54,6 +54,12 @@
 }
 
 /*!
+	\brief	Amount of worker threads for threaded based connectors. Defualt is 4, subclasses can overide this to
+			provide a custom count
+*/
++ (int)workerThreads;
+
+/*!
 	\brief	Designated initializer
  */
 - (id)init;

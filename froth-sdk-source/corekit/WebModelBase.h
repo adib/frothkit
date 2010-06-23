@@ -285,6 +285,12 @@
 - (void)dirty:(NSString*)key;
 
 /*!
+	\brief Mark a given key as clean
+	\param key to mark as clean
+*/
+- (void)clean:(NSString*)key;
+
+/*!
 	\brief Marks the object as clean, without saving it to the datasource
  */
 - (void)makeClean;
@@ -316,6 +322,15 @@
 	All objects must be considered seralizable according to Froth seralization rules (NSDictionary, NSNumber, NSDate, NSArray, <Seralizable> adhearing classes)
  */
 - (NSDictionary*)dictionaryRepresentation;
+
+#pragma mark -
+#pragma mark For DataSources
+
+/*!
+	\brief	Custom datasources should use this when populating a fetched object
+
+*/
+- (void)setDataSourceValue:(id)value forKey:(NSString*)key;
 
 @end
 

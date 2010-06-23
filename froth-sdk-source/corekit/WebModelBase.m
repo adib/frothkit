@@ -476,6 +476,20 @@ static id findFirstByMethodImp(id self, SEL _cmd, id value1) {
 	}
 }
 
+/* 
+	Data source friendly for optomization, doesnt do validations just populates data
+*/
+- (void)setDataSourceValue:(id)value forKey:(NSString*)key {
+	if([self hasAttribute:key]) {
+		if(value)
+			[m_data setValue:value forKey:key];
+		else
+			[m_data removeObjectForKey:key];
+	} else {
+		[super setValue:value forUndefinedKey:key];
+	}
+}
+
 - (NSString*)attributeNameForSelector:(SEL)aSelector isSupported:(BOOL*)outIsSupported type:(NSString**)outType {
 	
 	//TODO: Implement a better way of insuring that a property is implemented, This would
@@ -566,6 +580,11 @@ static id findFirstByMethodImp(id self, SEL _cmd, id value1) {
 		[m_dirtyKeys addObject:key];
 	}
 }
+
+- (void)clean:(NSString*)key {
+	[m_dirtyKeys removeObject:key];
+}
+
 - (void)makeClean {
 	[m_dirtyKeys removeAllObjects];
 }

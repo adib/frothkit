@@ -38,6 +38,10 @@
 
 @implementation WebApplication
 
++ (int)workerThreads {
+	return 4;
+}
+
 + (NSString*)deploymentMode {
 	static NSString* fDeploymentModeStr;
 	if(fDeploymentModeStr == nil) {
@@ -497,7 +501,7 @@
 
 //Called internally for each request.
 - (WebResponse*)handle:(WebRequest*)req {
-	NSLog(@"WebApplication: Handling server request [%@]", req);
+	//NSLog(@"WebApplication: Handling server request [%@]", req);
 	
 	if(m_delegateClass)
 		delegate = [[m_delegateClass alloc] init];

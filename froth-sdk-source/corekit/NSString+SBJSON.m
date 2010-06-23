@@ -56,7 +56,7 @@ static const SBJsonParser *jsonParser;
     if (repr)
         return repr;
     
-    NSLog(@"-JSONValue failed. Error trace is: %@", [jsonParser errorTrace]);
+    //NSLog(@"-JSONValue failed. Error trace is: %@", [jsonParser errorTrace]);
     return nil;
 }
 

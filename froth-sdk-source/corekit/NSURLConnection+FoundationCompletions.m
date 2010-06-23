@@ -160,7 +160,7 @@ ReadMemoryCallback(void* ptr, size_t size, size_t nitems, void* data) {
 		curl_slist_free_all(slist);
 		long code;
 		curl_easy_getinfo(chandle, CURLINFO_RESPONSE_CODE, &code);
-		NSLog(@"response code:%i",code);
+		//NSLog(@"response code:%i",code);
 		
 		//Simple response based on status code.
 		///--- Does not work...

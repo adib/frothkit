@@ -34,6 +34,113 @@
 #include <sys/errno.h>
 #include <unistd.h>
 
+#import "Froth+Defines.h"
+
+void* r_thread_accept(void* initDict) {
+	NSAutoreleasePool *gpool = [[NSAutoreleasePool alloc] init];
+	
+	WebApplication* webApp = [(NSDictionary*)initDict valueForKey:@"application"];
+	NSNumber* threadIndex = [(NSDictionary*)initDict valueForKey:@"threadIndex"];
+	
+	int rc;
+	FCGX_Request request;
+	FCGX_InitRequest(&request, 0, 0);
+	
+	for(;;) {
+		static pthread_mutex_t accept_mutex = PTHREAD_MUTEX_INITIALIZER;
+		static pthread_mutex_t counts_mutex = PTHREAD_MUTEX_INITIALIZER;
+		
+		/* Some platforms require accept() serialization, some don't.. */
+		pthread_mutex_lock(&accept_mutex);
+		rc = FCGX_Accept_r(&request);
+		pthread_mutex_unlock(&accept_mutex);
+		
+		if(rc < 0) break; //No new connection to accept...
+		
+		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+		
+		WebMutableRequest *rq = [[WebMutableRequest alloc] init];	
+		
+		@try {
+			//Timer for stats
+			NSDate *start = [NSDate dateWithTimeIntervalSinceNow:0];
+			
+			[rq setHTTPRequestPointer:request.envp];
+			NSString* method = [rq method];
+			
+			NSData* reqBodyData = nil;
+			int dataLen = [[rq.headers objectForKey:@"CONTENT_LENGTH"] intValue];
+			
+			if([method isEqualToString:@"POST"] || 
+			   [method isEqualToString:@"PUT"] || 
+			   [method isEqualToString:@"DELETE"]) {
+				void *buf = malloc(dataLen+1);
+				assert(buf);
+				while (FCGX_GetStr(buf, dataLen, request.in) < dataLen) {
+					///Do something meaningfull??...
+				}
+				
+				//buf[dataLen] = '\0';
+				reqBodyData = [[NSData alloc] initWithBytes:buf length:dataLen];
+				free(buf);
+				
+				[rq setBodyDataValue:reqBodyData];
+				[reqBodyData release];
+			}
+			
+			WebResponse *rs;
+			
+			//TEMP: bypass for favicon.ico until we get this implemented...
+			if(![rq.uri hasSuffix:@"favicon.ico"]) {
+				rs = [webApp performSelector:@selector(handle:) withObject:rq];
+			} else {
+				rs = [WebResponse responseWithCode:404];
+			}
+			
+			if(!rs) {
+				[NSException raise:@"InvalidWebResponseObject" format:@"Probably becouse an action was defined, but returned a nil WebResponse instance", nil];
+			} else {
+				//Remove body from HEAD requests
+				if([method isEqualToString:@"HEAD"]) {
+					[rs setBody:nil];
+				}
+			}
+			
+			FCGX_SetExitStatus(rs.code, request.out);
+			
+			pthread_mutex_lock(&counts_mutex);
+			FCGX_FPrintF(request.out, "%s", [[rs dump] bytes]);
+			pthread_mutex_unlock(&counts_mutex);
+			
+			float t = -[start timeIntervalSinceNow];			
+			NSLog(@"FOWResolver: request [%@][%@] completed in [%.4f] on thread [%@]", rq.method, rq.uri,  t, threadIndex);
+		} @catch (NSException *exception) {
+			FCGX_SetExitStatus(500, request.out);
+			NSMutableString *err = [NSMutableString stringWithFormat:
+									@"Content-type: text/html\n\n\
+									<html><head><title>Froth Exception</title></head> \
+									<body>Uncaught exception: <strong>%@</strong>: <pre>%@</pre>\nStack trace:<ul>\n", [exception name], [exception reason]];
+			[err appendFormat:@"</ul><br>UserInfo:%@", [exception userInfo]];
+			[err appendString:@"</body></html>"];
+			
+			NSLog(@"******** FOWFastCgiController: Recovery from exception [%@] [%@]", [exception name], [exception description]);
+			
+			pthread_mutex_lock(&counts_mutex);
+			FCGX_FPrintF(request.out, "%s", [err UTF8String]);
+			pthread_mutex_unlock(&counts_mutex);
+		} @finally {
+			[rq release];
+		}
+		
+		FCGX_Finish_r(&request);
+		
+		[pool drain];
+	}
+	
+	[gpool drain];	
+	return NULL;
+}
+
 @implementation WebFastCgiController
 
 @synthesize threadCount;
@@ -43,8 +150,8 @@
 
 - (id)initWithWebApplication:(WebApplication*)app path:(NSString*)path chmod:(int)c {
 	if(self = [super init]) {
-		threadCount = kSystemThreads;
-		sock = FCGX_OpenSocket([path UTF8String], 1024);
+		threadCount = [[app class] workerThreads];
+		sock = FCGX_OpenSocket([path UTF8String], 1024); //path here is a port...
 		if(!sock){
 			@throw [NSException
 					exceptionWithName:@"OpenSocketException"
@@ -62,6 +169,10 @@
 		}
 		if(FCGX_Init() != 0)
 			exit(99);
+		
+		if(FCGX_IsCGI()){
+			NSLog(@"*** FastCGI Mode as CGI ***");
+		}
 		
 		webApp = [app retain];
 	}
@@ -102,13 +213,13 @@
 	for(;;) {
 		static pthread_mutex_t accept_mutex = PTHREAD_MUTEX_INITIALIZER;
 		static pthread_mutex_t counts_mutex = PTHREAD_MUTEX_INITIALIZER;
-
+		
 		/* Some platforms require accept() serialization, some don't.. */
 		pthread_mutex_lock(&accept_mutex);
 		rc = FCGX_Accept_r(&request);
-		
 		pthread_mutex_unlock(&accept_mutex);
-		if(rc < 0) break;
+		
+		if(rc < 0) break; //No new connection to accept...
 		
 		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 		
@@ -119,11 +230,14 @@
 			NSDate *start = [NSDate dateWithTimeIntervalSinceNow:0];
 			
 			[rq setHTTPRequestPointer:request.envp];
+			NSString* method = [rq method];
 			
 			NSData* reqBodyData = nil;
 			int dataLen = [[rq.headers objectForKey:@"CONTENT_LENGTH"] intValue];
 			
-			if([rq.method isEqualToString:@"POST"] || [rq.method isEqualToString:@"PUT"] || [rq.method isEqualToString:@"DELETE"]) {
+			if([method isEqualToString:@"POST"] || 
+			   [method isEqualToString:@"PUT"] || 
+			   [method isEqualToString:@"DELETE"]) {
 				void *buf = malloc(dataLen+1);
 				assert(buf);
 				while (FCGX_GetStr(buf, dataLen, request.in) < dataLen) {
@@ -148,14 +262,14 @@
 			}
 			
 			if(!rs) {
-				[NSException raise:@"InvalidWebResponseObject" format:@"Probably becouse an action was defined, but returned a nil FOWResponse", nil];
+				[NSException raise:@"InvalidWebResponseObject" format:@"Probably becouse an action was defined, but returned a nil WebResponse instance", nil];
 			} else {
 				//Remove body from HEAD requests
-				if([[rq method] isEqualToString:@"HEAD"]) {
+				if([method isEqualToString:@"HEAD"]) {
 					[rs setBody:nil];
 				}
 			}
-			
+						
 			FCGX_SetExitStatus(rs.code, request.out);
 			
 			pthread_mutex_lock(&counts_mutex);
@@ -190,5 +304,29 @@
 	
 	[gpool drain];
 }
+
+#pragma mark -
+#pragma mark PureC
+
+- (void)processRequests_c {
+	int i;
+	int res;
+	pthread_t thr[threadCount];
+	for(i=1; i<threadCount; i++) {
+		res = pthread_create(&thr[i], NULL, r_thread_accept, (void*)[froth_dic([NSNumber numberWithInt:i], @"threadIndex", webApp, @"application") retain]);
+		if (res) {
+			printf("ERROR; return code from pthread_create() is %d\n", res);
+			exit(-1);
+		}
+		/*[NSThread detachNewThreadSelector:@selector(threadTask:)
+								 toTarget:self
+							   withObject:[NSNumber numberWithInt:i]];*/
+	}
+	
+	//The main thread needs to stay working as well.
+	//[self threadTask:[NSNumber numberWithInt:i]];
+	r_thread_accept((void*)froth_dic([NSNumber numberWithInt:0], @"threadCount", webApp, @"application"));
+}
+
 
 @end

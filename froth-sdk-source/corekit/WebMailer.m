@@ -116,7 +116,7 @@
 	
 	PyObject* py_to;
 	for(NSString* email in to) {
-		NSLog(@"Will send email to:%@", to);
+		//NSLog(@"Will send email to:%@", to);
 		
 		py_to = PyString_FromString([email UTF8String]);
 		

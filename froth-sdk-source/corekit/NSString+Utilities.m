@@ -102,6 +102,7 @@
  */
 - (NSString*)postFormDecoded {
 	NSString* decoded = [self stringByReplacingOccurrencesOfString:@"+" withString:@" "];
+	decoded = [decoded stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
 	decoded = [decoded stringByReplacingOccurrencesOfString:@"%0D%0A" withString:@"\n"];
 	decoded = [decoded stringByReplacingOccurrencesOfString:@"%40" withString:@"@"];
 	decoded = [decoded stringByReplacingOccurrencesOfString:@"%3A" withString:@":"];

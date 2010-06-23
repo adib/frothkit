@@ -28,8 +28,6 @@
 
 #include "fcgiapp.h"
 
-#define kSystemThreads 4
-
 @interface WebFastCgiController : NSObject {
 	WebApplication* webApp;
 	

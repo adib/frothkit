@@ -136,10 +136,12 @@ static NSDateFormatter* sdbDateFormatter = nil;
 				SEL typeSel = NSSelectorFromString(froth_str(@"dataTypeFor%@", [localKey firstLetterCaptialized]));
 				if([aClass respondsToSelector:typeSel]) {
 					int type = [[aClass performSelector:typeSel] intValue];
-					[sdbVals addObject:[self _encodedStringForValue:nextVal type:type]];
+					//[sdbVals addObject:[self _encodedStringForValue:nextVal type:type]];
+					[sdbVals addObject:(nextVal==[NSNull null])?@"((null))":[self _encodedStringForValue:nextVal type:type]];
 				} else {
 					//Just make it a string.
-					[sdbVals addObject:[self _encodedStringForValue:nextVal type:0]];
+					//[sdbVals addObject:[self _encodedStringForValue:nextVal type:0]];
+					[sdbVals addObject:(nextVal==[NSNull null])?@"((null))":[self _encodedStringForValue:nextVal type:0]];
 				}
 			} else {
 				NSArray* multi = (NSArray*)nextVal;
@@ -272,14 +274,14 @@ static NSDateFormatter* sdbDateFormatter = nil;
 		for(NSString* key in keys) {
 			id value = [attributes valueForKey:key];
 			if([value isKindOfClass:[NSArray class]]) {
-				[object setValue:value forUndefinedKey:[model persistableKeyForDataSourceKey:key]];
+				[object setDataSourceValue:value forKey:[model persistableKeyForDataSourceKey:key]];
 			} else {
 				NSString* localKey = [model persistableKeyForDataSourceKey:key];
 				SEL typeSel = NSSelectorFromString(froth_str(@"dataTypeFor%@", [localKey firstLetterCaptialized]));
 				if([model respondsToSelector:typeSel]) {
-					[object setValue:([value isEqualToString:@"((null))"])?[NSNull null]:[self _decodedObjectForValue:value type:[[model performSelector:typeSel] intValue]] forUndefinedKey:localKey];
+					[object setDataSourceValue:([value isEqualToString:@"((null))"])?[NSNull null]:[self _decodedObjectForValue:value type:[[model performSelector:typeSel] intValue]] forKey:localKey];
 				} else {
-					[object setValue:([value isEqualToString:@"((null))"])?[NSNull null]:value forUndefinedKey:localKey];
+					[object setDataSourceValue:([value isEqualToString:@"((null))"])?[NSNull null]:value forKey:localKey];
 				}
 			}
 		}
@@ -375,7 +377,7 @@ static NSDateFormatter* sdbDateFormatter = nil;
 			query = [NSString stringWithFormat:@"select count(*) from `%@`", domain];
 	}
 	
-	NSLog(@"simpledb query: %@", query);
+	//NSLog(@"simpledb query: %@", query);
 	NSArray* results = [[SDBDataConnector sharedDataConnectorForAccount:_awsAccount secret:_awsSecret] getItemsWithSelect:query];
 	
 	if(firstOrAll == ResultFirst) {

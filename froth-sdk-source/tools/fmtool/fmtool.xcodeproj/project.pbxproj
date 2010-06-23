@@ -455,8 +455,8 @@
 				ARCHS = i386;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
-				FROTH_HOST = 204.236.224.163;
-				FROTH_IDENTITY = /Users/allan/aws/aphiltc1.pem;
+				FROTH_HOST = 174.129.20.125;
+				FROTH_IDENTITY = "/Volumes/Stick/amazon-webservices/aphiltc1.pem";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -498,14 +498,14 @@
 					"-lxml2",
 					"-lpcre",
 					"-lz",
-					"-luuid",
 					"-lutil",
+					"-lpython2.6",
+					"-luuid",
 					"-lrt",
 					"-levent",
-					"-lpython2.6",
+					"-levent_openssl",
+					"-lmemcached",
 					"-Wl,-rpath=$ORIGIN",
-					"-Wl,-rpath=/usr/froth/lib",
-					"-ObjC",
 				);
 				PRODUCT_NAME = fmtool;
 				SDKROOT = frothplatform0.5;
